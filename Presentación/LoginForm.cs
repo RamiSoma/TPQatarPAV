@@ -7,14 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TPQatarPAVI.CapaServicios;
 using TPQatarPAVI.LogicaNegocio;
 
 namespace TPQatarPAVI.Presentación
 {
     public partial class LoginForm : Form
     {
-        Usuario usr;
-        Usuario usrCorrecto;
+        UsuarioService gestorUsr = new UsuarioService();
+        Usuario usr = new Usuario();
 
         public LoginForm()
         {
@@ -28,18 +29,40 @@ namespace TPQatarPAVI.Presentación
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            usr = new Usuario(txtUsr.Text, txtPrfl.Text);
-
-            usrCorrecto = new Usuario("Ramiro", "Tester");
-
-            if (usr.nombreUsuario.Equals(usrCorrecto.nombreUsuario) && usr.perfilUsuario.Equals(usrCorrecto.perfilUsuario))
+            if (txtUsr.Text == null || txtPswd.Text == null)
             {
-                MessageBox.Show("Datos correctos");
+                MessageBox.Show("Debe continuar todos los campos para continuar");
+                return;
+            }
+            this.usr.nombreUsu = txtUsr.Text;
+            this.usr.pswdUsu = txtPswd.Text;
+
+            this.usr.idUsu = this.gestorUsr.encontrarUsuario(usr);
+
+            if (this.usr.idUsu != 0)
+            {
+                // MessageBox.Show("Ingreso satisfactorio");
+                MainForm mf = new MainForm();
+                mf.Show();
+                this.Hide();
+                
             }
             else
             {
-                MessageBox.Show("Datos incorrectos");
+                MessageBox.Show("Datos Incorrectos");
+                txtUsr.Text = "";
+                txtPswd.Text = "";
             }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -46,19 +46,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CapaServicios\PerfilService.cs" />
+    <Compile Include="CapaServicios\UsuarioService.cs" />
+    <Compile Include="Datos\Daos\UsuarioDao.cs" />
     <Compile Include="Datos\DBHelper.cs" />
-    <Compile Include="LogicaNegocio\Perfil.cs" />
-    <Compile Include="LogicaNegocio\Usuario.cs" />
+    <Compile Include="Datos\Interfaces\IUsuario.cs" />
+    <Compile Include="Entidades\Perfil.cs" />
+    <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Presentación\ABMCUsrsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentación\ABMCUsrsForm.Designer.cs">
+      <DependentUpon>ABMCUsrsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentación\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentación\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentación\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentación\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentación\ABMCUsrsForm.resx">
+      <DependentUpon>ABMCUsrsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentación\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentación\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

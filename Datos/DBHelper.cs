@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,23 +11,39 @@ namespace TPQatarPAVI.Datos
     internal class DBHelper
     {
         private string string_conexion;
-        private static DBHelper instance = new DBHelper();
+        private SqlConnection conexion;
+        private SqlCommand comando;
+        private static DBHelper instancia;
 
         private DBHelper()
         {
-            string_conexion = "Data Source=RAMIRO-PC\\SQLSERVERPRUEBA;Initial Catalog=TPQatarPAV;Integrated Security=TrueData Source = RAMIRO - PC\\SQLSERVERPRUEBA;Initial Catalog = TPQatarPAV; Integrated Security = True";
+            conexion = new SqlConnection();
+            comando = new SqlCommand();
+            string_conexion = "Data Source=RAMIRO-PC\\SQLSERVERPRUEBA;Initial Catalog=TPQatarPAV;Integrated Security=True";
         }
 
-        public static DBHelper getDBHelper()
+        public static DBHelper obtenerInstancia()
         {
-            if (instance == null)
-                instance = new DBHelper();
-            return instance;
+            if (instancia == null)
+            {
+                instancia = new DBHelper();
+            }
+            return instancia;
         }
 
-        public string obtenerConexionString()
+        public DataTable consultar(string consultaSQL)
         {
-            return string_conexion;
+            DataTable tabla = new DataTable();
+            conexion.ConnectionString = string_conexion;
+            conexion.Open();
+
+            comando.Connection = conexion;
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = consultaSQL;
+            tabla.Load(comando.ExecuteReader());
+
+            conexion.Close();
+            return tabla;
         }
     }
 }

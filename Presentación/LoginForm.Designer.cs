@@ -31,8 +31,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtUsr = new System.Windows.Forms.TextBox();
-            this.txtPrfl = new System.Windows.Forms.TextBox();
+            this.txtPswd = new System.Windows.Forms.TextBox();
             this.btnIngresar = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label4
@@ -50,9 +51,10 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(29, 179);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(30, 13);
+            this.label5.Size = new System.Drawing.Size(61, 13);
             this.label5.TabIndex = 1;
-            this.label5.Text = "Perfil";
+            this.label5.Text = "Contraseña";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // txtUsr
             // 
@@ -61,12 +63,13 @@
             this.txtUsr.Size = new System.Drawing.Size(158, 20);
             this.txtUsr.TabIndex = 2;
             // 
-            // txtPrfl
+            // txtPswd
             // 
-            this.txtPrfl.Location = new System.Drawing.Point(32, 210);
-            this.txtPrfl.Name = "txtPrfl";
-            this.txtPrfl.Size = new System.Drawing.Size(158, 20);
-            this.txtPrfl.TabIndex = 3;
+            this.txtPswd.Location = new System.Drawing.Point(32, 210);
+            this.txtPswd.Name = "txtPswd";
+            this.txtPswd.Size = new System.Drawing.Size(158, 20);
+            this.txtPswd.TabIndex = 3;
+            this.txtPswd.UseSystemPasswordChar = true;
             // 
             // btnIngresar
             // 
@@ -78,11 +81,23 @@
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(28, 44);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(167, 20);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "INICIO DE SESIÓN";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
             // LoginForm
             // 
             this.ClientSize = new System.Drawing.Size(684, 334);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnIngresar);
-            this.Controls.Add(this.txtPrfl);
+            this.Controls.Add(this.txtPswd);
             this.Controls.Add(this.txtUsr);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -105,7 +120,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtUsr;
-        private System.Windows.Forms.TextBox txtPrfl;
+        private System.Windows.Forms.TextBox txtPswd;
         private System.Windows.Forms.Button btnIngresar;
+        private System.Windows.Forms.Label label6;
     }
 }
