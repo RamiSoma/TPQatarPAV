@@ -22,5 +22,25 @@ namespace TPQatarPAVI.Presentación
             ABMCUsrsForm abmcUsr = new ABMCUsrsForm();
             abmcUsr.Show();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

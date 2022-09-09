@@ -34,11 +34,11 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnAgregarUsuario = new System.Windows.Forms.Button();
+            this.btnModificarUsuario = new System.Windows.Forms.Button();
+            this.btnEliminarUsuario = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.dGridUsrs = new System.Windows.Forms.DataGridView();
             this.cmbBoxPrfls = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dGridUsrs)).BeginInit();
@@ -56,7 +56,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(640, 198);
+            this.label2.Location = new System.Drawing.Point(640, 180);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 1;
@@ -65,7 +65,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(640, 275);
+            this.label3.Location = new System.Drawing.Point(640, 250);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(30, 13);
             this.label3.TabIndex = 2;
@@ -73,14 +73,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(643, 141);
+            this.textBox1.Location = new System.Drawing.Point(640, 145);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(128, 20);
             this.textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(643, 214);
+            this.textBox2.Location = new System.Drawing.Point(640, 200);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(128, 20);
             this.textBox2.TabIndex = 4;
@@ -89,61 +89,63 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(50, 56);
+            this.label4.Location = new System.Drawing.Point(304, 40);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(244, 24);
             this.label4.TabIndex = 6;
             this.label4.Text = "GESTION DE USUARIOS";
             // 
-            // button1
+            // btnAgregarUsuario
             // 
-            this.button1.Location = new System.Drawing.Point(54, 129);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(179, 32);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Agregar Usuario";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAgregarUsuario.Location = new System.Drawing.Point(54, 125);
+            this.btnAgregarUsuario.Name = "btnAgregarUsuario";
+            this.btnAgregarUsuario.Size = new System.Drawing.Size(179, 32);
+            this.btnAgregarUsuario.TabIndex = 7;
+            this.btnAgregarUsuario.Text = "Agregar Usuario";
+            this.btnAgregarUsuario.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnModificarUsuario
             // 
-            this.button2.Location = new System.Drawing.Point(54, 167);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(179, 35);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Modificar Usuario";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnModificarUsuario.Location = new System.Drawing.Point(54, 165);
+            this.btnModificarUsuario.Name = "btnModificarUsuario";
+            this.btnModificarUsuario.Size = new System.Drawing.Size(179, 35);
+            this.btnModificarUsuario.TabIndex = 8;
+            this.btnModificarUsuario.Text = "Modificar Usuario";
+            this.btnModificarUsuario.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnEliminarUsuario
             // 
-            this.button3.Location = new System.Drawing.Point(54, 208);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(179, 31);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Eliminar Usuario";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnEliminarUsuario.Location = new System.Drawing.Point(54, 205);
+            this.btnEliminarUsuario.Name = "btnEliminarUsuario";
+            this.btnEliminarUsuario.Size = new System.Drawing.Size(179, 31);
+            this.btnEliminarUsuario.TabIndex = 9;
+            this.btnEliminarUsuario.Text = "Eliminar Usuario";
+            this.btnEliminarUsuario.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnGuardar
             // 
-            this.button4.Location = new System.Drawing.Point(626, 397);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "Guardar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnGuardar.Location = new System.Drawing.Point(626, 397);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.TabIndex = 11;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // btnCancelar
             // 
-            this.button5.Location = new System.Drawing.Point(708, 396);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 12;
-            this.button5.Text = "Cancelar";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnCancelar.Location = new System.Drawing.Point(708, 396);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.button5_Click);
             // 
             // dGridUsrs
             // 
             this.dGridUsrs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGridUsrs.Location = new System.Drawing.Point(262, 129);
+            this.dGridUsrs.Location = new System.Drawing.Point(260, 102);
             this.dGridUsrs.Name = "dGridUsrs";
             this.dGridUsrs.Size = new System.Drawing.Size(326, 290);
             this.dGridUsrs.TabIndex = 13;
@@ -152,9 +154,9 @@
             // cmbBoxPrfls
             // 
             this.cmbBoxPrfls.FormattingEnabled = true;
-            this.cmbBoxPrfls.Location = new System.Drawing.Point(643, 292);
+            this.cmbBoxPrfls.Location = new System.Drawing.Point(640, 270);
             this.cmbBoxPrfls.Name = "cmbBoxPrfls";
-            this.cmbBoxPrfls.Size = new System.Drawing.Size(121, 21);
+            this.cmbBoxPrfls.Size = new System.Drawing.Size(128, 21);
             this.cmbBoxPrfls.TabIndex = 14;
             // 
             // ABMCUsrsForm
@@ -164,11 +166,11 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.cmbBoxPrfls);
             this.Controls.Add(this.dGridUsrs);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnEliminarUsuario);
+            this.Controls.Add(this.btnModificarUsuario);
+            this.Controls.Add(this.btnAgregarUsuario);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -176,7 +178,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ABMCUsrsForm";
-            this.Text = "ABMCUsrsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "GestionDeUsuario";
             ((System.ComponentModel.ISupportInitialize)(this.dGridUsrs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -191,11 +194,11 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnAgregarUsuario;
+        private System.Windows.Forms.Button btnModificarUsuario;
+        private System.Windows.Forms.Button btnEliminarUsuario;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dGridUsrs;
         private System.Windows.Forms.ComboBox cmbBoxPrfls;
     }

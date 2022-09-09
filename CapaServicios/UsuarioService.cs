@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TPQatarPAVI.Datos.Daos;
 using TPQatarPAVI.Datos.Interfaces;
 using TPQatarPAVI.LogicaNegocio;
+using System.Data;
 
 namespace TPQatarPAVI.CapaServicios
 {
@@ -17,6 +18,10 @@ namespace TPQatarPAVI.CapaServicios
             string nombre = usr.nombreUsu;
             string pswd = usr.pswdUsu;
             return usrDao.validarUsr(nombre,pswd);
+        }
+        public DataTable traerTodos()
+        {
+            return usrDao.RecuperarTodos();
         }
     }
 }

@@ -39,9 +39,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 96);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(90, 90);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.Size = new System.Drawing.Size(50, 15);
             this.label4.TabIndex = 0;
             this.label4.Text = "Usuario";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -49,33 +50,35 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(29, 179);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(90, 150);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.Size = new System.Drawing.Size(70, 15);
             this.label5.TabIndex = 1;
             this.label5.Text = "Contraseña";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // txtUsr
             // 
-            this.txtUsr.Location = new System.Drawing.Point(32, 132);
+            this.txtUsr.Location = new System.Drawing.Point(90, 110);
             this.txtUsr.Name = "txtUsr";
-            this.txtUsr.Size = new System.Drawing.Size(158, 20);
+            this.txtUsr.Size = new System.Drawing.Size(167, 20);
             this.txtUsr.TabIndex = 2;
             // 
             // txtPswd
             // 
-            this.txtPswd.Location = new System.Drawing.Point(32, 210);
+            this.txtPswd.Location = new System.Drawing.Point(90, 170);
             this.txtPswd.Name = "txtPswd";
-            this.txtPswd.Size = new System.Drawing.Size(158, 20);
+            this.txtPswd.Size = new System.Drawing.Size(167, 20);
             this.txtPswd.TabIndex = 3;
             this.txtPswd.UseSystemPasswordChar = true;
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(32, 270);
+            this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresar.Location = new System.Drawing.Point(90, 220);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(122, 23);
+            this.btnIngresar.Size = new System.Drawing.Size(167, 23);
             this.btnIngresar.TabIndex = 4;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
@@ -85,7 +88,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(28, 44);
+            this.label6.Location = new System.Drawing.Point(90, 30);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(167, 20);
             this.label6.TabIndex = 5;
@@ -94,7 +97,7 @@
             // 
             // LoginForm
             // 
-            this.ClientSize = new System.Drawing.Size(684, 334);
+            this.ClientSize = new System.Drawing.Size(334, 311);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.txtPswd);
@@ -103,7 +106,8 @@
             this.Controls.Add(this.label4);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gestion Qatar";
+            this.Text = "Login Usuario";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

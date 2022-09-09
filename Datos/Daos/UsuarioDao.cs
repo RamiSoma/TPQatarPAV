@@ -20,5 +20,11 @@ namespace TPQatarPAVI.Datos.Daos
             else
                 return 0;
         }
+        public DataTable RecuperarTodos()
+        {
+            string consulta = "SELECT * FROM Usuarios WHERE borrado = 0 order by usuario";
+
+            return DBHelper.obtenerInstancia().consultar(consulta);
+        }
     }
 }
