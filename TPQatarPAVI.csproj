@@ -48,8 +48,10 @@
   <ItemGroup>
     <Compile Include="CapaServicios\PerfilService.cs" />
     <Compile Include="CapaServicios\UsuarioService.cs" />
+    <Compile Include="Datos\Daos\PerfilDao.cs" />
     <Compile Include="Datos\Daos\UsuarioDao.cs" />
     <Compile Include="Datos\DBHelper.cs" />
+    <Compile Include="Datos\Interfaces\IPerfil.cs" />
     <Compile Include="Datos\Interfaces\IUsuario.cs" />
     <Compile Include="Entidades\Perfil.cs" />
     <Compile Include="Entidades\Usuario.cs" />

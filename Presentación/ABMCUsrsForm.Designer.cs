@@ -33,15 +33,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dGridUsrs = new System.Windows.Forms.DataGridView();
+            this.cmbBoxPrfls = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dGridUsrs)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -84,13 +84,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(128, 20);
             this.textBox2.TabIndex = 4;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(643, 291);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(128, 20);
-            this.textBox3.TabIndex = 5;
             // 
             // label4
             // 
@@ -147,28 +140,36 @@
             this.button5.Text = "Cancelar";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dGridUsrs
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(262, 129);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(326, 290);
-            this.dataGridView1.TabIndex = 13;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            this.dGridUsrs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGridUsrs.Location = new System.Drawing.Point(262, 129);
+            this.dGridUsrs.Name = "dGridUsrs";
+            this.dGridUsrs.Size = new System.Drawing.Size(326, 290);
+            this.dGridUsrs.TabIndex = 13;
+            this.dGridUsrs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            // 
+            // cmbBoxPrfls
+            // 
+            this.cmbBoxPrfls.FormattingEnabled = true;
+            this.cmbBoxPrfls.Location = new System.Drawing.Point(643, 292);
+            this.cmbBoxPrfls.Name = "cmbBoxPrfls";
+            this.cmbBoxPrfls.Size = new System.Drawing.Size(121, 21);
+            this.cmbBoxPrfls.TabIndex = 14;
             // 
             // ABMCUsrsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.cmbBoxPrfls);
+            this.Controls.Add(this.dGridUsrs);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
@@ -176,7 +177,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ABMCUsrsForm";
             this.Text = "ABMCUsrsForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGridUsrs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,13 +190,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dGridUsrs;
+        private System.Windows.Forms.ComboBox cmbBoxPrfls;
     }
 }
