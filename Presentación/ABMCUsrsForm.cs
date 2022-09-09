@@ -21,8 +21,10 @@ namespace TPQatarPAVI.Presentación
         }
         private void ABMCUsrsForm_Load(object sender, EventArgs e)
         {
+           
             CargarCombo(cmbBoxPrfls, prfl.traerTodos());
             CargarGrilla(dGridUsrs, usr.traerTodos());
+            HabilitarEdicion(false);
         }
 
         private void CargarCombo(ComboBox combo, DataTable tabla)
@@ -38,10 +40,20 @@ namespace TPQatarPAVI.Presentación
             grilla.Rows.Clear();
             for (int i = 0; i < tabla.Rows.Count; i++)
             {
-                grilla.Rows.Add(tabla.Rows[i]["id_usuario"],
-                                tabla.Rows[i]["usuario"],
-                                tabla.Rows[i]["email"]);
+                grilla.Rows.Add(tabla.Rows[i]["id"],
+                                tabla.Rows[i]["nombre"],
+                                tabla.Rows[i]["rol"]);
             }
+        }
+        private void HabilitarEdicion(bool v)
+        {
+            txtNombre.Enabled = v;
+            txtPswd.Enabled = v;
+            btnGuardar.Enabled = v;
+            btnCancelar.Enabled = v;
+            cmbBoxPrfls.Enabled = v;
+            
+
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -55,12 +67,25 @@ namespace TPQatarPAVI.Presentación
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            HabilitarEdicion(false);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            this.Close();
+            HabilitarEdicion(false);
+        }
+
+        private void btnModificarUsuario_Click(object sender, EventArgs e)
+        {
+            HabilitarEdicion(true);
+        }
+
+        private void btnAgregarUsuario_Click(object sender, EventArgs e)
+        {
+            HabilitarEdicion(true);
+            txtNombre.Text = "";
+            cmbBoxPrfls.Text = "";
+            txtPswd.Text = "";
         }
     }
 }

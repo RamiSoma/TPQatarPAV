@@ -31,8 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtPswd = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnAgregarUsuario = new System.Windows.Forms.Button();
             this.btnModificarUsuario = new System.Windows.Forms.Button();
@@ -40,6 +40,9 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dGridUsrs = new System.Windows.Forms.DataGridView();
+            this.IDUsr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NmbreUsr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rolUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbBoxPrfls = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dGridUsrs)).BeginInit();
             this.SuspendLayout();
@@ -71,19 +74,19 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Perfil";
             // 
-            // textBox1
+            // txtNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(640, 145);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(128, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtNombre.Location = new System.Drawing.Point(640, 145);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(128, 20);
+            this.txtNombre.TabIndex = 3;
             // 
-            // textBox2
+            // txtPswd
             // 
-            this.textBox2.Location = new System.Drawing.Point(640, 200);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(128, 20);
-            this.textBox2.TabIndex = 4;
+            this.txtPswd.Location = new System.Drawing.Point(640, 200);
+            this.txtPswd.Name = "txtPswd";
+            this.txtPswd.Size = new System.Drawing.Size(128, 20);
+            this.txtPswd.TabIndex = 4;
             // 
             // label4
             // 
@@ -103,6 +106,7 @@
             this.btnAgregarUsuario.TabIndex = 7;
             this.btnAgregarUsuario.Text = "Agregar Usuario";
             this.btnAgregarUsuario.UseVisualStyleBackColor = true;
+            this.btnAgregarUsuario.Click += new System.EventHandler(this.btnAgregarUsuario_Click);
             // 
             // btnModificarUsuario
             // 
@@ -112,6 +116,7 @@
             this.btnModificarUsuario.TabIndex = 8;
             this.btnModificarUsuario.Text = "Modificar Usuario";
             this.btnModificarUsuario.UseVisualStyleBackColor = true;
+            this.btnModificarUsuario.Click += new System.EventHandler(this.btnModificarUsuario_Click);
             // 
             // btnEliminarUsuario
             // 
@@ -145,11 +150,30 @@
             // dGridUsrs
             // 
             this.dGridUsrs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGridUsrs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDUsr,
+            this.NmbreUsr,
+            this.rolUsuario});
             this.dGridUsrs.Location = new System.Drawing.Point(260, 102);
             this.dGridUsrs.Name = "dGridUsrs";
             this.dGridUsrs.Size = new System.Drawing.Size(326, 290);
             this.dGridUsrs.TabIndex = 13;
             this.dGridUsrs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            // 
+            // IDUsr
+            // 
+            this.IDUsr.HeaderText = "Id Usuario";
+            this.IDUsr.Name = "IDUsr";
+            // 
+            // NmbreUsr
+            // 
+            this.NmbreUsr.HeaderText = "Nombre Usuario";
+            this.NmbreUsr.Name = "NmbreUsr";
+            // 
+            // rolUsuario
+            // 
+            this.rolUsuario.HeaderText = "Rol Usuario";
+            this.rolUsuario.Name = "rolUsuario";
             // 
             // cmbBoxPrfls
             // 
@@ -172,14 +196,15 @@
             this.Controls.Add(this.btnModificarUsuario);
             this.Controls.Add(this.btnAgregarUsuario);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPswd);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ABMCUsrsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GestionDeUsuario";
+            this.Load += new System.EventHandler(this.ABMCUsrsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGridUsrs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -191,8 +216,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtPswd;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAgregarUsuario;
         private System.Windows.Forms.Button btnModificarUsuario;
@@ -201,5 +226,8 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dGridUsrs;
         private System.Windows.Forms.ComboBox cmbBoxPrfls;
-    }
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDUsr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NmbreUsr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rolUsuario;
+        }
 }

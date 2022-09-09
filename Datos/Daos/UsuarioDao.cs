@@ -22,7 +22,7 @@ namespace TPQatarPAVI.Datos.Daos
         }
         public DataTable RecuperarTodos()
         {
-            string consulta = "SELECT * FROM Usuarios WHERE borrado = 0 order by usuario";
+            string consulta = "select u.id,u.nombre,p.rol from usuario u, perfil p where (p.id = u.rol_id)";
 
             return DBHelper.obtenerInstancia().consultar(consulta);
         }
