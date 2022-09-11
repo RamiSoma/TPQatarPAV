@@ -11,5 +11,8 @@ namespace TPQatarPAVI.Datos.Interfaces
     {
         int validarUsr(string nombreUsu, string pswdUsu);
         DataTable RecuperarTodos();
+        void crearUsr(string nombre, string pswd, string rolPerfil);
+        void modificarUsr(string id, string nNombre, string nPswd, string nRolPerfil);
+        void eliminarUsr(int id);
     }
 }

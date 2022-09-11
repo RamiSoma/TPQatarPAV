@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblPswd = new System.Windows.Forms.Label();
+            this.lblPrfl = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtPswd = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,47 +43,50 @@
             this.IDUsr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NmbreUsr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rolUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PswdCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbBoxPrfls = new System.Windows.Forms.ComboBox();
+            this.lblIdUsr = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dGridUsrs)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblNombre
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(640, 125);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre";
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(626, 136);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(44, 13);
+            this.lblNombre.TabIndex = 0;
+            this.lblNombre.Text = "Nombre";
             // 
-            // label2
+            // lblPswd
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(640, 180);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Contraseña";
+            this.lblPswd.AutoSize = true;
+            this.lblPswd.Location = new System.Drawing.Point(626, 191);
+            this.lblPswd.Name = "lblPswd";
+            this.lblPswd.Size = new System.Drawing.Size(61, 13);
+            this.lblPswd.TabIndex = 1;
+            this.lblPswd.Text = "Contraseña";
             // 
-            // label3
+            // lblPrfl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(640, 250);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Perfil";
+            this.lblPrfl.AutoSize = true;
+            this.lblPrfl.Location = new System.Drawing.Point(626, 261);
+            this.lblPrfl.Name = "lblPrfl";
+            this.lblPrfl.Size = new System.Drawing.Size(30, 13);
+            this.lblPrfl.TabIndex = 2;
+            this.lblPrfl.Text = "Perfil";
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(640, 145);
+            this.txtNombre.Location = new System.Drawing.Point(626, 156);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(128, 20);
             this.txtNombre.TabIndex = 3;
             // 
             // txtPswd
             // 
-            this.txtPswd.Location = new System.Drawing.Point(640, 200);
+            this.txtPswd.Location = new System.Drawing.Point(626, 211);
             this.txtPswd.Name = "txtPswd";
             this.txtPswd.Size = new System.Drawing.Size(128, 20);
             this.txtPswd.TabIndex = 4;
@@ -126,6 +129,7 @@
             this.btnEliminarUsuario.TabIndex = 9;
             this.btnEliminarUsuario.Text = "Eliminar Usuario";
             this.btnEliminarUsuario.UseVisualStyleBackColor = true;
+            this.btnEliminarUsuario.Click += new System.EventHandler(this.btnEliminarUsuario_Click);
             // 
             // btnGuardar
             // 
@@ -149,14 +153,19 @@
             // 
             // dGridUsrs
             // 
+            this.dGridUsrs.AllowUserToAddRows = false;
+            this.dGridUsrs.AllowUserToDeleteRows = false;
+            this.dGridUsrs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dGridUsrs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGridUsrs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDUsr,
             this.NmbreUsr,
-            this.rolUsuario});
+            this.rolUsuario,
+            this.PswdCol});
             this.dGridUsrs.Location = new System.Drawing.Point(260, 102);
             this.dGridUsrs.Name = "dGridUsrs";
-            this.dGridUsrs.Size = new System.Drawing.Size(326, 290);
+            this.dGridUsrs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dGridUsrs.Size = new System.Drawing.Size(345, 290);
             this.dGridUsrs.TabIndex = 13;
             this.dGridUsrs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
@@ -175,19 +184,45 @@
             this.rolUsuario.HeaderText = "Rol Usuario";
             this.rolUsuario.Name = "rolUsuario";
             // 
+            // PswdCol
+            // 
+            this.PswdCol.HeaderText = "Contraseña";
+            this.PswdCol.Name = "PswdCol";
+            this.PswdCol.Visible = false;
+            // 
             // cmbBoxPrfls
             // 
             this.cmbBoxPrfls.FormattingEnabled = true;
-            this.cmbBoxPrfls.Location = new System.Drawing.Point(640, 270);
+            this.cmbBoxPrfls.Location = new System.Drawing.Point(626, 281);
             this.cmbBoxPrfls.Name = "cmbBoxPrfls";
             this.cmbBoxPrfls.Size = new System.Drawing.Size(128, 21);
             this.cmbBoxPrfls.TabIndex = 14;
+            // 
+            // lblIdUsr
+            // 
+            this.lblIdUsr.AutoSize = true;
+            this.lblIdUsr.Location = new System.Drawing.Point(626, 102);
+            this.lblIdUsr.Name = "lblIdUsr";
+            this.lblIdUsr.Size = new System.Drawing.Size(75, 13);
+            this.lblIdUsr.TabIndex = 15;
+            this.lblIdUsr.Text = "Id del Usuario:";
+            this.lblIdUsr.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(719, 102);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(0, 13);
+            this.lblId.TabIndex = 16;
             // 
             // ABMCUsrsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblId);
+            this.Controls.Add(this.lblIdUsr);
             this.Controls.Add(this.cmbBoxPrfls);
             this.Controls.Add(this.dGridUsrs);
             this.Controls.Add(this.btnCancelar);
@@ -198,9 +233,9 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtPswd);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblPrfl);
+            this.Controls.Add(this.lblPswd);
+            this.Controls.Add(this.lblNombre);
             this.Name = "ABMCUsrsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GestionDeUsuario";
@@ -213,9 +248,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblPswd;
+        private System.Windows.Forms.Label lblPrfl;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtPswd;
         private System.Windows.Forms.Label label4;
@@ -229,5 +264,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IDUsr;
         private System.Windows.Forms.DataGridViewTextBoxColumn NmbreUsr;
         private System.Windows.Forms.DataGridViewTextBoxColumn rolUsuario;
-        }
+        private System.Windows.Forms.DataGridViewTextBoxColumn PswdCol;
+        private System.Windows.Forms.Label lblIdUsr;
+        private System.Windows.Forms.Label lblId;
+    }
 }

@@ -7,6 +7,7 @@ using TPQatarPAVI.Datos.Daos;
 using TPQatarPAVI.Datos.Interfaces;
 using TPQatarPAVI.LogicaNegocio;
 using System.Data;
+using System.Windows.Forms;
 
 namespace TPQatarPAVI.CapaServicios
 {
@@ -22,6 +23,18 @@ namespace TPQatarPAVI.CapaServicios
         public DataTable traerTodos()
         {
             return usrDao.RecuperarTodos();
+        }
+        public void crearUsr(string nombre, string pswd, string rolPerfil)
+        {
+            usrDao.crearUsr(nombre, pswd, rolPerfil);
+        }
+        public void modificarUsr(string id, string nNombre, string nPswd, string nRolPerfil)
+        {
+            usrDao.modificarUsr(id, nNombre, nPswd, nRolPerfil);
+        }
+        public void eliminarUsr(int id)
+        {
+            usrDao.eliminarUsr(id);
         }
     }
 }

@@ -15,6 +15,12 @@ namespace TPQatarPAVI.Presentación
     {
         PerfilService prfl = new PerfilService();
         UsuarioService usr = new UsuarioService();
+        enum Modo
+        {
+            Alta,
+            Modificacion
+        }
+        Modo modo;
         public ABMCUsrsForm()
         {
             InitializeComponent();
@@ -42,18 +48,32 @@ namespace TPQatarPAVI.Presentación
             {
                 grilla.Rows.Add(tabla.Rows[i]["id"],
                                 tabla.Rows[i]["nombre"],
-                                tabla.Rows[i]["rol"]);
+                                tabla.Rows[i]["rol"],
+                                tabla.Rows[i]["contraseña"]);
             }
         }
         private void HabilitarEdicion(bool v)
         {
-            txtNombre.Enabled = v;
-            txtPswd.Enabled = v;
-            btnGuardar.Enabled = v;
-            btnCancelar.Enabled = v;
-            cmbBoxPrfls.Enabled = v;
-            
+            lblId.Visible = v;
+            txtNombre.Visible = v;
+            lblNombre.Visible = v;
+            txtPswd.Visible = v;
+            lblPswd.Visible = v;
+            btnGuardar.Visible = v;
+            btnCancelar.Visible = v;
+            lblPrfl.Visible = v;
+            cmbBoxPrfls.Visible = v;
+            lblIdUsr.Visible = v;
 
+
+
+        }
+        private void CargarUsr()
+        {
+            lblId.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[0].Value);
+            txtNombre.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[1].Value);
+            txtPswd.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[3].Value);
+            cmbBoxPrfls.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[2].Value);
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -62,12 +82,28 @@ namespace TPQatarPAVI.Presentación
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            HabilitarEdicion(false);
+            if (txtNombre.Text == "" ||txtPswd.Text == "")
+            {
+                MessageBox.Show("Debe llenar todos los campos","Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                HabilitarEdicion(false);
+                if (modo == Modo.Alta)
+                {
+                    usr.crearUsr(txtNombre.Text, txtPswd.Text, cmbBoxPrfls.Text);
+                }
+                if (modo == Modo.Modificacion)
+                {
+                    usr.modificarUsr(lblId.Text, txtNombre.Text, txtPswd.Text, cmbBoxPrfls.Text);
+                }
+                CargarGrilla(dGridUsrs, usr.traerTodos());
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -78,14 +114,34 @@ namespace TPQatarPAVI.Presentación
         private void btnModificarUsuario_Click(object sender, EventArgs e)
         {
             HabilitarEdicion(true);
+            CargarUsr();
+            modo = Modo.Modificacion;
         }
 
         private void btnAgregarUsuario_Click(object sender, EventArgs e)
         {
             HabilitarEdicion(true);
+            cmbBoxPrfls.SelectedIndex = 0;
             txtNombre.Text = "";
-            cmbBoxPrfls.Text = "";
             txtPswd.Text = "";
+            lblId.Text = "*";
+            modo = Modo.Alta;
+        }
+
+        private void btnEliminarUsuario_Click(object sender, EventArgs e)
+        {
+            int idUsr = Convert.ToInt32(dGridUsrs.SelectedRows[0].Cells[0].Value);   
+            DialogResult rta = MessageBox.Show("¿Estas seguro que deseas eliminar el usuario seleccionado?","Confirmación",MessageBoxButtons.YesNo,MessageBoxIcon.Exclamation);
+            if (rta == DialogResult.Yes)
+            {
+                usr.eliminarUsr(idUsr);
+                CargarGrilla(dGridUsrs, usr.traerTodos());
+            }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
