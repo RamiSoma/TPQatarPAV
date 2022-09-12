@@ -47,6 +47,7 @@
             this.cmbBoxPrfls = new System.Windows.Forms.ComboBox();
             this.lblIdUsr = new System.Windows.Forms.Label();
             this.lblId = new System.Windows.Forms.Label();
+            this.btnVolverMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGridUsrs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -216,11 +217,22 @@
             this.lblId.Size = new System.Drawing.Size(0, 13);
             this.lblId.TabIndex = 16;
             // 
+            // btnVolverMenu
+            // 
+            this.btnVolverMenu.Location = new System.Drawing.Point(54, 281);
+            this.btnVolverMenu.Name = "btnVolverMenu";
+            this.btnVolverMenu.Size = new System.Drawing.Size(179, 31);
+            this.btnVolverMenu.TabIndex = 17;
+            this.btnVolverMenu.Text = "Menu Principal";
+            this.btnVolverMenu.UseVisualStyleBackColor = true;
+            this.btnVolverMenu.Click += new System.EventHandler(this.btnVolverMenu_Click);
+            // 
             // ABMCUsrsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnVolverMenu);
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.lblIdUsr);
             this.Controls.Add(this.cmbBoxPrfls);
@@ -267,5 +279,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PswdCol;
         private System.Windows.Forms.Label lblIdUsr;
         private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.Button btnVolverMenu;
     }
 }

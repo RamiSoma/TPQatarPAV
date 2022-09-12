@@ -31,8 +31,9 @@
             this.btnGestUsu = new System.Windows.Forms.Button();
             this.lblMenuPrincipal = new System.Windows.Forms.Label();
             this.btnCrearPartido = new System.Windows.Forms.Button();
-            this.btnDetallePartido = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
+            this.btnVerDetallePartido = new System.Windows.Forms.Button();
+            this.btnCargarDetallePartido = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGestUsu
@@ -58,26 +59,17 @@
             // 
             // btnCrearPartido
             // 
-            this.btnCrearPartido.Location = new System.Drawing.Point(90, 130);
+            this.btnCrearPartido.Location = new System.Drawing.Point(90, 120);
             this.btnCrearPartido.Name = "btnCrearPartido";
             this.btnCrearPartido.Size = new System.Drawing.Size(165, 26);
             this.btnCrearPartido.TabIndex = 7;
             this.btnCrearPartido.Text = "Crear Partido";
             this.btnCrearPartido.UseVisualStyleBackColor = true;
-            // 
-            // btnDetallePartido
-            // 
-            this.btnDetallePartido.Location = new System.Drawing.Point(90, 180);
-            this.btnDetallePartido.Name = "btnDetallePartido";
-            this.btnDetallePartido.Size = new System.Drawing.Size(165, 26);
-            this.btnDetallePartido.TabIndex = 8;
-            this.btnDetallePartido.Text = "Cargar Detalle Partido";
-            this.btnDetallePartido.UseVisualStyleBackColor = true;
-            this.btnDetallePartido.Click += new System.EventHandler(this.button2_Click);
+            this.btnCrearPartido.Click += new System.EventHandler(this.btnCrearPartido_Click);
             // 
             // btnCerrarSesion
             // 
-            this.btnCerrarSesion.Location = new System.Drawing.Point(90, 230);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(90, 240);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(165, 26);
             this.btnCerrarSesion.TabIndex = 9;
@@ -85,13 +77,34 @@
             this.btnCerrarSesion.UseVisualStyleBackColor = true;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
+            // btnVerDetallePartido
+            // 
+            this.btnVerDetallePartido.Location = new System.Drawing.Point(90, 160);
+            this.btnVerDetallePartido.Name = "btnVerDetallePartido";
+            this.btnVerDetallePartido.Size = new System.Drawing.Size(165, 26);
+            this.btnVerDetallePartido.TabIndex = 10;
+            this.btnVerDetallePartido.Text = "Ver Detalle Partidos";
+            this.btnVerDetallePartido.UseVisualStyleBackColor = true;
+            this.btnVerDetallePartido.Click += new System.EventHandler(this.btnVerDetallePartido_Click);
+            // 
+            // btnCargarDetallePartido
+            // 
+            this.btnCargarDetallePartido.Location = new System.Drawing.Point(90, 200);
+            this.btnCargarDetallePartido.Name = "btnCargarDetallePartido";
+            this.btnCargarDetallePartido.Size = new System.Drawing.Size(165, 26);
+            this.btnCargarDetallePartido.TabIndex = 12;
+            this.btnCargarDetallePartido.Text = "Cargar Detalle Partido";
+            this.btnCargarDetallePartido.UseVisualStyleBackColor = true;
+            this.btnCargarDetallePartido.Click += new System.EventHandler(this.btnCargarDetallePartido_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(334, 311);
+            this.Controls.Add(this.btnCargarDetallePartido);
+            this.Controls.Add(this.btnVerDetallePartido);
             this.Controls.Add(this.btnCerrarSesion);
-            this.Controls.Add(this.btnDetallePartido);
             this.Controls.Add(this.btnCrearPartido);
             this.Controls.Add(this.lblMenuPrincipal);
             this.Controls.Add(this.btnGestUsu);
@@ -109,7 +122,8 @@
         private System.Windows.Forms.Button btnGestUsu;
         private System.Windows.Forms.Label lblMenuPrincipal;
         private System.Windows.Forms.Button btnCrearPartido;
-        private System.Windows.Forms.Button btnDetallePartido;
         private System.Windows.Forms.Button btnCerrarSesion;
+        private System.Windows.Forms.Button btnVerDetallePartido;
+        private System.Windows.Forms.Button btnCargarDetallePartido;
     }
 }
