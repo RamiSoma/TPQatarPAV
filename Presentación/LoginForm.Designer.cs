@@ -43,9 +43,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(90, 90);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 15);
+            this.label4.Size = new System.Drawing.Size(87, 15);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Usuario";
+            this.label4.Text = "Usuario o mail";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5

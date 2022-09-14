@@ -40,14 +40,22 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dGridUsrs = new System.Windows.Forms.DataGridView();
-            this.IDUsr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NmbreUsr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rolUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PswdCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbBoxPrfls = new System.Windows.Forms.ComboBox();
             this.lblIdUsr = new System.Windows.Forms.Label();
             this.lblId = new System.Windows.Forms.Label();
             this.btnVolverMenu = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cmbBoxPerfilFiltro = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.colIDUsr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNmbreUsr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRolUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PswdCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGridUsrs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -159,37 +167,19 @@
             this.dGridUsrs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dGridUsrs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGridUsrs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IDUsr,
-            this.NmbreUsr,
-            this.rolUsuario,
+            this.colIDUsr,
+            this.colNmbreUsr,
+            this.colApellido,
+            this.colMail,
+            this.colUsuario,
+            this.colRolUsuario,
             this.PswdCol});
-            this.dGridUsrs.Location = new System.Drawing.Point(260, 102);
+            this.dGridUsrs.Location = new System.Drawing.Point(239, 159);
             this.dGridUsrs.Name = "dGridUsrs";
             this.dGridUsrs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dGridUsrs.Size = new System.Drawing.Size(345, 290);
+            this.dGridUsrs.Size = new System.Drawing.Size(366, 227);
             this.dGridUsrs.TabIndex = 13;
             this.dGridUsrs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
-            // 
-            // IDUsr
-            // 
-            this.IDUsr.HeaderText = "Id Usuario";
-            this.IDUsr.Name = "IDUsr";
-            // 
-            // NmbreUsr
-            // 
-            this.NmbreUsr.HeaderText = "Nombre Usuario";
-            this.NmbreUsr.Name = "NmbreUsr";
-            // 
-            // rolUsuario
-            // 
-            this.rolUsuario.HeaderText = "Rol Usuario";
-            this.rolUsuario.Name = "rolUsuario";
-            // 
-            // PswdCol
-            // 
-            this.PswdCol.HeaderText = "Contraseña";
-            this.PswdCol.Name = "PswdCol";
-            this.PswdCol.Visible = false;
             // 
             // cmbBoxPrfls
             // 
@@ -227,11 +217,99 @@
             this.btnVolverMenu.UseVisualStyleBackColor = true;
             this.btnVolverMenu.Click += new System.EventHandler(this.btnVolverMenu_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(260, 129);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(170, 20);
+            this.textBox1.TabIndex = 18;
+            // 
+            // cmbBoxPerfilFiltro
+            // 
+            this.cmbBoxPerfilFiltro.FormattingEnabled = true;
+            this.cmbBoxPerfilFiltro.Location = new System.Drawing.Point(447, 130);
+            this.cmbBoxPerfilFiltro.Name = "cmbBoxPerfilFiltro";
+            this.cmbBoxPerfilFiltro.Size = new System.Drawing.Size(86, 21);
+            this.cmbBoxPerfilFiltro.TabIndex = 19;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(554, 130);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(51, 23);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Buscar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(257, 113);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Nombre, usuario o mail:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(444, 114);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(30, 13);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Perfil";
+            // 
+            // colIDUsr
+            // 
+            this.colIDUsr.HeaderText = "Id";
+            this.colIDUsr.MinimumWidth = 2;
+            this.colIDUsr.Name = "colIDUsr";
+            this.colIDUsr.Width = 30;
+            // 
+            // colNmbreUsr
+            // 
+            this.colNmbreUsr.HeaderText = "Nombre";
+            this.colNmbreUsr.Name = "colNmbreUsr";
+            // 
+            // colApellido
+            // 
+            this.colApellido.HeaderText = "Apellido";
+            this.colApellido.Name = "colApellido";
+            // 
+            // colMail
+            // 
+            this.colMail.HeaderText = "Mail";
+            this.colMail.Name = "colMail";
+            this.colMail.Width = 200;
+            // 
+            // colUsuario
+            // 
+            this.colUsuario.HeaderText = "Usuario";
+            this.colUsuario.Name = "colUsuario";
+            // 
+            // colRolUsuario
+            // 
+            this.colRolUsuario.HeaderText = "Rol";
+            this.colRolUsuario.Name = "colRolUsuario";
+            // 
+            // PswdCol
+            // 
+            this.PswdCol.HeaderText = "Contraseña";
+            this.PswdCol.Name = "PswdCol";
+            this.PswdCol.Visible = false;
+            // 
             // ABMCUsrsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.Brown;
+            this.ClientSize = new System.Drawing.Size(1177, 458);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cmbBoxPerfilFiltro);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnVolverMenu);
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.lblIdUsr);
@@ -273,12 +351,20 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dGridUsrs;
         private System.Windows.Forms.ComboBox cmbBoxPrfls;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDUsr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NmbreUsr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rolUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PswdCol;
         private System.Windows.Forms.Label lblIdUsr;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Button btnVolverMenu;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cmbBoxPerfilFiltro;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIDUsr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNmbreUsr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colApellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRolUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PswdCol;
     }
 }

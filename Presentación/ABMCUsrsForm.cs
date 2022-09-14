@@ -29,6 +29,7 @@ namespace TPQatarPAVI.Presentación
         {
            
             CargarCombo(cmbBoxPrfls, prfl.traerTodos());
+            CargarCombo(cmbBoxPerfilFiltro, prfl.traerTodos()); 
             CargarGrilla(dGridUsrs, usr.traerTodos());
             HabilitarEdicion(false);
         }
@@ -147,6 +148,11 @@ namespace TPQatarPAVI.Presentación
         private void btnVolverMenu_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
