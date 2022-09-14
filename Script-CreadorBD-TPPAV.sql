@@ -827,48 +827,52 @@ nro_doc_arb int,
 fecha datetime,
 Ronda int,
 Ganador varchar(15),
+estadio varchar(32),
 borrado bit,
 constraint pk_partido primary key (id),
 constraint ck_id_part check((id) between 1 and 64),
 constraint fk_arb_pais foreign key(tipo_doc_arb,nro_doc_arb) references arbitro(tipo_doc,nro_doc),
 constraint fk_pais1 foreign key (pais_1) references pais(nombre),
 constraint fk_pais2 foreign key (pais_2) references pais(nombre),
-constraint fk_ganador foreign key (ganador) references pais(nombre))
+constraint fk_ganador foreign key (ganador) references pais(nombre),
+constraint fk_partido_estadio foreign key (estadio) references estadio(nombre))
+
 
 Insert into partido values
-(1,'Qatar',null,'Ecuador',null,'Dni','30303030', convert(date,'20/11/22', 3),1,null,0)
+(1,'Qatar',null,'Ecuador',null,'Dni','30303030', convert(date,'20/11/22', 3),1,null,0,null)
 Insert into partido values
-(2,'Inglaterra',null,'Iran',null,'Id','32451323',convert(date,'21/11/22', 3),1,null,0)
+(2,'Inglaterra',null,'Iran',null,'Id','32451323',convert(date,'21/11/22', 3),1,null,0,null)
 Insert into partido values
-(3,'Senegal',null,'Paises Bajos',null,'Pass','41231444',convert(date,'21/11/22', 3),1,null,0)
+(3,'Senegal',null,'Paises Bajos',null,'Pass','41231444',convert(date,'21/11/22', 3),1,null,0,null)
 Insert into partido values
-(4,'Estados Unidos',null,'Gales',null,'Id','32451323',convert(date,'21/11/22', 3),1,null,0)
+(4,'Estados Unidos',null,'Gales',null,'Id','32451323',convert(date,'21/11/22', 3),1,null,0,null)
 Insert into partido values
-(5,'Argentina',null,'Arabia Saudita',null,'Id','32451323',convert(date,'22/11/22', 3),1,null,0)
+(5,'Argentina',null,'Arabia Saudita',null,'Id','32451323',convert(date,'22/11/22', 3),1,null,0,null)
 Insert into partido values
-(6,'Dinamarca',null,'Tunez',null,'Pass','41231444',convert(date,'22/11/22', 3),1,null,0)
+(6,'Dinamarca',null,'Tunez',null,'Pass','41231444',convert(date,'22/11/22', 3),1,null,0,null)
 Insert into partido values
-(7,'Mexico',null,'Polonia',null,'Id','32451323',convert(date,'22/11/22', 3),1,null,0)
+(7,'Mexico',null,'Polonia',null,'Id','32451323',convert(date,'22/11/22', 3),1,null,0,null)
 Insert into partido values
-(8,'Francia',null,'Australia',null,'Id','32451323',convert(date,'22/11/22', 3),1,null,0)
+(8,'Francia',null,'Australia',null,'Id','32451323',convert(date,'22/11/22', 3),1,null,0,null)
 Insert into partido values
-(9,'Marruecos',null,'Croacia',null,'Dni','30303030',convert(date,'23/11/22', 3),1,null,0)
+(9,'Marruecos',null,'Croacia',null,'Dni','30303030',convert(date,'23/11/22', 3),1,null,0,null)
 Insert into partido values
-(10,'Alemania',null,'Japon',null,'Id','32451323',convert(date,'23/11/22', 3),1,null,0)
+(10,'Alemania',null,'Japon',null,'Id','32451323',convert(date,'23/11/22', 3),1,null,0,null)
 Insert into partido values
-(11,'España',null,'Costa Rica',null,'Pass','41231444',convert(date,'23/11/22', 3),1,null,0)
+(11,'España',null,'Costa Rica',null,'Pass','41231444',convert(date,'23/11/22', 3),1,null,0,null)
 Insert into partido values
-(12,'Belgica',null,'Canada',null,'Id','32451323',convert(date,'23/11/22', 3),1,null,0)
+(12,'Belgica',null,'Canada',null,'Id','32451323',convert(date,'23/11/22', 3),1,null,0,null)
 Insert into partido values
-(13,'Suiza',null,'Camerun',null,'Id','32451323',convert(date,'24/11/22', 3),1,null,0)
+(13,'Suiza',null,'Camerun',null,'Id','32451323',convert(date,'24/11/22', 3),1,null,0,null)
 Insert into partido values
-(14,'Uruguay',null,'Corea del Sur',null,'Dni','30303030',convert(date,'24/11/22', 3),1,null,0)
+(14,'Uruguay',null,'Corea del Sur',null,'Dni','30303030',convert(date,'24/11/22', 3),1,null,0,null)
 Insert into partido values
-(15,'Portugal',null,'Ghana',null,'Id','32451323',convert(date,'24/11/22', 3),1,null,0)
+(15,'Portugal',null,'Ghana',null,'Id','32451323',convert(date,'24/11/22', 3),1,null,0,null)
 Insert into partido values
-(16,'Brasil',null,'Serbia',null,'Id','32451323',convert(date,'24/11/22', 3),1,null,0)
+(16,'Brasil',null,'Serbia',null,'Id','32451323',convert(date,'24/11/22', 3),1,null,0,null)
 Insert into partido values
 --Fecha 2 fase de grupos
+/*
 (17,'Gales',null,'Iran',null,'Pass','41231444',convert(date,'25/11/22', 3),1,null,0)
 Insert into partido values
 (18,'Qatar',null,'Senegal',null,'Id','32451323',convert(date,'25/11/22', 3),1,null,0)
@@ -933,6 +937,8 @@ Insert into partido values
 (47,'Camerun',null,'Brasil',null,'Id','32451323',convert(date,'2/12/22', 3),1,null,0)
 Insert into partido values
 (48,'Serbia',null,'Suiza',null,'Dni','30303030',convert(date,'2/12/22', 3),1,null,0)
+
+*/
 
 Create Table EventoPartido(
 id_partido int,
