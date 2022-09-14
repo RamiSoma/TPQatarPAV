@@ -1,5 +1,5 @@
 --Create Database Qatar2022
-
+Use TPQatarPAV
 
 -- Creacion de perfiles
 create table perfil(
@@ -16,23 +16,26 @@ insert into perfil values(3,'usuario',0)
 Create table Usuario(
 id int identity(1,1),
 nombre varchar(15),
+apellido varchar(15),
+usuario varchar(16),
+mail varchar(32),
 contraseña varchar(15),
 rol_id int,
 borrado bit,
 constraint user_pk Primary key (id),
 CONSTRAINT fk_idPerfil FOREIGN KEY (rol_id) REFERENCES perfil (id))
 
-Insert into Usuario values('Franfe','losguerrerosZ',1,0)
+Insert into Usuario values('Francisco', 'Ferraro','Franfe','Franfe@gmail.com','losguerrerosZ',1,0)
 
-Insert into Usuario values('Ralfi','kobe',1,0)
+Insert into Usuario values('Ramiro','Somavilla','Ralfi','Ralfi@gmail.com','kobe',1,0)
 
-Insert into Usuario values('Pedriskol','messismo',1,0)
+Insert into Usuario values('Pedro','Argañaraz','Pedriskol','Pedriskol@gmail.com','messismo',1,0)
 
-Insert into Usuario values('Luquitas','tester',2,0)
+Insert into Usuario values('Lucas','Lopez','Luquitas','Luquitas@gmail.com','tester',2,0)
 
-Insert into Usuario values('Robert','user',3,0)
+Insert into Usuario values('Roberto','Salamanca','Robert','Robert@gmail.com','user',3,0)
 
-insert into Usuario values('CR7','password',3,0)
+insert into Usuario values('Cristiano','Ronaldo','CR7','CR7@gmail.com','password',3,0)
 
 select * from usuario
 
@@ -870,9 +873,9 @@ Insert into partido values
 (15,'Portugal',null,'Ghana',null,'Id','32451323',convert(date,'24/11/22', 3),1,null,0,null)
 Insert into partido values
 (16,'Brasil',null,'Serbia',null,'Id','32451323',convert(date,'24/11/22', 3),1,null,0,null)
-Insert into partido values
 --Fecha 2 fase de grupos
 /*
+Insert into partido values
 (17,'Gales',null,'Iran',null,'Pass','41231444',convert(date,'25/11/22', 3),1,null,0)
 Insert into partido values
 (18,'Qatar',null,'Senegal',null,'Id','32451323',convert(date,'25/11/22', 3),1,null,0)
