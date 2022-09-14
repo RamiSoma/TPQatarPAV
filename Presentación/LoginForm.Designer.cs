@@ -34,6 +34,7 @@
             this.txtPswd = new System.Windows.Forms.TextBox();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label4
@@ -76,9 +77,9 @@
             // btnIngresar
             // 
             this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngresar.Location = new System.Drawing.Point(90, 220);
+            this.btnIngresar.Location = new System.Drawing.Point(180, 220);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(167, 23);
+            this.btnIngresar.Size = new System.Drawing.Size(75, 23);
             this.btnIngresar.TabIndex = 4;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
@@ -95,9 +96,21 @@
             this.label6.Text = "INICIO DE SESIÓN";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(90, 220);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // LoginForm
             // 
             this.ClientSize = new System.Drawing.Size(334, 311);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.txtPswd);
@@ -127,5 +140,6 @@
         private System.Windows.Forms.TextBox txtPswd;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }
