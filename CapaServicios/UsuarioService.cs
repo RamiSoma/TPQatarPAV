@@ -20,17 +20,17 @@ namespace TPQatarPAVI.CapaServicios
             string pswd = usr.pswdUsu;
             return usrDao.validarUsr(nombre,pswd);
         }
-        public DataTable traerTodos()
+        public DataTable traerTodos(string fNombreMail, string fPerfil)
         {
-            return usrDao.RecuperarTodos();
+            return usrDao.RecuperarTodos(fNombreMail, fPerfil);
         }
-        public void crearUsr(string nombre, string pswd, string rolPerfil)
+        public void crearUsr(string nNombre, string nApellido,string nMail, string nUsuario, string nPswd, string nRolPerfil)
         {
-            usrDao.crearUsr(nombre, pswd, rolPerfil);
+            usrDao.crearUsr(nNombre, nApellido, nMail, nUsuario, nPswd, nRolPerfil);
         }
-        public void modificarUsr(string id, string nNombre, string nPswd, string nRolPerfil)
+        public void modificarUsr(string id, string nNombre, string nApellido, string nUsuario, string nPswd, string nRolPerfil)
         {
-            usrDao.modificarUsr(id, nNombre, nPswd, nRolPerfil);
+            usrDao.modificarUsr(id, nNombre, nApellido, nUsuario, nPswd, nRolPerfil);
         }
         public void eliminarUsr(int id)
         {

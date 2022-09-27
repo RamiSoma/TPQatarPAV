@@ -15,25 +15,16 @@ namespace TPQatarPAVI.Presentación
         public MainForm()
         {
             InitializeComponent();
-            btnCrearPartido.Visible = false;
             btnVerDetallePartido.Visible = false;
             btnCargarDetallePartido.Visible = false;
         }
 
-        private void btnGestUsu_Click(object sender, EventArgs e)
-        {
-            ABMCUsrsForm abmcUsr = new ABMCUsrsForm();
-            abmcUsr.Show();
-        }
         private void MainForm_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         
 
@@ -55,6 +46,24 @@ namespace TPQatarPAVI.Presentación
         private void btnCargarDetallePartido_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnGestionPais_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void ToolStipUsuario_Click(object sender, EventArgs e)
+        {
+            ABMCUsrsForm abmcUsr = new ABMCUsrsForm();
+            abmcUsr.Show();
+        }
+
+        private void ToolStipPais_Click(object sender, EventArgs e)
+        {
+            ABMCPaisForm abmcPais = new ABMCPaisForm();
+            abmcPais.Show();
         }
     }
 }

@@ -10,9 +10,9 @@ namespace TPQatarPAVI.Datos.Interfaces
     internal interface IUsuario
     {
         int validarUsr(string nombreUsu, string pswdUsu);
-        DataTable RecuperarTodos();
-        void crearUsr(string nombre, string pswd, string rolPerfil);
-        void modificarUsr(string id, string nNombre, string nPswd, string nRolPerfil);
+        DataTable RecuperarTodos(string fNombreMail, string fPerfil);
+        void crearUsr(string nNombre, string nApellido, string nMail, string nUsuario, string nPswd, string nRolPerfil);
+        void modificarUsr(string id, string nNombre, string nApellido, string nUsuario, string nPswd, string nRolPerfil);
         void eliminarUsr(int id);
     }
 }

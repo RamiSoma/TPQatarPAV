@@ -24,13 +24,13 @@ namespace TPQatarPAVI.Presentación
         public ABMCUsrsForm()
         {
             InitializeComponent();
+            txtMail.Visible = false;
         }
         private void ABMCUsrsForm_Load(object sender, EventArgs e)
         {
            
             CargarCombo(cmbBoxPrfls, prfl.traerTodos());
-            CargarCombo(cmbBoxPerfilFiltro, prfl.traerTodos()); 
-            CargarGrilla(dGridUsrs, usr.traerTodos());
+            CargarCombo(cmbFiltroPerfil, prfl.traerTodos()); 
             HabilitarEdicion(false);
         }
 
@@ -49,6 +49,9 @@ namespace TPQatarPAVI.Presentación
             {
                 grilla.Rows.Add(tabla.Rows[i]["id"],
                                 tabla.Rows[i]["nombre"],
+                                tabla.Rows[i]["apellido"],
+                                tabla.Rows[i]["mail"],
+                                tabla.Rows[i]["usuario"],
                                 tabla.Rows[i]["rol"],
                                 tabla.Rows[i]["contraseña"]);
             }
@@ -56,8 +59,8 @@ namespace TPQatarPAVI.Presentación
         private void HabilitarEdicion(bool v)
         {
             lblId.Visible = v;
-            txtNombre.Visible = v;
-            lblNombre.Visible = v;
+            txtUsuario.Visible = v;
+            lblUsuario.Visible = v;
             txtPswd.Visible = v;
             lblPswd.Visible = v;
             btnGuardar.Visible = v;
@@ -65,6 +68,12 @@ namespace TPQatarPAVI.Presentación
             lblPrfl.Visible = v;
             cmbBoxPrfls.Visible = v;
             lblIdUsr.Visible = v;
+            txtApellido.Visible = v;
+            lblApellido.Visible = v; 
+            lblNombre.Visible = v;
+            txtNombre.Visible = v;
+            lblMail.Visible = v;
+            lblMailFijo.Visible = v;
 
 
 
@@ -73,8 +82,11 @@ namespace TPQatarPAVI.Presentación
         {
             lblId.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[0].Value);
             txtNombre.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[1].Value);
-            txtPswd.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[3].Value);
-            cmbBoxPrfls.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[2].Value);
+            txtApellido.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[2].Value);
+            lblMail.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[3].Value);
+            txtUsuario.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[4].Value);
+            txtPswd.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[6].Value);
+            cmbBoxPrfls.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[5].Value);
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -88,7 +100,7 @@ namespace TPQatarPAVI.Presentación
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (txtNombre.Text == "" ||txtPswd.Text == "")
+            if (txtUsuario.Text == "" ||txtPswd.Text == "")
             {
                 MessageBox.Show("Debe llenar todos los campos","Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -97,13 +109,14 @@ namespace TPQatarPAVI.Presentación
                 HabilitarEdicion(false);
                 if (modo == Modo.Alta)
                 {
-                    usr.crearUsr(txtNombre.Text, txtPswd.Text, cmbBoxPrfls.Text);
+                    usr.crearUsr(txtNombre.Text, txtApellido.Text,txtMail.Text, txtUsuario.Text, txtPswd.Text, cmbBoxPrfls.Text);
+                    txtMail.Visible = false;
                 }
                 if (modo == Modo.Modificacion)
                 {
-                    usr.modificarUsr(lblId.Text, txtNombre.Text, txtPswd.Text, cmbBoxPrfls.Text);
+                    usr.modificarUsr(lblId.Text, txtNombre.Text, txtApellido.Text, txtUsuario.Text, txtPswd.Text, cmbBoxPrfls.Text);
                 }
-                CargarGrilla(dGridUsrs, usr.traerTodos());
+                CargarGrilla(dGridUsrs, usr.traerTodos(txtFiltroNombre.Text, cmbFiltroPerfil.Text));
             }
         }
 
@@ -123,9 +136,13 @@ namespace TPQatarPAVI.Presentación
         {
             HabilitarEdicion(true);
             cmbBoxPrfls.SelectedIndex = 0;
-            txtNombre.Text = "";
+            txtUsuario.Text = "";
             txtPswd.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
             lblId.Text = "*";
+            txtMail.Visible = true;
+            txtMail.Text = "";
             modo = Modo.Alta;
         }
 
@@ -136,7 +153,6 @@ namespace TPQatarPAVI.Presentación
             if (rta == DialogResult.Yes)
             {
                 usr.eliminarUsr(idUsr);
-                CargarGrilla(dGridUsrs, usr.traerTodos());
             }
         }
 
@@ -151,6 +167,21 @@ namespace TPQatarPAVI.Presentación
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            CargarGrilla(dGridUsrs, usr.traerTodos(txtFiltroNombre.Text, cmbFiltroPerfil.Text) );
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
         {
 
         }

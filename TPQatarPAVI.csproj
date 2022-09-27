@@ -61,6 +61,12 @@
     <Compile Include="Presentación\ABMCUsrsForm.Designer.cs">
       <DependentUpon>ABMCUsrsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentación\ABMCPaisForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentación\ABMCPaisForm.Designer.cs">
+      <DependentUpon>ABMCPaisForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentación\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     <EmbeddedResource Include="Presentación\ABMCUsrsForm.resx">
       <DependentUpon>ABMCUsrsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentación\ABMCPaisForm.resx">
+      <DependentUpon>ABMCPaisForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentación\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,6 +101,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -106,6 +116,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Imagenes\LOGO-QATAR-2022-6.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
