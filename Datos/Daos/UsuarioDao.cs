@@ -22,8 +22,14 @@ namespace TPQatarPAVI.Datos.Daos
         }
         public DataTable RecuperarTodos(string fNombreMail, string fPerfil)
         {
+            int idPerfil;
+            if (fPerfil == "") {
+                idPerfil = 1;
+            }else {
+                idPerfil = obtenerRolPerfilId(fPerfil); 
+            }
             string consulta = "select u.id,u.nombre,u.apellido,u.mail,u.usuario,p.rol,u.contraseña from usuario u, perfil p " +
-                                     "where (p.id = u.rol_id) and u.borrado = 0 and (u.nombre like '%"+fNombreMail+"%' or u.apellido like '%" + fNombreMail + "%' or u.mail like '%"+fNombreMail+"%') and u.rol_id='"+obtenerRolPerfilId(fPerfil)+"'";
+                                     "where (p.id = u.rol_id) and u.borrado = 0 and (u.nombre like '%"+fNombreMail+"%' or u.apellido like '%" + fNombreMail + "%' or u.mail like '%"+fNombreMail+"%') and u.rol_id='"+idPerfil+"'";
 
             return DBHelper.obtenerInstancia().consultar(consulta);
         }

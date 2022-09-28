@@ -7,11 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TPQatarPAVI.CapaServicios;
 
 namespace TPQatarPAVI.Presentación
 {
     public partial class ABMCPaisForm : Form
     {
+        PaisService pais = new PaisService();
+        ContinenteService continente = new ContinenteService();
+        GrupoService grupo = new GrupoService();
+        enum Modo
+        {
+            Alta,
+            Modificacion
+        }
+        Modo modo;
+
         public ABMCPaisForm()
         {
             InitializeComponent();
@@ -21,22 +32,34 @@ namespace TPQatarPAVI.Presentación
         {
 
         }
-
+        private void CargarGrilla(DataGridView grilla, DataTable tabla)
+        {
+            grilla.Rows.Clear();
+            for (int i = 0; i < tabla.Rows.Count; i++)
+            {
+                grilla.Rows.Add(tabla.Rows[i]["nombre"],
+                                tabla.Rows[i]["continente"],
+                                tabla.Rows[i]["ranking_fifa"],
+                                tabla.Rows[i]["id_Grupo"]);
+            }
+        }
         private void HabilitarEdicion(bool v)
         {
             lblNombre.Visible= v;
             lblRank.Visible= v;
             lblReg.Visible= v;
             txtNombre.Visible = v;
-            TxtRanking.Visible=v;
-            cmbBoxRegion.Visible= v;
+            txtRanking.Visible=v;
+            cmbBoxContinente.Visible= v;
             btnGuardar.Visible = v;
             btnCancelar.Visible = v;
         }
 
-            private void btnAgregarPais_Click(object sender, EventArgs e)
+        private void btnAgregarPais_Click(object sender, EventArgs e)
         {
-           
+            HabilitarEdicion(true);
+            CargarCombo(cmbBoxGrupo, grupo.traerTodos()); //cargar combo grupos
+
         }
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
@@ -47,6 +70,117 @@ namespace TPQatarPAVI.Presentación
         private void btnVolverMenu_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cmbBoxRegion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e) //btnBuscarFiltro
+        {
+            CargarGrilla(dGridPaises, pais.traerTodos(txtFiltroNombre.Text, cmbContinenteFiltro.Text));
+        }
+
+        private void ABMCPaisForm_Load(object sender, EventArgs e)
+        {
+            CargarCombo(cmbContinenteFiltro, continente.traerTodos());
+            CargarCombo(cmbBoxContinente, continente.traerTodos());
+            HabilitarEdicion(false);
+        }
+
+        private void CargarCombo(ComboBox combo, DataTable tabla)
+        {
+            combo.DataSource = tabla;
+            combo.DisplayMember = tabla.Columns[1].ColumnName;
+            combo.ValueMember = tabla.Columns[0].ColumnName;
+            combo.SelectedIndex = -1;
+            combo.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private void txtFiltroNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e) // Limpiar el combobox
+        {
+            dGridPaises.DataSource = null;
+            dGridPaises.Rows.Clear();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Convert.ToInt32(txtRanking.Text);
+
+                if (txtNombre.Text == "" || txtRanking.Text == "" || cmbBoxContinente.Text == "" || cmbBoxGrupo.Text == "")
+                {
+                    MessageBox.Show("Debe llenar todos los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    if (pais.validar(txtNombre.Text,txtRanking.Text))
+                    {
+                        MessageBox.Show("El país ingresado ya existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        HabilitarEdicion(false);
+                        if (modo == Modo.Alta)
+                        {
+                            pais.crearPais(txtNombre.Text, txtRanking.Text, cmbBoxContinente.Text, cmbBoxGrupo.Text);
+                        }
+                        if (modo == Modo.Modificacion)
+                        {
+                            pais.modificarPais(txtNombre.Text, cmbBoxContinente.Text, txtRanking.Text, cmbBoxGrupo.Text);
+                        }
+                        btnActualizar.Text = "ACTUALIZAR";
+                    }
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("El ranking fifa debe ser valor numérico...", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void TxtRanking_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminarPais_Click(object sender, EventArgs e)
+        {
+            string idPais = Convert.ToString(dGridPaises.SelectedRows[0].Cells[0].Value);
+            DialogResult rta = MessageBox.Show("¿Estas seguro que deseas eliminar el usuario seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (rta == DialogResult.Yes)
+            {
+                pais.eliminarUsr(idPais);
+                btnActualizar.Text = "ACTUALIZAR";
+            }
+        }
+        private void CargarPais()
+        {
+            txtNombre.Text = Convert.ToString(dGridPaises.SelectedRows[0].Cells[0].Value);
+            cmbBoxContinente.Text = Convert.ToString(dGridPaises.SelectedRows[0].Cells[1].Value);
+            txtRanking.Text = Convert.ToString(dGridPaises.SelectedRows[0].Cells[2].Value);
+            cmbBoxGrupo.Text = Convert.ToString(dGridPaises.SelectedRows[0].Cells[3].Value);
+        }
+
+        private void btnModificarPais_Click(object sender, EventArgs e)
+        {
+            HabilitarEdicion(true);
+            CargarPais();
+            modo = Modo.Modificacion;
+            txtNombre.Enabled = false;
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            CargarGrilla(dGridPaises, pais.traerTodos(txtFiltroNombre.Text, cmbContinenteFiltro.Text));
+            btnActualizar.Text = "Actualizar";
         }
     }
 }

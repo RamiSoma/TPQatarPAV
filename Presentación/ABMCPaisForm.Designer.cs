@@ -30,11 +30,11 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.cmbRegionFiltro = new System.Windows.Forms.ComboBox();
-            this.TxtNombreFiltro = new System.Windows.Forms.TextBox();
+            this.btnBuscarPrfl = new System.Windows.Forms.Button();
+            this.cmbContinenteFiltro = new System.Windows.Forms.ComboBox();
+            this.txtFiltroNombre = new System.Windows.Forms.TextBox();
             this.btnVolverMenu = new System.Windows.Forms.Button();
-            this.dGridUsrs = new System.Windows.Forms.DataGridView();
+            this.dGridPaises = new System.Windows.Forms.DataGridView();
             this.btnEliminarPais = new System.Windows.Forms.Button();
             this.btnModificarPais = new System.Windows.Forms.Button();
             this.btnAgregarPais = new System.Windows.Forms.Button();
@@ -42,16 +42,20 @@
             this.button2 = new System.Windows.Forms.Button();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.cmbBoxRegion = new System.Windows.Forms.ComboBox();
+            this.cmbBoxContinente = new System.Windows.Forms.ComboBox();
             this.lblReg = new System.Windows.Forms.Label();
-            this.TxtRanking = new System.Windows.Forms.TextBox();
+            this.txtRanking = new System.Windows.Forms.TextBox();
             this.lblRank = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Continente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ranking = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dGridUsrs)).BeginInit();
+            this.Grupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblGrupo = new System.Windows.Forms.Label();
+            this.cmbBoxGrupo = new System.Windows.Forms.ComboBox();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dGridPaises)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -59,9 +63,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(56, 174);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 33;
-            this.label2.Text = "Region";
+            this.label2.Text = "Continente";
             // 
             // label1
             // 
@@ -72,29 +76,31 @@
             this.label1.TabIndex = 32;
             this.label1.Text = "Nombre pais:";
             // 
-            // button1
+            // btnBuscarPrfl
             // 
-            this.button1.Location = new System.Drawing.Point(166, 226);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(51, 23);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBuscarPrfl.Location = new System.Drawing.Point(166, 226);
+            this.btnBuscarPrfl.Name = "btnBuscarPrfl";
+            this.btnBuscarPrfl.Size = new System.Drawing.Size(51, 23);
+            this.btnBuscarPrfl.TabIndex = 31;
+            this.btnBuscarPrfl.Text = "Buscar";
+            this.btnBuscarPrfl.UseVisualStyleBackColor = true;
+            this.btnBuscarPrfl.Click += new System.EventHandler(this.button1_Click);
             // 
-            // cmbRegionFiltro
+            // cmbContinenteFiltro
             // 
-            this.cmbRegionFiltro.FormattingEnabled = true;
-            this.cmbRegionFiltro.Location = new System.Drawing.Point(59, 188);
-            this.cmbRegionFiltro.Name = "cmbRegionFiltro";
-            this.cmbRegionFiltro.Size = new System.Drawing.Size(86, 21);
-            this.cmbRegionFiltro.TabIndex = 30;
+            this.cmbContinenteFiltro.FormattingEnabled = true;
+            this.cmbContinenteFiltro.Location = new System.Drawing.Point(59, 188);
+            this.cmbContinenteFiltro.Name = "cmbContinenteFiltro";
+            this.cmbContinenteFiltro.Size = new System.Drawing.Size(86, 21);
+            this.cmbContinenteFiltro.TabIndex = 30;
             // 
-            // TxtNombreFiltro
+            // txtFiltroNombre
             // 
-            this.TxtNombreFiltro.Location = new System.Drawing.Point(59, 142);
-            this.TxtNombreFiltro.Name = "TxtNombreFiltro";
-            this.TxtNombreFiltro.Size = new System.Drawing.Size(170, 20);
-            this.TxtNombreFiltro.TabIndex = 29;
+            this.txtFiltroNombre.Location = new System.Drawing.Point(59, 142);
+            this.txtFiltroNombre.Name = "txtFiltroNombre";
+            this.txtFiltroNombre.Size = new System.Drawing.Size(170, 20);
+            this.txtFiltroNombre.TabIndex = 29;
+            this.txtFiltroNombre.TextChanged += new System.EventHandler(this.txtFiltroNombre_TextChanged);
             // 
             // btnVolverMenu
             // 
@@ -106,21 +112,22 @@
             this.btnVolverMenu.UseVisualStyleBackColor = true;
             this.btnVolverMenu.Click += new System.EventHandler(this.btnVolverMenu_Click);
             // 
-            // dGridUsrs
+            // dGridPaises
             // 
-            this.dGridUsrs.AllowUserToAddRows = false;
-            this.dGridUsrs.AllowUserToDeleteRows = false;
-            this.dGridUsrs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dGridUsrs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGridUsrs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dGridPaises.AllowUserToAddRows = false;
+            this.dGridPaises.AllowUserToDeleteRows = false;
+            this.dGridPaises.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dGridPaises.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGridPaises.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre,
             this.Continente,
-            this.Ranking});
-            this.dGridUsrs.Location = new System.Drawing.Point(238, 123);
-            this.dGridUsrs.Name = "dGridUsrs";
-            this.dGridUsrs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dGridUsrs.Size = new System.Drawing.Size(343, 227);
-            this.dGridUsrs.TabIndex = 27;
+            this.Ranking,
+            this.Grupo});
+            this.dGridPaises.Location = new System.Drawing.Point(238, 123);
+            this.dGridPaises.Name = "dGridPaises";
+            this.dGridPaises.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dGridPaises.Size = new System.Drawing.Size(363, 227);
+            this.dGridPaises.TabIndex = 27;
             // 
             // btnEliminarPais
             // 
@@ -130,6 +137,7 @@
             this.btnEliminarPais.TabIndex = 26;
             this.btnEliminarPais.Text = "Eliminar País";
             this.btnEliminarPais.UseVisualStyleBackColor = true;
+            this.btnEliminarPais.Click += new System.EventHandler(this.btnEliminarPais_Click);
             // 
             // btnModificarPais
             // 
@@ -139,6 +147,7 @@
             this.btnModificarPais.TabIndex = 25;
             this.btnModificarPais.Text = "Modificar País";
             this.btnModificarPais.UseVisualStyleBackColor = true;
+            this.btnModificarPais.Click += new System.EventHandler(this.btnModificarPais_Click);
             // 
             // btnAgregarPais
             // 
@@ -168,6 +177,7 @@
             this.button2.TabIndex = 34;
             this.button2.Text = "Limpiar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txtNombre
             // 
@@ -186,29 +196,31 @@
             this.lblNombre.TabIndex = 35;
             this.lblNombre.Text = "Nombre";
             // 
-            // cmbBoxRegion
+            // cmbBoxContinente
             // 
-            this.cmbBoxRegion.FormattingEnabled = true;
-            this.cmbBoxRegion.Location = new System.Drawing.Point(378, 394);
-            this.cmbBoxRegion.Name = "cmbBoxRegion";
-            this.cmbBoxRegion.Size = new System.Drawing.Size(96, 21);
-            this.cmbBoxRegion.TabIndex = 38;
+            this.cmbBoxContinente.FormattingEnabled = true;
+            this.cmbBoxContinente.Location = new System.Drawing.Point(381, 393);
+            this.cmbBoxContinente.Name = "cmbBoxContinente";
+            this.cmbBoxContinente.Size = new System.Drawing.Size(96, 21);
+            this.cmbBoxContinente.TabIndex = 38;
+            this.cmbBoxContinente.SelectedIndexChanged += new System.EventHandler(this.cmbBoxRegion_SelectedIndexChanged);
             // 
             // lblReg
             // 
             this.lblReg.AutoSize = true;
-            this.lblReg.Location = new System.Drawing.Point(378, 373);
+            this.lblReg.Location = new System.Drawing.Point(381, 372);
             this.lblReg.Name = "lblReg";
-            this.lblReg.Size = new System.Drawing.Size(41, 13);
+            this.lblReg.Size = new System.Drawing.Size(58, 13);
             this.lblReg.TabIndex = 37;
-            this.lblReg.Text = "Region";
+            this.lblReg.Text = "Continente";
             // 
-            // TxtRanking
+            // txtRanking
             // 
-            this.TxtRanking.Location = new System.Drawing.Point(495, 395);
-            this.TxtRanking.Name = "TxtRanking";
-            this.TxtRanking.Size = new System.Drawing.Size(67, 20);
-            this.TxtRanking.TabIndex = 40;
+            this.txtRanking.Location = new System.Drawing.Point(495, 395);
+            this.txtRanking.Name = "txtRanking";
+            this.txtRanking.Size = new System.Drawing.Size(67, 20);
+            this.txtRanking.TabIndex = 40;
+            this.txtRanking.TextChanged += new System.EventHandler(this.TxtRanking_TextChanged);
             // 
             // lblRank
             // 
@@ -221,7 +233,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(381, 440);
+            this.btnCancelar.Location = new System.Drawing.Point(381, 449);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 43;
@@ -230,12 +242,13 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(490, 440);
+            this.btnGuardar.Location = new System.Drawing.Point(490, 449);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 42;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // Nombre
             // 
@@ -251,28 +264,66 @@
             // 
             this.Ranking.HeaderText = "Ranking FIFA";
             this.Ranking.Name = "Ranking";
+            this.Ranking.Width = 70;
+            // 
+            // Grupo
+            // 
+            this.Grupo.HeaderText = "Grupo";
+            this.Grupo.Name = "Grupo";
+            this.Grupo.Width = 80;
+            // 
+            // lblGrupo
+            // 
+            this.lblGrupo.AutoSize = true;
+            this.lblGrupo.Location = new System.Drawing.Point(604, 374);
+            this.lblGrupo.Name = "lblGrupo";
+            this.lblGrupo.Size = new System.Drawing.Size(36, 13);
+            this.lblGrupo.TabIndex = 44;
+            this.lblGrupo.Text = "Grupo";
+            // 
+            // cmbBoxGrupo
+            // 
+            this.cmbBoxGrupo.FormattingEnabled = true;
+            this.cmbBoxGrupo.Location = new System.Drawing.Point(607, 393);
+            this.cmbBoxGrupo.Name = "cmbBoxGrupo";
+            this.cmbBoxGrupo.Size = new System.Drawing.Size(81, 21);
+            this.cmbBoxGrupo.TabIndex = 45;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.BackColor = System.Drawing.Color.Transparent;
+            this.btnActualizar.Location = new System.Drawing.Point(490, 94);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(111, 23);
+            this.btnActualizar.TabIndex = 46;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // ABMCPaisForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.cmbBoxGrupo);
+            this.Controls.Add(this.lblGrupo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.lblRank);
-            this.Controls.Add(this.TxtRanking);
-            this.Controls.Add(this.cmbBoxRegion);
+            this.Controls.Add(this.txtRanking);
+            this.Controls.Add(this.cmbBoxContinente);
             this.Controls.Add(this.lblReg);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.cmbRegionFiltro);
-            this.Controls.Add(this.TxtNombreFiltro);
+            this.Controls.Add(this.btnBuscarPrfl);
+            this.Controls.Add(this.cmbContinenteFiltro);
+            this.Controls.Add(this.txtFiltroNombre);
             this.Controls.Add(this.btnVolverMenu);
-            this.Controls.Add(this.dGridUsrs);
+            this.Controls.Add(this.dGridPaises);
             this.Controls.Add(this.btnEliminarPais);
             this.Controls.Add(this.btnModificarPais);
             this.Controls.Add(this.btnAgregarPais);
@@ -280,7 +331,8 @@
             this.Name = "ABMCPaisForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestionar Paises";
-            ((System.ComponentModel.ISupportInitialize)(this.dGridUsrs)).EndInit();
+            this.Load += new System.EventHandler(this.ABMCPaisForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dGridPaises)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,11 +342,11 @@
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox cmbRegionFiltro;
-        private System.Windows.Forms.TextBox TxtNombreFiltro;
+        private System.Windows.Forms.Button btnBuscarPrfl;
+        private System.Windows.Forms.ComboBox cmbContinenteFiltro;
+        private System.Windows.Forms.TextBox txtFiltroNombre;
         private System.Windows.Forms.Button btnVolverMenu;
-        private System.Windows.Forms.DataGridView dGridUsrs;
+        private System.Windows.Forms.DataGridView dGridPaises;
         private System.Windows.Forms.Button btnEliminarPais;
         private System.Windows.Forms.Button btnModificarPais;
         private System.Windows.Forms.Button btnAgregarPais;
@@ -302,14 +354,18 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.ComboBox cmbBoxRegion;
+        private System.Windows.Forms.ComboBox cmbBoxContinente;
         private System.Windows.Forms.Label lblReg;
-        private System.Windows.Forms.TextBox TxtRanking;
+        private System.Windows.Forms.TextBox txtRanking;
         private System.Windows.Forms.Label lblRank;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Continente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ranking;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Grupo;
+        private System.Windows.Forms.Label lblGrupo;
+        private System.Windows.Forms.ComboBox cmbBoxGrupo;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }

@@ -30,7 +30,7 @@ namespace TPQatarPAVI.Presentación
         {
            
             CargarCombo(cmbBoxPrfls, prfl.traerTodos());
-            CargarCombo(cmbFiltroPerfil, prfl.traerTodos()); 
+            CargarCombo(cmbFiltroPerfil, prfl.traerTodos());
             HabilitarEdicion(false);
         }
 
