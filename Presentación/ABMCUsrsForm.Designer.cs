@@ -40,14 +40,6 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dGridUsrs = new System.Windows.Forms.DataGridView();
-            this.cmbBoxPrfls = new System.Windows.Forms.ComboBox();
-            this.lblIdUsr = new System.Windows.Forms.Label();
-            this.lblId = new System.Windows.Forms.Label();
-            this.btnVolverMenu = new System.Windows.Forms.Button();
-            this.txtFiltroNombre = new System.Windows.Forms.TextBox();
-            this.cmbFiltroPerfil = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.colIDUsr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNmbreUsr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +47,14 @@
             this.colUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRolUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PswdCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbBoxPrfls = new System.Windows.Forms.ComboBox();
+            this.lblIdUsr = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.Label();
+            this.btnVolverMenu = new System.Windows.Forms.Button();
+            this.txtFiltroNombre = new System.Windows.Forms.TextBox();
+            this.cmbFiltroPerfil = new System.Windows.Forms.ComboBox();
+            this.lblFiltro = new System.Windows.Forms.Label();
+            this.lblPerfil = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -64,6 +64,9 @@
             this.lblMail = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtMail = new System.Windows.Forms.TextBox();
+            this.btnRestaurar = new System.Windows.Forms.Button();
+            this.btnRestaurarSeleccion = new System.Windows.Forms.Button();
+            this.btnCancelarRest = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGridUsrs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,14 +102,14 @@
             this.txtUsuario.Location = new System.Drawing.Point(297, 398);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(128, 20);
-            this.txtUsuario.TabIndex = 7;
+            this.txtUsuario.TabIndex = 8;
             // 
             // txtPswd
             // 
             this.txtPswd.Location = new System.Drawing.Point(442, 398);
             this.txtPswd.Name = "txtPswd";
             this.txtPswd.Size = new System.Drawing.Size(128, 20);
-            this.txtPswd.TabIndex = 8;
+            this.txtPswd.TabIndex = 9;
             // 
             // label4
             // 
@@ -153,7 +156,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(556, 505);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 13;
+            this.btnGuardar.TabIndex = 15;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.button4_Click);
@@ -189,77 +192,6 @@
             this.dGridUsrs.Size = new System.Drawing.Size(576, 227);
             this.dGridUsrs.TabIndex = 13;
             this.dGridUsrs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
-            // 
-            // cmbBoxPrfls
-            // 
-            this.cmbBoxPrfls.FormattingEnabled = true;
-            this.cmbBoxPrfls.Location = new System.Drawing.Point(576, 398);
-            this.cmbBoxPrfls.Name = "cmbBoxPrfls";
-            this.cmbBoxPrfls.Size = new System.Drawing.Size(128, 21);
-            this.cmbBoxPrfls.TabIndex = 9;
-            // 
-            // lblIdUsr
-            // 
-            this.lblIdUsr.AutoSize = true;
-            this.lblIdUsr.Location = new System.Drawing.Point(176, 378);
-            this.lblIdUsr.Name = "lblIdUsr";
-            this.lblIdUsr.Size = new System.Drawing.Size(75, 13);
-            this.lblIdUsr.TabIndex = 15;
-            this.lblIdUsr.Text = "Id del Usuario:";
-            this.lblIdUsr.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // lblId
-            // 
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(268, 378);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(0, 13);
-            this.lblId.TabIndex = 16;
-            // 
-            // btnVolverMenu
-            // 
-            this.btnVolverMenu.Location = new System.Drawing.Point(36, 497);
-            this.btnVolverMenu.Name = "btnVolverMenu";
-            this.btnVolverMenu.Size = new System.Drawing.Size(179, 31);
-            this.btnVolverMenu.TabIndex = 15;
-            this.btnVolverMenu.Text = "Menu Principal";
-            this.btnVolverMenu.UseVisualStyleBackColor = true;
-            this.btnVolverMenu.Click += new System.EventHandler(this.btnVolverMenu_Click);
-            // 
-            // txtFiltroNombre
-            // 
-            this.txtFiltroNombre.Location = new System.Drawing.Point(258, 95);
-            this.txtFiltroNombre.Name = "txtFiltroNombre";
-            this.txtFiltroNombre.Size = new System.Drawing.Size(170, 20);
-            this.txtFiltroNombre.TabIndex = 3;
-            this.txtFiltroNombre.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // cmbFiltroPerfil
-            // 
-            this.cmbFiltroPerfil.FormattingEnabled = true;
-            this.cmbFiltroPerfil.Location = new System.Drawing.Point(445, 95);
-            this.cmbFiltroPerfil.Name = "cmbFiltroPerfil";
-            this.cmbFiltroPerfil.Size = new System.Drawing.Size(86, 21);
-            this.cmbFiltroPerfil.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(255, 75);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 13);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Nombre, usuario o mail:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(442, 75);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 13);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Perfil";
             // 
             // colIDUsr
             // 
@@ -304,12 +236,85 @@
             this.PswdCol.Visible = false;
             this.PswdCol.Width = 80;
             // 
+            // cmbBoxPrfls
+            // 
+            this.cmbBoxPrfls.FormattingEnabled = true;
+            this.cmbBoxPrfls.Location = new System.Drawing.Point(576, 398);
+            this.cmbBoxPrfls.Name = "cmbBoxPrfls";
+            this.cmbBoxPrfls.Size = new System.Drawing.Size(128, 21);
+            this.cmbBoxPrfls.TabIndex = 10;
+            // 
+            // lblIdUsr
+            // 
+            this.lblIdUsr.AutoSize = true;
+            this.lblIdUsr.Location = new System.Drawing.Point(176, 378);
+            this.lblIdUsr.Name = "lblIdUsr";
+            this.lblIdUsr.Size = new System.Drawing.Size(75, 13);
+            this.lblIdUsr.TabIndex = 15;
+            this.lblIdUsr.Text = "Id del Usuario:";
+            this.lblIdUsr.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(268, 378);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(0, 13);
+            this.lblId.TabIndex = 16;
+            // 
+            // btnVolverMenu
+            // 
+            this.btnVolverMenu.Location = new System.Drawing.Point(36, 497);
+            this.btnVolverMenu.Name = "btnVolverMenu";
+            this.btnVolverMenu.Size = new System.Drawing.Size(179, 31);
+            this.btnVolverMenu.TabIndex = 18;
+            this.btnVolverMenu.Text = "Menu Principal";
+            this.btnVolverMenu.UseVisualStyleBackColor = true;
+            this.btnVolverMenu.Click += new System.EventHandler(this.btnVolverMenu_Click);
+            // 
+            // txtFiltroNombre
+            // 
+            this.txtFiltroNombre.Location = new System.Drawing.Point(205, 95);
+            this.txtFiltroNombre.Name = "txtFiltroNombre";
+            this.txtFiltroNombre.Size = new System.Drawing.Size(170, 20);
+            this.txtFiltroNombre.TabIndex = 4;
+            this.txtFiltroNombre.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // cmbFiltroPerfil
+            // 
+            this.cmbFiltroPerfil.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cmbFiltroPerfil.FormattingEnabled = true;
+            this.cmbFiltroPerfil.Location = new System.Drawing.Point(392, 95);
+            this.cmbFiltroPerfil.Name = "cmbFiltroPerfil";
+            this.cmbFiltroPerfil.Size = new System.Drawing.Size(86, 21);
+            this.cmbFiltroPerfil.TabIndex = 5;
+            this.cmbFiltroPerfil.SelectedIndexChanged += new System.EventHandler(this.cmbFiltroPerfil_SelectedIndexChanged);
+            // 
+            // lblFiltro
+            // 
+            this.lblFiltro.AutoSize = true;
+            this.lblFiltro.Location = new System.Drawing.Point(202, 75);
+            this.lblFiltro.Name = "lblFiltro";
+            this.lblFiltro.Size = new System.Drawing.Size(117, 13);
+            this.lblFiltro.TabIndex = 21;
+            this.lblFiltro.Text = "Nombre, usuario o mail:";
+            this.lblFiltro.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // lblPerfil
+            // 
+            this.lblPerfil.AutoSize = true;
+            this.lblPerfil.Location = new System.Drawing.Point(389, 75);
+            this.lblPerfil.Name = "lblPerfil";
+            this.lblPerfil.Size = new System.Drawing.Size(30, 13);
+            this.lblPerfil.TabIndex = 22;
+            this.lblPerfil.Text = "Perfil";
+            // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(609, 95);
+            this.btnLimpiar.Location = new System.Drawing.Point(556, 95);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(51, 23);
-            this.btnLimpiar.TabIndex = 6;
+            this.btnLimpiar.TabIndex = 7;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
@@ -319,7 +324,7 @@
             this.txtNombre.Location = new System.Drawing.Point(442, 451);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(128, 20);
-            this.txtNombre.TabIndex = 10;
+            this.txtNombre.TabIndex = 12;
             // 
             // lblNombre
             // 
@@ -327,7 +332,7 @@
             this.lblNombre.Location = new System.Drawing.Point(442, 431);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
-            this.lblNombre.TabIndex = 24;
+            this.lblNombre.TabIndex = 10;
             this.lblNombre.Text = "Nombre";
             // 
             // txtApellido
@@ -335,7 +340,7 @@
             this.txtApellido.Location = new System.Drawing.Point(584, 451);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(120, 20);
-            this.txtApellido.TabIndex = 11;
+            this.txtApellido.TabIndex = 13;
             // 
             // lblApellido
             // 
@@ -365,10 +370,10 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(552, 95);
+            this.btnBuscar.Location = new System.Drawing.Point(499, 95);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(51, 23);
-            this.btnBuscar.TabIndex = 5;
+            this.btnBuscar.TabIndex = 6;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -378,7 +383,37 @@
             this.txtMail.Location = new System.Drawing.Point(179, 451);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(193, 20);
-            this.txtMail.TabIndex = 12;
+            this.txtMail.TabIndex = 11;
+            // 
+            // btnRestaurar
+            // 
+            this.btnRestaurar.Location = new System.Drawing.Point(10, 320);
+            this.btnRestaurar.Name = "btnRestaurar";
+            this.btnRestaurar.Size = new System.Drawing.Size(150, 30);
+            this.btnRestaurar.TabIndex = 3;
+            this.btnRestaurar.Text = "Restaurar Usuarios";
+            this.btnRestaurar.UseVisualStyleBackColor = true;
+            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
+            // 
+            // btnRestaurarSeleccion
+            // 
+            this.btnRestaurarSeleccion.Location = new System.Drawing.Point(605, 394);
+            this.btnRestaurarSeleccion.Name = "btnRestaurarSeleccion";
+            this.btnRestaurarSeleccion.Size = new System.Drawing.Size(150, 25);
+            this.btnRestaurarSeleccion.TabIndex = 17;
+            this.btnRestaurarSeleccion.Text = "Restaurar";
+            this.btnRestaurarSeleccion.UseVisualStyleBackColor = true;
+            this.btnRestaurarSeleccion.Click += new System.EventHandler(this.btnRestaurarSeleccion_Click);
+            // 
+            // btnCancelarRest
+            // 
+            this.btnCancelarRest.Location = new System.Drawing.Point(431, 395);
+            this.btnCancelarRest.Name = "btnCancelarRest";
+            this.btnCancelarRest.Size = new System.Drawing.Size(150, 25);
+            this.btnCancelarRest.TabIndex = 16;
+            this.btnCancelarRest.Text = "Cancelar";
+            this.btnCancelarRest.UseVisualStyleBackColor = true;
+            this.btnCancelarRest.Click += new System.EventHandler(this.btnCancelarRest_Click);
             // 
             // ABMCUsrsForm
             // 
@@ -386,6 +421,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.btnCancelarRest);
+            this.Controls.Add(this.btnRestaurarSeleccion);
+            this.Controls.Add(this.btnRestaurar);
             this.Controls.Add(this.txtMail);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblMail);
@@ -395,8 +433,8 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblPerfil);
+            this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.cmbFiltroPerfil);
             this.Controls.Add(this.txtFiltroNombre);
             this.Controls.Add(this.btnVolverMenu);
@@ -445,8 +483,8 @@
         private System.Windows.Forms.Button btnVolverMenu;
         private System.Windows.Forms.TextBox txtFiltroNombre;
         private System.Windows.Forms.ComboBox cmbFiltroPerfil;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblFiltro;
+        private System.Windows.Forms.Label lblPerfil;
         private System.Windows.Forms.DataGridViewTextBoxColumn colApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIDUsr;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNmbreUsr;
@@ -464,5 +502,8 @@
         private System.Windows.Forms.Label lblMail;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtMail;
+        private System.Windows.Forms.Button btnRestaurar;
+        private System.Windows.Forms.Button btnRestaurarSeleccion;
+        private System.Windows.Forms.Button btnCancelarRest;
     }
 }

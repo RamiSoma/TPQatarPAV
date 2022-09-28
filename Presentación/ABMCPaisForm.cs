@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPQatarPAVI.CapaServicios;
+using TPQatarPAVI.Entidades;
 
 namespace TPQatarPAVI.Presentación
 {
@@ -43,6 +44,22 @@ namespace TPQatarPAVI.Presentación
                                 tabla.Rows[i]["id_Grupo"]);
             }
         }
+        private void HabilitarABMC(bool v)
+        {
+            btnAgregarPais.Visible = v;
+            btnEliminarPais.Visible = v;
+            btnModificarPais.Visible = v;
+            btnRestaurar.Visible = v;
+            btnRestaurarSeleccion.Visible = !v;
+            btnCancelarRest.Visible = !v;
+            lblNomFiltro.Visible = v;
+            txtFiltroNombre.Visible = v;
+            cmbContinenteFiltro.Visible = v;
+            btnBuscarPrfl.Visible = v;
+            btnLimpiarFiltro.Visible = v;
+            lblContFiltro.Visible = v;
+        
+        }
         private void HabilitarEdicion(bool v)
         {
             lblNombre.Visible= v;
@@ -53,6 +70,8 @@ namespace TPQatarPAVI.Presentación
             cmbBoxContinente.Visible= v;
             btnGuardar.Visible = v;
             btnCancelar.Visible = v;
+            lblGrupo.Visible= v;
+            cmbBoxGrupo.Visible= v;
         }
 
         private void btnAgregarPais_Click(object sender, EventArgs e)
@@ -94,7 +113,7 @@ namespace TPQatarPAVI.Presentación
             combo.DataSource = tabla;
             combo.DisplayMember = tabla.Columns[1].ColumnName;
             combo.ValueMember = tabla.Columns[0].ColumnName;
-            combo.SelectedIndex = -1;
+            combo.SelectedIndex = 0;
             combo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
@@ -136,7 +155,7 @@ namespace TPQatarPAVI.Presentación
                         {
                             pais.modificarPais(txtNombre.Text, cmbBoxContinente.Text, txtRanking.Text, cmbBoxGrupo.Text);
                         }
-                        btnActualizar.Text = "ACTUALIZAR";
+                        CargarGrilla(dGridPaises, pais.traerTodos(txtFiltroNombre.Text, cmbContinenteFiltro.Text));
                     }
                 }
             }
@@ -158,7 +177,7 @@ namespace TPQatarPAVI.Presentación
             if (rta == DialogResult.Yes)
             {
                 pais.eliminarUsr(idPais);
-                btnActualizar.Text = "ACTUALIZAR";
+                CargarGrilla(dGridPaises, pais.traerTodos(txtFiltroNombre.Text, cmbContinenteFiltro.Text));
             }
         }
         private void CargarPais()
@@ -177,10 +196,30 @@ namespace TPQatarPAVI.Presentación
             txtNombre.Enabled = false;
         }
 
-        private void btnActualizar_Click(object sender, EventArgs e)
+       
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
+            HabilitarEdicion(false);
+        }
+
+        private void btnRestaurar_Click(object sender, EventArgs e)
+        {
+            CargarGrilla(dGridPaises, pais.traerEliminados());
+            HabilitarABMC(false);
+        }
+
+        private void btnRestaurarSeleccion_Click(object sender, EventArgs e)
+        {
+
+            HabilitarABMC(true);
+            CargarPais();
+            pais.recuperarPais(txtNombre.Text);
             CargarGrilla(dGridPaises, pais.traerTodos(txtFiltroNombre.Text, cmbContinenteFiltro.Text));
-            btnActualizar.Text = "Actualizar";
+        }
+
+        private void btnCancelarRest_Click(object sender, EventArgs e)
+        {
+            HabilitarABMC(true);
         }
     }
 }

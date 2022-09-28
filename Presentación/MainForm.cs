@@ -24,14 +24,8 @@ namespace TPQatarPAVI.Presentación
 
         }
 
+       
         
-
-        
-
-        private void btnCerrarSesion_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
 
         private void btnCrearPartido_Click(object sender, EventArgs e)
         {
@@ -64,6 +58,12 @@ namespace TPQatarPAVI.Presentación
         {
             ABMCPaisForm abmcPais = new ABMCPaisForm();
             abmcPais.Show();
+        }
+
+        private void btnCerrarSesion_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+
         }
     }
 }

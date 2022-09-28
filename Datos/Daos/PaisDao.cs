@@ -58,5 +58,15 @@ namespace TPQatarPAVI.Datos.Daos
             else
                 return true;
         }
+        public DataTable recuperarEliminados()
+        {
+            string consulta = "select p.nombre, c.nombre continente, p.ranking_fifa, p.id_grupo from pais p join continente c on (p.id_continente = c.id) where p.borrado = 1";
+            return DBHelper.obtenerInstancia().consultar(consulta);
+        }
+        public void recuperarPais(string nombre)
+        {
+            string consulta = "Update pais set borrado = 0 where nombre = '" + nombre+"'";
+            DBHelper.obtenerInstancia().consultar(consulta);
+        }
     }
 }

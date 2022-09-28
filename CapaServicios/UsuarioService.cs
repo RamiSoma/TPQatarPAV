@@ -36,5 +36,17 @@ namespace TPQatarPAVI.CapaServicios
         {
             usrDao.eliminarUsr(id);
         }
+        public bool validar(string mail)
+        {
+            return usrDao.validar(mail);
+        }
+        public DataTable traerEliminados()
+        {
+            return usrDao.recuperarEliminados();            
+        }
+        public void recuperarUsr(string id)
+        {
+            usrDao.recuperarUsr(id);
+        }
     }
 }

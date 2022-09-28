@@ -63,9 +63,59 @@ namespace TPQatarPAVI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _000_329x9gd_jpg_ {
+            get {
+                object obj = ResourceManager.GetObject("000-329x9gd-jpg.", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _20220927_175014 {
+            get {
+                object obj = ResourceManager.GetObject("20220927_175014", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap f850x638_3217_80706_5050 {
+            get {
+                object obj = ResourceManager.GetObject("f850x638-3217_80706_5050", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap f850x638_3217_80706_50501 {
+            get {
+                object obj = ResourceManager.GetObject("f850x638-3217_80706_50501", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LOGO_QATAR_2022_6 {
             get {
                 object obj = ResourceManager.GetObject("LOGO-QATAR-2022-6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_20220928_011601_943 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot_20220928-011601-943", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

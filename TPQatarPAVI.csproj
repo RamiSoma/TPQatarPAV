@@ -131,5 +131,20 @@
   <ItemGroup>
     <None Include="Imagenes\LOGO-QATAR-2022-6.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f850x638-3217_80706_5050.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\000-329x9gd-jpg..jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f850x638-3217_80706_50501.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20220927_175014.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot_20220928-011601-943.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

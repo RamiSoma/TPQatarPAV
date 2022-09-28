@@ -40,10 +40,12 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
             this.label4.Location = new System.Drawing.Point(90, 90);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 15);
+            this.label4.Size = new System.Drawing.Size(118, 18);
             this.label4.TabIndex = 0;
             this.label4.Text = "Usuario o mail";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -51,24 +53,26 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.Control;
             this.label5.Location = new System.Drawing.Point(90, 150);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 15);
+            this.label5.Size = new System.Drawing.Size(95, 18);
             this.label5.TabIndex = 1;
             this.label5.Text = "Contraseña";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // txtUsr
             // 
-            this.txtUsr.Location = new System.Drawing.Point(90, 110);
+            this.txtUsr.Location = new System.Drawing.Point(90, 111);
             this.txtUsr.Name = "txtUsr";
             this.txtUsr.Size = new System.Drawing.Size(167, 20);
             this.txtUsr.TabIndex = 2;
             // 
             // txtPswd
             // 
-            this.txtPswd.Location = new System.Drawing.Point(90, 170);
+            this.txtPswd.Location = new System.Drawing.Point(90, 171);
             this.txtPswd.Name = "txtPswd";
             this.txtPswd.Size = new System.Drawing.Size(167, 20);
             this.txtPswd.TabIndex = 3;
@@ -88,10 +92,12 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(90, 30);
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(86, 34);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(167, 20);
+            this.label6.Size = new System.Drawing.Size(180, 22);
             this.label6.TabIndex = 5;
             this.label6.Text = "INICIO DE SESIÓN";
             this.label6.Click += new System.EventHandler(this.label6_Click);
@@ -109,6 +115,7 @@
             // 
             // LoginForm
             // 
+            this.BackgroundImage = global::TPQatarPAVI.Properties.Resources.Screenshot_20220928_011601_943;
             this.ClientSize = new System.Drawing.Size(334, 311);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.label6);

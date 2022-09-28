@@ -33,5 +33,13 @@ namespace TPQatarPAVI.CapaServicios
         {
             return paisDao.validar(nombre, ranking);
         }
+        public DataTable traerEliminados()
+        {
+            return paisDao.recuperarEliminados();
+        }
+        public void recuperarPais(string nombre)
+        {
+            paisDao.recuperarPais(nombre);
+        }
     }
 }

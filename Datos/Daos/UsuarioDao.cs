@@ -54,5 +54,25 @@ namespace TPQatarPAVI.Datos.Daos
             string consulta = "Update usuario set borrado = 1 where id =" + id;
             DBHelper.obtenerInstancia().consultar(consulta);
         }
+        public bool validar(string mail)
+        {
+            string consulta = "SELECT * FROM Usuario WHERE mail='"+ mail + "'";
+            if (DBHelper.obtenerInstancia().consultar(consulta).Rows.Count == 0)
+                return false;
+            else
+                return true;
+        }
+        public DataTable recuperarEliminados()
+        {
+            string consulta = "select u.id,u.nombre,u.apellido,u.mail,u.usuario,p.rol,u.contraseña from usuario u, perfil p " +
+                                     "where (p.id = u.rol_id) and u.borrado = 1";
+
+            return DBHelper.obtenerInstancia().consultar(consulta);
+        }
+        public void recuperarUsr(string id)
+        {
+            string consulta = "Update usuario set borrado = 0 where id =" + id;
+            DBHelper.obtenerInstancia().consultar(consulta);
+        }
     }
 }

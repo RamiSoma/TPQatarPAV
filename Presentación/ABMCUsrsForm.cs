@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPQatarPAVI.CapaServicios;
+using TPQatarPAVI.Entidades;
 
 namespace TPQatarPAVI.Presentación
 {
@@ -25,6 +26,8 @@ namespace TPQatarPAVI.Presentación
         {
             InitializeComponent();
             txtMail.Visible = false;
+            btnRestaurarSeleccion.Visible = false;
+            btnCancelarRest.Visible = false;
         }
         private void ABMCUsrsForm_Load(object sender, EventArgs e)
         {
@@ -39,7 +42,7 @@ namespace TPQatarPAVI.Presentación
             combo.DataSource = tabla;
             combo.DisplayMember = tabla.Columns[1].ColumnName;
             combo.ValueMember = tabla.Columns[0].ColumnName;
-            combo.SelectedIndex = -1;
+            combo.SelectedIndex = 0;
             combo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
         private void CargarGrilla(DataGridView grilla, DataTable tabla)
@@ -55,6 +58,21 @@ namespace TPQatarPAVI.Presentación
                                 tabla.Rows[i]["rol"],
                                 tabla.Rows[i]["contraseña"]);
             }
+        }
+        private void HabilitarABMC(bool v)
+        {
+            btnAgregarUsuario.Visible = v;
+            btnEliminarUsuario.Visible = v;
+            btnModificarUsuario.Visible = v;
+            btnRestaurar.Visible = v;
+            btnRestaurarSeleccion.Visible = !v;
+            btnCancelarRest.Visible = !v;
+            cmbFiltroPerfil.Visible = v;
+            lblFiltro.Visible = v;
+            txtFiltroNombre.Visible = v;
+            lblPerfil.Visible = v;
+            btnLimpiar.Visible = v; 
+            btnBuscar.Visible = v;  
         }
         private void HabilitarEdicion(bool v)
         {
@@ -72,18 +90,15 @@ namespace TPQatarPAVI.Presentación
             lblApellido.Visible = v; 
             lblNombre.Visible = v;
             txtNombre.Visible = v;
-            lblMail.Visible = v;
+            lblMail.Visible = false;
             lblMailFijo.Visible = v;
-
-
-
         }
         private void CargarUsr()
         {
             lblId.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[0].Value);
             txtNombre.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[1].Value);
             txtApellido.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[2].Value);
-            lblMail.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[3].Value);
+            txtMail.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[3].Value);
             txtUsuario.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[4].Value);
             txtPswd.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[6].Value);
             cmbBoxPrfls.Text = Convert.ToString(dGridUsrs.SelectedRows[0].Cells[5].Value);
@@ -100,35 +115,44 @@ namespace TPQatarPAVI.Presentación
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (txtUsuario.Text == "" ||txtPswd.Text == "")
+            if (txtUsuario.Text == "" || txtPswd.Text == "") 
             {
                 MessageBox.Show("Debe llenar todos los campos","Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                HabilitarEdicion(false);
-                if (modo == Modo.Alta)
+                if(usr.validar(txtMail.Text))
                 {
-                    usr.crearUsr(txtNombre.Text, txtApellido.Text,txtMail.Text, txtUsuario.Text, txtPswd.Text, cmbBoxPrfls.Text);
-                    txtMail.Visible = false;
+                    MessageBox.Show("Mail ya registrado...", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                if (modo == Modo.Modificacion)
+                else
                 {
-                    usr.modificarUsr(lblId.Text, txtNombre.Text, txtApellido.Text, txtUsuario.Text, txtPswd.Text, cmbBoxPrfls.Text);
-                }
-                CargarGrilla(dGridUsrs, usr.traerTodos(txtFiltroNombre.Text, cmbFiltroPerfil.Text));
+                    HabilitarEdicion(false);
+                    if (modo == Modo.Alta)
+                    {
+                        usr.crearUsr(txtNombre.Text, txtApellido.Text, txtMail.Text, txtUsuario.Text, txtPswd.Text, cmbBoxPrfls.Text);
+                        txtMail.Visible = false;
+                    }
+                    if (modo == Modo.Modificacion)
+                    {
+                        usr.modificarUsr(lblId.Text, txtNombre.Text, txtApellido.Text, txtUsuario.Text, txtPswd.Text, cmbBoxPrfls.Text);
+                    }
+                    CargarGrilla(dGridUsrs, usr.traerTodos(txtFiltroNombre.Text, cmbFiltroPerfil.Text));
+                } 
             }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             HabilitarEdicion(false);
+            txtMail.Visible = false;
         }
 
         private void btnModificarUsuario_Click(object sender, EventArgs e)
         {
             HabilitarEdicion(true);
             CargarUsr();
+            txtMail.Enabled = false;
             modo = Modo.Modificacion;
         }
 
@@ -153,6 +177,7 @@ namespace TPQatarPAVI.Presentación
             if (rta == DialogResult.Yes)
             {
                 usr.eliminarUsr(idUsr);
+                CargarGrilla(dGridUsrs, usr.traerTodos(txtFiltroNombre.Text, cmbFiltroPerfil.Text));
             }
         }
 
@@ -183,7 +208,35 @@ namespace TPQatarPAVI.Presentación
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            dGridUsrs.DataSource = null;
+            dGridUsrs.Rows.Clear();
+        }
 
+
+        private void cmbFiltroPerfil_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRestaurar_Click(object sender, EventArgs e)
+        {
+            CargarGrilla(dGridUsrs, usr.traerEliminados());
+            HabilitarABMC(false); 
+        }
+
+        private void btnRestaurarSeleccion_Click(object sender, EventArgs e)
+        {
+            HabilitarABMC(true);
+            CargarUsr();
+            usr.recuperarUsr(lblId.Text);
+            CargarGrilla(dGridUsrs, usr.traerTodos(txtFiltroNombre.Text, cmbFiltroPerfil.Text));
+            
+            
+        }
+
+        private void btnCancelarRest_Click(object sender, EventArgs e)
+        {
+            HabilitarABMC(true);
         }
     }
 }
