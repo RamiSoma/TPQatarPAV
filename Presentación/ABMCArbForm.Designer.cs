@@ -212,7 +212,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(368, 384);
+            this.txtNombre.Location = new System.Drawing.Point(214, 380);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 32;
@@ -220,7 +220,7 @@
             // lblNomArb
             // 
             this.lblNomArb.AutoSize = true;
-            this.lblNomArb.Location = new System.Drawing.Point(365, 368);
+            this.lblNomArb.Location = new System.Drawing.Point(211, 364);
             this.lblNomArb.Name = "lblNomArb";
             this.lblNomArb.Size = new System.Drawing.Size(44, 13);
             this.lblNomArb.TabIndex = 31;
@@ -228,7 +228,7 @@
             // 
             // txtApeArb
             // 
-            this.txtApeArb.Location = new System.Drawing.Point(487, 384);
+            this.txtApeArb.Location = new System.Drawing.Point(333, 380);
             this.txtApeArb.Name = "txtApeArb";
             this.txtApeArb.Size = new System.Drawing.Size(100, 20);
             this.txtApeArb.TabIndex = 34;
@@ -236,7 +236,7 @@
             // lblApeArb
             // 
             this.lblApeArb.AutoSize = true;
-            this.lblApeArb.Location = new System.Drawing.Point(485, 368);
+            this.lblApeArb.Location = new System.Drawing.Point(331, 364);
             this.lblApeArb.Name = "lblApeArb";
             this.lblApeArb.Size = new System.Drawing.Size(44, 13);
             this.lblApeArb.TabIndex = 33;
@@ -245,7 +245,7 @@
             // lblPais
             // 
             this.lblPais.AutoSize = true;
-            this.lblPais.Location = new System.Drawing.Point(605, 368);
+            this.lblPais.Location = new System.Drawing.Point(451, 364);
             this.lblPais.Name = "lblPais";
             this.lblPais.Size = new System.Drawing.Size(29, 13);
             this.lblPais.TabIndex = 35;
@@ -254,7 +254,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(365, 414);
+            this.label1.Location = new System.Drawing.Point(211, 410);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 40;
@@ -262,7 +262,7 @@
             // 
             // txtNumDoc
             // 
-            this.txtNumDoc.Location = new System.Drawing.Point(487, 431);
+            this.txtNumDoc.Location = new System.Drawing.Point(333, 427);
             this.txtNumDoc.Name = "txtNumDoc";
             this.txtNumDoc.Size = new System.Drawing.Size(114, 20);
             this.txtNumDoc.TabIndex = 42;
@@ -270,7 +270,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(484, 414);
+            this.label2.Location = new System.Drawing.Point(330, 410);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 41;
@@ -278,7 +278,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(368, 468);
+            this.btnCancelar.Location = new System.Drawing.Point(463, 427);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 43;
@@ -287,7 +287,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(488, 468);
+            this.btnGuardar.Location = new System.Drawing.Point(544, 427);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 44;
@@ -296,7 +296,7 @@
             // 
             // btnCancelarRest
             // 
-            this.btnCancelarRest.Location = new System.Drawing.Point(212, 381);
+            this.btnCancelarRest.Location = new System.Drawing.Point(388, 396);
             this.btnCancelarRest.Name = "btnCancelarRest";
             this.btnCancelarRest.Size = new System.Drawing.Size(150, 25);
             this.btnCancelarRest.TabIndex = 45;
@@ -305,7 +305,7 @@
             // 
             // btnRestaurarSeleccion
             // 
-            this.btnRestaurarSeleccion.Location = new System.Drawing.Point(212, 426);
+            this.btnRestaurarSeleccion.Location = new System.Drawing.Point(544, 398);
             this.btnRestaurarSeleccion.Name = "btnRestaurarSeleccion";
             this.btnRestaurarSeleccion.Size = new System.Drawing.Size(150, 25);
             this.btnRestaurarSeleccion.TabIndex = 46;
@@ -315,7 +315,7 @@
             // lblTipoDoc
             // 
             this.lblTipoDoc.AutoSize = true;
-            this.lblTipoDoc.Location = new System.Drawing.Point(362, 434);
+            this.lblTipoDoc.Location = new System.Drawing.Point(208, 430);
             this.lblTipoDoc.Name = "lblTipoDoc";
             this.lblTipoDoc.Size = new System.Drawing.Size(164, 13);
             this.lblTipoDoc.TabIndex = 47;
@@ -324,7 +324,7 @@
             // cmbPaisMod
             // 
             this.cmbPaisMod.FormattingEnabled = true;
-            this.cmbPaisMod.Location = new System.Drawing.Point(608, 385);
+            this.cmbPaisMod.Location = new System.Drawing.Point(454, 381);
             this.cmbPaisMod.Name = "cmbPaisMod";
             this.cmbPaisMod.Size = new System.Drawing.Size(121, 21);
             this.cmbPaisMod.TabIndex = 48;
