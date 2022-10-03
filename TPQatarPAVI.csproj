@@ -46,12 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CapaServicios\TipoDocService.cs" />
+    <Compile Include="CapaServicios\JugadorService.cs" />
     <Compile Include="CapaServicios\ContinenteService.cs" />
     <Compile Include="CapaServicios\GrupoService.cs" />
     <Compile Include="CapaServicios\PaisService.cs" />
     <Compile Include="CapaServicios\PerfilService.cs" />
     <Compile Include="CapaServicios\RondaService.cs" />
     <Compile Include="CapaServicios\UsuarioService.cs" />
+    <Compile Include="Datos\Daos\TipoDocDao.cs" />
+    <Compile Include="Datos\Daos\JugadorDao.cs" />
     <Compile Include="Datos\Daos\ContinenteDao.cs" />
     <Compile Include="Datos\Daos\GrupoDao.cs" />
     <Compile Include="Datos\Daos\PaisDao.cs" />
@@ -61,6 +65,8 @@
     <Compile Include="Datos\DBHelper.cs" />
     <Compile Include="Datos\Interfaces\IContinente.cs" />
     <Compile Include="Datos\Interfaces\IGrupo.cs" />
+    <Compile Include="Datos\Interfaces\IJugador.cs" />
+    <Compile Include="Datos\Interfaces\ITipoDoc.cs" />
     <Compile Include="Datos\Interfaces\IPais.cs" />
     <Compile Include="Datos\Interfaces\IPerfil.cs" />
     <Compile Include="Datos\Interfaces\IRonda.cs" />
