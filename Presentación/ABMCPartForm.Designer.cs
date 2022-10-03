@@ -41,7 +41,7 @@
             this.Arbitro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRondaFiltro = new System.Windows.Forms.Label();
-            this.cmbFiltroTipoDoc = new System.Windows.Forms.ComboBox();
+            this.cmbFiltroRonda = new System.Windows.Forms.ComboBox();
             this.btnRestaurar = new System.Windows.Forms.Button();
             this.btnVolverMenu = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -70,6 +70,8 @@
             this.lblEstadioFIltro = new System.Windows.Forms.Label();
             this.lblArbFiltro = new System.Windows.Forms.Label();
             this.cmbArbtroFiltro = new System.Windows.Forms.ComboBox();
+            this.cmbGrupo = new System.Windows.Forms.ComboBox();
+            this.lblTxtGrupo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dGridPartido)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,14 +171,14 @@
             this.lblRondaFiltro.TabIndex = 62;
             this.lblRondaFiltro.Text = "Ronda";
             // 
-            // cmbFiltroTipoDoc
+            // cmbFiltroRonda
             // 
-            this.cmbFiltroTipoDoc.Cursor = System.Windows.Forms.Cursors.Default;
-            this.cmbFiltroTipoDoc.FormattingEnabled = true;
-            this.cmbFiltroTipoDoc.Location = new System.Drawing.Point(509, 74);
-            this.cmbFiltroTipoDoc.Name = "cmbFiltroTipoDoc";
-            this.cmbFiltroTipoDoc.Size = new System.Drawing.Size(86, 21);
-            this.cmbFiltroTipoDoc.TabIndex = 61;
+            this.cmbFiltroRonda.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cmbFiltroRonda.FormattingEnabled = true;
+            this.cmbFiltroRonda.Location = new System.Drawing.Point(509, 74);
+            this.cmbFiltroRonda.Name = "cmbFiltroRonda";
+            this.cmbFiltroRonda.Size = new System.Drawing.Size(86, 21);
+            this.cmbFiltroRonda.TabIndex = 61;
             // 
             // btnRestaurar
             // 
@@ -267,6 +269,7 @@
             this.btnAgregar.TabIndex = 51;
             this.btnAgregar.Text = "Agregar Partido";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // cmbPaisVisitante
             // 
@@ -370,6 +373,7 @@
             this.cmbRonda.Name = "cmbRonda";
             this.cmbRonda.Size = new System.Drawing.Size(83, 21);
             this.cmbRonda.TabIndex = 99;
+            this.cmbRonda.SelectedIndexChanged += new System.EventHandler(this.cmbRonda_SelectedIndexChanged);
             // 
             // lblRonda
             // 
@@ -423,11 +427,30 @@
             this.cmbArbtroFiltro.Size = new System.Drawing.Size(86, 21);
             this.cmbArbtroFiltro.TabIndex = 101;
             // 
+            // cmbGrupo
+            // 
+            this.cmbGrupo.FormattingEnabled = true;
+            this.cmbGrupo.Location = new System.Drawing.Point(251, 430);
+            this.cmbGrupo.Name = "cmbGrupo";
+            this.cmbGrupo.Size = new System.Drawing.Size(83, 21);
+            this.cmbGrupo.TabIndex = 106;
+            // 
+            // lblTxtGrupo
+            // 
+            this.lblTxtGrupo.AutoSize = true;
+            this.lblTxtGrupo.Location = new System.Drawing.Point(248, 413);
+            this.lblTxtGrupo.Name = "lblTxtGrupo";
+            this.lblTxtGrupo.Size = new System.Drawing.Size(36, 13);
+            this.lblTxtGrupo.TabIndex = 105;
+            this.lblTxtGrupo.Text = "Grupo";
+            // 
             // ABMCPartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.cmbGrupo);
+            this.Controls.Add(this.lblTxtGrupo);
             this.Controls.Add(this.cmbEstadioFiltro);
             this.Controls.Add(this.lblEstadioFIltro);
             this.Controls.Add(this.lblArbFiltro);
@@ -452,7 +475,7 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.dGridPartido);
             this.Controls.Add(this.lblRondaFiltro);
-            this.Controls.Add(this.cmbFiltroTipoDoc);
+            this.Controls.Add(this.cmbFiltroRonda);
             this.Controls.Add(this.btnRestaurar);
             this.Controls.Add(this.btnVolverMenu);
             this.Controls.Add(this.btnLimpiar);
@@ -488,7 +511,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Arbitro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estadio;
         private System.Windows.Forms.Label lblRondaFiltro;
-        private System.Windows.Forms.ComboBox cmbFiltroTipoDoc;
+        private System.Windows.Forms.ComboBox cmbFiltroRonda;
         private System.Windows.Forms.Button btnRestaurar;
         private System.Windows.Forms.Button btnVolverMenu;
         private System.Windows.Forms.Button btnLimpiar;
@@ -517,5 +540,7 @@
         private System.Windows.Forms.Label lblEstadioFIltro;
         private System.Windows.Forms.Label lblArbFiltro;
         private System.Windows.Forms.ComboBox cmbArbtroFiltro;
+        private System.Windows.Forms.ComboBox cmbGrupo;
+        private System.Windows.Forms.Label lblTxtGrupo;
     }
 }

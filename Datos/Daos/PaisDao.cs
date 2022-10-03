@@ -12,16 +12,7 @@ namespace TPQatarPAVI.Datos.Daos
     {
         public DataTable RecuperarTodos(string fNombre, string fContinente)
         {
-            int idContinente;
-            if (fContinente == "")
-            {
-                idContinente = 1;
-            }
-            else
-            {
-                idContinente = obtenerNombreContId(fContinente);
-            }
-            string consulta = "select p.nombre, c.nombre continente, p.ranking_fifa, p.id_grupo from pais p join continente c on (p.id_continente = c.id) where p.borrado = 0 and p.nombre like '%"+fNombre+"%' and p.id_continente = "+idContinente;
+            string consulta = "select p.nombre, c.nombre continente, p.ranking_fifa, p.id_grupo from pais p join continente c on (p.id_continente = c.id) where p.borrado = 0 and p.nombre like '%"+fNombre+"%' and c.nombre like '%"+fContinente+"%'";
 
             return DBHelper.obtenerInstancia().consultar(consulta);
         }

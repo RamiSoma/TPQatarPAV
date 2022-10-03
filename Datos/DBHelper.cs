@@ -19,8 +19,8 @@ namespace TPQatarPAVI.Datos
         {
             conexion = new SqlConnection();
             comando = new SqlCommand();
-            string_conexion = "Data Source=FRANFERRAROPC;Initial Catalog=TPQatarPAV;Integrated Security=True";
-            //string_conexion = "Data Source=RAMIRO-PC\\SQLSERVERPRUEBA;Initial Catalog=TPQatarPAV;Integrated Security=True";
+            //string_conexion = "Data Source=FRANFERRAROPC;Initial Catalog=TPQatarPAV;Integrated Security=True";
+            string_conexion = "Data Source=RAMIRO-PC\\SQLSERVERPRUEBA;Initial Catalog=TPQatarPAV;Integrated Security=True";
         }
 
         public static DBHelper obtenerInstancia()
