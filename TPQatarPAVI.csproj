@@ -73,6 +73,12 @@
     <Compile Include="Presentación\ABMCArbForm.designer.cs">
       <DependentUpon>ABMCArbForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentación\ABMCJugsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentación\ABMCJugsForm.designer.cs">
+      <DependentUpon>ABMCJugsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentación\ABMCUsrsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,12 @@
     </Compile>
     <Compile Include="Presentación\ABMCPaisForm.Designer.cs">
       <DependentUpon>ABMCPaisForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentación\ABMCPartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentación\ABMCPartForm.Designer.cs">
+      <DependentUpon>ABMCPartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentación\LoginForm.cs">
       <SubType>Form</SubType>
@@ -102,11 +114,17 @@
     <EmbeddedResource Include="Presentación\ABMCArbForm.resx">
       <DependentUpon>ABMCArbForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentación\ABMCJugsForm.resx">
+      <DependentUpon>ABMCJugsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentación\ABMCUsrsForm.resx">
       <DependentUpon>ABMCUsrsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentación\ABMCPaisForm.resx">
       <DependentUpon>ABMCPaisForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentación\ABMCPartForm.resx">
+      <DependentUpon>ABMCPartForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentación\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

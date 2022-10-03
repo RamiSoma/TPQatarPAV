@@ -65,5 +65,23 @@ namespace TPQatarPAVI.Presentación
             Application.Exit();
 
         }
+
+        private void jugadoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ABMCJugsForm abmcJugs = new ABMCJugsForm();
+            abmcJugs.Show();
+        }
+
+        private void arbitrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ABMCArbForm abmcArb = new ABMCArbForm();
+            abmcArb.Show();
+        }
+
+        private void btnPartidos_Click(object sender, EventArgs e)
+        {
+            ABMCPartForm abmcPart = new ABMCPartForm();
+            abmcPart.Show();
+        }
     }
 }

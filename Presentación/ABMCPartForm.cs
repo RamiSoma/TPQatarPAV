@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace TPQatarPAVI.Presentación
 {
-    public partial class ABMCArbForm : Form
+    public partial class ABMCPartForm : Form
     {
-        public ABMCArbForm()
+        public ABMCPartForm()
         {
             InitializeComponent();
-        }
-
-        private void ABMCArbForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btnVolverMenu_Click(object sender, EventArgs e)
@@ -27,7 +22,7 @@ namespace TPQatarPAVI.Presentación
             this.Close();
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void ABMCPartForm_Load(object sender, EventArgs e)
         {
 
         }

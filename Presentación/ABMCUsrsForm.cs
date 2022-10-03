@@ -35,6 +35,7 @@ namespace TPQatarPAVI.Presentación
             CargarCombo(cmbBoxPrfls, prfl.traerTodos());
             CargarCombo(cmbFiltroPerfil, prfl.traerTodos());
             HabilitarEdicion(false);
+            HabilitarRestaurar(false);
         }
 
         private void CargarCombo(ComboBox combo, DataTable tabla)
@@ -58,6 +59,11 @@ namespace TPQatarPAVI.Presentación
                                 tabla.Rows[i]["rol"],
                                 tabla.Rows[i]["contraseña"]);
             }
+        }
+        private void HabilitarRestaurar(bool v)
+        {
+            btnCancelarRest.Visible = v;
+            btnRestaurarSeleccion.Visible = v;
         }
         private void HabilitarABMC(bool v)
         {
@@ -221,14 +227,18 @@ namespace TPQatarPAVI.Presentación
         private void btnRestaurar_Click(object sender, EventArgs e)
         {
             CargarGrilla(dGridUsrs, usr.traerEliminados());
-            HabilitarABMC(false); 
+            HabilitarABMC(false);
+            HabilitarRestaurar(true);
+            HabilitarEdicion(false);
         }
 
         private void btnRestaurarSeleccion_Click(object sender, EventArgs e)
         {
             HabilitarABMC(true);
-            CargarUsr();
-            usr.recuperarUsr(lblId.Text);
+            HabilitarEdicion(false);
+            HabilitarRestaurar(false);
+            //CargarUsr();
+            //usr.recuperarUsr(lblId.Text);
             CargarGrilla(dGridUsrs, usr.traerTodos(txtFiltroNombre.Text, cmbFiltroPerfil.Text));
             
             
@@ -237,6 +247,12 @@ namespace TPQatarPAVI.Presentación
         private void btnCancelarRest_Click(object sender, EventArgs e)
         {
             HabilitarABMC(true);
+            HabilitarEdicion(false);
+            HabilitarRestaurar(false);
+            //CargarUsr();
+            //usr.recuperarUsr(lblId.Text);
+            CargarGrilla(dGridUsrs, usr.traerTodos(txtFiltroNombre.Text, cmbFiltroPerfil.Text));
+
         }
     }
 }

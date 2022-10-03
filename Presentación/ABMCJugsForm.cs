@@ -10,14 +10,24 @@ using System.Windows.Forms;
 
 namespace TPQatarPAVI.Presentación
 {
-    public partial class ABMCArbForm : Form
+    public partial class ABMCJugsForm : Form
     {
-        public ABMCArbForm()
+        public ABMCJugsForm()
         {
             InitializeComponent();
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void ABMCArbForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dGridJug_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -27,7 +37,7 @@ namespace TPQatarPAVI.Presentación
             this.Close();
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
 
         }

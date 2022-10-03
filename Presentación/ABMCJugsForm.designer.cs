@@ -1,6 +1,6 @@
 ﻿namespace TPQatarPAVI.Presentación
 {
-    partial class ABMCArbForm
+    partial class ABMCJugsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ABMCArbForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ABMCJugsForm));
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.lblGestArb = new System.Windows.Forms.Label();
-            this.lblFiltroIDArb = new System.Windows.Forms.Label();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.lblGestJug = new System.Windows.Forms.Label();
+            this.lblFiltroNroDoc = new System.Windows.Forms.Label();
             this.txtFiltroDoc = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -40,20 +40,24 @@
             this.btnRestaurar = new System.Windows.Forms.Button();
             this.cmbFiltroTipoDoc = new System.Windows.Forms.ComboBox();
             this.lblTipoDocFiltro = new System.Windows.Forms.Label();
-            this.dGridArb = new System.Windows.Forms.DataGridView();
-            this.NombreArb = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApellidoArb = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaísArb = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoDocArb = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NroDocArb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dGridJug = new System.Windows.Forms.DataGridView();
+            this.NombreJug = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApellidoJug = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaísJug = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NroDocJug = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Goles = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Asistencias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amarillas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rojas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.lblNomArb = new System.Windows.Forms.Label();
-            this.txtApeArb = new System.Windows.Forms.TextBox();
-            this.lblApeArb = new System.Windows.Forms.Label();
+            this.lblNomJug = new System.Windows.Forms.Label();
+            this.txtApeJug = new System.Windows.Forms.TextBox();
+            this.lblApeJug = new System.Windows.Forms.Label();
             this.lblPais = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTipoDocRes = new System.Windows.Forms.Label();
             this.txtNumDoc = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblNroDocRes = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelarRest = new System.Windows.Forms.Button();
@@ -62,46 +66,47 @@
             this.cmbPaisMod = new System.Windows.Forms.ComboBox();
             this.cmbPaisFiltro = new System.Windows.Forms.ComboBox();
             this.lblPaisFiltro = new System.Windows.Forms.Label();
-            this.btnModificar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dGridArb)).BeginInit();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dGridJug)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(25, 134);
+            this.btnAgregar.Location = new System.Drawing.Point(25, 377);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(150, 32);
             this.btnAgregar.TabIndex = 1;
-            this.btnAgregar.Text = "Agregar Arbitro";
+            this.btnAgregar.Text = "Agregar Jugador";
             this.btnAgregar.UseVisualStyleBackColor = true;
             // 
-            // btnEliminar
+            // btnModificar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(25, 246);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(150, 32);
-            this.btnEliminar.TabIndex = 3;
-            this.btnEliminar.Text = "Eliminar Arbitro";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnModificar.Location = new System.Drawing.Point(181, 381);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(150, 32);
+            this.btnModificar.TabIndex = 4;
+            this.btnModificar.Text = "Modificar Jugador";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.button3_Click);
             // 
-            // lblGestArb
+            // lblGestJug
             // 
-            this.lblGestArb.AutoSize = true;
-            this.lblGestArb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGestArb.Location = new System.Drawing.Point(260, 26);
-            this.lblGestArb.Name = "lblGestArb";
-            this.lblGestArb.Size = new System.Drawing.Size(243, 24);
-            this.lblGestArb.TabIndex = 7;
-            this.lblGestArb.Text = "GESTION DE ARBITROS";
+            this.lblGestJug.AutoSize = true;
+            this.lblGestJug.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGestJug.Location = new System.Drawing.Point(260, 26);
+            this.lblGestJug.Name = "lblGestJug";
+            this.lblGestJug.Size = new System.Drawing.Size(265, 24);
+            this.lblGestJug.TabIndex = 7;
+            this.lblGestJug.Text = "GESTION DE JUGADORES";
             // 
-            // lblFiltroIDArb
+            // lblFiltroNroDoc
             // 
-            this.lblFiltroIDArb.AutoSize = true;
-            this.lblFiltroIDArb.Location = new System.Drawing.Point(362, 64);
-            this.lblFiltroIDArb.Name = "lblFiltroIDArb";
-            this.lblFiltroIDArb.Size = new System.Drawing.Size(45, 13);
-            this.lblFiltroIDArb.TabIndex = 22;
-            this.lblFiltroIDArb.Text = "N° Doc:";
+            this.lblFiltroNroDoc.AutoSize = true;
+            this.lblFiltroNroDoc.Location = new System.Drawing.Point(362, 64);
+            this.lblFiltroNroDoc.Name = "lblFiltroNroDoc";
+            this.lblFiltroNroDoc.Size = new System.Drawing.Size(45, 13);
+            this.lblFiltroNroDoc.TabIndex = 22;
+            this.lblFiltroNroDoc.Text = "N° Doc:";
             // 
             // txtFiltroDoc
             // 
@@ -140,11 +145,11 @@
             // 
             // btnRestaurar
             // 
-            this.btnRestaurar.Location = new System.Drawing.Point(25, 297);
+            this.btnRestaurar.Location = new System.Drawing.Point(535, 385);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(150, 30);
             this.btnRestaurar.TabIndex = 27;
-            this.btnRestaurar.Text = "Restaurar Arbitro";
+            this.btnRestaurar.Text = "Restaurar Jugador";
             this.btnRestaurar.UseVisualStyleBackColor = true;
             // 
             // cmbFiltroTipoDoc
@@ -165,50 +170,79 @@
             this.lblTipoDocFiltro.TabIndex = 29;
             this.lblTipoDocFiltro.Text = "Tipo Doc";
             // 
-            // dGridArb
+            // dGridJug
             // 
-            this.dGridArb.AllowUserToAddRows = false;
-            this.dGridArb.AllowUserToDeleteRows = false;
-            this.dGridArb.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dGridArb.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGridArb.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NombreArb,
-            this.ApellidoArb,
-            this.PaísArb,
-            this.TipoDocArb,
-            this.NroDocArb});
-            this.dGridArb.Location = new System.Drawing.Point(214, 134);
-            this.dGridArb.Name = "dGridArb";
-            this.dGridArb.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dGridArb.Size = new System.Drawing.Size(494, 222);
-            this.dGridArb.TabIndex = 30;
+            this.dGridJug.AllowUserToAddRows = false;
+            this.dGridJug.AllowUserToDeleteRows = false;
+            this.dGridJug.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dGridJug.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGridJug.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NombreJug,
+            this.ApellidoJug,
+            this.PaísJug,
+            this.TipoDoc,
+            this.NroDocJug,
+            this.Goles,
+            this.Asistencias,
+            this.Amarillas,
+            this.Rojas});
+            this.dGridJug.Location = new System.Drawing.Point(66, 134);
+            this.dGridJug.Name = "dGridJug";
+            this.dGridJug.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dGridJug.Size = new System.Drawing.Size(706, 222);
+            this.dGridJug.TabIndex = 30;
+            this.dGridJug.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGridJug_CellContentClick);
             // 
-            // NombreArb
+            // NombreJug
             // 
-            this.NombreArb.HeaderText = "Nombre";
-            this.NombreArb.Name = "NombreArb";
+            this.NombreJug.HeaderText = "Nombre";
+            this.NombreJug.Name = "NombreJug";
             // 
-            // ApellidoArb
+            // ApellidoJug
             // 
-            this.ApellidoArb.HeaderText = "Apellido";
-            this.ApellidoArb.Name = "ApellidoArb";
+            this.ApellidoJug.HeaderText = "Apellido";
+            this.ApellidoJug.Name = "ApellidoJug";
             // 
-            // PaísArb
+            // PaísJug
             // 
-            this.PaísArb.HeaderText = "País";
-            this.PaísArb.Name = "PaísArb";
-            this.PaísArb.Width = 70;
+            this.PaísJug.HeaderText = "País";
+            this.PaísJug.Name = "PaísJug";
+            this.PaísJug.Width = 70;
             // 
-            // TipoDocArb
+            // TipoDoc
             // 
-            this.TipoDocArb.HeaderText = "TipoDoc";
-            this.TipoDocArb.Name = "TipoDocArb";
-            this.TipoDocArb.Width = 80;
+            this.TipoDoc.HeaderText = "Tipo";
+            this.TipoDoc.Name = "TipoDoc";
+            this.TipoDoc.Width = 40;
             // 
-            // NroDocArb
+            // NroDocJug
             // 
-            this.NroDocArb.HeaderText = "N°Doc";
-            this.NroDocArb.Name = "NroDocArb";
+            this.NroDocJug.HeaderText = "N°Doc";
+            this.NroDocJug.Name = "NroDocJug";
+            // 
+            // Goles
+            // 
+            this.Goles.HeaderText = "Goles";
+            this.Goles.Name = "Goles";
+            this.Goles.Width = 40;
+            // 
+            // Asistencias
+            // 
+            this.Asistencias.HeaderText = "Asistencias";
+            this.Asistencias.Name = "Asistencias";
+            this.Asistencias.Width = 75;
+            // 
+            // Amarillas
+            // 
+            this.Amarillas.HeaderText = "T.Amarillas";
+            this.Amarillas.Name = "Amarillas";
+            this.Amarillas.Width = 75;
+            // 
+            // Rojas
+            // 
+            this.Rojas.HeaderText = "T.Rojas";
+            this.Rojas.Name = "Rojas";
+            this.Rojas.Width = 60;
             // 
             // txtNombre
             // 
@@ -217,30 +251,30 @@
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 32;
             // 
-            // lblNomArb
+            // lblNomJug
             // 
-            this.lblNomArb.AutoSize = true;
-            this.lblNomArb.Location = new System.Drawing.Point(365, 368);
-            this.lblNomArb.Name = "lblNomArb";
-            this.lblNomArb.Size = new System.Drawing.Size(44, 13);
-            this.lblNomArb.TabIndex = 31;
-            this.lblNomArb.Text = "Nombre";
+            this.lblNomJug.AutoSize = true;
+            this.lblNomJug.Location = new System.Drawing.Point(365, 368);
+            this.lblNomJug.Name = "lblNomJug";
+            this.lblNomJug.Size = new System.Drawing.Size(44, 13);
+            this.lblNomJug.TabIndex = 31;
+            this.lblNomJug.Text = "Nombre";
             // 
-            // txtApeArb
+            // txtApeJug
             // 
-            this.txtApeArb.Location = new System.Drawing.Point(487, 384);
-            this.txtApeArb.Name = "txtApeArb";
-            this.txtApeArb.Size = new System.Drawing.Size(100, 20);
-            this.txtApeArb.TabIndex = 34;
+            this.txtApeJug.Location = new System.Drawing.Point(487, 384);
+            this.txtApeJug.Name = "txtApeJug";
+            this.txtApeJug.Size = new System.Drawing.Size(100, 20);
+            this.txtApeJug.TabIndex = 34;
             // 
-            // lblApeArb
+            // lblApeJug
             // 
-            this.lblApeArb.AutoSize = true;
-            this.lblApeArb.Location = new System.Drawing.Point(485, 368);
-            this.lblApeArb.Name = "lblApeArb";
-            this.lblApeArb.Size = new System.Drawing.Size(44, 13);
-            this.lblApeArb.TabIndex = 33;
-            this.lblApeArb.Text = "Apellido";
+            this.lblApeJug.AutoSize = true;
+            this.lblApeJug.Location = new System.Drawing.Point(485, 368);
+            this.lblApeJug.Name = "lblApeJug";
+            this.lblApeJug.Size = new System.Drawing.Size(44, 13);
+            this.lblApeJug.TabIndex = 33;
+            this.lblApeJug.Text = "Apellido";
             // 
             // lblPais
             // 
@@ -251,14 +285,14 @@
             this.lblPais.TabIndex = 35;
             this.lblPais.Text = "País";
             // 
-            // label1
+            // lblTipoDocRes
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(365, 414);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "Tipo Doc";
+            this.lblTipoDocRes.AutoSize = true;
+            this.lblTipoDocRes.Location = new System.Drawing.Point(365, 414);
+            this.lblTipoDocRes.Name = "lblTipoDocRes";
+            this.lblTipoDocRes.Size = new System.Drawing.Size(51, 13);
+            this.lblTipoDocRes.TabIndex = 40;
+            this.lblTipoDocRes.Text = "Tipo Doc";
             // 
             // txtNumDoc
             // 
@@ -267,14 +301,14 @@
             this.txtNumDoc.Size = new System.Drawing.Size(114, 20);
             this.txtNumDoc.TabIndex = 42;
             // 
-            // label2
+            // lblNroDocRes
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(484, 414);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 13);
-            this.label2.TabIndex = 41;
-            this.label2.Text = "N° Doc:";
+            this.lblNroDocRes.AutoSize = true;
+            this.lblNroDocRes.Location = new System.Drawing.Point(484, 414);
+            this.lblNroDocRes.Name = "lblNroDocRes";
+            this.lblNroDocRes.Size = new System.Drawing.Size(45, 13);
+            this.lblNroDocRes.TabIndex = 41;
+            this.lblNroDocRes.Text = "N° Doc:";
             // 
             // btnCancelar
             // 
@@ -346,22 +380,22 @@
             this.lblPaisFiltro.TabIndex = 49;
             this.lblPaisFiltro.Text = "País";
             // 
-            // btnModificar
+            // btnEliminar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(25, 188);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(150, 32);
-            this.btnModificar.TabIndex = 51;
-            this.btnModificar.Text = "Modificar Arbitro";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            this.btnEliminar.Location = new System.Drawing.Point(351, 381);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(150, 32);
+            this.btnEliminar.TabIndex = 51;
+            this.btnEliminar.Text = "Eliminar Jugador";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // ABMCArbForm
+            // ABMCJugsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.cmbPaisFiltro);
             this.Controls.Add(this.lblPaisFiltro);
             this.Controls.Add(this.cmbPaisMod);
@@ -371,14 +405,14 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtNumDoc);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblNroDocRes);
+            this.Controls.Add(this.lblTipoDocRes);
             this.Controls.Add(this.lblPais);
-            this.Controls.Add(this.txtApeArb);
-            this.Controls.Add(this.lblApeArb);
+            this.Controls.Add(this.txtApeJug);
+            this.Controls.Add(this.lblApeJug);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.lblNomArb);
-            this.Controls.Add(this.dGridArb);
+            this.Controls.Add(this.lblNomJug);
+            this.Controls.Add(this.dGridJug);
             this.Controls.Add(this.lblTipoDocFiltro);
             this.Controls.Add(this.cmbFiltroTipoDoc);
             this.Controls.Add(this.btnRestaurar);
@@ -386,16 +420,16 @@
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtFiltroDoc);
-            this.Controls.Add(this.lblFiltroIDArb);
-            this.Controls.Add(this.lblGestArb);
-            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.lblFiltroNroDoc);
+            this.Controls.Add(this.lblGestJug);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "ABMCArbForm";
+            this.Name = "ABMCJugsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gestionar Arbitros";
+            this.Text = "Gestionar Jugadores";
             this.Load += new System.EventHandler(this.ABMCArbForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dGridArb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGridJug)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -404,9 +438,9 @@
         #endregion
 
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Label lblGestArb;
-        private System.Windows.Forms.Label lblFiltroIDArb;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Label lblGestJug;
+        private System.Windows.Forms.Label lblFiltroNroDoc;
         private System.Windows.Forms.TextBox txtFiltroDoc;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
@@ -414,20 +448,15 @@
         private System.Windows.Forms.Button btnRestaurar;
         private System.Windows.Forms.ComboBox cmbFiltroTipoDoc;
         private System.Windows.Forms.Label lblTipoDocFiltro;
-        private System.Windows.Forms.DataGridView dGridArb;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreArb;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ApellidoArb;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PaísArb;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoDocArb;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NroDocArb;
+        private System.Windows.Forms.DataGridView dGridJug;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label lblNomArb;
-        private System.Windows.Forms.TextBox txtApeArb;
-        private System.Windows.Forms.Label lblApeArb;
+        private System.Windows.Forms.Label lblNomJug;
+        private System.Windows.Forms.TextBox txtApeJug;
+        private System.Windows.Forms.Label lblApeJug;
         private System.Windows.Forms.Label lblPais;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTipoDocRes;
         private System.Windows.Forms.TextBox txtNumDoc;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblNroDocRes;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelarRest;
@@ -436,6 +465,15 @@
         private System.Windows.Forms.ComboBox cmbPaisMod;
         private System.Windows.Forms.ComboBox cmbPaisFiltro;
         private System.Windows.Forms.Label lblPaisFiltro;
-        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreJug;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ApellidoJug;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PaísJug;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoDoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NroDocJug;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Goles;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Asistencias;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amarillas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rojas;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

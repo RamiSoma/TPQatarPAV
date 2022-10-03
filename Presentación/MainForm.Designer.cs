@@ -35,8 +35,11 @@
             this.gestionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStipUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStipPais = new System.Windows.Forms.ToolStripMenuItem();
+            this.jugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arbitrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCargarDetallePartido = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnPartidos = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -76,7 +79,9 @@
             this.gestionarToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             this.gestionarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStipUsuario,
-            this.ToolStipPais});
+            this.ToolStipPais,
+            this.jugadoresToolStripMenuItem,
+            this.arbitrosToolStripMenuItem});
             this.gestionarToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.gestionarToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.gestionarToolStripMenuItem.Name = "gestionarToolStripMenuItem";
@@ -86,16 +91,30 @@
             // ToolStipUsuario
             // 
             this.ToolStipUsuario.Name = "ToolStipUsuario";
-            this.ToolStipUsuario.Size = new System.Drawing.Size(180, 24);
+            this.ToolStipUsuario.Size = new System.Drawing.Size(140, 24);
             this.ToolStipUsuario.Text = "Usuarios";
             this.ToolStipUsuario.Click += new System.EventHandler(this.ToolStipUsuario_Click);
             // 
             // ToolStipPais
             // 
             this.ToolStipPais.Name = "ToolStipPais";
-            this.ToolStipPais.Size = new System.Drawing.Size(180, 24);
+            this.ToolStipPais.Size = new System.Drawing.Size(140, 24);
             this.ToolStipPais.Text = "Paises";
             this.ToolStipPais.Click += new System.EventHandler(this.ToolStipPais_Click);
+            // 
+            // jugadoresToolStripMenuItem
+            // 
+            this.jugadoresToolStripMenuItem.Name = "jugadoresToolStripMenuItem";
+            this.jugadoresToolStripMenuItem.Size = new System.Drawing.Size(140, 24);
+            this.jugadoresToolStripMenuItem.Text = "Jugadores";
+            this.jugadoresToolStripMenuItem.Click += new System.EventHandler(this.jugadoresToolStripMenuItem_Click);
+            // 
+            // arbitrosToolStripMenuItem
+            // 
+            this.arbitrosToolStripMenuItem.Name = "arbitrosToolStripMenuItem";
+            this.arbitrosToolStripMenuItem.Size = new System.Drawing.Size(140, 24);
+            this.arbitrosToolStripMenuItem.Text = "Arbitros";
+            this.arbitrosToolStripMenuItem.Click += new System.EventHandler(this.arbitrosToolStripMenuItem_Click);
             // 
             // btnCargarDetallePartido
             // 
@@ -116,11 +135,22 @@
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
+            // btnPartidos
+            // 
+            this.btnPartidos.Location = new System.Drawing.Point(63, 292);
+            this.btnPartidos.Name = "btnPartidos";
+            this.btnPartidos.Size = new System.Drawing.Size(75, 23);
+            this.btnPartidos.TabIndex = 21;
+            this.btnPartidos.Text = "Partidos";
+            this.btnPartidos.UseVisualStyleBackColor = true;
+            this.btnPartidos.Click += new System.EventHandler(this.btnPartidos_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.btnPartidos);
             this.Controls.Add(this.btnCargarDetallePartido);
             this.Controls.Add(this.btnVerDetallePartido);
             this.Controls.Add(this.btnCerrarSesion);
@@ -150,5 +180,8 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStipUsuario;
         private System.Windows.Forms.ToolStripMenuItem ToolStipPais;
         private System.Windows.Forms.Button btnCargarDetallePartido;
+        private System.Windows.Forms.ToolStripMenuItem jugadoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem arbitrosToolStripMenuItem;
+        private System.Windows.Forms.Button btnPartidos;
     }
 }

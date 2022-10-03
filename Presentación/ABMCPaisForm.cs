@@ -44,6 +44,11 @@ namespace TPQatarPAVI.Presentación
                                 tabla.Rows[i]["id_Grupo"]);
             }
         }
+        private void HabilitarRestaurar(bool v)
+        {
+            btnCancelarRest.Visible = v;
+            btnRestaurarSeleccion.Visible = v;
+        }
         private void HabilitarABMC(bool v)
         {
             btnAgregarPais.Visible = v;
@@ -106,6 +111,7 @@ namespace TPQatarPAVI.Presentación
             CargarCombo(cmbContinenteFiltro, continente.traerTodos());
             CargarCombo(cmbBoxContinente, continente.traerTodos());
             HabilitarEdicion(false);
+            HabilitarRestaurar(false);
         }
 
         private void CargarCombo(ComboBox combo, DataTable tabla)
@@ -206,12 +212,16 @@ namespace TPQatarPAVI.Presentación
         {
             CargarGrilla(dGridPaises, pais.traerEliminados());
             HabilitarABMC(false);
+            HabilitarRestaurar(true);
+            HabilitarEdicion(false);
         }
 
         private void btnRestaurarSeleccion_Click(object sender, EventArgs e)
         {
 
             HabilitarABMC(true);
+            HabilitarRestaurar(false);
+            HabilitarEdicion(false);
             CargarPais();
             pais.recuperarPais(txtNombre.Text);
             CargarGrilla(dGridPaises, pais.traerTodos(txtFiltroNombre.Text, cmbContinenteFiltro.Text));
@@ -220,6 +230,10 @@ namespace TPQatarPAVI.Presentación
         private void btnCancelarRest_Click(object sender, EventArgs e)
         {
             HabilitarABMC(true);
+            HabilitarRestaurar(false);
+            CargarPais();
+            pais.recuperarPais(txtNombre.Text);
+            CargarGrilla(dGridPaises, pais.traerTodos(txtFiltroNombre.Text, cmbContinenteFiltro.Text));
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ABMCUsrsForm));
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblPswd = new System.Windows.Forms.Label();
             this.lblPrfl = new System.Windows.Forms.Label();
@@ -189,7 +190,7 @@
             this.dGridUsrs.Location = new System.Drawing.Point(179, 138);
             this.dGridUsrs.Name = "dGridUsrs";
             this.dGridUsrs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dGridUsrs.Size = new System.Drawing.Size(576, 227);
+            this.dGridUsrs.Size = new System.Drawing.Size(576, 237);
             this.dGridUsrs.TabIndex = 13;
             this.dGridUsrs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
@@ -453,9 +454,10 @@
             this.Controls.Add(this.lblPrfl);
             this.Controls.Add(this.lblPswd);
             this.Controls.Add(this.lblUsuario);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ABMCUsrsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gestion De Usuarios";
+            this.Text = "Gesionar Usuarios";
             this.Load += new System.EventHandler(this.ABMCUsrsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGridUsrs)).EndInit();
             this.ResumeLayout(false);

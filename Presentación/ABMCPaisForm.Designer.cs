@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ABMCPaisForm));
             this.lblContFiltro = new System.Windows.Forms.Label();
             this.lblNomFiltro = new System.Windows.Forms.Label();
             this.btnBuscarPrfl = new System.Windows.Forms.Button();
@@ -352,6 +353,7 @@
             this.Controls.Add(this.btnModificarPais);
             this.Controls.Add(this.btnAgregarPais);
             this.Controls.Add(this.label4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ABMCPaisForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestionar Paises";
