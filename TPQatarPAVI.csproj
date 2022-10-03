@@ -67,6 +67,12 @@
     <Compile Include="Entidades\Pais.cs" />
     <Compile Include="Entidades\Perfil.cs" />
     <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Presentación\ABMCArbForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentación\ABMCArbForm.designer.cs">
+      <DependentUpon>ABMCArbForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentación\ABMCUsrsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentación\ABMCArbForm.resx">
+      <DependentUpon>ABMCArbForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentación\ABMCUsrsForm.resx">
       <DependentUpon>ABMCUsrsForm.cs</DependentUpon>
     </EmbeddedResource>

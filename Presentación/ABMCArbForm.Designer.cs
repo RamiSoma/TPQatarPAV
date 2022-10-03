@@ -28,20 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ABMCArbForm));
             this.btnAgregarArb = new System.Windows.Forms.Button();
             this.btnEliminarArb = new System.Windows.Forms.Button();
             this.btnModificarArb = new System.Windows.Forms.Button();
             this.lblGestArb = new System.Windows.Forms.Label();
             this.lblFiltroIDArb = new System.Windows.Forms.Label();
-            this.txtFiltroID = new System.Windows.Forms.TextBox();
+            this.txtFiltroDoc = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnVolverMenu = new System.Windows.Forms.Button();
             this.btnRestaurar = new System.Windows.Forms.Button();
             this.cmbFiltroTipoDoc = new System.Windows.Forms.ComboBox();
-            this.lblPerfil = new System.Windows.Forms.Label();
-            this.dGridPaises = new System.Windows.Forms.DataGridView();
+            this.lblTipoDocFiltro = new System.Windows.Forms.Label();
+            this.dGridArb = new System.Windows.Forms.DataGridView();
             this.NombreArb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ApellidoArb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PaísArb = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,17 +50,19 @@
             this.lblNomArb = new System.Windows.Forms.Label();
             this.txtApeArb = new System.Windows.Forms.TextBox();
             this.lblApeArb = new System.Windows.Forms.Label();
-            this.txtPais = new System.Windows.Forms.TextBox();
             this.lblPais = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbTipoDoc = new System.Windows.Forms.ComboBox();
             this.txtNumDoc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelarRest = new System.Windows.Forms.Button();
             this.btnRestaurarSeleccion = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dGridPaises)).BeginInit();
+            this.lblTipoDoc = new System.Windows.Forms.Label();
+            this.cmbPaisMod = new System.Windows.Forms.ComboBox();
+            this.cmbPaisFiltro = new System.Windows.Forms.ComboBox();
+            this.lblPaisFiltro = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dGridArb)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregarArb
@@ -111,12 +112,12 @@
             this.lblFiltroIDArb.TabIndex = 22;
             this.lblFiltroIDArb.Text = "N° Doc:";
             // 
-            // txtFiltroID
+            // txtFiltroDoc
             // 
-            this.txtFiltroID.Location = new System.Drawing.Point(365, 81);
-            this.txtFiltroID.Name = "txtFiltroID";
-            this.txtFiltroID.Size = new System.Drawing.Size(114, 20);
-            this.txtFiltroID.TabIndex = 23;
+            this.txtFiltroDoc.Location = new System.Drawing.Point(365, 81);
+            this.txtFiltroDoc.Name = "txtFiltroDoc";
+            this.txtFiltroDoc.Size = new System.Drawing.Size(114, 20);
+            this.txtFiltroDoc.TabIndex = 23;
             // 
             // btnBuscar
             // 
@@ -163,32 +164,32 @@
             this.cmbFiltroTipoDoc.Size = new System.Drawing.Size(86, 21);
             this.cmbFiltroTipoDoc.TabIndex = 28;
             // 
-            // lblPerfil
+            // lblTipoDocFiltro
             // 
-            this.lblPerfil.AutoSize = true;
-            this.lblPerfil.Location = new System.Drawing.Point(244, 64);
-            this.lblPerfil.Name = "lblPerfil";
-            this.lblPerfil.Size = new System.Drawing.Size(51, 13);
-            this.lblPerfil.TabIndex = 29;
-            this.lblPerfil.Text = "Tipo Doc";
+            this.lblTipoDocFiltro.AutoSize = true;
+            this.lblTipoDocFiltro.Location = new System.Drawing.Point(244, 64);
+            this.lblTipoDocFiltro.Name = "lblTipoDocFiltro";
+            this.lblTipoDocFiltro.Size = new System.Drawing.Size(51, 13);
+            this.lblTipoDocFiltro.TabIndex = 29;
+            this.lblTipoDocFiltro.Text = "Tipo Doc";
             // 
-            // dGridPaises
+            // dGridArb
             // 
-            this.dGridPaises.AllowUserToAddRows = false;
-            this.dGridPaises.AllowUserToDeleteRows = false;
-            this.dGridPaises.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dGridPaises.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGridPaises.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dGridArb.AllowUserToAddRows = false;
+            this.dGridArb.AllowUserToDeleteRows = false;
+            this.dGridArb.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dGridArb.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGridArb.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NombreArb,
             this.ApellidoArb,
             this.PaísArb,
             this.TipoDocArb,
             this.NroDocArb});
-            this.dGridPaises.Location = new System.Drawing.Point(214, 134);
-            this.dGridPaises.Name = "dGridPaises";
-            this.dGridPaises.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dGridPaises.Size = new System.Drawing.Size(494, 222);
-            this.dGridPaises.TabIndex = 30;
+            this.dGridArb.Location = new System.Drawing.Point(214, 134);
+            this.dGridArb.Name = "dGridArb";
+            this.dGridArb.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dGridArb.Size = new System.Drawing.Size(494, 222);
+            this.dGridArb.TabIndex = 30;
             // 
             // NombreArb
             // 
@@ -249,13 +250,6 @@
             this.lblApeArb.TabIndex = 33;
             this.lblApeArb.Text = "Apellido";
             // 
-            // txtPais
-            // 
-            this.txtPais.Location = new System.Drawing.Point(608, 384);
-            this.txtPais.Name = "txtPais";
-            this.txtPais.Size = new System.Drawing.Size(100, 20);
-            this.txtPais.TabIndex = 36;
-            // 
             // lblPais
             // 
             this.lblPais.AutoSize = true;
@@ -273,15 +267,6 @@
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 40;
             this.label1.Text = "Tipo Doc";
-            // 
-            // cmbTipoDoc
-            // 
-            this.cmbTipoDoc.Cursor = System.Windows.Forms.Cursors.Default;
-            this.cmbTipoDoc.FormattingEnabled = true;
-            this.cmbTipoDoc.Location = new System.Drawing.Point(368, 430);
-            this.cmbTipoDoc.Name = "cmbTipoDoc";
-            this.cmbTipoDoc.Size = new System.Drawing.Size(86, 21);
-            this.cmbTipoDoc.TabIndex = 39;
             // 
             // txtNumDoc
             // 
@@ -335,11 +320,49 @@
             this.btnRestaurarSeleccion.Text = "Restaurar";
             this.btnRestaurarSeleccion.UseVisualStyleBackColor = true;
             // 
+            // lblTipoDoc
+            // 
+            this.lblTipoDoc.AutoSize = true;
+            this.lblTipoDoc.Location = new System.Drawing.Point(362, 434);
+            this.lblTipoDoc.Name = "lblTipoDoc";
+            this.lblTipoDoc.Size = new System.Drawing.Size(164, 13);
+            this.lblTipoDoc.TabIndex = 47;
+            this.lblTipoDoc.Text = "El tipo queda seteado con el pais";
+            // 
+            // cmbPaisMod
+            // 
+            this.cmbPaisMod.FormattingEnabled = true;
+            this.cmbPaisMod.Location = new System.Drawing.Point(608, 385);
+            this.cmbPaisMod.Name = "cmbPaisMod";
+            this.cmbPaisMod.Size = new System.Drawing.Size(121, 21);
+            this.cmbPaisMod.TabIndex = 48;
+            // 
+            // cmbPaisFiltro
+            // 
+            this.cmbPaisFiltro.FormattingEnabled = true;
+            this.cmbPaisFiltro.Location = new System.Drawing.Point(120, 80);
+            this.cmbPaisFiltro.Name = "cmbPaisFiltro";
+            this.cmbPaisFiltro.Size = new System.Drawing.Size(121, 21);
+            this.cmbPaisFiltro.TabIndex = 50;
+            // 
+            // lblPaisFiltro
+            // 
+            this.lblPaisFiltro.AutoSize = true;
+            this.lblPaisFiltro.Location = new System.Drawing.Point(117, 63);
+            this.lblPaisFiltro.Name = "lblPaisFiltro";
+            this.lblPaisFiltro.Size = new System.Drawing.Size(29, 13);
+            this.lblPaisFiltro.TabIndex = 49;
+            this.lblPaisFiltro.Text = "País";
+            // 
             // ABMCArbForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 503);
+            this.Controls.Add(this.cmbPaisFiltro);
+            this.Controls.Add(this.lblPaisFiltro);
+            this.Controls.Add(this.cmbPaisMod);
+            this.Controls.Add(this.lblTipoDoc);
             this.Controls.Add(this.btnRestaurarSeleccion);
             this.Controls.Add(this.btnCancelarRest);
             this.Controls.Add(this.btnCancelar);
@@ -347,31 +370,28 @@
             this.Controls.Add(this.txtNumDoc);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmbTipoDoc);
-            this.Controls.Add(this.txtPais);
             this.Controls.Add(this.lblPais);
             this.Controls.Add(this.txtApeArb);
             this.Controls.Add(this.lblApeArb);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNomArb);
-            this.Controls.Add(this.dGridPaises);
-            this.Controls.Add(this.lblPerfil);
+            this.Controls.Add(this.dGridArb);
+            this.Controls.Add(this.lblTipoDocFiltro);
             this.Controls.Add(this.cmbFiltroTipoDoc);
             this.Controls.Add(this.btnRestaurar);
             this.Controls.Add(this.btnVolverMenu);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.txtFiltroID);
+            this.Controls.Add(this.txtFiltroDoc);
             this.Controls.Add(this.lblFiltroIDArb);
             this.Controls.Add(this.lblGestArb);
             this.Controls.Add(this.btnModificarArb);
             this.Controls.Add(this.btnEliminarArb);
             this.Controls.Add(this.btnAgregarArb);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ABMCArbForm";
             this.Text = "ABMCArbForm";
             this.Load += new System.EventHandler(this.ABMCArbForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dGridPaises)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGridArb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -384,14 +404,14 @@
         private System.Windows.Forms.Button btnModificarArb;
         private System.Windows.Forms.Label lblGestArb;
         private System.Windows.Forms.Label lblFiltroIDArb;
-        private System.Windows.Forms.TextBox txtFiltroID;
+        private System.Windows.Forms.TextBox txtFiltroDoc;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnVolverMenu;
         private System.Windows.Forms.Button btnRestaurar;
         private System.Windows.Forms.ComboBox cmbFiltroTipoDoc;
-        private System.Windows.Forms.Label lblPerfil;
-        private System.Windows.Forms.DataGridView dGridPaises;
+        private System.Windows.Forms.Label lblTipoDocFiltro;
+        private System.Windows.Forms.DataGridView dGridArb;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreArb;
         private System.Windows.Forms.DataGridViewTextBoxColumn ApellidoArb;
         private System.Windows.Forms.DataGridViewTextBoxColumn PaísArb;
@@ -401,15 +421,17 @@
         private System.Windows.Forms.Label lblNomArb;
         private System.Windows.Forms.TextBox txtApeArb;
         private System.Windows.Forms.Label lblApeArb;
-        private System.Windows.Forms.TextBox txtPais;
         private System.Windows.Forms.Label lblPais;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbTipoDoc;
         private System.Windows.Forms.TextBox txtNumDoc;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelarRest;
         private System.Windows.Forms.Button btnRestaurarSeleccion;
+        private System.Windows.Forms.Label lblTipoDoc;
+        private System.Windows.Forms.ComboBox cmbPaisMod;
+        private System.Windows.Forms.ComboBox cmbPaisFiltro;
+        private System.Windows.Forms.Label lblPaisFiltro;
     }
 }
