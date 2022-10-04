@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPQatarPAVI.CapaServicios;
+using TPQatarPAVI.Entidades;
 
 namespace TPQatarPAVI.Presentación
 {
@@ -21,11 +22,16 @@ namespace TPQatarPAVI.Presentación
             InitializeComponent();
             CargarCombo(cmbPaisFiltro, pais.traerTodos("",""));
             CargarCombo(cmbPaisMod, pais.traerTodos("", ""));
-            
+          
             HabilitarEdicion(false);
             HabilitarRestaurar(false);
         }
-
+        enum Modo
+        {
+            Alta,
+            Modificacion
+        }
+        Modo modo;
         private void HabilitarRestaurar(bool v)
         {
             btnCancelarRest.Visible = v;
@@ -65,6 +71,8 @@ namespace TPQatarPAVI.Presentación
             HabilitarEdicion(true);
             HabilitarABMC(false);
             HabilitarRestaurar(false);
+            modo = Modo.Modificacion;
+            txtNombre.Enabled = false;
         }
         private void CargarGrilla(DataGridView grilla, DataTable tabla)
         {
@@ -107,7 +115,14 @@ namespace TPQatarPAVI.Presentación
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            string tipo_doc= Convert.ToString(dGridJug.SelectedRows[0].Cells[0].Value);
+            string nro_doc = Convert.ToString(dGridJug.SelectedRows[0].Cells[1].Value);
+            DialogResult rta = MessageBox.Show("¿Estas seguro que deseas eliminar el Jugador seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (rta == DialogResult.Yes)
+            {
+                jugador.eliminarjug(tipo_doc,nro_doc);
+                CargarGrilla(dGridJug, jugador.traerTodos(cmbPaisFiltro.Text));
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -115,8 +130,46 @@ namespace TPQatarPAVI.Presentación
             HabilitarEdicion(true);
             HabilitarABMC(false);
             HabilitarRestaurar(false);
+            CargarCombo(cmbPaisMod, pais.traerTodos("",""));
+            modo = Modo.Alta;
         }
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Convert.ToInt32(txtNumDoc.Text);
 
+                if (txtNombre.Text == "" || txtNumDoc.Text == "" || cmbPaisMod.Text == "" || txtApeJug.Text == "")
+                {
+                    MessageBox.Show("Debe llenar todos los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    if (jugador.validar(lblTipoDocFijo.Text, txtNumDoc.Text))
+                    {
+                        MessageBox.Show("El jugador ingresado ya existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        HabilitarEdicion(false);
+                        if (modo == Modo.Alta)
+                        {
+
+                            jugador.CrearJugador(lblTipoDocFijo.Text,txtNumDoc.Text,txtNombre.Text, txtApeJug.Text, cmbPaisMod.Text);
+                        }
+                        if (modo == Modo.Modificacion)
+                        {
+                            jugador.modificarJugador(txtNombre.Text, txtApeJug.Text);
+                        }
+                        CargarGrilla(dGridJug, jugador.traerTodos(cmbPaisFiltro.Text));
+                    }
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("El ranking fifa debe ser valor numérico...", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void btnRestaurar_Click(object sender, EventArgs e)
         {
             HabilitarRestaurar(true);
@@ -155,6 +208,11 @@ namespace TPQatarPAVI.Presentación
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             CargarGrilla(dGridJug, jugador.traerTodos(cmbPaisFiltro.Text));
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            dGridJug.Rows.Clear();
         }
     }
 }

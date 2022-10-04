@@ -51,14 +51,14 @@
             this.txtApeArb = new System.Windows.Forms.TextBox();
             this.lblApeArb = new System.Windows.Forms.Label();
             this.lblPais = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTipoDocMod = new System.Windows.Forms.Label();
             this.txtNumDoc = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblNumDocMod = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelarRest = new System.Windows.Forms.Button();
             this.btnRestaurarSeleccion = new System.Windows.Forms.Button();
-            this.lblTipoDoc = new System.Windows.Forms.Label();
+            this.lblTipoDocFijo = new System.Windows.Forms.Label();
             this.cmbPaisMod = new System.Windows.Forms.ComboBox();
             this.cmbPaisFiltro = new System.Windows.Forms.ComboBox();
             this.lblPaisFiltro = new System.Windows.Forms.Label();
@@ -251,14 +251,14 @@
             this.lblPais.TabIndex = 35;
             this.lblPais.Text = "País";
             // 
-            // label1
+            // lblTipoDocMod
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(211, 410);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "Tipo Doc";
+            this.lblTipoDocMod.AutoSize = true;
+            this.lblTipoDocMod.Location = new System.Drawing.Point(211, 410);
+            this.lblTipoDocMod.Name = "lblTipoDocMod";
+            this.lblTipoDocMod.Size = new System.Drawing.Size(51, 13);
+            this.lblTipoDocMod.TabIndex = 40;
+            this.lblTipoDocMod.Text = "Tipo Doc";
             // 
             // txtNumDoc
             // 
@@ -267,14 +267,14 @@
             this.txtNumDoc.Size = new System.Drawing.Size(114, 20);
             this.txtNumDoc.TabIndex = 42;
             // 
-            // label2
+            // lblNumDocMod
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(330, 410);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 13);
-            this.label2.TabIndex = 41;
-            this.label2.Text = "N° Doc:";
+            this.lblNumDocMod.AutoSize = true;
+            this.lblNumDocMod.Location = new System.Drawing.Point(330, 410);
+            this.lblNumDocMod.Name = "lblNumDocMod";
+            this.lblNumDocMod.Size = new System.Drawing.Size(45, 13);
+            this.lblNumDocMod.TabIndex = 41;
+            this.lblNumDocMod.Text = "N° Doc:";
             // 
             // btnCancelar
             // 
@@ -312,14 +312,14 @@
             this.btnRestaurarSeleccion.Text = "Restaurar";
             this.btnRestaurarSeleccion.UseVisualStyleBackColor = true;
             // 
-            // lblTipoDoc
+            // lblTipoDocFijo
             // 
-            this.lblTipoDoc.AutoSize = true;
-            this.lblTipoDoc.Location = new System.Drawing.Point(208, 430);
-            this.lblTipoDoc.Name = "lblTipoDoc";
-            this.lblTipoDoc.Size = new System.Drawing.Size(164, 13);
-            this.lblTipoDoc.TabIndex = 47;
-            this.lblTipoDoc.Text = "El tipo queda seteado con el pais";
+            this.lblTipoDocFijo.AutoSize = true;
+            this.lblTipoDocFijo.Location = new System.Drawing.Point(208, 430);
+            this.lblTipoDocFijo.Name = "lblTipoDocFijo";
+            this.lblTipoDocFijo.Size = new System.Drawing.Size(164, 13);
+            this.lblTipoDocFijo.TabIndex = 47;
+            this.lblTipoDocFijo.Text = "El tipo queda seteado con el pais";
             // 
             // cmbPaisMod
             // 
@@ -365,14 +365,14 @@
             this.Controls.Add(this.cmbPaisFiltro);
             this.Controls.Add(this.lblPaisFiltro);
             this.Controls.Add(this.cmbPaisMod);
-            this.Controls.Add(this.lblTipoDoc);
+            this.Controls.Add(this.lblTipoDocFijo);
             this.Controls.Add(this.btnRestaurarSeleccion);
             this.Controls.Add(this.btnCancelarRest);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtNumDoc);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblNumDocMod);
+            this.Controls.Add(this.lblTipoDocMod);
             this.Controls.Add(this.lblPais);
             this.Controls.Add(this.txtApeArb);
             this.Controls.Add(this.lblApeArb);
@@ -425,14 +425,14 @@
         private System.Windows.Forms.TextBox txtApeArb;
         private System.Windows.Forms.Label lblApeArb;
         private System.Windows.Forms.Label lblPais;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTipoDocMod;
         private System.Windows.Forms.TextBox txtNumDoc;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblNumDocMod;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelarRest;
         private System.Windows.Forms.Button btnRestaurarSeleccion;
-        private System.Windows.Forms.Label lblTipoDoc;
+        private System.Windows.Forms.Label lblTipoDocFijo;
         private System.Windows.Forms.ComboBox cmbPaisMod;
         private System.Windows.Forms.ComboBox cmbPaisFiltro;
         private System.Windows.Forms.Label lblPaisFiltro;

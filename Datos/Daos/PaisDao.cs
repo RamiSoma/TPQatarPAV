@@ -28,17 +28,18 @@ namespace TPQatarPAVI.Datos.Daos
             string consulta = "insert into pais values('" + nNombre + "','" + continenteId + "','" + nGrupo + "',0,'" + nRanking + "',0)";
             DBHelper.obtenerInstancia().consultar(consulta);
         }
-
-        public void eliminarPais(string id)
+        public void modificarPais(string nombre, string continente, string ranking, string grupo)
+        {
+            string consulta = "UPDATE pais SET id_continente = '" + obtenerNombreContId(continente) + "', ranking_fifa = " + ranking + ", id_grupo = '" + grupo + "' where nombre = '" + nombre + "'";
+            DBHelper.obtenerInstancia().consultar(consulta);
+        }
+            public void eliminarPais(string id)
         {
             string consulta = "Update pais set borrado = 1 where nombre = '" + id +"'";
             DBHelper.obtenerInstancia().consultar(consulta);
         }
-        public void modificarPais(string nombre, string continente, string ranking, string grupo)
-        {
-            string consulta = "UPDATE pais SET id_continente = '" + obtenerNombreContId(continente) + "', ranking_fifa = " + ranking + ", id_grupo = '" + grupo + "' where nombre = '"+nombre+"'";
-            DBHelper.obtenerInstancia().consultar(consulta);
-        }
+
+        
         public bool validar(string nombre, string ranking)
         {
             string consulta = "SELECT * FROM Pais WHERE nombre='"

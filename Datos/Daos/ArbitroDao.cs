@@ -10,10 +10,11 @@ namespace TPQatarPAVI.Datos.Daos
 {
     internal class ArbitroDao : IArbitro
     {
-        public DataTable traerTodos()
+        public DataTable RecuperarTodos()
         {
-            string consulta = "select nombre + ' ' + apellido from Arbitro WHERE borrado = 0";
+            string consulta = "select nombre + ' ' + apellido from arbitro WHERE borrado = 0";
             return DBHelper.obtenerInstancia().consultar(consulta);
         }
+
     }
 }

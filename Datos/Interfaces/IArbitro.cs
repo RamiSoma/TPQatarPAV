@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace TPQatarPAVI.Datos.Interfaces
 {
-    internal interface IArbitro
+    interface IArbitro
     {
-        DataTable traerTodos();
+        DataTable RecuperarTodos(string fnombre);
+        DataTable RecuperarTodos(string fNombre, string fApellido);
+        DataTable RecuperarTodos();
     }
 }

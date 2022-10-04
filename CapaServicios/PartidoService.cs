@@ -32,5 +32,9 @@ namespace TPQatarPAVI.CapaServicios
         {
             partDao.recuperarPartido(idPartido);
         }
+        public void modificarPartido(string id,string paisLocal, string paisVisita, string ronda, string grupo, string estadio, string arbitro)
+        {
+            partDao.modificarPartido(id,paisLocal, paisVisita, ronda, grupo, estadio, arbitro);
+        }
     }
 }

@@ -127,24 +127,20 @@ namespace TPQatarPAVI.Presentación
             }
             else
             {
-                if(usr.validar(txtMail.Text))
-                {
-                    MessageBox.Show("Mail ya registrado...", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
                     HabilitarEdicion(false);
                     if (modo == Modo.Alta)
                     {
-                        usr.crearUsr(txtNombre.Text, txtApellido.Text, txtMail.Text, txtUsuario.Text, txtPswd.Text, cmbBoxPrfls.Text);
-                        txtMail.Visible = false;
+                        if (usr.validar(txtMail.Text))
+                        {
+                            MessageBox.Show("Mail ya registrado...", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    usr.crearUsr(txtNombre.Text, txtApellido.Text, txtMail.Text, txtUsuario.Text, txtPswd.Text, cmbBoxPrfls.Text);
                     }
                     if (modo == Modo.Modificacion)
                     {
                         usr.modificarUsr(lblId.Text, txtNombre.Text, txtApellido.Text, txtUsuario.Text, txtPswd.Text, cmbBoxPrfls.Text);
                     }
                     CargarGrilla(dGridUsrs, usr.traerTodos(txtFiltroNombre.Text, cmbFiltroPerfil.Text));
-                } 
             }
         }
 
@@ -159,6 +155,7 @@ namespace TPQatarPAVI.Presentación
             HabilitarEdicion(true);
             CargarUsr();
             txtMail.Enabled = false;
+            txtMail.Visible = true;
             modo = Modo.Modificacion;
         }
 
@@ -172,6 +169,7 @@ namespace TPQatarPAVI.Presentación
             txtApellido.Text = "";
             lblId.Text = "*";
             txtMail.Visible = true;
+            txtMail.Enabled = true;
             txtMail.Text = "";
             modo = Modo.Alta;
         }

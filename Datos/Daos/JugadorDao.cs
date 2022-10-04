@@ -12,9 +12,35 @@ namespace TPQatarPAVI.Datos.Daos
     {
         public DataTable RecuperarTodos(string fpais)
         {
-            string consulta = "select * from jugadores where borrado = 0 and pais like '%"+ fpais+ "%'";
+            string consulta = "select * from jugadores where borrado = 0 and pais like '%" + fpais + "%'";
 
             return DBHelper.obtenerInstancia().consultar(consulta);
         }
+        public void eliminarJugador(string tipo_doc, string nro_doc)
+        {
+            string consulta = "Update jugador set borrado = 1 where tipo_doc= '" + tipo_doc + "' and nro_doc = '" + nro_doc + "'";
+            DBHelper.obtenerInstancia().consultar(consulta);
+        }
+        public bool validar(string tipo_doc, string nro_doc)
+        {
+            string consulta = "SELECT * FROM jugadores WHERE tipo_doc='"
+                                 + tipo_doc + "' AND nro_doc='"
+                                 + nro_doc + "'";
+            if (DBHelper.obtenerInstancia().consultar(consulta).Rows.Count == 0)
+                return false;
+            else
+                return true;
+        }
+        public void crearJugador(string tipo_doc, string nro_doc, string nombre, string apellido,string pais)
+        { 
+            string consulta = "insert into jugadores values('" + tipo_doc + "','" + nro_doc + "','" + nombre + "','" + apellido + "',"+pais+",0,0,0,0,0)";
+            DBHelper.obtenerInstancia().consultar(consulta);
+        }
+        public void modificarJugador(string tipo_doc,string nro_doc,string nombre,string apellido)
+        {
+            string consulta = "UPDATE pais SET nombre = '" + nombre + "', apellido = '" + apellido+"'  where tipo_doc = '" + tipo_doc + "' and nro_doc = "+nro_doc;
+            DBHelper.obtenerInstancia().consultar(consulta);
+        }
     }
+
 }

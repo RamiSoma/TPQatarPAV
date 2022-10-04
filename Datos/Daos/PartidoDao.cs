@@ -61,7 +61,7 @@ namespace TPQatarPAVI.Datos.Daos
             {
                 consulta = consulta + "and (p.pais_1 = '" + pais + "' or p.pais_2 = '" + pais + "')";
             }
-                 
+
 
             return DBHelper.obtenerInstancia().consultar(consulta);
         }
@@ -80,6 +80,20 @@ namespace TPQatarPAVI.Datos.Daos
         public void recuperarPartido(string id)
         {
             string consulta = "Update partido set borrado = 0 where id = '" + id + "'";
+            DBHelper.obtenerInstancia().consultar(consulta);
+        }
+        public void modificarPartido(string id, string paisLocal, string paisVisita, string ronda, string grupo, string estadio, string arbitro)
+        {
+            DataTable doc_arb = obtenerDocArb(arbitro);
+            string consulta = "UPDATE partido " +
+                "set pais_1 = '" + paisLocal + "'," +
+                " pais_2 = '" + paisVisita + "'," +
+                "ronda=" + (obtenerRonda(ronda)) + "," +
+                "grupo=" + grupo + "," +
+                "estadio='" + (obtenerEstadio(estadio)) + "'," +
+                "tipo_doc_arb='" + Convert.ToString(doc_arb.Rows[0]["tipo_doc"]) + "'," +
+                "nro_doc_arb=" + ((int)doc_arb.Rows[0]["nro_doc"]) +
+                " where id=" + id;
             DBHelper.obtenerInstancia().consultar(consulta);
         }
     }

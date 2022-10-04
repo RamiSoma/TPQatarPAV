@@ -1,4 +1,4 @@
-﻿    using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -156,6 +156,7 @@ namespace TPQatarPAVI.Presentación
                         HabilitarEdicion(false);
                         if (modo == Modo.Alta)
                         {
+
                             pais.crearPais(txtNombre.Text, txtRanking.Text, cmbBoxContinente.Text, cmbBoxGrupo.Text);
                         }
                         if (modo == Modo.Modificacion)
@@ -180,7 +181,7 @@ namespace TPQatarPAVI.Presentación
         private void btnEliminarPais_Click(object sender, EventArgs e)
         {
             string idPais = Convert.ToString(dGridPaises.SelectedRows[0].Cells[0].Value);
-            DialogResult rta = MessageBox.Show("¿Estas seguro que deseas eliminar el usuario seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            DialogResult rta = MessageBox.Show("¿Estas seguro que deseas eliminar el pais seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (rta == DialogResult.Yes)
             {
                 pais.eliminarUsr(idPais);

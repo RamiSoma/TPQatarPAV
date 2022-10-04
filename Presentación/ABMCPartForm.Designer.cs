@@ -34,12 +34,6 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.dGridPartido = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ronda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Arbitro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRestaurar = new System.Windows.Forms.Button();
             this.btnVolverMenu = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -70,6 +64,13 @@
             this.lblGrupoFiltro = new System.Windows.Forms.Label();
             this.cmbRondaFiltro = new System.Windows.Forms.ComboBox();
             this.lblRondaFiltro = new System.Windows.Forms.Label();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ronda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Arbitro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grupos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGridPartido)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,45 +124,13 @@
             this.Local,
             this.Visitante,
             this.Arbitro,
-            this.Estadio});
+            this.Estadio,
+            this.grupos});
             this.dGridPartido.Location = new System.Drawing.Point(193, 130);
             this.dGridPartido.Name = "dGridPartido";
             this.dGridPartido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dGridPartido.Size = new System.Drawing.Size(533, 222);
             this.dGridPartido.TabIndex = 63;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Width = 35;
-            // 
-            // Ronda
-            // 
-            this.Ronda.HeaderText = "Ronda";
-            this.Ronda.Name = "Ronda";
-            this.Ronda.Width = 45;
-            // 
-            // Local
-            // 
-            this.Local.HeaderText = "Local";
-            this.Local.Name = "Local";
-            // 
-            // Visitante
-            // 
-            this.Visitante.HeaderText = "Visitante";
-            this.Visitante.Name = "Visitante";
-            // 
-            // Arbitro
-            // 
-            this.Arbitro.HeaderText = "Arbitro";
-            this.Arbitro.Name = "Arbitro";
-            this.Arbitro.Width = 110;
-            // 
-            // Estadio
-            // 
-            this.Estadio.HeaderText = "Estadio";
-            this.Estadio.Name = "Estadio";
             // 
             // btnRestaurar
             // 
@@ -191,6 +160,7 @@
             this.btnLimpiar.TabIndex = 58;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnBuscar
             // 
@@ -436,6 +406,45 @@
             this.lblRondaFiltro.TabIndex = 109;
             this.lblRondaFiltro.Text = "Ronda";
             // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Width = 35;
+            // 
+            // Ronda
+            // 
+            this.Ronda.HeaderText = "Ronda";
+            this.Ronda.Name = "Ronda";
+            this.Ronda.Width = 45;
+            // 
+            // Local
+            // 
+            this.Local.HeaderText = "Local";
+            this.Local.Name = "Local";
+            // 
+            // Visitante
+            // 
+            this.Visitante.HeaderText = "Visitante";
+            this.Visitante.Name = "Visitante";
+            // 
+            // Arbitro
+            // 
+            this.Arbitro.HeaderText = "Arbitro";
+            this.Arbitro.Name = "Arbitro";
+            this.Arbitro.Width = 110;
+            // 
+            // Estadio
+            // 
+            this.Estadio.HeaderText = "Estadio";
+            this.Estadio.Name = "Estadio";
+            // 
+            // grupos
+            // 
+            this.grupos.HeaderText = "Grupo";
+            this.grupos.Name = "grupos";
+            this.grupos.Visible = false;
+            // 
             // ABMCPartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -494,12 +503,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridView dGridPartido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ronda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Local;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Arbitro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estadio;
         private System.Windows.Forms.Button btnRestaurar;
         private System.Windows.Forms.Button btnVolverMenu;
         private System.Windows.Forms.Button btnLimpiar;
@@ -530,5 +533,12 @@
         private System.Windows.Forms.Label lblGrupoFiltro;
         private System.Windows.Forms.ComboBox cmbRondaFiltro;
         private System.Windows.Forms.Label lblRondaFiltro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ronda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Local;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Arbitro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estadio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grupos;
     }
 }

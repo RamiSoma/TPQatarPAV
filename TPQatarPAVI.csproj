@@ -58,8 +58,8 @@
     <Compile Include="CapaServicios\RondaService.cs" />
     <Compile Include="CapaServicios\UsuarioService.cs" />
     <Compile Include="Datos\Daos\ArbitroDao.cs" />
-    <Compile Include="Datos\Daos\EstadioDao.cs" />
     <Compile Include="Datos\Daos\PartidoDao.cs" />
+    <Compile Include="Datos\Daos\EstadioDao.cs" />
     <Compile Include="Datos\Daos\TipoDocDao.cs" />
     <Compile Include="Datos\Daos\JugadorDao.cs" />
     <Compile Include="Datos\Daos\ContinenteDao.cs" />

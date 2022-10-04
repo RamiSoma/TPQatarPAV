@@ -60,6 +60,7 @@ namespace TPQatarPAVI.Presentación
         private void habilitarAM(bool v)
         {
             lblId.Visible = v;
+            lblIdMostrar.Visible = v;
             lblRonda.Visible = v;
             cmbRonda.Visible = v;
             lblLocal.Visible = v;
@@ -90,29 +91,44 @@ namespace TPQatarPAVI.Presentación
                                 tabla.Rows[i]["pais_1"],
                                 tabla.Rows[i]["pais_2"],
                                 tabla.Rows[i]["nombreArbitro"],
-                                tabla.Rows[i]["estadio"]);
+                                tabla.Rows[i]["estadio"],
+                                tabla.Rows[i]["grupo"]);
             }
+        }
+        private void CargarPartido()
+        {
+            lblIdMostrar.Text = Convert.ToString(dGridPartido.SelectedRows[0].Cells[0].Value);
+            cmbRonda.Text = Convert.ToString(dGridPartido.SelectedRows[0].Cells[1].Value);
+            cmbPaisLocal.Text = Convert.ToString(dGridPartido.SelectedRows[0].Cells[2].Value);
+            cmbPaisVisitante.Text = Convert.ToString(dGridPartido.SelectedRows[0].Cells[3].Value);
+            cmbArb.Text = Convert.ToString(dGridPartido.SelectedRows[0].Cells[4].Value);
+            cmbEstadio.Text = Convert.ToString(dGridPartido.SelectedRows[0].Cells[5].Value);
+            cmbGrupo.Text = Convert.ToString(dGridPartido.SelectedRows[0].Cells[6].Value);
         }
 
         private void btnVolverMenu_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void ABMCPartForm_Load(object sender, EventArgs e)
+        private void limpiarCombos()
         {
-            habilitarAM(false);
-            habilitarRest(false);
             CargarCombo(cmbRonda, rnd.traerTodos(), false);
             CargarCombo(cmbGrupo, grupo.traerTodos(), false);
             CargarCombo(cmbPaisLocal, pais.traerPorGrupo(cmbGrupo.Text), false);
             CargarCombo(cmbPaisVisitante, pais.traerPorGrupo(cmbGrupo.Text), false);
             CargarCombo(cmbArb, arb.traerTodos(), false);
             CargarCombo(cmbEstadio, est.traerTodos(), false);
-            CargarCombo(cmbEstadioFiltro, est.traerTodos(),true);
+            CargarCombo(cmbEstadioFiltro, est.traerTodos(), true);
             CargarCombo(cmbRondaFiltro, rnd.traerTodos(), false);
-            CargarCombo(cmbPaisFiltro, pais.traerPorGrupo(cmbGrupoFiltro.Text),true);
+            CargarCombo(cmbPaisFiltro, pais.traerPorGrupo(cmbGrupoFiltro.Text), true);
             CargarCombo(cmbGrupoFiltro, grupo.traerTodos(), false); // si se pasa a true da error
+        }
+
+        private void ABMCPartForm_Load(object sender, EventArgs e)
+        {
+            habilitarAM(false);
+            habilitarRest(false);
+            limpiarCombos();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -128,9 +144,12 @@ namespace TPQatarPAVI.Presentación
             {
                 cmbGrupo.Visible = true;
                 lblTxtGrupo.Visible = true;
+                CargarCombo(cmbPaisVisitante, pais.traerPorGrupo(cmbGrupo.Text), false);
             }
             else
             {
+                CargarCombo(cmbPaisLocal, pais.traerTodos("",""), false);
+                CargarCombo(cmbPaisVisitante, pais.traerTodos("", ""), false);
                 cmbGrupo.Visible = false;
                 lblTxtGrupo.Visible = false;
             };
@@ -141,6 +160,7 @@ namespace TPQatarPAVI.Presentación
             habilitarAM(true);
             habilitarBusq(false);
             modo = Modo.Modificacion;
+            CargarPartido();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -153,11 +173,13 @@ namespace TPQatarPAVI.Presentación
         {
             if(modo == Modo.Alta)
             {
+                limpiarCombos();
                 part.crearPartido(cmbPaisLocal.Text, cmbPaisVisitante.Text,cmbRonda.Text,cmbGrupo.Text,cmbEstadio.Text, cmbArb.Text);
+                
             }
-            else
+            if (modo == Modo.Modificacion)
             {
-
+                part.modificarPartido(lblIdMostrar.Text,cmbPaisLocal.Text, cmbPaisVisitante.Text, cmbRonda.Text, cmbGrupo.Text, cmbEstadio.Text, cmbArb.Text);
             }
             habilitarAM(false);
             habilitarBusq(true);
@@ -233,5 +255,11 @@ namespace TPQatarPAVI.Presentación
             part.recuperarPartido(idPartido);
             CargarGrilla(dGridPartido, part.buscarPartidos(cmbRondaFiltro.Text, cmbGrupoFiltro.Text, cmbEstadioFiltro.Text, cmbPaisFiltro.Text));
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            dGridPartido.Rows.Clear();
+        }
     }
+    
 }
