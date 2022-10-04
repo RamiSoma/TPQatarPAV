@@ -831,6 +831,7 @@ tipo_doc_arb varchar(5),
 nro_doc_arb int,
 fecha datetime,
 Ronda int,
+Grupo varchar(5),
 Ganador varchar(15),
 estadio varchar(32),
 borrado bit,
@@ -844,14 +845,15 @@ constraint fk_partido_estadio foreign key (estadio) references estadio(nombre))
 
 
 Insert into partido values
-('Qatar',null,'Ecuador',null,'Dni','30303030', convert(date,'20/11/22', 3),1,null,'Al-Thumama',null)
+('Qatar',null,'Ecuador',null,'Dni','30303030', convert(date,'20/11/22', 3),1,'A',null,'Al-Thumama',0)
 Insert into partido values
-('Inglaterra',null,'Iran',null,'Id','32451323',convert(date,'21/11/22', 3),1,null,'Al Janoub',null)
+('Inglaterra',null,'Iran',null,'Id','32451323',convert(date,'21/11/22', 3),1,'B',null,'Al Janoub',0)
 Insert into partido values
-('Senegal',null,'Paises Bajos',null,'Pass','41231444',convert(date,'21/11/22', 3),1,null,'Ic�nico de Lusail',null)
+('Senegal',null,'Paises Bajos',null,'Pass','41231444',convert(date,'21/11/22', 3),1,'A',null,'Ic�nico de Lusail',0)
 Insert into partido values
-('Estados Unidos',null,'Gales',null,'Id','32451323',convert(date,'21/11/22', 3),1,null,'Qatar Foundation',null)
-Insert into partido values
+('Estados Unidos',null,'Gales',null,'Id','32451323',convert(date,'21/11/22', 3),1,'B',null,'Qatar Foundation',0)
+-- A LOS DE ABAJO LES FALTA EL GRUPO DESPUES DEL IDRONDA
+/*Insert into partido values
 ('Argentina',null,'Arabia Saudita',null,'Id','32451323',convert(date,'22/11/22', 3),1,null,'Al-Thumama',null)
 Insert into partido values
 ('Dinamarca',null,'Tunez',null,'Pass','41231444',convert(date,'22/11/22', 3),1,null,'Al Janoub',null)
@@ -943,7 +945,7 @@ Insert into partido values
 Insert into partido values
 (48,'Serbia',null,'Suiza',null,'Dni','30303030',convert(date,'2/12/22', 3),1,null,0)
 
-*/
+*/*/
 
 Create Table EventoPartido(
 id_partido int,
