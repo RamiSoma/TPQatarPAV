@@ -9,8 +9,6 @@ namespace TPQatarPAVI.Datos.Interfaces
 {
     interface IArbitro
     {
-        DataTable RecuperarTodos(string fnombre);
-        DataTable RecuperarTodos(string fNombre, string fApellido);
         DataTable RecuperarTodos();
     }
 }

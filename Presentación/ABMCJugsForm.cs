@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPQatarPAVI.CapaServicios;
+using TPQatarPAVI.Datos.Interfaces;
 using TPQatarPAVI.Entidades;
 
 namespace TPQatarPAVI.Presentación
@@ -120,7 +121,7 @@ namespace TPQatarPAVI.Presentación
             DialogResult rta = MessageBox.Show("¿Estas seguro que deseas eliminar el Jugador seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (rta == DialogResult.Yes)
             {
-                jugador.eliminarjug(tipo_doc,nro_doc);
+                jugador.eliminarjugador(tipo_doc,nro_doc);
                 CargarGrilla(dGridJug, jugador.traerTodos(cmbPaisFiltro.Text));
             }
         }
@@ -155,13 +156,17 @@ namespace TPQatarPAVI.Presentación
                         if (modo == Modo.Alta)
                         {
 
-                            jugador.CrearJugador(lblTipoDocFijo.Text,txtNumDoc.Text,txtNombre.Text, txtApeJug.Text, cmbPaisMod.Text);
+                            jugador.crearJugador(lblTipoDocFijo.Text,txtNumDoc.Text,txtNombre.Text, txtApeJug.Text, cmbPaisMod.Text);
+
                         }
                         if (modo == Modo.Modificacion)
                         {
-                            jugador.modificarJugador(txtNombre.Text, txtApeJug.Text);
+                            jugador.modificarJugador(lblTipoDocFijo.Text, txtNumDoc.Text, txtNombre.Text,txtApeJug.Text);
                         }
                         CargarGrilla(dGridJug, jugador.traerTodos(cmbPaisFiltro.Text));
+                        HabilitarEdicion(false);
+                        HabilitarABMC(true);
+                        HabilitarRestaurar(false);
                     }
                 }
             }
@@ -184,13 +189,7 @@ namespace TPQatarPAVI.Presentación
             HabilitarRestaurar(false);
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            HabilitarEdicion(false);
-            HabilitarABMC(true);
-            HabilitarRestaurar(false);
-        }
-
+      
         private void btnCancelarRest_Click(object sender, EventArgs e)
         {
             HabilitarEdicion(false);
