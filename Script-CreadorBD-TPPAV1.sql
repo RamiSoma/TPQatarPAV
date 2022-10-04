@@ -1,5 +1,5 @@
 --Create Database Qatar2022
-Use TPQatarPAV
+use tpqatarpav
 
 -- Creacion de perfiles
 create table perfil(
@@ -19,7 +19,7 @@ nombre varchar(15),
 apellido varchar(15),
 usuario varchar(16),
 mail varchar(32),
-contraseña varchar(15),
+contrasena varchar(15),
 rol_id int,
 borrado bit,
 constraint user_pk Primary key (id),
@@ -29,7 +29,7 @@ Insert into Usuario values('Francisco', 'Ferraro','Franfe','Franfe@gmail.com','l
 
 Insert into Usuario values('Ramiro','Somavilla','Ralfi','Ralfi@gmail.com','kobe',1,0)
 
-Insert into Usuario values('Pedro','Argañaraz','Pedriskol','Pedriskol@gmail.com','messismo',1,0)
+Insert into Usuario values('Pedro','Argaï¿½araz','Pedriskol','Pedriskol@gmail.com','messismo',1,0)
 
 Insert into Usuario values('Lucas','Lopez','Luquitas','Luquitas@gmail.com','tester',2,0)
 
@@ -62,7 +62,7 @@ Insert into TipoDoc values('DA','DocAsia',0)
 Insert into TipoDoc values('IDE','DocEuropa',0)
 Insert into TipoDoc values('IdA','DocAfrica',0)
 Insert into TipoDoc values('RDA','DocAmerica',0)
-Insert into TipoDoc values('IDO','DocOceanía',0)
+Insert into TipoDoc values('IDO','DocOceanï¿½a',0)
 
 select * from TipoDoc
 
@@ -121,7 +121,7 @@ Insert into Estadio values (
 Insert into Estadio values (
 'Al Bayt','Al-Khor',60000,0)
 Insert into Estadio values (
-'Icónico de Lusail','Lusail',80000,0)
+'Icï¿½nico de Lusail','Lusail',80000,0)
 Insert into Estadio values (
 'Al Janoub','Al-Wakrah',40000,0)
 
@@ -217,7 +217,7 @@ Insert into Pais values('Francia',3,'D',0,4,0)
 Insert into Pais values('Australia',6,'D',0,39,0)
 Insert into Pais values('Dinamarca',3,'D',0,10,0)
 Insert into Pais values('Tunez',4,'D',0,30,0)
-Insert into Pais values('España',3,'E',0,6,0)
+Insert into Pais values('Espaï¿½a',3,'E',0,6,0)
 Insert into Pais values('Costa Rica',2,'E',0,34,0)
 Insert into Pais values('Alemania',3,'E',0,11,0)
 Insert into Pais values('Japon',5,'E',0,24,0)
@@ -258,7 +258,7 @@ Insert into Arbitro Values(
 Insert into Arbitro Values(
 'Elvis','Johnson','Id','19133412','Estados Unidos',0)
 Insert into Arbitro Values(
-'Juan Pablo','Ramos','Pass','41231444','España',0)
+'Juan Pablo','Ramos','Pass','41231444','Espaï¿½a',0)
 
 Select * from Arbitro
 
@@ -296,7 +296,7 @@ Insert into jugadores values
 Insert into jugadores values
 ('RDA',11110005,'Alexander','Dominguez','Ecuador',0,0,0,0,0)
 Insert into jugadores values
-('RDA',11110006,'Piero','Hincapié','Ecuador',0,0,0,0,0)
+('RDA',11110006,'Piero','Hincapiï¿½','Ecuador',0,0,0,0,0)
 Insert into jugadores values
 ('RDA',11110007,'Alan','Franco','Ecuador',0,0,0,0,0)
 Insert into jugadores values
@@ -314,7 +314,7 @@ Insert into jugadores values
 Insert into jugadores values
 ('IdA',14110000,'Ismalia','Sarr','Senegal',0,0,0,0,0)
 Insert into jugadores values
-('IdA',15110000,'Sadio','Mané','Senegal',0,0,0,0,0)
+('IdA',15110000,'Sadio','Manï¿½','Senegal',0,0,0,0,0)
 
 --Paises Bajos
 Insert into jugadores values
@@ -357,7 +357,7 @@ Insert into jugadores values
 Insert into jugadores values
 ('id',16700110,'Matt','Turner','Estados Unidos',0,0,0,0,0)
 Insert into jugadores values
-('id',16710120,'Sergiño','Dest','Estados Unidos',0,0,0,0,0)
+('id',16710120,'Sergiï¿½o','Dest','Estados Unidos',0,0,0,0,0)
 Insert into jugadores values
 ('id',16710130,'Andre','Yedlin','Estados Unidos',0,0,0,0,0)
 Insert into jugadores values
@@ -382,11 +382,11 @@ Insert into jugadores values
 Insert into jugadores values
 ('Dni',33016244,'Emiliano','Martinez','Argentina',0,0,0,0,0)
 Insert into jugadores values
-('Dni',30017292,'Marcos','Acuña','Argentina',0,0,0,0,0)
+('Dni',30017292,'Marcos','Acuï¿½a','Argentina',0,0,0,0,0)
 Insert into jugadores values
 ('Dni',29816224,'Nahuel','Molina','Argentina',0,0,0,0,0)
 Insert into jugadores values
-('Dni',35916284,'Nicolás','Otamendi','Argentina',0,0,0,0,0)
+('Dni',35916284,'Nicolï¿½s','Otamendi','Argentina',0,0,0,0,0)
 Insert into jugadores values
 ('Dni',37516545,'Cristian','Romero','Argentina',0,0,0,0,0)
 Insert into jugadores values
@@ -394,7 +394,7 @@ Insert into jugadores values
 Insert into jugadores values
 ('Dni',38007540,'Lisandro','Martinez','Argentina',0,0,0,0,0)
 Insert into jugadores values
-('Dni',31896241,'Ángel','Di María','Argentina',0,0,0,0,0)
+('Dni',31896241,'ï¿½ngel','Di Marï¿½a','Argentina',0,0,0,0,0)
 Insert into jugadores values
 ('Dni',38046546,'Giovani','Lo Celso','Argentina',0,0,0,0,0)
 Insert into jugadores values
@@ -444,27 +444,27 @@ Insert into jugadores values
 Insert into jugadores values
 ('cpv',31247856,'Guillermo','Ochoa','Mexico',0,0,0,0,0)
 Insert into jugadores values
-('cpv',30207050,'Nestor','Araújo','Mexico',0,0,0,0,0)
+('cpv',30207050,'Nestor','Araï¿½jo','Mexico',0,0,0,0,0)
 Insert into jugadores values
-('cpv',33247456,'Jesús','Gallardo','Mexico',0,0,0,0,0)
+('cpv',33247456,'Jesï¿½s','Gallardo','Mexico',0,0,0,0,0)
 Insert into jugadores values
-('cpv',35547876,'César','Montes','Mexico',0,0,0,0,0)
+('cpv',35547876,'Cï¿½sar','Montes','Mexico',0,0,0,0,0)
 Insert into jugadores values
-('cpv',37167756,'Héctor','Montero','Mexico',0,0,0,0,0)
+('cpv',37167756,'Hï¿½ctor','Montero','Mexico',0,0,0,0,0)
 Insert into jugadores values
 ('cpv',39247252,'Luis','Romo','Mexico',0,0,0,0,0)
 Insert into jugadores values
-('cpv',35217555,'Edson','Álvarez','Mexico',0,0,0,0,0)
+('cpv',35217555,'Edson','ï¿½lvarez','Mexico',0,0,0,0,0)
 Insert into jugadores values
-('cpv',32244856,'Jesús','Corona','Mexico',0,0,0,0,0)
+('cpv',32244856,'Jesï¿½s','Corona','Mexico',0,0,0,0,0)
 Insert into jugadores values
-('cpv',30200846,'Andrés','Guardado','Mexico',0,0,0,0,0)
+('cpv',30200846,'Andrï¿½s','Guardado','Mexico',0,0,0,0,0)
 Insert into jugadores values
-('cpv',39544656,'Héctor','Herrera','Mexico',0,0,0,0,0)
+('cpv',39544656,'Hï¿½ctor','Herrera','Mexico',0,0,0,0,0)
 Insert into jugadores values
 ('cpv',29247850,'Rogelio','Funes Mori','Mexico',0,0,0,0,0)
 Insert into jugadores values
-('cpv',37124776,'Raúl','Gimenez','Mexico',0,0,0,0,0)
+('cpv',37124776,'Raï¿½l','Gimenez','Mexico',0,0,0,0,0)
 Insert into jugadores values
 ('cpv',36246312,'Hirving','Lozano','Mexico',0,0,0,0,0)
 Insert into jugadores values
@@ -507,7 +507,7 @@ Insert into jugadores values
 Insert into jugadores values
 ('IDE',16950001,'Maestro','Kimpembe','Francia',0,0,0,0,0)
 Insert into jugadores values
-('IDE',16960001,'Ngolo','Kanté','Francia',0,0,0,0,0)
+('IDE',16960001,'Ngolo','Kantï¿½','Francia',0,0,0,0,0)
 Insert into jugadores values
 ('IDE',16970001,'Kylian','Mbappe','Francia',0,0,0,0,0)
 Insert into jugadores values
@@ -550,17 +550,17 @@ Insert into jugadores values
 ('IdA',1909005,'Naim','Sliti','Tunez',0,0,0,0,0)
 
 --Grupo E
---España
+--Espaï¿½a
 Insert into jugadores values
-('Pass',20490001,'Unai','Simon','España',0,0,0,0,0)
+('Pass',20490001,'Unai','Simon','Espaï¿½a',0,0,0,0,0)
 Insert into jugadores values
-('Pass',20490002,'Jordi','Alba','España',0,0,0,0,0)
+('Pass',20490002,'Jordi','Alba','Espaï¿½a',0,0,0,0,0)
 Insert into jugadores values
-('Pass',20490003,'Marcos','Llorente','España',0,0,0,0,0)
+('Pass',20490003,'Marcos','Llorente','Espaï¿½a',0,0,0,0,0)
 Insert into jugadores values
-('Pass',20490004,'Ansu','Fati','España',0,0,0,0,0)
+('Pass',20490004,'Ansu','Fati','Espaï¿½a',0,0,0,0,0)
 Insert into jugadores values
-('Pass',20490005,'Alvaro','Morata','España',0,0,0,0,0)
+('Pass',20490005,'Alvaro','Morata','Espaï¿½a',0,0,0,0,0)
 
 --Costa Rica
 Insert into jugadores values
@@ -586,7 +586,7 @@ Insert into jugadores values
 Insert into jugadores values
 ('di',40012005,'Timo','Werner','Alemania',0,0,0,0,0)
 
---Japón
+--Japï¿½n
 Insert into jugadores values
 ('DA',10055509,'Shuichi','Gonda','Japon',0,0,0,0,0)
 Insert into jugadores values
@@ -599,7 +599,7 @@ Insert into jugadores values
 ('DA',10055505,'Hwan','Honda','Japon',0,0,0,0,0)
 
 --Grupo F
---Bélgica
+--Bï¿½lgica
 Insert into jugadores values
 ('IDE',56785301,'Tibu','Couttois','Belgica',0,0,0,0,0)
 Insert into jugadores values
@@ -654,7 +654,7 @@ Insert into jugadores values
 Insert into jugadores values
 ('RDA',33225501,'Eder','Militao','Brasil',0,0,0,0,0)
 Insert into jugadores values
-('RDA',33225502,'Lucas','Paquetá','Brasil',0,0,0,0,0)
+('RDA',33225502,'Lucas','Paquetï¿½','Brasil',0,0,0,0,0)
 Insert into jugadores values
 ('RDA',33225503,'Neymar','Jr','Brasil',0,0,0,0,0)
 Insert into jugadores values
@@ -684,9 +684,9 @@ Insert into jugadores values
 Insert into jugadores values
 ('IDE',34679126,'Haris','Seferovic','Suiza',0,0,0,0,0)
 
---Camerún
+--Camerï¿½n
 Insert into jugadores values
-('RDA',22583140,'André','Onana','Camerun',0,0,0,0,0)
+('RDA',22583140,'Andrï¿½','Onana','Camerun',0,0,0,0,0)
 Insert into jugadores values
 ('RDA',22583141,'Devis','Epassy','Camerun',0,0,0,0,0)
 Insert into jugadores values
@@ -703,7 +703,7 @@ Insert into jugadores values
 Insert into jugadores values
 ('Nif',31106064,'Joao','Cancelo','Portugal',0,0,0,0,0)
 Insert into jugadores values
-('Nif',32106091,'José','Fonte','Portugal',0,0,0,0,0)
+('Nif',32106091,'Josï¿½','Fonte','Portugal',0,0,0,0,0)
 Insert into jugadores values
 ('Nif',33106088,'Nuno','Mendes','Portugal',0,0,0,0,0)
 Insert into jugadores values
@@ -765,19 +765,19 @@ Insert into jugadores values
 Insert into jugadores values
 ('doc', 51234567,'Ronald','Araujo','Uruguay',0,0,0,0,0)
 Insert into jugadores values
-('doc', 55488866,'Martín','Cáceres','Uruguay',0,0,0,0,0)
+('doc', 55488866,'Martï¿½n','Cï¿½ceres','Uruguay',0,0,0,0,0)
 Insert into jugadores values
-('doc', 57890023,'José','Gimenez','Uruguay',0,0,0,0,0)
+('doc', 57890023,'Josï¿½','Gimenez','Uruguay',0,0,0,0,0)
 Insert into jugadores values
-('doc', 60852364,'Diego','Godín','Uruguay',0,0,0,0,0)
+('doc', 60852364,'Diego','Godï¿½n','Uruguay',0,0,0,0,0)
 Insert into jugadores values
 ('doc', 50135468,'Mathis','Olivera','Uruguay',0,0,0,0,0)
 Insert into jugadores values
-('doc', 57854126,'Matías','Viña','Uruguay',0,0,0,0,0)
+('doc', 57854126,'Matï¿½as','Viï¿½a','Uruguay',0,0,0,0,0)
 Insert into jugadores values
 ('doc', 58886523,'Rodrigo','Bentancur','Uruguay',0,0,0,0,0)
 Insert into jugadores values
-('doc', 50456895,'Nicolás','De La Cruz','Uruguay',0,0,0,0,0)
+('doc', 50456895,'Nicolï¿½s','De La Cruz','Uruguay',0,0,0,0,0)
 Insert into jugadores values
 ('doc', 55002098,'Lucas','Torreira','Uruguay',0,0,0,0,0)
 Insert into jugadores values
@@ -787,7 +787,7 @@ Insert into jugadores values
 Insert into jugadores values
 ('doc', 51412191,'Luis','Suarez','Uruguay',0,0,0,0,0)
 Insert into jugadores values
-('doc', 50402090,'Darwin','Nuñez','Uruguay',0,0,0,0,0)
+('doc', 50402090,'Darwin','Nuï¿½ez','Uruguay',0,0,0,0,0)
 
 --Corea Del Sur
 Insert into jugadores values
@@ -822,7 +822,7 @@ Insert into jugadores values
 Select * from jugadores WHERE pais ='Argentina'
 
 Create table Partido(
-id int,
+id int identity(1,1),
 pais_1 varchar(15),
 goles_p1 int,
 pais_2 varchar(15),
@@ -844,37 +844,37 @@ constraint fk_partido_estadio foreign key (estadio) references estadio(nombre))
 
 
 Insert into partido values
-(1,'Qatar',null,'Ecuador',null,'Dni','30303030', convert(date,'20/11/22', 3),1,null,'Al-Thumama',null)
+('Qatar',null,'Ecuador',null,'Dni','30303030', convert(date,'20/11/22', 3),1,null,'Al-Thumama',null)
 Insert into partido values
-(2,'Inglaterra',null,'Iran',null,'Id','32451323',convert(date,'21/11/22', 3),1,null,'Al Janoub',null)
+('Inglaterra',null,'Iran',null,'Id','32451323',convert(date,'21/11/22', 3),1,null,'Al Janoub',null)
 Insert into partido values
-(3,'Senegal',null,'Paises Bajos',null,'Pass','41231444',convert(date,'21/11/22', 3),1,null,'Icónico de Lusail',null)
+('Senegal',null,'Paises Bajos',null,'Pass','41231444',convert(date,'21/11/22', 3),1,null,'Icï¿½nico de Lusail',null)
 Insert into partido values
-(4,'Estados Unidos',null,'Gales',null,'Id','32451323',convert(date,'21/11/22', 3),1,null,'Qatar Foundation',null)
+('Estados Unidos',null,'Gales',null,'Id','32451323',convert(date,'21/11/22', 3),1,null,'Qatar Foundation',null)
 Insert into partido values
-(5,'Argentina',null,'Arabia Saudita',null,'Id','32451323',convert(date,'22/11/22', 3),1,null,'Al-Thumama',null)
+('Argentina',null,'Arabia Saudita',null,'Id','32451323',convert(date,'22/11/22', 3),1,null,'Al-Thumama',null)
 Insert into partido values
-(6,'Dinamarca',null,'Tunez',null,'Pass','41231444',convert(date,'22/11/22', 3),1,null,'Al Janoub',null)
+('Dinamarca',null,'Tunez',null,'Pass','41231444',convert(date,'22/11/22', 3),1,null,'Al Janoub',null)
 Insert into partido values
-(7,'Mexico',null,'Polonia',null,'Id','32451323',convert(date,'22/11/22', 3),1,null,'Icónico de Lusail',null)
+('Mexico',null,'Polonia',null,'Id','32451323',convert(date,'22/11/22', 3),1,null,'Icï¿½nico de Lusail',null)
 Insert into partido values
-(8,'Francia',null,'Australia',null,'Id','32451323',convert(date,'22/11/22', 3),1,null,'Qatar Foundation',null)
+('Francia',null,'Australia',null,'Id','32451323',convert(date,'22/11/22', 3),1,null,'Qatar Foundation',null)
 Insert into partido values
-(9,'Marruecos',null,'Croacia',null,'Dni','30303030',convert(date,'23/11/22', 3),1,null,'Al Bayt',null)
+('Marruecos',null,'Croacia',null,'Dni','30303030',convert(date,'23/11/22', 3),1,null,'Al Bayt',null)
 Insert into partido values
-(10,'Alemania',null,'Japon',null,'Id','32451323',convert(date,'23/11/22', 3),1,null,'Al-Thumama',null)
+('Alemania',null,'Japon',null,'Id','32451323',convert(date,'23/11/22', 3),1,null,'Al-Thumama',null)
 Insert into partido values
-(11,'España',null,'Costa Rica',null,'Pass','41231444',convert(date,'23/11/22', 3),1,null,'Al Janoub',null)
+('Espaï¿½a',null,'Costa Rica',null,'Pass','41231444',convert(date,'23/11/22', 3),1,null,'Al Janoub',null)
 Insert into partido values
-(12,'Belgica',null,'Canada',null,'Id','32451323',convert(date,'23/11/22', 3),1,null,'Icónico de Lusail',null)
+('Belgica',null,'Canada',null,'Id','32451323',convert(date,'23/11/22', 3),1,null,'Icï¿½nico de Lusail',null)
 Insert into partido values
-(13,'Suiza',null,'Camerun',null,'Id','32451323',convert(date,'24/11/22', 3),1,null,'Qatar Foundation',null)
+('Suiza',null,'Camerun',null,'Id','32451323',convert(date,'24/11/22', 3),1,null,'Qatar Foundation',null)
 Insert into partido values
-(14,'Uruguay',null,'Corea del Sur',null,'Dni','30303030',convert(date,'24/11/22', 3),1,null,'Al Bayt',null)
+('Uruguay',null,'Corea del Sur',null,'Dni','30303030',convert(date,'24/11/22', 3),1,null,'Al Bayt',null)
 Insert into partido values
-(15,'Portugal',null,'Ghana',null,'Id','32451323',convert(date,'24/11/22', 3),1,null,'Al-Thumama',null)
+('Portugal',null,'Ghana',null,'Id','32451323',convert(date,'24/11/22', 3),1,null,'Al-Thumama',null)
 Insert into partido values
-(16,'Brasil',null,'Serbia',null,'Id','32451323',convert(date,'24/11/22', 3),1,null,'Al Janoub',null)
+('Brasil',null,'Serbia',null,'Id','32451323',convert(date,'24/11/22', 3),1,null,'Al Janoub',null)
 --Fecha 2 fase de grupos
 /*
 Insert into partido values
@@ -900,7 +900,7 @@ Insert into partido values
 Insert into partido values
 (27,'Croacia',null,'Canada',null,'Dni','30303030',convert(date,'27/11/22', 3),1,null,0)
 Insert into partido values
-(28,'España',null,'Alemania',null,'Id','32451323',convert(date,'27/11/22', 3),1,null,0)
+(28,'Espaï¿½a',null,'Alemania',null,'Id','32451323',convert(date,'27/11/22', 3),1,null,0)
 Insert into partido values
 (29,'Camerun',null,'Serbia',null,'Id','32451323',convert(date,'28/11/22', 3),1,null,0)
 Insert into partido values
@@ -931,7 +931,7 @@ Insert into partido values
 Insert into partido values
 (42,'Canada',null,'Marruecos',null,'Id','32451323',convert(date,'1/12/22', 3),1,null,0)
 Insert into partido values
-(43,'Japon',null,'España',null,'Id','32451323',convert(date,'1/12/22', 3),1,null,0)
+(43,'Japon',null,'Espaï¿½a',null,'Id','32451323',convert(date,'1/12/22', 3),1,null,0)
 Insert into partido values
 (44,'Costa Rica',null,'Alemania',null,'Dni','30303030',convert(date,'1/12/22', 3),1,null,0)
 Insert into partido values

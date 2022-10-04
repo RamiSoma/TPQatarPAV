@@ -83,6 +83,7 @@ namespace TPQatarPAVI.Presentación
         {
             HabilitarEdicion(true);
             CargarCombo(cmbBoxGrupo, grupo.traerTodos()); //cargar combo grupos
+            modo = Modo.Alta;
 
         }
 

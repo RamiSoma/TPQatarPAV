@@ -57,7 +57,7 @@ namespace TPQatarPAVI.Presentación
                                 tabla.Rows[i]["mail"],
                                 tabla.Rows[i]["usuario"],
                                 tabla.Rows[i]["rol"],
-                                tabla.Rows[i]["contraseña"]);
+                                tabla.Rows[i]["contrasena"]);
             }
         }
         private void HabilitarRestaurar(bool v)

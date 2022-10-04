@@ -16,6 +16,15 @@ namespace TPQatarPAVI.Presentación
         RondaService rnd = new RondaService();
         GrupoService grupo = new GrupoService();
         PaisService pais = new PaisService();
+        ArbitroService arb = new ArbitroService();
+        EstadioService est = new EstadioService();
+        PartidoService part = new PartidoService();
+        enum Modo
+        {
+            Alta,
+            Modificacion
+        }
+        Modo modo;
         public ABMCPartForm()
         {
             InitializeComponent();
@@ -69,12 +78,15 @@ namespace TPQatarPAVI.Presentación
             CargarCombo(cmbGrupo, grupo.traerTodos());
             CargarCombo(cmbPaisLocal, pais.traerPorGrupo(cmbGrupo.Text));
             CargarCombo(cmbPaisVisitante, pais.traerPorGrupo(cmbGrupo.Text));
+            CargarCombo(cmbArb, arb.traerTodos());
+            CargarCombo(cmbEstadio, est.traerTodos());
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             habilitarAM(true);
             habilitarBusq(false);
+            modo = Modo.Alta;
         }
 
         private void cmbRonda_SelectedIndexChanged(object sender, EventArgs e)
@@ -95,6 +107,7 @@ namespace TPQatarPAVI.Presentación
         {
             habilitarAM(true);
             habilitarBusq(false);
+            modo = Modo.Modificacion;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -105,6 +118,14 @@ namespace TPQatarPAVI.Presentación
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if(modo == Modo.Alta)
+            {
+                /*part.crearPartido();*/
+            }
+            else
+            {
+
+            }
             habilitarAM(true);
         }
 

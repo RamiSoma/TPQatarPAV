@@ -12,7 +12,7 @@ namespace TPQatarPAVI.Datos.Daos
     {
         public int validarUsr(string nombre,string pswd)
         {
-            string consulta = "SELECT * FROM Usuario WHERE (usuario='" + nombre + "' OR mail = '"+ nombre +"') AND contraseña='" + pswd + "'";
+            string consulta = "SELECT * FROM Usuario WHERE (usuario='" + nombre + "' OR mail = '"+ nombre +"') AND contrasena='" + pswd + "'";
 
             DataTable tabla = DBHelper.obtenerInstancia().consultar(consulta);
             if (tabla.Rows.Count > 0)
@@ -28,7 +28,7 @@ namespace TPQatarPAVI.Datos.Daos
             }else {
                 idPerfil = obtenerRolPerfilId(fPerfil); 
             }
-            string consulta = "select u.id,u.nombre,u.apellido,u.mail,u.usuario,p.rol,u.contraseña from usuario u, perfil p " +
+            string consulta = "select u.id,u.nombre,u.apellido,u.mail,u.usuario,p.rol,u.contrasena from usuario u, perfil p " +
                                      "where (p.id = u.rol_id) and u.borrado = 0 and (u.nombre like '%"+fNombreMail+"%' or u.apellido like '%" + fNombreMail + "%' or u.mail like '%"+fNombreMail+"%') and u.rol_id='"+idPerfil+"'";
 
             return DBHelper.obtenerInstancia().consultar(consulta);
@@ -46,7 +46,7 @@ namespace TPQatarPAVI.Datos.Daos
         }
         public void modificarUsr(string id, string nNombre, string nApellido, string nUsuario, string nPswd, string nRolPerfil)
         {
-            string consulta = "UPDATE usuario SET nombre = '"+nNombre+"', apellido = '" + nApellido + "', usuario = '" + nUsuario + "', contraseña = '"+nPswd+"',rol_id = "+ obtenerRolPerfilId(nRolPerfil) +" WHERE id = "+id;
+            string consulta = "UPDATE usuario SET nombre = '"+nNombre+"', apellido = '" + nApellido + "', usuario = '" + nUsuario + "', contrasena = '"+nPswd+"',rol_id = "+ obtenerRolPerfilId(nRolPerfil) +" WHERE id = "+id;
             DBHelper.obtenerInstancia().consultar(consulta);
         }
         public void eliminarUsr(int id)
@@ -64,7 +64,7 @@ namespace TPQatarPAVI.Datos.Daos
         }
         public DataTable recuperarEliminados()
         {
-            string consulta = "select u.id,u.nombre,u.apellido,u.mail,u.usuario,p.rol,u.contraseña from usuario u, perfil p " +
+            string consulta = "select u.id,u.nombre,u.apellido,u.mail,u.usuario,p.rol,u.contrasena from usuario u, perfil p " +
                                      "where (p.id = u.rol_id) and u.borrado = 1";
 
             return DBHelper.obtenerInstancia().consultar(consulta);

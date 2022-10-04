@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CapaServicios\ArbitroService.cs" />
+    <Compile Include="CapaServicios\EstadioService.cs" />
+    <Compile Include="CapaServicios\PartidoService.cs" />
     <Compile Include="CapaServicios\TipoDocService.cs" />
     <Compile Include="CapaServicios\JugadorService.cs" />
     <Compile Include="CapaServicios\ContinenteService.cs" />
@@ -54,6 +57,9 @@
     <Compile Include="CapaServicios\PerfilService.cs" />
     <Compile Include="CapaServicios\RondaService.cs" />
     <Compile Include="CapaServicios\UsuarioService.cs" />
+    <Compile Include="Datos\Daos\ArbitroDao.cs" />
+    <Compile Include="Datos\Daos\EstadioDao.cs" />
+    <Compile Include="Datos\Daos\PartidoDao.cs" />
     <Compile Include="Datos\Daos\TipoDocDao.cs" />
     <Compile Include="Datos\Daos\JugadorDao.cs" />
     <Compile Include="Datos\Daos\ContinenteDao.cs" />
@@ -63,9 +69,12 @@
     <Compile Include="Datos\Daos\RondaDao.cs" />
     <Compile Include="Datos\Daos\UsuarioDao.cs" />
     <Compile Include="Datos\DBHelper.cs" />
+    <Compile Include="Datos\Interfaces\IArbitro.cs" />
     <Compile Include="Datos\Interfaces\IContinente.cs" />
+    <Compile Include="Datos\Interfaces\IEstadio.cs" />
     <Compile Include="Datos\Interfaces\IGrupo.cs" />
     <Compile Include="Datos\Interfaces\IJugador.cs" />
+    <Compile Include="Datos\Interfaces\IPartido.cs" />
     <Compile Include="Datos\Interfaces\ITipoDoc.cs" />
     <Compile Include="Datos\Interfaces\IPais.cs" />
     <Compile Include="Datos\Interfaces\IPerfil.cs" />
