@@ -260,6 +260,11 @@ namespace TPQatarPAVI.Presentación
         {
             dGridPartido.Rows.Clear();
         }
+
+        private void btnCancelarRest_Click(object sender, EventArgs e)
+        {
+            CargarGrilla(dGridPartido, part.buscarPartidos(cmbRondaFiltro.Text, cmbGrupoFiltro.Text, cmbEstadioFiltro.Text, cmbPaisFiltro.Text));
+        }
     }
     
 }

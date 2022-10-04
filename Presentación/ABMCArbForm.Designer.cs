@@ -32,14 +32,10 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.lblGestArb = new System.Windows.Forms.Label();
-            this.lblFiltroIDArb = new System.Windows.Forms.Label();
-            this.txtFiltroDoc = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnVolverMenu = new System.Windows.Forms.Button();
             this.btnRestaurar = new System.Windows.Forms.Button();
-            this.cmbFiltroTipoDoc = new System.Windows.Forms.ComboBox();
-            this.lblTipoDocFiltro = new System.Windows.Forms.Label();
             this.dGridArb = new System.Windows.Forms.DataGridView();
             this.NombreArb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ApellidoArb = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,11 +54,13 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelarRest = new System.Windows.Forms.Button();
             this.btnRestaurarSeleccion = new System.Windows.Forms.Button();
-            this.lblTipoDocFijo = new System.Windows.Forms.Label();
             this.cmbPaisMod = new System.Windows.Forms.ComboBox();
             this.cmbPaisFiltro = new System.Windows.Forms.ComboBox();
             this.lblPaisFiltro = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.lblNombreFiltro = new System.Windows.Forms.Label();
+            this.txtNombreFiltro = new System.Windows.Forms.TextBox();
+            this.cmbTipoDoc = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dGridArb)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,6 +72,7 @@
             this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar Arbitro";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click_1);
             // 
             // btnEliminar
             // 
@@ -83,6 +82,7 @@
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar Arbitro";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
             // 
             // lblGestArb
             // 
@@ -94,22 +94,6 @@
             this.lblGestArb.TabIndex = 7;
             this.lblGestArb.Text = "GESTION DE ARBITROS";
             // 
-            // lblFiltroIDArb
-            // 
-            this.lblFiltroIDArb.AutoSize = true;
-            this.lblFiltroIDArb.Location = new System.Drawing.Point(362, 64);
-            this.lblFiltroIDArb.Name = "lblFiltroIDArb";
-            this.lblFiltroIDArb.Size = new System.Drawing.Size(45, 13);
-            this.lblFiltroIDArb.TabIndex = 22;
-            this.lblFiltroIDArb.Text = "N° Doc:";
-            // 
-            // txtFiltroDoc
-            // 
-            this.txtFiltroDoc.Location = new System.Drawing.Point(365, 81);
-            this.txtFiltroDoc.Name = "txtFiltroDoc";
-            this.txtFiltroDoc.Size = new System.Drawing.Size(114, 20);
-            this.txtFiltroDoc.TabIndex = 23;
-            // 
             // btnBuscar
             // 
             this.btnBuscar.Location = new System.Drawing.Point(512, 81);
@@ -118,6 +102,7 @@
             this.btnBuscar.TabIndex = 24;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnLimpiar
             // 
@@ -146,24 +131,7 @@
             this.btnRestaurar.TabIndex = 27;
             this.btnRestaurar.Text = "Restaurar Arbitro";
             this.btnRestaurar.UseVisualStyleBackColor = true;
-            // 
-            // cmbFiltroTipoDoc
-            // 
-            this.cmbFiltroTipoDoc.Cursor = System.Windows.Forms.Cursors.Default;
-            this.cmbFiltroTipoDoc.FormattingEnabled = true;
-            this.cmbFiltroTipoDoc.Location = new System.Drawing.Point(247, 80);
-            this.cmbFiltroTipoDoc.Name = "cmbFiltroTipoDoc";
-            this.cmbFiltroTipoDoc.Size = new System.Drawing.Size(86, 21);
-            this.cmbFiltroTipoDoc.TabIndex = 28;
-            // 
-            // lblTipoDocFiltro
-            // 
-            this.lblTipoDocFiltro.AutoSize = true;
-            this.lblTipoDocFiltro.Location = new System.Drawing.Point(244, 64);
-            this.lblTipoDocFiltro.Name = "lblTipoDocFiltro";
-            this.lblTipoDocFiltro.Size = new System.Drawing.Size(51, 13);
-            this.lblTipoDocFiltro.TabIndex = 29;
-            this.lblTipoDocFiltro.Text = "Tipo Doc";
+            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
             // dGridArb
             // 
@@ -284,6 +252,7 @@
             this.btnCancelar.TabIndex = 43;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
@@ -293,6 +262,7 @@
             this.btnGuardar.TabIndex = 44;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelarRest
             // 
@@ -302,6 +272,7 @@
             this.btnCancelarRest.TabIndex = 45;
             this.btnCancelarRest.Text = "Cancelar";
             this.btnCancelarRest.UseVisualStyleBackColor = true;
+            this.btnCancelarRest.Click += new System.EventHandler(this.btnCancelarRest_Click);
             // 
             // btnRestaurarSeleccion
             // 
@@ -311,15 +282,7 @@
             this.btnRestaurarSeleccion.TabIndex = 46;
             this.btnRestaurarSeleccion.Text = "Restaurar";
             this.btnRestaurarSeleccion.UseVisualStyleBackColor = true;
-            // 
-            // lblTipoDocFijo
-            // 
-            this.lblTipoDocFijo.AutoSize = true;
-            this.lblTipoDocFijo.Location = new System.Drawing.Point(208, 430);
-            this.lblTipoDocFijo.Name = "lblTipoDocFijo";
-            this.lblTipoDocFijo.Size = new System.Drawing.Size(164, 13);
-            this.lblTipoDocFijo.TabIndex = 47;
-            this.lblTipoDocFijo.Text = "El tipo queda seteado con el pais";
+            this.btnRestaurarSeleccion.Click += new System.EventHandler(this.btnRestaurarSeleccion_Click);
             // 
             // cmbPaisMod
             // 
@@ -328,11 +291,12 @@
             this.cmbPaisMod.Name = "cmbPaisMod";
             this.cmbPaisMod.Size = new System.Drawing.Size(121, 21);
             this.cmbPaisMod.TabIndex = 48;
+            this.cmbPaisMod.SelectionChangeCommitted += new System.EventHandler(this.cmbPaisMod_SelectionChangeCommitted);
             // 
             // cmbPaisFiltro
             // 
             this.cmbPaisFiltro.FormattingEnabled = true;
-            this.cmbPaisFiltro.Location = new System.Drawing.Point(120, 80);
+            this.cmbPaisFiltro.Location = new System.Drawing.Point(359, 83);
             this.cmbPaisFiltro.Name = "cmbPaisFiltro";
             this.cmbPaisFiltro.Size = new System.Drawing.Size(121, 21);
             this.cmbPaisFiltro.TabIndex = 50;
@@ -340,7 +304,7 @@
             // lblPaisFiltro
             // 
             this.lblPaisFiltro.AutoSize = true;
-            this.lblPaisFiltro.Location = new System.Drawing.Point(117, 63);
+            this.lblPaisFiltro.Location = new System.Drawing.Point(356, 66);
             this.lblPaisFiltro.Name = "lblPaisFiltro";
             this.lblPaisFiltro.Size = new System.Drawing.Size(29, 13);
             this.lblPaisFiltro.TabIndex = 49;
@@ -356,16 +320,42 @@
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
+            // lblNombreFiltro
+            // 
+            this.lblNombreFiltro.AutoSize = true;
+            this.lblNombreFiltro.Location = new System.Drawing.Point(211, 66);
+            this.lblNombreFiltro.Name = "lblNombreFiltro";
+            this.lblNombreFiltro.Size = new System.Drawing.Size(44, 13);
+            this.lblNombreFiltro.TabIndex = 52;
+            this.lblNombreFiltro.Text = "Nombre";
+            // 
+            // txtNombreFiltro
+            // 
+            this.txtNombreFiltro.Location = new System.Drawing.Point(214, 83);
+            this.txtNombreFiltro.Name = "txtNombreFiltro";
+            this.txtNombreFiltro.Size = new System.Drawing.Size(100, 20);
+            this.txtNombreFiltro.TabIndex = 53;
+            // 
+            // cmbTipoDoc
+            // 
+            this.cmbTipoDoc.FormattingEnabled = true;
+            this.cmbTipoDoc.Location = new System.Drawing.Point(214, 426);
+            this.cmbTipoDoc.Name = "cmbTipoDoc";
+            this.cmbTipoDoc.Size = new System.Drawing.Size(100, 21);
+            this.cmbTipoDoc.TabIndex = 54;
+            // 
             // ABMCArbForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.cmbTipoDoc);
+            this.Controls.Add(this.txtNombreFiltro);
+            this.Controls.Add(this.lblNombreFiltro);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.cmbPaisFiltro);
             this.Controls.Add(this.lblPaisFiltro);
             this.Controls.Add(this.cmbPaisMod);
-            this.Controls.Add(this.lblTipoDocFijo);
             this.Controls.Add(this.btnRestaurarSeleccion);
             this.Controls.Add(this.btnCancelarRest);
             this.Controls.Add(this.btnCancelar);
@@ -379,14 +369,10 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNomArb);
             this.Controls.Add(this.dGridArb);
-            this.Controls.Add(this.lblTipoDocFiltro);
-            this.Controls.Add(this.cmbFiltroTipoDoc);
             this.Controls.Add(this.btnRestaurar);
             this.Controls.Add(this.btnVolverMenu);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.txtFiltroDoc);
-            this.Controls.Add(this.lblFiltroIDArb);
             this.Controls.Add(this.lblGestArb);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
@@ -406,14 +392,10 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label lblGestArb;
-        private System.Windows.Forms.Label lblFiltroIDArb;
-        private System.Windows.Forms.TextBox txtFiltroDoc;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnVolverMenu;
         private System.Windows.Forms.Button btnRestaurar;
-        private System.Windows.Forms.ComboBox cmbFiltroTipoDoc;
-        private System.Windows.Forms.Label lblTipoDocFiltro;
         private System.Windows.Forms.DataGridView dGridArb;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreArb;
         private System.Windows.Forms.DataGridViewTextBoxColumn ApellidoArb;
@@ -432,10 +414,12 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelarRest;
         private System.Windows.Forms.Button btnRestaurarSeleccion;
-        private System.Windows.Forms.Label lblTipoDocFijo;
         private System.Windows.Forms.ComboBox cmbPaisMod;
         private System.Windows.Forms.ComboBox cmbPaisFiltro;
         private System.Windows.Forms.Label lblPaisFiltro;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Label lblNombreFiltro;
+        private System.Windows.Forms.TextBox txtNombreFiltro;
+        private System.Windows.Forms.ComboBox cmbTipoDoc;
     }
 }

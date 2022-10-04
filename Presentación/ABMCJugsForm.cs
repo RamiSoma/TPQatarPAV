@@ -23,6 +23,7 @@ namespace TPQatarPAVI.Presentación
             InitializeComponent();
             CargarCombo(cmbPaisFiltro, pais.traerTodos("",""));
             CargarCombo(cmbPaisMod, pais.traerTodos("", ""));
+            CargarCombo(cmbTipoDoc, tipoDoc.traerTodos());
           
             HabilitarEdicion(false);
             HabilitarRestaurar(false);
@@ -63,17 +64,28 @@ namespace TPQatarPAVI.Presentación
             txtApeJug.Visible = v;
             cmbPaisMod.Visible= v;
             txtNumDoc.Visible = v;
+            cmbTipoDoc.Visible = v;
             lblTipoDocFijo.Visible = v;
             btnGuardar.Visible = v;
             btnCancelar.Visible = v;
+        }
+        private void CargarJugador()
+        {
+            txtNombre.Text = Convert.ToString(dGridJug.SelectedRows[0].Cells[0].Value);
+            txtApeJug.Text = Convert.ToString(dGridJug.SelectedRows[0].Cells[1].Value);
+            cmbPaisMod.Text = Convert.ToString(dGridJug.SelectedRows[0].Cells[2].Value);
+            cmbTipoDoc.Text = Convert.ToString(dGridJug.SelectedRows[0].Cells[3].Value);
+            txtNumDoc.Text = Convert.ToString(dGridJug.SelectedRows[0].Cells[4].Value);
         }
         private void button3_Click(object sender, EventArgs e)
         { //Modificar Jugador
             HabilitarEdicion(true);
             HabilitarABMC(false);
             HabilitarRestaurar(false);
+            CargarJugador();
             modo = Modo.Modificacion;
-            txtNombre.Enabled = false;
+            cmbTipoDoc.Enabled = false;
+            txtNumDoc.Enabled = false;
         }
         private void CargarGrilla(DataGridView grilla, DataTable tabla)
         {
@@ -116,8 +128,8 @@ namespace TPQatarPAVI.Presentación
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            string tipo_doc= Convert.ToString(dGridJug.SelectedRows[0].Cells[0].Value);
-            string nro_doc = Convert.ToString(dGridJug.SelectedRows[0].Cells[1].Value);
+            string tipo_doc= Convert.ToString(dGridJug.SelectedRows[0].Cells[3].Value);
+            string nro_doc = Convert.ToString(dGridJug.SelectedRows[0].Cells[4].Value);
             DialogResult rta = MessageBox.Show("¿Estas seguro que deseas eliminar el Jugador seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (rta == DialogResult.Yes)
             {
@@ -155,13 +167,12 @@ namespace TPQatarPAVI.Presentación
                         HabilitarEdicion(false);
                         if (modo == Modo.Alta)
                         {
-
-                            jugador.crearJugador(lblTipoDocFijo.Text,txtNumDoc.Text,txtNombre.Text, txtApeJug.Text, cmbPaisMod.Text);
+                            jugador.crearJugador(cmbTipoDoc.Text,txtNumDoc.Text,txtNombre.Text, txtApeJug.Text, cmbPaisMod.Text);
 
                         }
                         if (modo == Modo.Modificacion)
                         {
-                            jugador.modificarJugador(lblTipoDocFijo.Text, txtNumDoc.Text, txtNombre.Text,txtApeJug.Text);
+                            jugador.modificarJugador(cmbTipoDoc.Text, txtNumDoc.Text, txtNombre.Text,txtApeJug.Text,cmbPaisMod.Text);
                         }
                         CargarGrilla(dGridJug, jugador.traerTodos(cmbPaisFiltro.Text));
                         HabilitarEdicion(false);
@@ -172,7 +183,7 @@ namespace TPQatarPAVI.Presentación
             }
             catch (FormatException)
             {
-                MessageBox.Show("El ranking fifa debe ser valor numérico...", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El número de documento debe ser valor numérico...", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnRestaurar_Click(object sender, EventArgs e)
@@ -180,6 +191,7 @@ namespace TPQatarPAVI.Presentación
             HabilitarRestaurar(true);
             HabilitarEdicion(false);
             HabilitarABMC(false);
+            CargarGrilla(dGridJug, jugador.traerEliminados());
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -195,13 +207,18 @@ namespace TPQatarPAVI.Presentación
             HabilitarEdicion(false);
             HabilitarABMC(true);
             HabilitarRestaurar(false);
+            CargarGrilla(dGridJug, jugador.traerTodos(cmbPaisFiltro.Text));
         }
 
         private void btnRestaurarSeleccion_Click(object sender, EventArgs e)
         {
+            string tipo_doc = Convert.ToString(dGridJug.SelectedRows[0].Cells[3].Value);
+            string nro_doc = Convert.ToString(dGridJug.SelectedRows[0].Cells[4].Value);
             HabilitarEdicion(false);
             HabilitarABMC(true);
             HabilitarRestaurar(false);
+            jugador.recuperarJugador(tipo_doc, nro_doc);
+            CargarGrilla(dGridJug, jugador.traerTodos(cmbPaisFiltro.Text));
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

@@ -16,7 +16,9 @@ namespace TPQatarPAVI.Datos.Interfaces
 
         void crearJugador(string tipo_doc, string nro_Doc, string nombre, string apellido,string pais);
         
-        void modificarJugador(string tipo_doc, string nro_doc,string nombre, string apellido);
+        void modificarJugador(string tipo_doc, string nro_doc,string nombre, string apellido, string pais);
+        DataTable traerEliminados();
+        void recuperarJugador(string tipoDoc, string nroDoc);
     }
 
 }

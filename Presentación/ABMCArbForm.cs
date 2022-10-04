@@ -36,15 +36,22 @@ namespace TPQatarPAVI.Presentación
         private void ABMCArbForm_Load(object sender, EventArgs e)
         {
 
-            CargarCombo(cmbPaisFiltro, pais.traerTodos("",""));
-            CargarCombo(cmbPaisMod, pais.traerTodos("",""));
+            CargarCombo(cmbPaisFiltro, pais.traerTodos("", ""), true);
+            CargarCombo(cmbPaisMod, pais.traerTodos("",""), false);
+            CargarCombo(cmbTipoDoc, tipoDoc.traerTodos(), false);
             HabilitarEdicion(false);
             HabilitarRestaurar(false);
         }
-        private void CargarCombo(ComboBox combo, DataTable tabla)
+        private void CargarCombo(ComboBox combo, DataTable tabla, bool esFiltro)
         {
+            if (esFiltro)
+            {
+                DataRow row = tabla.NewRow();
+                row[tabla.Columns[0].ColumnName] = "Todos";
+                tabla.Rows.InsertAt(row, 0);
+            };
             combo.DataSource = tabla;
-            combo.DisplayMember = tabla.Columns[1].ColumnName;
+            combo.DisplayMember = tabla.Columns[0].ColumnName;
             combo.ValueMember = tabla.Columns[0].ColumnName;
             combo.SelectedIndex = 0;
             combo.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -79,19 +86,17 @@ namespace TPQatarPAVI.Presentación
             btnCancelarRest.Visible = !v;
             cmbPaisFiltro.Visible = v;
             lblPaisFiltro.Visible = v;
-            lblFiltroIDArb.Visible = v;
-            txtFiltroDoc.Visible = v;
-            lblTipoDocFiltro.Visible = v;
-            cmbFiltroTipoDoc.Visible = v;
             btnLimpiar.Visible = v;
             btnBuscar.Visible = v;
+            txtNombreFiltro.Visible = v;
+            lblNombreFiltro.Visible = v;
         }
 
 
         private void HabilitarEdicion(bool v)
         {
             lblNomArb.Visible = v;
-            lblTipoDocFijo.Visible = v;
+            cmbTipoDoc.Visible = v;
             txtNombre.Visible = v;
             lblApeArb.Visible = v;
             txtApeArb.Visible = v;
@@ -103,12 +108,29 @@ namespace TPQatarPAVI.Presentación
             lblNumDocMod.Visible = v;
             txtNumDoc.Visible = v;
         }
+        private void HabilitarBusq(bool v)
+        {
+            lblNombreFiltro.Visible = v;
+            txtNombreFiltro.Visible = v;
+            lblPaisFiltro.Visible = v;
+            cmbPaisFiltro.Visible = v;
+            btnBuscar.Visible = v;
+            btnLimpiar.Visible = v;
+        }
+        public void limpiarCampos()
+        {
+            cmbPaisMod.SelectedIndex = 0;
+            txtNombre.Text = "";
+            txtApeArb.Text = "";
+            cmbTipoDoc.Visible = true;
+            txtNumDoc.Text = "";
+        }
         private void CargarUsr()
         {
             txtNombre.Text = Convert.ToString(dGridArb.SelectedRows[0].Cells[0].Value);
             txtApeArb.Text = Convert.ToString(dGridArb.SelectedRows[0].Cells[1].Value);
             cmbPaisMod.Text = Convert.ToString(dGridArb.SelectedRows[0].Cells[2].Value);
-            lblTipoDocFijo.Text = Convert.ToString(dGridArb.SelectedRows[0].Cells[3].Value);
+            cmbTipoDoc.Text = Convert.ToString(dGridArb.SelectedRows[0].Cells[3].Value);
             txtNumDoc.Text = Convert.ToString(dGridArb.SelectedRows[0].Cells[4].Value);
 
         }
@@ -118,23 +140,9 @@ namespace TPQatarPAVI.Presentación
             HabilitarEdicion(true);
             CargarUsr();
             modo = Modo.Modificacion;
+            cmbTipoDoc.Enabled = false;
+            txtNumDoc.Enabled = false;
         }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            HabilitarEdicion(true);
-            cmbPaisMod.SelectedIndex = 0;
-            txtNombre.Text = "";
-            txtApeArb.Text = "";
-            lblTipoDocFijo.Visible = true;
-            txtNumDoc.Text = "";
-            modo = Modo.Alta;
-        }
-
-        //private void btnBuscar_Click(object sender, EventArgs e)
-        //{
-        //    CargarGrilla(dGridArb, arb.traerTodos(cmbPaisFiltro.Text, cmbFiltroTipoDoc.Text, txtFiltroDoc.Text));
-        //}
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
@@ -150,6 +158,101 @@ namespace TPQatarPAVI.Presentación
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            CargarGrilla(dGridArb, arb.traerFiltrado(txtNombreFiltro.Text, cmbPaisFiltro.Text));
+        }
+
+        private void btnAgregar_Click_1(object sender, EventArgs e)
+        {
+            HabilitarEdicion(true);
+            HabilitarBusq(false);
+            limpiarCampos();
+            modo = Modo.Alta;
+        }
+
+        private void cmbPaisMod_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Convert.ToInt32(txtNumDoc.Text);
+                if (txtNombre.Text == "" || txtNumDoc.Text == "" || txtApeArb.Text == "")
+                {
+                    MessageBox.Show("Debe llenar todos los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    if (modo == Modo.Alta)
+                    {
+                        //limpiarCombos();
+                        arb.crearArbitro(txtNombre.Text, txtApeArb.Text, cmbPaisMod.Text, cmbTipoDoc.Text, txtNumDoc.Text);
+                    }
+                    if (modo == Modo.Modificacion)
+                    {
+                        arb.modificarArbitro(txtNombre.Text, txtApeArb.Text, cmbPaisMod.Text, cmbTipoDoc.Text, txtNumDoc.Text);
+                    }
+                    cmbTipoDoc.Enabled = true;
+                    txtNumDoc.Enabled = true;
+                    HabilitarBusq(true);
+                    HabilitarEdicion(false);
+                    CargarGrilla(dGridArb, arb.traerFiltrado(txtNombreFiltro.Text, cmbPaisFiltro.Text));
+                }
+            }
+            catch(FormatException)
+            {
+                MessageBox.Show("El número de documento debe ser valor numérico...", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            HabilitarBusq(true);
+            HabilitarEdicion(false);
+            cmbTipoDoc.Enabled = true;
+            txtNumDoc.Enabled = true;
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            string tipo_doc = Convert.ToString(dGridArb.SelectedRows[0].Cells[3].Value);
+            string nro_doc = Convert.ToString(dGridArb.SelectedRows[0].Cells[4].Value);
+            DialogResult rta = MessageBox.Show("¿Estas seguro que deseas eliminar el Jugador seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (rta == DialogResult.Yes)
+            {
+                arb.eliminarArb(tipo_doc, nro_doc);
+                CargarGrilla(dGridArb, arb.traerFiltrado(txtNombreFiltro.Text, cmbPaisFiltro.Text));
+            }
+        }
+
+        private void btnRestaurar_Click(object sender, EventArgs e)
+        {
+            HabilitarRestaurar(true);
+            HabilitarEdicion(false);
+            HabilitarABMC(false);
+            CargarGrilla(dGridArb, arb.traerEliminados());
+        }
+
+        private void btnRestaurarSeleccion_Click(object sender, EventArgs e)
+        {
+            string tipo_doc = Convert.ToString(dGridArb.SelectedRows[0].Cells[3].Value);
+            string nro_doc = Convert.ToString(dGridArb.SelectedRows[0].Cells[4].Value);
+            arb.restaurarArb(tipo_doc, nro_doc);
+            HabilitarRestaurar(false);
+            HabilitarABMC(true);
+            CargarGrilla(dGridArb, arb.traerFiltrado(txtNombreFiltro.Text, cmbPaisFiltro.Text));
+        }
+
+        private void btnCancelarRest_Click(object sender, EventArgs e)
+        {
+            HabilitarRestaurar(false);
+            HabilitarABMC(true);
         }
     }
 }

@@ -10,5 +10,11 @@ namespace TPQatarPAVI.Datos.Interfaces
     interface IArbitro
     {
         DataTable RecuperarTodos();
-    }
+        DataTable traerFiltrado(string nombre, string pais);
+        void crearArbitro(string Nombre, string Apellido, string Pais, string tipoDoc, string numDoc);
+        void eliminarArb(string tipoDoc, string nroDoc);
+        DataTable traerEliminado();
+        void restaurarArb(string tipoDoc, string nroDoc);
+        void modificarArbitro(string nombre, string apellido, string pais, string tipoDoc, string numDoc);
+        }
 }

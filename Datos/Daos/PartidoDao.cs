@@ -45,7 +45,7 @@ namespace TPQatarPAVI.Datos.Daos
         }
         public DataTable buscarPartidos(string ronda, string grupo, string estadio, string pais)
         {
-            string consulta = "select p.id, p.ronda, p.pais_1, p.pais_2, a.nombre +' '+a.apellido nombreArbitro, p.estadio " +
+            string consulta = "select p.id, p.ronda, p.pais_1, p.pais_2, a.nombre +' '+a.apellido nombreArbitro, p.estadio, p.grupo " +
                 "from partido p join arbitro a on (p.tipo_doc_arb = a.tipo_doc and p.nro_doc_arb = a.nro_doc) " +
                 "where p.borrado = 0 and " +
                 "p.ronda = " + obtenerRonda(ronda);
@@ -89,7 +89,7 @@ namespace TPQatarPAVI.Datos.Daos
                 "set pais_1 = '" + paisLocal + "'," +
                 " pais_2 = '" + paisVisita + "'," +
                 "ronda=" + (obtenerRonda(ronda)) + "," +
-                "grupo=" + grupo + "," +
+                "grupo='" + grupo + "'," +
                 "estadio='" + (obtenerEstadio(estadio)) + "'," +
                 "tipo_doc_arb='" + Convert.ToString(doc_arb.Rows[0]["tipo_doc"]) + "'," +
                 "nro_doc_arb=" + ((int)doc_arb.Rows[0]["nro_doc"]) +

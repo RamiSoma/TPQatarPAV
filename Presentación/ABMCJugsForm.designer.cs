@@ -63,6 +63,7 @@
             this.cmbPaisFiltro = new System.Windows.Forms.ComboBox();
             this.lblPaisFiltro = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.cmbTipoDoc = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dGridJug)).BeginInit();
             this.SuspendLayout();
             // 
@@ -254,7 +255,7 @@
             // lblTipoDocRes
             // 
             this.lblTipoDocRes.AutoSize = true;
-            this.lblTipoDocRes.Location = new System.Drawing.Point(240, 420);
+            this.lblTipoDocRes.Location = new System.Drawing.Point(220, 420);
             this.lblTipoDocRes.Name = "lblTipoDocRes";
             this.lblTipoDocRes.Size = new System.Drawing.Size(51, 13);
             this.lblTipoDocRes.TabIndex = 40;
@@ -319,7 +320,7 @@
             // lblTipoDocFijo
             // 
             this.lblTipoDocFijo.AutoSize = true;
-            this.lblTipoDocFijo.Location = new System.Drawing.Point(300, 420);
+            this.lblTipoDocFijo.Location = new System.Drawing.Point(280, 420);
             this.lblTipoDocFijo.Name = "lblTipoDocFijo";
             this.lblTipoDocFijo.Size = new System.Drawing.Size(0, 13);
             this.lblTipoDocFijo.TabIndex = 47;
@@ -351,7 +352,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(430, 380);
+            this.btnEliminar.Location = new System.Drawing.Point(430, 378);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(150, 32);
             this.btnEliminar.TabIndex = 51;
@@ -359,11 +360,20 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // cmbTipoDoc
+            // 
+            this.cmbTipoDoc.FormattingEnabled = true;
+            this.cmbTipoDoc.Location = new System.Drawing.Point(277, 417);
+            this.cmbTipoDoc.Name = "cmbTipoDoc";
+            this.cmbTipoDoc.Size = new System.Drawing.Size(51, 21);
+            this.cmbTipoDoc.TabIndex = 52;
+            // 
             // ABMCJugsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.cmbTipoDoc);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.cmbPaisFiltro);
             this.Controls.Add(this.lblPaisFiltro);
@@ -436,5 +446,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Amarillas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rojas;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.ComboBox cmbTipoDoc;
     }
 }

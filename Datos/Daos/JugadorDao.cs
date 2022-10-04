@@ -18,7 +18,7 @@ namespace TPQatarPAVI.Datos.Daos
         }
         public void eliminarJugador(string tipo_doc, string nro_doc)
         {
-            string consulta = "Update jugador set borrado = 1 where tipo_doc= '" + tipo_doc + "' and nro_doc = '" + nro_doc + "'";
+            string consulta = "Update jugadores set borrado = 1 where tipo_doc= '" + tipo_doc + "' and nro_doc = " + nro_doc;
             DBHelper.obtenerInstancia().consultar(consulta);
         }
         public bool validar(string tipo_doc, string nro_doc)
@@ -33,12 +33,23 @@ namespace TPQatarPAVI.Datos.Daos
         }
         public void crearJugador(string tipo_doc, string nro_doc, string nombre, string apellido,string pais)
         { 
-            string consulta = "insert into jugadores values('" + tipo_doc + "','" + nro_doc + "','" + nombre + "','" + apellido + "',"+pais+",0,0,0,0,0)";
+            string consulta = "insert into jugadores values('" + tipo_doc +"'," + nro_doc + ",'" + nombre + "','" + apellido + "','"+pais+"',0,0,0,0,0)";
             DBHelper.obtenerInstancia().consultar(consulta);
         }
-        public void modificarJugador(string tipo_doc,string nro_doc,string nombre,string apellido)
+        public void modificarJugador(string tipo_doc,string nro_doc,string nombre,string apellido,string pais)
         {
-            string consulta = "UPDATE pais SET nombre = '" + nombre + "', apellido = '" + apellido+"'  where tipo_doc = '" + tipo_doc + "' and nro_doc = "+nro_doc;
+            string consulta = "UPDATE jugadores SET nombre = '" + nombre + "', apellido = '" + apellido+"', pais = '"+pais+"'  where tipo_doc = '" + tipo_doc + "' and nro_doc = "+nro_doc;
+            DBHelper.obtenerInstancia().consultar(consulta);
+        }
+        public DataTable traerEliminados()
+        {
+            string consulta = "select * from jugadores where borrado = 1";
+
+            return DBHelper.obtenerInstancia().consultar(consulta);
+        }
+        public void recuperarJugador(string tipoDoc, string nroDoc)
+        {
+            string consulta = "Update jugadores set borrado = 0 where tipo_doc = '" + tipoDoc + "' and nro_doc = "+ nroDoc;
             DBHelper.obtenerInstancia().consultar(consulta);
         }
     }
