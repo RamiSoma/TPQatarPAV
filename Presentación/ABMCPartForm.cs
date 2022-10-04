@@ -19,10 +19,7 @@ namespace TPQatarPAVI.Presentación
         public ABMCPartForm()
         {
             InitializeComponent();
-            CargarCombo(cmbRonda, rnd.traerTodos());
-            CargarCombo(cmbFiltroRonda, rnd.traerTodos());
-            CargarCombo(cmbGrupo, grupo.traerTodos());
-            CargarCombo(cmbPaisLocal, pais.traerTodos("",""));
+            
         }
         private void CargarCombo(ComboBox combo, DataTable tabla)
         {
@@ -32,6 +29,33 @@ namespace TPQatarPAVI.Presentación
             combo.SelectedIndex = 0;
             combo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
+        private void habilitarBusq(bool v)
+        {
+            lblEstadioFIltro.Visible = v;
+            cmbEstadioFiltro.Visible = v;
+            lblPaisFiltro.Visible = v;
+            cmbPaisFiltro.Visible = v;
+            btnBuscar.Visible = v;
+            btnLimpiar.Visible = v;
+        }
+        private void habilitarAM(bool v)
+        {
+            lblId.Visible = v;
+            lblRonda.Visible = v;
+            cmbRonda.Visible = v;
+            lblLocal.Visible = v;
+            cmbPaisLocal.Visible = v;
+            cmbPaisVisitante.Visible = v;
+            lblVisitante.Visible = v;
+            lblArb.Visible = v;
+            cmbArb.Visible = v;
+            lblEstadio.Visible = v;
+            cmbEstadio.Visible = v;
+            btnCancelar.Visible = v;
+            btnGuardar.Visible = v;
+            cmbGrupo.Visible = v;
+            lblTxtGrupo.Visible = v;
+        }
 
         private void btnVolverMenu_Click(object sender, EventArgs e)
         {
@@ -40,13 +64,17 @@ namespace TPQatarPAVI.Presentación
 
         private void ABMCPartForm_Load(object sender, EventArgs e)
         {
-
+            habilitarAM(false);
+            CargarCombo(cmbRonda, rnd.traerTodos());
+            CargarCombo(cmbGrupo, grupo.traerTodos());
+            CargarCombo(cmbPaisLocal, pais.traerPorGrupo(cmbGrupo.Text));
+            CargarCombo(cmbPaisVisitante, pais.traerPorGrupo(cmbGrupo.Text));
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            cmbGrupo.Visible = true;
-            lblTxtGrupo.Visible = true;
+            habilitarAM(true);
+            habilitarBusq(false);
         }
 
         private void cmbRonda_SelectedIndexChanged(object sender, EventArgs e)
@@ -61,6 +89,29 @@ namespace TPQatarPAVI.Presentación
                 cmbGrupo.Visible = false;
                 lblTxtGrupo.Visible = false;
             };
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            habilitarAM(true);
+            habilitarBusq(false);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            habilitarAM(false);
+            habilitarBusq(true);
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            habilitarAM(true);
+        }
+
+        private void cmbGrupo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarCombo(cmbPaisLocal, pais.traerPorGrupo(cmbGrupo.Text));
+            CargarCombo(cmbPaisVisitante, pais.traerPorGrupo(cmbGrupo.Text));
         }
     }
 }

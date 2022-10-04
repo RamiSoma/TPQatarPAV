@@ -59,5 +59,11 @@ namespace TPQatarPAVI.Datos.Daos
             string consulta = "Update pais set borrado = 0 where nombre = '" + nombre+"'";
             DBHelper.obtenerInstancia().consultar(consulta);
         }
+        public DataTable traerPorGrupo(string grupo)
+        {
+            string consulta = "select nombre from pais where borrado = 0 and id_grupo = '"+grupo+"'";
+
+            return DBHelper.obtenerInstancia().consultar(consulta);
+        }
     }
 }

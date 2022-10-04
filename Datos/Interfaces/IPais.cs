@@ -17,5 +17,6 @@ namespace TPQatarPAVI.Datos.Interfaces
         bool validar(string nombre, string ranking);
         DataTable recuperarEliminados();
         void recuperarPais(string nombre);
+        DataTable traerPorGrupo(string grupo);
     }
 }

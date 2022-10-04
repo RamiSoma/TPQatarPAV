@@ -41,5 +41,9 @@ namespace TPQatarPAVI.CapaServicios
         {
             paisDao.recuperarPais(nombre);
         }
+        public DataTable traerPorGrupo(string grupo)
+        {
+            return paisDao.traerPorGrupo(grupo);
+        }
     }
 }

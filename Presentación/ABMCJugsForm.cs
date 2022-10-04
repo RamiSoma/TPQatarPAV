@@ -39,12 +39,8 @@ namespace TPQatarPAVI.Presentación
             btnRestaurar.Visible = v;
             btnRestaurarSeleccion.Visible = !v;
             btnCancelarRest.Visible = !v;
-            cmbFiltroTipoDoc.Visible = v;
-            lblFiltroNroDoc.Visible = v;
             lblPaisFiltro.Visible = v;
-            lblTipoDocFiltro.Visible = v;
             cmbPaisFiltro.Visible = v;
-            txtFiltroDoc.Visible = v;
             btnBuscar.Visible = v;
             btnLimpiar.Visible = v;
 
