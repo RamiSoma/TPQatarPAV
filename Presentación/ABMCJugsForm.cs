@@ -137,9 +137,17 @@ namespace TPQatarPAVI.Presentación
                 CargarGrilla(dGridJug, jugador.traerTodos(cmbPaisFiltro.Text));
             }
         }
-
+        private void limpiarCampos(bool v)
+        {
+            txtNombre.Text = "";
+            txtApeJug.Text = "";
+            txtNumDoc.Text = "";
+            txtNumDoc.Enabled = v;
+            cmbTipoDoc.Enabled = v;
+        }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            limpiarCampos(true);
             HabilitarEdicion(true);
             HabilitarABMC(false);
             HabilitarRestaurar(false);

@@ -214,6 +214,7 @@ namespace TPQatarPAVI.Presentación
         {
             dGridUsrs.DataSource = null;
             dGridUsrs.Rows.Clear();
+            txtFiltroNombre.Text = "";
         }
 
 

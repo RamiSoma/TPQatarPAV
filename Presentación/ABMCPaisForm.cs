@@ -78,9 +78,17 @@ namespace TPQatarPAVI.Presentación
             lblGrupo.Visible= v;
             cmbBoxGrupo.Visible= v;
         }
+        private void limpiarEdicion(bool v)
+        {
+            txtNombre.Text = "";
+            txtRanking.Text = "";
+            txtNombre.Enabled= v;
+            
+        }
 
         private void btnAgregarPais_Click(object sender, EventArgs e)
         {
+            limpiarEdicion(true);
             HabilitarEdicion(true);
             CargarCombo(cmbBoxGrupo, grupo.traerTodos()); //cargar combo grupos
             modo = Modo.Alta;
@@ -133,6 +141,7 @@ namespace TPQatarPAVI.Presentación
         {
             dGridPaises.DataSource = null;
             dGridPaises.Rows.Clear();
+            txtFiltroNombre.Text = "";
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -156,6 +165,7 @@ namespace TPQatarPAVI.Presentación
                         HabilitarEdicion(false);
                         if (modo == Modo.Alta)
                         {
+                            
 
                             pais.crearPais(txtNombre.Text, txtRanking.Text, cmbBoxContinente.Text, cmbBoxGrupo.Text);
                         }

@@ -137,9 +137,10 @@
             // 
             // btnPartidos
             // 
-            this.btnPartidos.Location = new System.Drawing.Point(63, 292);
+            this.btnPartidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPartidos.Location = new System.Drawing.Point(300, 280);
             this.btnPartidos.Name = "btnPartidos";
-            this.btnPartidos.Size = new System.Drawing.Size(75, 23);
+            this.btnPartidos.Size = new System.Drawing.Size(200, 25);
             this.btnPartidos.TabIndex = 21;
             this.btnPartidos.Text = "Partidos";
             this.btnPartidos.UseVisualStyleBackColor = true;

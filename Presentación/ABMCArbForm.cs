@@ -164,9 +164,15 @@ namespace TPQatarPAVI.Presentación
         {
             CargarGrilla(dGridArb, arb.traerFiltrado(txtNombreFiltro.Text, cmbPaisFiltro.Text));
         }
-
+        private void limpiarCampos(bool v)
+        {
+            txtNombre.Text = "";
+            txtApeArb.Text = "";
+            txtNumDoc.Text = "";
+        }
         private void btnAgregar_Click_1(object sender, EventArgs e)
         {
+            limpiarCampos(true);
             HabilitarEdicion(true);
             HabilitarBusq(false);
             limpiarCampos();
@@ -223,7 +229,7 @@ namespace TPQatarPAVI.Presentación
         {
             string tipo_doc = Convert.ToString(dGridArb.SelectedRows[0].Cells[3].Value);
             string nro_doc = Convert.ToString(dGridArb.SelectedRows[0].Cells[4].Value);
-            DialogResult rta = MessageBox.Show("¿Estas seguro que deseas eliminar el Jugador seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            DialogResult rta = MessageBox.Show("¿Estas seguro que deseas eliminar el Arbitro seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (rta == DialogResult.Yes)
             {
                 arb.eliminarArb(tipo_doc, nro_doc);
@@ -253,6 +259,13 @@ namespace TPQatarPAVI.Presentación
         {
             HabilitarRestaurar(false);
             HabilitarABMC(true);
+        }
+
+        private void btnLimpiar_Click_1(object sender, EventArgs e)
+        {
+            txtNombreFiltro.Text = "";
+            dGridArb.DataSource = null;
+            dGridArb.Rows.Clear();
         }
     }
 }
