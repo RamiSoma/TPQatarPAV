@@ -122,8 +122,11 @@ namespace TPQatarPAVI.Presentación
             cmbPaisMod.SelectedIndex = 0;
             txtNombre.Text = "";
             txtApeArb.Text = "";
-            cmbTipoDoc.Visible = true;
+            cmbTipoDoc.Enabled = true;
+            txtNumDoc.Enabled = true;
             txtNumDoc.Text = "";
+            cmbPaisMod.SelectedIndex = 0;
+            cmbTipoDoc.SelectedIndex = 0;
         }
         private void CargarUsr()
         {
@@ -164,18 +167,11 @@ namespace TPQatarPAVI.Presentación
         {
             CargarGrilla(dGridArb, arb.traerFiltrado(txtNombreFiltro.Text, cmbPaisFiltro.Text));
         }
-        private void limpiarCampos(bool v)
-        {
-            txtNombre.Text = "";
-            txtApeArb.Text = "";
-            txtNumDoc.Text = "";
-        }
         private void btnAgregar_Click_1(object sender, EventArgs e)
         {
-            limpiarCampos(true);
+            limpiarCampos();
             HabilitarEdicion(true);
             HabilitarBusq(false);
-            limpiarCampos();
             modo = Modo.Alta;
         }
 

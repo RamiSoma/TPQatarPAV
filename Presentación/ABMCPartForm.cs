@@ -130,9 +130,19 @@ namespace TPQatarPAVI.Presentación
             habilitarRest(false);
             limpiarCombos();
         }
+        private void limpiarBusqueda()
+        {
+            cmbRonda.SelectedIndex = 0;
+            cmbPaisLocal.SelectedIndex = 0;
+            cmbGrupo.SelectedIndex = 0;
+            cmbArb.SelectedIndex = 0;
+            cmbPaisVisitante.SelectedIndex = 0;
+            cmbEstadio.SelectedIndex = 0;
 
+        }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            limpiarBusqueda();
             habilitarAM(true);
             habilitarBusq(false);
             modo = Modo.Alta;
@@ -145,6 +155,7 @@ namespace TPQatarPAVI.Presentación
                 cmbGrupo.Visible = true;
                 lblTxtGrupo.Visible = true;
                 CargarCombo(cmbPaisVisitante, pais.traerPorGrupo(cmbGrupo.Text), false);
+                CargarCombo(cmbPaisLocal, pais.traerPorGrupo(cmbGrupo.Text), false);
             }
             else
             {

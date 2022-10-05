@@ -144,6 +144,8 @@ namespace TPQatarPAVI.Presentación
             txtNumDoc.Text = "";
             txtNumDoc.Enabled = v;
             cmbTipoDoc.Enabled = v;
+            cmbTipoDoc.SelectedIndex = 0;
+            cmbPaisMod.SelectedIndex = 0;
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {

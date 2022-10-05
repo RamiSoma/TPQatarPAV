@@ -15,7 +15,6 @@ namespace TPQatarPAVI.Datos.Daos
             DataTable doc_arb = obtenerDocArb(arbitro);
             string nomEstadio = obtenerEstadio(estadio);
             int nroRonda = obtenerRonda(ronda);
-            //string grupo = obtenerGrupo(grupo);
             if (nroRonda != 1)
             {
                 grupo = "Null";
@@ -29,13 +28,6 @@ namespace TPQatarPAVI.Datos.Daos
                 + Convert.ToString(doc_arb.Rows[0]["tipo_doc"]) + "'," + ((int)doc_arb.Rows[0]["nro_doc"]) + ",sysdatetime(),'" + nroRonda + "'," + grupo + ",null,'" + nomEstadio + "', 0)";
             DBHelper.obtenerInstancia().consultar(consulta);
         }
-        /*
-            private string obtenerGrupo(string grupo)
-        {
-            string consulta = "Select id from grupo where borrado = 0";
-            return DBHelper.obtenerInstancia().consultar(consulta).Rows[0][0].ToString();
-        }
-        */
         private DataTable obtenerDocArb(string arbitro)
         {
             string consulta = "select tipo_doc, nro_doc from Arbitro where borrado = 0 and nombre +' '+apellido = '" + arbitro + "'";
@@ -80,7 +72,7 @@ namespace TPQatarPAVI.Datos.Daos
         }
         public DataTable recuperarEliminados()
         {
-            string consulta = "select p.id, p.ronda, p.pais_1, p.pais_2, a.nombre +' '+a.apellido nombreArbitro, p.estadio " +
+            string consulta = "select p.id, p.ronda, p.pais_1, p.pais_2, a.nombre +' '+a.apellido nombreArbitro, p.estadio, p.grupo " +
                 "from partido p join arbitro a on (p.tipo_doc_arb = a.tipo_doc and p.nro_doc_arb = a.nro_doc) " +
                 "where p.borrado = 1";
             return DBHelper.obtenerInstancia().consultar(consulta);
