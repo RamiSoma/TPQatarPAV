@@ -294,6 +294,12 @@ namespace TPQatarPAVI.Presentación
             CargarGrilla(dGridPartido, part.buscarPartidos(cmbRondaFiltro.Text, cmbGrupoFiltro.Text, cmbEstadioFiltro.Text, cmbPaisFiltro.Text));
         }
 
-     }
+        private void btnCargarDetalle_Click(object sender, EventArgs e)
+        {
+            DetallePartidoForm frmDetallePartido = new DetallePartidoForm();
+            frmDetallePartido.idPartido = Convert.ToString(dGridPartido.SelectedRows[0].Cells[0].Value);
+            frmDetallePartido.ShowDialog();
+        }
+    }
     
 }

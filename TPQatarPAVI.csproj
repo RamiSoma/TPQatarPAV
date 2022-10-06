@@ -115,6 +115,12 @@
     <Compile Include="Presentación\ABMCPartForm.Designer.cs">
       <DependentUpon>ABMCPartForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentación\DetallePartidoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentación\DetallePartidoForm.Designer.cs">
+      <DependentUpon>DetallePartidoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentación\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentación\ABMCPartForm.resx">
       <DependentUpon>ABMCPartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentación\DetallePartidoForm.resx">
+      <DependentUpon>DetallePartidoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentación\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

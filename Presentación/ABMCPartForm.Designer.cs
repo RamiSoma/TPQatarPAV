@@ -73,6 +73,7 @@
             this.Arbitro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grupos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCargarDetalle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGridPartido)).BeginInit();
             this.SuspendLayout();
             // 
@@ -463,11 +464,22 @@
             this.grupos.Name = "grupos";
             this.grupos.Visible = false;
             // 
+            // btnCargarDetalle
+            // 
+            this.btnCargarDetalle.Location = new System.Drawing.Point(25, 352);
+            this.btnCargarDetalle.Name = "btnCargarDetalle";
+            this.btnCargarDetalle.Size = new System.Drawing.Size(150, 30);
+            this.btnCargarDetalle.TabIndex = 112;
+            this.btnCargarDetalle.Text = "Cargar Detalle Partido";
+            this.btnCargarDetalle.UseVisualStyleBackColor = true;
+            this.btnCargarDetalle.Click += new System.EventHandler(this.btnCargarDetalle_Click);
+            // 
             // ABMCPartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.btnCargarDetalle);
             this.Controls.Add(this.calFecha);
             this.Controls.Add(this.cmbRondaFiltro);
             this.Controls.Add(this.lblRondaFiltro);
@@ -561,5 +573,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Arbitro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estadio;
         private System.Windows.Forms.DataGridViewTextBoxColumn grupos;
+        private System.Windows.Forms.Button btnCargarDetalle;
     }
 }
