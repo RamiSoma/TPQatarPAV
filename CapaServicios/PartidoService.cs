@@ -12,9 +12,21 @@ namespace TPQatarPAVI.CapaServicios
     internal class PartidoService
     {
         private IPartido partDao = new PartidoDao();
-        public void crearPartido(string paisLocal, string paisVisitante, string ronda, string grupo, string estadio, string arbitro)
+        private string transformarFecha(string fecha)
         {
-            partDao.crearPartido(paisLocal,paisVisitante,ronda,grupo,estadio, arbitro);    
+            string mes = fecha.Substring(3, 2);
+            string dia = fecha.Substring(0, 2);
+            string anio = fecha.Substring(6, 4);
+            string nFecha = mes + "/" + dia + "/" + anio;
+            return nFecha;
+        }
+        public void crearPartido(string paisLocal, string paisVisitante, string ronda, string grupo, string estadio, string arbitro, string fecha)
+        {
+            if (fecha[2] != '/'){
+                fecha = '0' + fecha;
+            }
+            string nFecha = transformarFecha(fecha);
+            partDao.crearPartido(paisLocal,paisVisitante,ronda,grupo,estadio, arbitro, nFecha);    
         }
         public DataTable buscarPartidos(string ronda, string grupo, string estadio, string pais)
         {
@@ -32,9 +44,10 @@ namespace TPQatarPAVI.CapaServicios
         {
             partDao.recuperarPartido(idPartido);
         }
-        public void modificarPartido(string id,string paisLocal, string paisVisita, string ronda, string grupo, string estadio, string arbitro)
+        public void modificarPartido(string id,string paisLocal, string paisVisita, string ronda, string grupo, string estadio, string arbitro, string fecha)
         {
-            partDao.modificarPartido(id,paisLocal, paisVisita, ronda, grupo, estadio, arbitro);
+            string nFecha = transformarFecha(fecha);
+            partDao.modificarPartido(id,paisLocal, paisVisita, ronda, grupo, estadio, arbitro, nFecha);
         }
     }
 }

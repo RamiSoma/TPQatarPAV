@@ -34,13 +34,6 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.dGridPartido = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ronda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Arbitro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grupos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRestaurar = new System.Windows.Forms.Button();
             this.btnVolverMenu = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -71,6 +64,15 @@
             this.lblGrupoFiltro = new System.Windows.Forms.Label();
             this.cmbRondaFiltro = new System.Windows.Forms.ComboBox();
             this.lblRondaFiltro = new System.Windows.Forms.Label();
+            this.calFecha = new System.Windows.Forms.MonthCalendar();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ronda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Arbitro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grupos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGridPartido)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,7 +96,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(651, 371);
+            this.btnCancelar.Location = new System.Drawing.Point(587, 527);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 72;
@@ -104,7 +106,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(651, 408);
+            this.btnGuardar.Location = new System.Drawing.Point(675, 527);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 73;
@@ -123,53 +125,15 @@
             this.Ronda,
             this.Local,
             this.Visitante,
+            this.Fecha,
             this.Arbitro,
             this.Estadio,
             this.grupos});
-            this.dGridPartido.Location = new System.Drawing.Point(193, 130);
+            this.dGridPartido.Location = new System.Drawing.Point(181, 130);
             this.dGridPartido.Name = "dGridPartido";
             this.dGridPartido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dGridPartido.Size = new System.Drawing.Size(533, 222);
+            this.dGridPartido.Size = new System.Drawing.Size(579, 222);
             this.dGridPartido.TabIndex = 63;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Width = 35;
-            // 
-            // Ronda
-            // 
-            this.Ronda.HeaderText = "Ronda";
-            this.Ronda.Name = "Ronda";
-            this.Ronda.Width = 45;
-            // 
-            // Local
-            // 
-            this.Local.HeaderText = "Local";
-            this.Local.Name = "Local";
-            // 
-            // Visitante
-            // 
-            this.Visitante.HeaderText = "Visitante";
-            this.Visitante.Name = "Visitante";
-            // 
-            // Arbitro
-            // 
-            this.Arbitro.HeaderText = "Arbitro";
-            this.Arbitro.Name = "Arbitro";
-            this.Arbitro.Width = 110;
-            // 
-            // Estadio
-            // 
-            this.Estadio.HeaderText = "Estadio";
-            this.Estadio.Name = "Estadio";
-            // 
-            // grupos
-            // 
-            this.grupos.HeaderText = "Grupo";
-            this.grupos.Name = "grupos";
-            this.grupos.Visible = false;
             // 
             // btnRestaurar
             // 
@@ -254,14 +218,14 @@
             // cmbPaisVisitante
             // 
             this.cmbPaisVisitante.FormattingEnabled = true;
-            this.cmbPaisVisitante.Location = new System.Drawing.Point(506, 378);
+            this.cmbPaisVisitante.Location = new System.Drawing.Point(379, 428);
             this.cmbPaisVisitante.Name = "cmbPaisVisitante";
             this.cmbPaisVisitante.Size = new System.Drawing.Size(121, 21);
             this.cmbPaisVisitante.TabIndex = 91;
             // 
             // btnRestaurarSeleccion
             // 
-            this.btnRestaurarSeleccion.Location = new System.Drawing.Point(506, 470);
+            this.btnRestaurarSeleccion.Location = new System.Drawing.Point(634, 358);
             this.btnRestaurarSeleccion.Name = "btnRestaurarSeleccion";
             this.btnRestaurarSeleccion.Size = new System.Drawing.Size(96, 25);
             this.btnRestaurarSeleccion.TabIndex = 89;
@@ -271,7 +235,7 @@
             // 
             // btnCancelarRest
             // 
-            this.btnCancelarRest.Location = new System.Drawing.Point(403, 470);
+            this.btnCancelarRest.Location = new System.Drawing.Point(531, 358);
             this.btnCancelarRest.Name = "btnCancelarRest";
             this.btnCancelarRest.Size = new System.Drawing.Size(96, 25);
             this.btnCancelarRest.TabIndex = 88;
@@ -282,7 +246,7 @@
             // lblVisitante
             // 
             this.lblVisitante.AutoSize = true;
-            this.lblVisitante.Location = new System.Drawing.Point(503, 361);
+            this.lblVisitante.Location = new System.Drawing.Point(376, 411);
             this.lblVisitante.Name = "lblVisitante";
             this.lblVisitante.Size = new System.Drawing.Size(47, 13);
             this.lblVisitante.TabIndex = 84;
@@ -300,7 +264,7 @@
             // cmbPaisLocal
             // 
             this.cmbPaisLocal.FormattingEnabled = true;
-            this.cmbPaisLocal.Location = new System.Drawing.Point(378, 378);
+            this.cmbPaisLocal.Location = new System.Drawing.Point(251, 428);
             this.cmbPaisLocal.Name = "cmbPaisLocal";
             this.cmbPaisLocal.Size = new System.Drawing.Size(121, 21);
             this.cmbPaisLocal.TabIndex = 93;
@@ -308,7 +272,7 @@
             // lblLocal
             // 
             this.lblLocal.AutoSize = true;
-            this.lblLocal.Location = new System.Drawing.Point(375, 361);
+            this.lblLocal.Location = new System.Drawing.Point(248, 411);
             this.lblLocal.Name = "lblLocal";
             this.lblLocal.Size = new System.Drawing.Size(33, 13);
             this.lblLocal.TabIndex = 92;
@@ -317,7 +281,7 @@
             // cmbArb
             // 
             this.cmbArb.FormattingEnabled = true;
-            this.cmbArb.Location = new System.Drawing.Point(378, 430);
+            this.cmbArb.Location = new System.Drawing.Point(251, 469);
             this.cmbArb.Name = "cmbArb";
             this.cmbArb.Size = new System.Drawing.Size(121, 21);
             this.cmbArb.TabIndex = 95;
@@ -325,7 +289,7 @@
             // lblArb
             // 
             this.lblArb.AutoSize = true;
-            this.lblArb.Location = new System.Drawing.Point(375, 413);
+            this.lblArb.Location = new System.Drawing.Point(250, 452);
             this.lblArb.Name = "lblArb";
             this.lblArb.Size = new System.Drawing.Size(37, 13);
             this.lblArb.TabIndex = 94;
@@ -334,7 +298,7 @@
             // cmbEstadio
             // 
             this.cmbEstadio.FormattingEnabled = true;
-            this.cmbEstadio.Location = new System.Drawing.Point(506, 430);
+            this.cmbEstadio.Location = new System.Drawing.Point(379, 469);
             this.cmbEstadio.Name = "cmbEstadio";
             this.cmbEstadio.Size = new System.Drawing.Size(121, 21);
             this.cmbEstadio.TabIndex = 97;
@@ -342,7 +306,7 @@
             // lblEstadio
             // 
             this.lblEstadio.AutoSize = true;
-            this.lblEstadio.Location = new System.Drawing.Point(503, 413);
+            this.lblEstadio.Location = new System.Drawing.Point(376, 452);
             this.lblEstadio.Name = "lblEstadio";
             this.lblEstadio.Size = new System.Drawing.Size(42, 13);
             this.lblEstadio.TabIndex = 96;
@@ -394,7 +358,7 @@
             // cmbGrupo
             // 
             this.cmbGrupo.FormattingEnabled = true;
-            this.cmbGrupo.Location = new System.Drawing.Point(251, 430);
+            this.cmbGrupo.Location = new System.Drawing.Point(379, 378);
             this.cmbGrupo.Name = "cmbGrupo";
             this.cmbGrupo.Size = new System.Drawing.Size(83, 21);
             this.cmbGrupo.TabIndex = 106;
@@ -403,7 +367,7 @@
             // lblTxtGrupo
             // 
             this.lblTxtGrupo.AutoSize = true;
-            this.lblTxtGrupo.Location = new System.Drawing.Point(248, 413);
+            this.lblTxtGrupo.Location = new System.Drawing.Point(376, 361);
             this.lblTxtGrupo.Name = "lblTxtGrupo";
             this.lblTxtGrupo.Size = new System.Drawing.Size(36, 13);
             this.lblTxtGrupo.TabIndex = 105;
@@ -446,11 +410,65 @@
             this.lblRondaFiltro.TabIndex = 109;
             this.lblRondaFiltro.Text = "Ronda";
             // 
+            // calFecha
+            // 
+            this.calFecha.Location = new System.Drawing.Point(512, 358);
+            this.calFecha.MinDate = new System.DateTime(2022, 10, 6, 0, 0, 0, 0);
+            this.calFecha.Name = "calFecha";
+            this.calFecha.TabIndex = 111;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Width = 35;
+            // 
+            // Ronda
+            // 
+            this.Ronda.HeaderText = "Ronda";
+            this.Ronda.Name = "Ronda";
+            this.Ronda.Width = 45;
+            // 
+            // Local
+            // 
+            this.Local.HeaderText = "Local";
+            this.Local.Name = "Local";
+            this.Local.Width = 75;
+            // 
+            // Visitante
+            // 
+            this.Visitante.HeaderText = "Visitante";
+            this.Visitante.Name = "Visitante";
+            this.Visitante.Width = 75;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            // 
+            // Arbitro
+            // 
+            this.Arbitro.HeaderText = "Arbitro";
+            this.Arbitro.Name = "Arbitro";
+            this.Arbitro.Width = 110;
+            // 
+            // Estadio
+            // 
+            this.Estadio.HeaderText = "Estadio";
+            this.Estadio.Name = "Estadio";
+            // 
+            // grupos
+            // 
+            this.grupos.HeaderText = "Grupo";
+            this.grupos.Name = "grupos";
+            this.grupos.Visible = false;
+            // 
             // ABMCPartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.calFecha);
             this.Controls.Add(this.cmbRondaFiltro);
             this.Controls.Add(this.lblRondaFiltro);
             this.Controls.Add(this.cmbGrupoFiltro);
@@ -534,10 +552,12 @@
         private System.Windows.Forms.Label lblGrupoFiltro;
         private System.Windows.Forms.ComboBox cmbRondaFiltro;
         private System.Windows.Forms.Label lblRondaFiltro;
+        private System.Windows.Forms.MonthCalendar calFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ronda;
         private System.Windows.Forms.DataGridViewTextBoxColumn Local;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Arbitro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estadio;
         private System.Windows.Forms.DataGridViewTextBoxColumn grupos;

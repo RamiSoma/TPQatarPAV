@@ -76,6 +76,7 @@ namespace TPQatarPAVI.Presentación
             btnGuardar.Visible = v;
             cmbGrupo.Visible = v;
             lblTxtGrupo.Visible = v;
+            calFecha.Visible = v;
         }
         private void habilitarRest(bool v)
         {
@@ -91,6 +92,7 @@ namespace TPQatarPAVI.Presentación
                                 tabla.Rows[i]["ronda"],
                                 tabla.Rows[i]["pais_1"],
                                 tabla.Rows[i]["pais_2"],
+                                tabla.Rows[i]["fecha"],
                                 tabla.Rows[i]["nombreArbitro"],
                                 tabla.Rows[i]["estadio"],
                                 tabla.Rows[i]["grupo"]);
@@ -102,9 +104,11 @@ namespace TPQatarPAVI.Presentación
             cmbRonda.Text = Convert.ToString(dGridPartido.SelectedRows[0].Cells[1].Value);
             cmbPaisLocal.Text = Convert.ToString(dGridPartido.SelectedRows[0].Cells[2].Value);
             cmbPaisVisitante.Text = Convert.ToString(dGridPartido.SelectedRows[0].Cells[3].Value);
-            cmbArb.Text = Convert.ToString(dGridPartido.SelectedRows[0].Cells[4].Value);
-            cmbEstadio.Text = Convert.ToString(dGridPartido.SelectedRows[0].Cells[5].Value);
-            cmbGrupo.Text = Convert.ToString(dGridPartido.SelectedRows[0].Cells[6].Value);
+            calFecha.SelectionStart = (DateTime.Parse(dGridPartido.SelectedRows[0].Cells[4].Value.ToString()));
+            cmbArb.Text = Convert.ToString(dGridPartido.SelectedRows[0].Cells[5].Value);
+            cmbEstadio.Text = Convert.ToString(dGridPartido.SelectedRows[0].Cells[6].Value);
+            cmbGrupo.Text = Convert.ToString(dGridPartido.SelectedRows[0].Cells[7].Value);
+             //VER TEMA SELECCION DE FECHA
         }
 
         private void btnVolverMenu_Click(object sender, EventArgs e)
@@ -186,12 +190,12 @@ namespace TPQatarPAVI.Presentación
             if(modo == Modo.Alta)
             {
                 
-                part.crearPartido(cmbPaisLocal.Text, cmbPaisVisitante.Text,cmbRonda.Text,cmbGrupo.Text,cmbEstadio.Text, cmbArb.Text);
+                part.crearPartido(cmbPaisLocal.Text, cmbPaisVisitante.Text,cmbRonda.Text,cmbGrupo.Text,cmbEstadio.Text, cmbArb.Text, calFecha.SelectionEnd.ToString());
                 limpiarCombos();
             }
             if (modo == Modo.Modificacion)
             {
-                part.modificarPartido(lblIdMostrar.Text,cmbPaisLocal.Text, cmbPaisVisitante.Text, cmbRonda.Text, cmbGrupo.Text, cmbEstadio.Text, cmbArb.Text);
+                part.modificarPartido(lblIdMostrar.Text,cmbPaisLocal.Text, cmbPaisVisitante.Text, cmbRonda.Text, cmbGrupo.Text, cmbEstadio.Text, cmbArb.Text, calFecha.SelectionEnd.ToString());
             }
             habilitarAM(false);
             habilitarBusq(true);
@@ -243,12 +247,21 @@ namespace TPQatarPAVI.Presentación
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             string idPartido = Convert.ToString(dGridPartido.SelectedRows[0].Cells[0].Value);
-            DialogResult rta = MessageBox.Show("¿Estas seguro que deseas eliminar el partido seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-            if (rta == DialogResult.Yes)
+            DateTime partidoFecha = DateTime.Parse(dGridPartido.SelectedRows[0].Cells[4].Value.ToString());
+            if (partidoFecha < DateTime.Today)
             {
-                part.eliminarPartido(idPartido);
-                CargarGrilla(dGridPartido, part.buscarPartidos(cmbRondaFiltro.Text, cmbGrupoFiltro.Text, cmbEstadioFiltro.Text, cmbPaisFiltro.Text));
+                MessageBox.Show("No se puede eliminar un partido con fecha anterior a la actual...", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else
+            {
+                DialogResult rta = MessageBox.Show("¿Estas seguro que deseas eliminar el partido seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (rta == DialogResult.Yes)
+                {
+                    part.eliminarPartido(idPartido);
+                    CargarGrilla(dGridPartido, part.buscarPartidos(cmbRondaFiltro.Text, cmbGrupoFiltro.Text, cmbEstadioFiltro.Text, cmbPaisFiltro.Text));
+                }
+            }
+            
         }
 
         private void btnRestaurar_Click(object sender, EventArgs e)

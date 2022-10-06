@@ -10,7 +10,7 @@ namespace TPQatarPAVI.Datos.Daos
 {
     internal class PartidoDao : IPartido
     {
-        public void crearPartido(string paisLocal, string paisVisitante, string ronda, string grupo, string estadio, string arbitro)
+        public void crearPartido(string paisLocal, string paisVisitante, string ronda, string grupo, string estadio, string arbitro, string fecha)
         {
             DataTable doc_arb = obtenerDocArb(arbitro);
             string nomEstadio = obtenerEstadio(estadio);
@@ -25,7 +25,7 @@ namespace TPQatarPAVI.Datos.Daos
             }
 
             string consulta = "insert into partido values('" + paisLocal + "',Null,'" + paisVisitante + "',Null,'"
-                + Convert.ToString(doc_arb.Rows[0]["tipo_doc"]) + "'," + ((int)doc_arb.Rows[0]["nro_doc"]) + ",sysdatetime(),'" + nroRonda + "'," + grupo + ",null,'" + nomEstadio + "', 0)";
+                + Convert.ToString(doc_arb.Rows[0]["tipo_doc"]) + "'," + ((int)doc_arb.Rows[0]["nro_doc"]) + ",'"+fecha+"','" + nroRonda + "'," + grupo + ",null,'" + nomEstadio + "', 0)";
             DBHelper.obtenerInstancia().consultar(consulta);
         }
         private DataTable obtenerDocArb(string arbitro)
@@ -45,7 +45,7 @@ namespace TPQatarPAVI.Datos.Daos
         }
         public DataTable buscarPartidos(string ronda, string grupo, string estadio, string pais)
         {
-            string consulta = "select p.id, p.ronda, p.pais_1, p.pais_2, a.nombre +' '+a.apellido nombreArbitro, p.estadio, p.grupo " +
+            string consulta = "select p.id, p.ronda, p.pais_1, p.pais_2, p.fecha, a.nombre +' '+a.apellido nombreArbitro, p.estadio, p.grupo " +
                 "from partido p join arbitro a on (p.tipo_doc_arb = a.tipo_doc and p.nro_doc_arb = a.nro_doc) " +
                 "where p.borrado = 0 and " +
                 "p.ronda = " + obtenerRonda(ronda);
@@ -82,7 +82,7 @@ namespace TPQatarPAVI.Datos.Daos
             string consulta = "Update partido set borrado = 0 where id = '" + id + "'";
             DBHelper.obtenerInstancia().consultar(consulta);
         }
-        public void modificarPartido(string id, string paisLocal, string paisVisita, string ronda, string grupo, string estadio, string arbitro)
+        public void modificarPartido(string id, string paisLocal, string paisVisita, string ronda, string grupo, string estadio, string arbitro, string fecha)
         {
             DataTable doc_arb = obtenerDocArb(arbitro);
             string consulta = "UPDATE partido " +
@@ -90,6 +90,7 @@ namespace TPQatarPAVI.Datos.Daos
                 " pais_2 = '" + paisVisita + "'," +
                 "ronda=" + (obtenerRonda(ronda)) + "," +
                 "grupo='" + grupo + "'," +
+                "fecha='"+fecha+"'," +
                 "estadio='" + (obtenerEstadio(estadio)) + "'," +
                 "tipo_doc_arb='" + Convert.ToString(doc_arb.Rows[0]["tipo_doc"]) + "'," +
                 "nro_doc_arb=" + ((int)doc_arb.Rows[0]["nro_doc"]) +
