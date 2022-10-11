@@ -1,0 +1,24 @@
+#Son valores obtenidos de cmbbox o tabla
+
+Si es gol:
+'Update partidos set #GolesPais = #GolesPais +1 where pais= #pais del jugador'
+'Update jugadores set goles = goles +1 where #tipo_doc = tipo_doc and #nro_doc=nro_doc'
+
+Si es amarilla:
+'Update jugadores set tarjetas_amarillas= tarjetas_amarillas +1 where #tipo_doc = tipo_doc and #nro_doc=nro_doc'
+
+
+Si es roja:
+'Update jugadores set tarjetas_rojas= tarjetas_rojas +1 where #tipo_doc = tipo_doc and #nro_doc=nro_doc'
+
+Si es asistencia:
+'Update jugadores set asistencias=asistencias +1 where #tipo_doc = tipo_doc and #nro_doc=nro_doc'
+
+Terminar partido:
+comprarar los valores goles_p1 y goles_p2. para ver a que pais modificamos
+
+-Si gana uno
+'Update paises set puntos=puntos +3 where nombre=#nombreGanador'
+
+si es empate
+'Update paises set puntos=puntos +1 where nombre in ('#nombreLocal',#'NombreVisitante')'

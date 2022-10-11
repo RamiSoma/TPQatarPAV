@@ -14,6 +14,10 @@ namespace TPQatarPAVI.CapaServicios
         private IPartido partDao = new PartidoDao();
         private string transformarFecha(string fecha)
         {
+            if (fecha[2] != '/')
+            {
+                fecha = '0' + fecha;
+            }
             string mes = fecha.Substring(3, 2);
             string dia = fecha.Substring(0, 2);
             string anio = fecha.Substring(6, 4);
@@ -22,9 +26,6 @@ namespace TPQatarPAVI.CapaServicios
         }
         public void crearPartido(string paisLocal, string paisVisitante, string ronda, string grupo, string estadio, string arbitro, string fecha)
         {
-            if (fecha[2] != '/'){
-                fecha = '0' + fecha;
-            }
             string nFecha = transformarFecha(fecha);
             partDao.crearPartido(paisLocal,paisVisitante,ronda,grupo,estadio, arbitro, nFecha);    
         }
@@ -48,6 +49,10 @@ namespace TPQatarPAVI.CapaServicios
         {
             string nFecha = transformarFecha(fecha);
             partDao.modificarPartido(id,paisLocal, paisVisita, ronda, grupo, estadio, arbitro, nFecha);
+        }
+        public DataTable obtenerPartidoId(string id)
+        {
+            return partDao.obtenerPartidoId(id);
         }
     }
 }

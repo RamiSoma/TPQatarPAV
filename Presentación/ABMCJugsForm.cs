@@ -27,6 +27,12 @@ namespace TPQatarPAVI.Presentación
           
             HabilitarEdicion(false);
             HabilitarRestaurar(false);
+            HabilitarBM(false);
+        }
+        private void HabilitarBM(bool v)
+        {
+            btnModificar.Visible = v;
+            btnEliminar.Visible = v;
         }
         enum Modo
         {
@@ -234,11 +240,13 @@ namespace TPQatarPAVI.Presentación
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             CargarGrilla(dGridJug, jugador.traerTodos(cmbPaisFiltro.Text));
+            HabilitarBM(true);
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             dGridJug.Rows.Clear();
+            HabilitarBM(false);
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,12 @@ namespace TPQatarPAVI.Presentación
         public ABMCPaisForm()
         {
             InitializeComponent();
+            HabilitarBM(false);
+        }
+        private void HabilitarBM (bool v)
+        {
+            btnModificarPais.Visible = v;
+            btnEliminarPais.Visible = v;
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -113,6 +120,7 @@ namespace TPQatarPAVI.Presentación
         private void button1_Click(object sender, EventArgs e) //btnBuscarFiltro
         {
             CargarGrilla(dGridPaises, pais.traerTodos(txtFiltroNombre.Text, cmbContinenteFiltro.Text));
+            HabilitarBM(true);
         }
 
         private void ABMCPaisForm_Load(object sender, EventArgs e)
@@ -142,6 +150,7 @@ namespace TPQatarPAVI.Presentación
             dGridPaises.DataSource = null;
             dGridPaises.Rows.Clear();
             txtFiltroNombre.Text = "";
+            HabilitarBM(false);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

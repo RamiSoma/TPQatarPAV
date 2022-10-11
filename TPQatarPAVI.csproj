@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CapaServicios\ArbitroService.cs" />
+    <Compile Include="CapaServicios\EventoService.cs" />
     <Compile Include="CapaServicios\EstadioService.cs" />
     <Compile Include="CapaServicios\PartidoService.cs" />
     <Compile Include="CapaServicios\TipoDocService.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="CapaServicios\RondaService.cs" />
     <Compile Include="CapaServicios\UsuarioService.cs" />
     <Compile Include="Datos\Daos\ArbitroDao.cs" />
+    <Compile Include="Datos\Daos\EventoDao.cs" />
     <Compile Include="Datos\Daos\PartidoDao.cs" />
     <Compile Include="Datos\Daos\EstadioDao.cs" />
     <Compile Include="Datos\Daos\TipoDocDao.cs" />
@@ -74,12 +76,14 @@
     <Compile Include="Datos\Interfaces\IEstadio.cs" />
     <Compile Include="Datos\Interfaces\IGrupo.cs" />
     <Compile Include="Datos\Interfaces\IJugador.cs" />
+    <Compile Include="Datos\Interfaces\IEvento.cs" />
     <Compile Include="Datos\Interfaces\IPartido.cs" />
     <Compile Include="Datos\Interfaces\ITipoDoc.cs" />
     <Compile Include="Datos\Interfaces\IPais.cs" />
     <Compile Include="Datos\Interfaces\IPerfil.cs" />
     <Compile Include="Datos\Interfaces\IRonda.cs" />
     <Compile Include="Datos\Interfaces\IUsuario.cs" />
+    <Compile Include="Entidades\Partidos.cs" />
     <Compile Include="Entidades\Continente.cs" />
     <Compile Include="Entidades\Grupo.cs" />
     <Compile Include="Entidades\Pais.cs" />

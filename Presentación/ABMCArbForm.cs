@@ -29,8 +29,13 @@ namespace TPQatarPAVI.Presentación
             InitializeComponent();
             btnRestaurarSeleccion.Visible = false;
             btnCancelarRest.Visible = false;
+            HabilitarBM(false);
         }
-
+        private void HabilitarBM(bool v)
+        {
+            btnModificar.Visible = v;
+            btnEliminar.Visible = v;
+        }
 
 
         private void ABMCArbForm_Load(object sender, EventArgs e)
@@ -166,6 +171,7 @@ namespace TPQatarPAVI.Presentación
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             CargarGrilla(dGridArb, arb.traerFiltrado(txtNombreFiltro.Text, cmbPaisFiltro.Text));
+            HabilitarBM(true);
         }
         private void btnAgregar_Click_1(object sender, EventArgs e)
         {
@@ -262,6 +268,7 @@ namespace TPQatarPAVI.Presentación
             txtNombreFiltro.Text = "";
             dGridArb.DataSource = null;
             dGridArb.Rows.Clear();
+            HabilitarBM(false);
         }
     }
 }

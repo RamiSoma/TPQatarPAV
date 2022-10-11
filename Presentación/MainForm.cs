@@ -15,8 +15,7 @@ namespace TPQatarPAVI.Presentación
         public MainForm()
         {
             InitializeComponent();
-            btnVerDetallePartido.Visible = false;
-            btnCargarDetallePartido.Visible = false;
+            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -83,5 +82,7 @@ namespace TPQatarPAVI.Presentación
             ABMCPartForm abmcPart = new ABMCPartForm();
             abmcPart.Show();
         }
+
+       
     }
 }

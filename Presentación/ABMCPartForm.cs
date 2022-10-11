@@ -28,7 +28,8 @@ namespace TPQatarPAVI.Presentación
         public ABMCPartForm()
         {
             InitializeComponent();
-            habilitarRest(false);   
+            habilitarRest(false);
+            HabilitarBM(false);
             
         }
         private void CargarCombo(ComboBox combo, DataTable tabla, bool esFiltro)
@@ -233,10 +234,17 @@ namespace TPQatarPAVI.Presentación
                 CargarCombo(cmbPaisFiltro, pais.traerTodos("",""), true);
             }
         }
-
+        private void HabilitarBM(bool v)
+        {
+            btnEliminar.Visible = v;
+            btnModificar.Visible = v;
+            btnCargarDetalle.Visible = v;
+            
+        }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             CargarGrilla(dGridPartido, part.buscarPartidos(cmbRondaFiltro.Text, cmbGrupoFiltro.Text, cmbEstadioFiltro.Text,cmbPaisFiltro.Text));
+            HabilitarBM(true);
         }
 
         private void cmbPaisFiltro_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -284,6 +292,7 @@ namespace TPQatarPAVI.Presentación
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             dGridPartido.Rows.Clear();
+            HabilitarBM(false);
         }
 
         private void btnCancelarRest_Click(object sender, EventArgs e)

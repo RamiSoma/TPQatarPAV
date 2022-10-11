@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.btnVerDetallePartido = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.gestionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,21 +36,11 @@
             this.ToolStipPais = new System.Windows.Forms.ToolStripMenuItem();
             this.jugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.arbitrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnCargarDetallePartido = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnPartidos = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnVerDetallePartido
-            // 
-            this.btnVerDetallePartido.Location = new System.Drawing.Point(565, 290);
-            this.btnVerDetallePartido.Name = "btnVerDetallePartido";
-            this.btnVerDetallePartido.Size = new System.Drawing.Size(165, 26);
-            this.btnVerDetallePartido.TabIndex = 17;
-            this.btnVerDetallePartido.Text = "Ver Detalle Partidos";
-            this.btnVerDetallePartido.UseVisualStyleBackColor = true;
             // 
             // btnCerrarSesion
             // 
@@ -91,39 +80,30 @@
             // ToolStipUsuario
             // 
             this.ToolStipUsuario.Name = "ToolStipUsuario";
-            this.ToolStipUsuario.Size = new System.Drawing.Size(140, 24);
+            this.ToolStipUsuario.Size = new System.Drawing.Size(180, 24);
             this.ToolStipUsuario.Text = "Usuarios";
             this.ToolStipUsuario.Click += new System.EventHandler(this.ToolStipUsuario_Click);
             // 
             // ToolStipPais
             // 
             this.ToolStipPais.Name = "ToolStipPais";
-            this.ToolStipPais.Size = new System.Drawing.Size(140, 24);
+            this.ToolStipPais.Size = new System.Drawing.Size(180, 24);
             this.ToolStipPais.Text = "Paises";
             this.ToolStipPais.Click += new System.EventHandler(this.ToolStipPais_Click);
             // 
             // jugadoresToolStripMenuItem
             // 
             this.jugadoresToolStripMenuItem.Name = "jugadoresToolStripMenuItem";
-            this.jugadoresToolStripMenuItem.Size = new System.Drawing.Size(140, 24);
+            this.jugadoresToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.jugadoresToolStripMenuItem.Text = "Jugadores";
             this.jugadoresToolStripMenuItem.Click += new System.EventHandler(this.jugadoresToolStripMenuItem_Click);
             // 
             // arbitrosToolStripMenuItem
             // 
             this.arbitrosToolStripMenuItem.Name = "arbitrosToolStripMenuItem";
-            this.arbitrosToolStripMenuItem.Size = new System.Drawing.Size(140, 24);
+            this.arbitrosToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.arbitrosToolStripMenuItem.Text = "Arbitros";
             this.arbitrosToolStripMenuItem.Click += new System.EventHandler(this.arbitrosToolStripMenuItem_Click);
-            // 
-            // btnCargarDetallePartido
-            // 
-            this.btnCargarDetallePartido.Location = new System.Drawing.Point(565, 333);
-            this.btnCargarDetallePartido.Name = "btnCargarDetallePartido";
-            this.btnCargarDetallePartido.Size = new System.Drawing.Size(165, 26);
-            this.btnCargarDetallePartido.TabIndex = 18;
-            this.btnCargarDetallePartido.Text = "Cargar Detalle Partido";
-            this.btnCargarDetallePartido.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -152,8 +132,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.btnPartidos);
-            this.Controls.Add(this.btnCargarDetallePartido);
-            this.Controls.Add(this.btnVerDetallePartido);
             this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
@@ -174,13 +152,11 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnVerDetallePartido;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem gestionarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ToolStipUsuario;
         private System.Windows.Forms.ToolStripMenuItem ToolStipPais;
-        private System.Windows.Forms.Button btnCargarDetallePartido;
         private System.Windows.Forms.ToolStripMenuItem jugadoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem arbitrosToolStripMenuItem;
         private System.Windows.Forms.Button btnPartidos;

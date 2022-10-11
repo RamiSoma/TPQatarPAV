@@ -79,7 +79,7 @@ namespace TPQatarPAVI.Datos.Daos
         }
         public void recuperarPartido(string id)
         {
-            string consulta = "Update partido set borrado = 0 where id = '" + id + "'";
+            string consulta = "Update partido set borrado = 0 where id = " + id;
             DBHelper.obtenerInstancia().consultar(consulta);
         }
         public void modificarPartido(string id, string paisLocal, string paisVisita, string ronda, string grupo, string estadio, string arbitro, string fecha)
@@ -96,6 +96,11 @@ namespace TPQatarPAVI.Datos.Daos
                 "nro_doc_arb=" + ((int)doc_arb.Rows[0]["nro_doc"]) +
                 " where id=" + id;
             DBHelper.obtenerInstancia().consultar(consulta);
+        }
+        public DataTable obtenerPartidoId(string id)
+        {
+            string consulta = "select pais_1,pais_2,tipo_doc_arb,nro_doc_arb,nombre + ' ' + apellido nombreArbitro,fecha,ronda,grupo,estadio from partido join arbitro on (tipo_doc_arb = tipo_doc and nro_doc_arb = nro_doc) where partido.borrado = 0 and id = " + id ;
+            return DBHelper.obtenerInstancia().consultar(consulta);
         }
     }
 }

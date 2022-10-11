@@ -41,5 +41,9 @@ namespace TPQatarPAVI.CapaServicios
         {
             jugadorDao.recuperarJugador(tipoDoc, nroDoc);
         }
+        public DataTable traerJugadoresPais(string pais)
+        {
+            return jugadorDao.traerJugadoresPais(pais);
+        }
     }
 }

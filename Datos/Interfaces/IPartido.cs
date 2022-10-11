@@ -15,5 +15,6 @@ namespace TPQatarPAVI.Datos.Interfaces
         DataTable recuperarEliminados();
         void recuperarPartido(string idPartido);
         void modificarPartido(string id, string paisLocal, string paisVisita, string ronda, string grupo, string estadio, string arbitro, string fecha);
+        DataTable obtenerPartidoId(string id);
     }
 }

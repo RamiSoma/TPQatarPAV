@@ -52,6 +52,12 @@ namespace TPQatarPAVI.Datos.Daos
             string consulta = "Update jugadores set borrado = 0 where tipo_doc = '" + tipoDoc + "' and nro_doc = "+ nroDoc;
             DBHelper.obtenerInstancia().consultar(consulta);
         }
+        public DataTable traerJugadoresPais(string pais)
+        {
+            string consulta = "select nombre + ' ' + apellido , tipo_doc +'-'+ cast(nro_doc as varchar) from jugadores where borrado = 0 and pais like '%" + pais + "%'";
+
+            return DBHelper.obtenerInstancia().consultar(consulta);
+        }
     }
 
 }

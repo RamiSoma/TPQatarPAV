@@ -36,6 +36,7 @@ namespace TPQatarPAVI.Presentación
             CargarCombo(cmbFiltroPerfil, prfl.traerTodos());
             HabilitarEdicion(false);
             HabilitarRestaurar(false);
+            HabilitarBM(false);
         }
 
         private void CargarCombo(ComboBox combo, DataTable tabla)
@@ -64,6 +65,11 @@ namespace TPQatarPAVI.Presentación
         {
             btnCancelarRest.Visible = v;
             btnRestaurarSeleccion.Visible = v;
+        }
+        private void HabilitarBM(bool v)
+        {
+            btnEliminarUsuario.Visible = v;
+            btnModificarUsuario.Visible = v;
         }
         private void HabilitarABMC(bool v)
         {
@@ -208,6 +214,7 @@ namespace TPQatarPAVI.Presentación
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             CargarGrilla(dGridUsrs, usr.traerTodos(txtFiltroNombre.Text, cmbFiltroPerfil.Text) );
+            HabilitarBM(true);
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -215,6 +222,7 @@ namespace TPQatarPAVI.Presentación
             dGridUsrs.DataSource = null;
             dGridUsrs.Rows.Clear();
             txtFiltroNombre.Text = "";
+            HabilitarBM(false);
         }
 
 
