@@ -845,13 +845,13 @@ constraint fk_partido_estadio foreign key (estadio) references estadio(nombre))
 
 
 Insert into partido values
-('Qatar',null,'Ecuador',null,'Dni','30303030', convert(date,'20/11/22', 3),1,'A',null,'Al-Thumama',0)
+('Qatar',0,'Ecuador',0,'Dni','30303030', convert(date,'20/11/22', 3),1,'A',null,'Al-Thumama',0)
 Insert into partido values
-('Inglaterra',null,'Iran',null,'Id','32451323',convert(date,'21/11/22', 3),1,'B',null,'Al Janoub',0)
+('Inglaterra',0,'Iran',0,'Id','32451323',convert(date,'21/11/22', 3),1,'B',null,'Al Janoub',0)
 Insert into partido values
-('Senegal',null,'Paises Bajos',null,'Pass','41231444',convert(date,'21/11/22', 3),1,'A',null,'Ic�nico de Lusail',0)
+('Senegal',0,'Paises Bajos',0,'Pass','41231444',convert(date,'21/11/22', 3),1,'A',null,'Ic�nico de Lusail',0)
 Insert into partido values
-('Estados Unidos',null,'Gales',null,'Id','32451323',convert(date,'21/11/22', 3),1,'B',null,'Qatar Foundation',0)
+('Estados Unidos',0,'Gales',0,'Id','32451323',convert(date,'21/11/22', 3),1,'B',null,'Qatar Foundation',0)
 -- A LOS DE ABAJO LES FALTA EL GRUPO DESPUES DEL IDRONDA
 /*Insert into partido values
 ('Argentina',null,'Arabia Saudita',null,'Id','32451323',convert(date,'22/11/22', 3),1,null,'Al-Thumama',null)
@@ -948,13 +948,14 @@ Insert into partido values
 */*/
 
 Create Table EventoPartido(
+id_evento int identity(1,1),
 id_partido int,
 minuto int,
 tipo_doc_jg varchar(5),
 nro_doc_jg int,
 evento varchar(32),
 borrado bit,
-constraint pk_evento Primary Key (id_partido,minuto,tipo_doc_jg,nro_doc_jg),
+constraint pk_evento Primary Key (id_evento),
 constraint fk_id_evento_partido foreign key (id_partido) references partido (id),
 constraint fk_jg_evento foreign key (tipo_doc_jg,nro_doc_jg) references jugadores (tipo_doc,nro_doc),
 constraint ck_evento check(evento in('Gol','Asistencia','Tarjeta Amarilla','Tarjeta Roja')))
