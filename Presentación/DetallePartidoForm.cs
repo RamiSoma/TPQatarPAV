@@ -16,6 +16,7 @@ namespace TPQatarPAVI.Presentación
     public partial class DetallePartidoForm : Form
     {
         public string idPartido;
+        private bool finalizoPartido;
         PartidoService part = new PartidoService();
         Partidos partido = new Partidos();
         JugadorService jug = new JugadorService();
@@ -25,6 +26,20 @@ namespace TPQatarPAVI.Presentación
             InitializeComponent();
             HabilitarAM(false);
             HabilitarABM(false);
+        }
+
+        private void FinPartido(bool v)
+        {
+            NumAM.Visible = v;
+            
+        }
+        private void ChequearFinPartido()
+        {
+            if (finalizoPartido)
+            {
+                btnFinalizarPartido.Visible = false;
+                HabilitarABM(false);
+            }
         }
         private void CargarGrilla(DataGridView grilla, DataTable tabla)
         {
@@ -44,7 +59,6 @@ namespace TPQatarPAVI.Presentación
             cmbEventoAM.Items.Add("Asistencia");
             cmbEventoAM.Items.Add("Tarjeta Amarilla");
             cmbEventoAM.Items.Add("Tarjeta Roja");
-            cmbEventoAM.Items.Add("Fin de partido");
             cmbEventoAM.SelectedIndex = 0;
         }
         private void CargarCombo(ComboBox combo, DataTable tabla)
@@ -86,12 +100,22 @@ namespace TPQatarPAVI.Presentación
            
         }
        
-       
         private void HabilitarABM (bool v)
         {
             btnAgregar.Visible = v;
             btnEliminar.Visible = v;  
             btnRestaurar.Visible = v;
+        }
+
+        private void InfoPartido(bool v)
+        {
+            label1.Visible =v;
+            ck_nomb_local.Visible = v;
+            label4.Visible = v;
+            lblGolesLocal.Visible = v;
+            lblGolesVisita.Visible = v;
+            ck_nomb_visita.Visible = v;
+            btnFinalizarPartido.Visible = v;
         }
         private void HabilitarAM(bool v)
         {
@@ -101,11 +125,7 @@ namespace TPQatarPAVI.Presentación
             cmbEventoAM.Visible = v;
             cmbJugadoresAM.Visible = v;
             btnGuardarAM.Visible = v;
-            btnCancelarAM.Visible = v;
-            label1.Visible = !v;
-            ck_nomb_local.Visible = !v;
-            label4.Visible = !v;
-            ck_nomb_visita.Visible = !v;
+            btnCancelarAM.Visible = v; 
             lblEventoAM.Visible = v;
             lblJugAM.Visible = v;
             lblPaisAM.Visible = v;
@@ -119,6 +139,9 @@ namespace TPQatarPAVI.Presentación
             ck_nomb_local.Text = partido.paisLocal;
             ck_nomb_visita.Text = partido.paisVisita;
             CargarComboEventos();
+            finalizoPartido = part.chequearFinPartido(idPartido);
+            ChequearFinPartido();
+            CargarGoles();
         }
         private void CargarGoles()
         {
@@ -140,6 +163,7 @@ namespace TPQatarPAVI.Presentación
         {
             HabilitarAM(true);
             HabilitarABM(false);
+            InfoPartido(false);
         }
 
         private void label10_Click(object sender, EventArgs e)
@@ -154,54 +178,68 @@ namespace TPQatarPAVI.Presentación
 
         private void ck_nomb_local_CheckedChanged(object sender, EventArgs e)
         {
-            ck_nomb_visita.Checked = false;
-            lblPaisAM.Text = ck_nomb_local.Text;
-            HabilitarABM(true);
-            //cargar jugadores del local
-            CargarCombo(cmbJugadoresAM, jug.traerJugadoresPais(ck_nomb_local.Text));
-            //cargar grilla con eventos del local
-            CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido,ck_nomb_local.Text));
+            if (finalizoPartido)
+            {
+                ck_nomb_visita.Checked = false;
+                CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido, ck_nomb_local.Text));
+            }
+            else
+            {
+                ck_nomb_visita.Checked = false;
+                lblPaisAM.Text = ck_nomb_local.Text;
+                HabilitarABM(true);
+                //cargar jugadores del local
+                CargarCombo(cmbJugadoresAM, jug.traerJugadoresPais(ck_nomb_local.Text));
+                //cargar grilla con eventos del local
+                CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido, ck_nomb_local.Text));
+            }
         }
 
         private void ck_nomb_visita_CheckedChanged(object sender, EventArgs e)
         {
-            ck_nomb_local.Checked = false;
-            lblPaisAM.Text=ck_nomb_visita.Text;
-            HabilitarABM(true);
-            //cargar jugadores del visita
-            CargarCombo(cmbJugadoresAM, jug.traerJugadoresPais(ck_nomb_visita.Text));
-            //cargar grilla con eventos del visita
-            CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido, ck_nomb_visita.Text));
+            if (finalizoPartido)
+            {
+                ck_nomb_local.Checked = false;
+                CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido, ck_nomb_visita.Text));
+            }
+            else
+            {
+                ck_nomb_local.Checked = false;
+                lblPaisAM.Text = ck_nomb_visita.Text;
+                HabilitarABM(true);
+                //cargar jugadores del visita
+                CargarCombo(cmbJugadoresAM, jug.traerJugadoresPais(ck_nomb_visita.Text));
+                //cargar grilla con eventos del visita
+                CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido, ck_nomb_visita.Text));
+            }
         }
 
         private void btnGuardarAM_Click(object sender, EventArgs e)
         {
             HabilitarAM(false);
             HabilitarABM(true);
+            InfoPartido(true);
             evento.crearEvento(idPartido, NumAM.Value.ToString(), cmbJugadoresAM.SelectedValue.ToString(), cmbEventoAM.Text);
             CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido, lblPaisAM.Text));
             if (cmbEventoAM.Text == "Gol") // jugador, partidos
             {
-                jug.anotar(cmbJugadoresAM.SelectedValue.ToString(), cmbEventoAM.Text);
-                part.anotarGol(idPartido,lblPaisAM.Text, ck_nomb_local.CheckState.ToString());
+                jug.anotar(cmbJugadoresAM.SelectedValue.ToString(), cmbEventoAM.Text,"sumar");
+                part.modificarGol(idPartido,lblPaisAM.Text, ck_nomb_local.CheckState.ToString(),"sumar");
                 CargarGoles();
             }
 
             if (cmbEventoAM.Text == "Tarjeta Roja" || cmbEventoAM.Text == "Tarjeta Amarilla" || cmbEventoAM.Text == "Asistencia") //jugador
             {
-                jug.anotar(cmbJugadoresAM.SelectedValue.ToString(), cmbEventoAM.Text);
+                jug.anotar(cmbJugadoresAM.SelectedValue.ToString(), cmbEventoAM.Text,"sumar");
             }
 
-            if (cmbEventoAM.Text == "Fin de partido") //pais, grupo
-            {
-                part.finalizarPartido(idPartido,partido.paisLocal, lblGolesLocal.Text, partido.paisLocal, lblGolesVisita.Text);
-            }
         }
 
         private void btnCancelarAM_Click(object sender, EventArgs e)
         {
             HabilitarAM(false);
             HabilitarABM(true);
+            InfoPartido(true);
         }
 
         private void btnVolverMenu_Click(object sender, EventArgs e)
@@ -217,10 +255,11 @@ namespace TPQatarPAVI.Presentación
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             string idEvento = dGridEventos.SelectedRows[0].Cells[4].Value.ToString();
+            string jugador = dGridEventos.SelectedRows[0].Cells[2].Value.ToString();
             DialogResult rta = MessageBox.Show("¿Estas seguro que deseas eliminar el evento seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (rta == DialogResult.Yes)
             {
-                evento.eliminarEvento(idEvento);
+                evento.eliminarEvento(idEvento, idPartido, jugador, lblPaisAM.Text, ck_nomb_local.Checked.ToString());
                 CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido, lblPaisAM.Text));
             }
         }
@@ -228,6 +267,20 @@ namespace TPQatarPAVI.Presentación
         private void lblGolesLocal_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbEventoAM_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnFinalizarPartido_Click(object sender, EventArgs e)
+        {
+            part.finalizarPartido(idPartido, partido.paisLocal, lblGolesLocal.Text, partido.paisVisita, lblGolesVisita.Text);
+            finalizoPartido = true;
+            HabilitarABM(false);
+            InfoPartido(true);
+            btnFinalizarPartido.Visible=false;
         }
     }
 }

@@ -17,15 +17,21 @@ namespace TPQatarPAVI.Datos.Daos
         }
         public DataTable traerEventosPorId(string id, string pais)
         {
-            string consulta = "select minuto,nro_doc_jg,nombre + ' ' + apellido nombreCompleto ,evento, id_evento " +
-                                    "from EventoPartido join jugadores on(tipo_doc = tipo_doc_jg and nro_doc = nro_doc_jg)" +
-                                    " where id_partido = " + id + "and eventoPartido.borrado = 0 and pais = '"+pais+"'";
+            string consulta = "select e.minuto,e.nro_doc_jg,j.nombre + ' ' + j.apellido nombreCompleto ,e.evento, e.id_evento " +
+                                    "from EventoPartido e join jugadores j on(j.tipo_doc = e.tipo_doc_jg and j.nro_doc = e.nro_doc_jg) " +
+                                    "join partido p on (e.id_partido = p.id)" +
+                                    " where e.id_partido = " + id + "and e.borrado = 0 and j.pais like '%"+pais+"%'";
             return DBHelper.obtenerInstancia().consultar(consulta);
         }
         public void eliminarEvento(string id)
         {
             string consulta = "Update eventoPartido set borrado = 1 where id_evento = '" + id + "'";
             DBHelper.obtenerInstancia().consultar(consulta);
+        }
+        public DataTable traerEventosPorIdEvento(string id)
+        {
+            string consulta = "select * from eventoPartido where id_evento = " + id;
+            return DBHelper.obtenerInstancia().consultar(consulta);
         }
     }
 }

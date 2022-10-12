@@ -12,5 +12,6 @@ namespace TPQatarPAVI.Datos.Interfaces
         void crearEvento(string id, string min, string jug, string evento);
         DataTable traerEventosPorId(string id, string pais);
         void eliminarEvento(string id);
+        DataTable traerEventosPorIdEvento(string id);
     }
 }

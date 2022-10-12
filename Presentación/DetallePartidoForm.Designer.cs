@@ -37,11 +37,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.dGridEventos = new System.Windows.Forms.DataGridView();
-            this.col_Minuto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_NroDocJug = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblIdPart = new System.Windows.Forms.Label();
@@ -65,6 +60,12 @@
             this.NumAM = new System.Windows.Forms.NumericUpDown();
             this.lblGolesLocal = new System.Windows.Forms.Label();
             this.lblGolesVisita = new System.Windows.Forms.Label();
+            this.btnFinalizarPartido = new System.Windows.Forms.Button();
+            this.col_Minuto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_NroDocJug = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_Evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGridEventos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumAM)).BeginInit();
             this.SuspendLayout();
@@ -157,45 +158,15 @@
             this.dGridEventos.MultiSelect = false;
             this.dGridEventos.Name = "dGridEventos";
             this.dGridEventos.ReadOnly = true;
-            this.dGridEventos.Size = new System.Drawing.Size(498, 274);
+            this.dGridEventos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dGridEventos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dGridEventos.Size = new System.Drawing.Size(484, 274);
             this.dGridEventos.TabIndex = 10;
             this.dGridEventos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGridEventos_CellContentClick);
             // 
-            // col_Minuto
-            // 
-            this.col_Minuto.HeaderText = "Minuto";
-            this.col_Minuto.Name = "col_Minuto";
-            this.col_Minuto.ReadOnly = true;
-            // 
-            // col_NroDocJug
-            // 
-            this.col_NroDocJug.HeaderText = "Nro Doc Jugador";
-            this.col_NroDocJug.Name = "col_NroDocJug";
-            this.col_NroDocJug.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 150;
-            // 
-            // col_Evento
-            // 
-            this.col_Evento.HeaderText = "Evento";
-            this.col_Evento.Name = "col_Evento";
-            this.col_Evento.ReadOnly = true;
-            // 
-            // idEvento
-            // 
-            this.idEvento.HeaderText = "idEvento";
-            this.idEvento.Name = "idEvento";
-            this.idEvento.ReadOnly = true;
-            this.idEvento.Visible = false;
-            // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(429, 411);
+            this.btnEliminar.Location = new System.Drawing.Point(486, 411);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(120, 32);
             this.btnEliminar.TabIndex = 62;
@@ -205,7 +176,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(249, 411);
+            this.btnAgregar.Location = new System.Drawing.Point(344, 411);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(120, 32);
             this.btnAgregar.TabIndex = 61;
@@ -306,6 +277,7 @@
             this.cmbEventoAM.Name = "cmbEventoAM";
             this.cmbEventoAM.Size = new System.Drawing.Size(121, 21);
             this.cmbEventoAM.TabIndex = 74;
+            this.cmbEventoAM.SelectedIndexChanged += new System.EventHandler(this.cmbEventoAM_SelectedIndexChanged);
             // 
             // cmbJugadoresAM
             // 
@@ -407,11 +379,54 @@
             this.lblGolesVisita.TabIndex = 85;
             this.lblGolesVisita.Text = "0";
             // 
+            // btnFinalizarPartido
+            // 
+            this.btnFinalizarPartido.Location = new System.Drawing.Point(486, 464);
+            this.btnFinalizarPartido.Name = "btnFinalizarPartido";
+            this.btnFinalizarPartido.Size = new System.Drawing.Size(120, 32);
+            this.btnFinalizarPartido.TabIndex = 86;
+            this.btnFinalizarPartido.Text = "Finalizar Partido";
+            this.btnFinalizarPartido.UseVisualStyleBackColor = true;
+            this.btnFinalizarPartido.Click += new System.EventHandler(this.btnFinalizarPartido_Click);
+            // 
+            // col_Minuto
+            // 
+            this.col_Minuto.HeaderText = "Minuto";
+            this.col_Minuto.Name = "col_Minuto";
+            this.col_Minuto.ReadOnly = true;
+            // 
+            // col_NroDocJug
+            // 
+            this.col_NroDocJug.HeaderText = "Nro Doc Jugador";
+            this.col_NroDocJug.Name = "col_NroDocJug";
+            this.col_NroDocJug.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 150;
+            // 
+            // col_Evento
+            // 
+            this.col_Evento.HeaderText = "Evento";
+            this.col_Evento.Name = "col_Evento";
+            this.col_Evento.ReadOnly = true;
+            // 
+            // idEvento
+            // 
+            this.idEvento.HeaderText = "idEvento";
+            this.idEvento.Name = "idEvento";
+            this.idEvento.ReadOnly = true;
+            this.idEvento.Visible = false;
+            // 
             // DetallePartidoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.btnFinalizarPartido);
             this.Controls.Add(this.lblGolesVisita);
             this.Controls.Add(this.lblGolesLocal);
             this.Controls.Add(this.NumAM);
@@ -489,12 +504,13 @@
         private System.Windows.Forms.Label lblJugAM;
         private System.Windows.Forms.Label lblPaisAM;
         private System.Windows.Forms.NumericUpDown NumAM;
+        private System.Windows.Forms.Label lblGolesLocal;
+        private System.Windows.Forms.Label lblGolesVisita;
+        private System.Windows.Forms.Button btnFinalizarPartido;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Minuto;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_NroDocJug;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Evento;
         private System.Windows.Forms.DataGridViewTextBoxColumn idEvento;
-        private System.Windows.Forms.Label lblGolesLocal;
-        private System.Windows.Forms.Label lblGolesVisita;
     }
 }

@@ -102,26 +102,29 @@ namespace TPQatarPAVI.Datos.Daos
             string consulta = "select pais_1,pais_2,tipo_doc_arb,nro_doc_arb,nombre + ' ' + apellido nombreArbitro,fecha,ronda,grupo,estadio, goles_p1,goles_p2 from partido join arbitro on (tipo_doc_arb = tipo_doc and nro_doc_arb = nro_doc) where partido.borrado = 0 and id = " + id ;
             return DBHelper.obtenerInstancia().consultar(consulta);
         }
-        public void anotarGol(string idPartido, string pais, string checkLocal)
+        public void modificarGol(string idPartido, string pais, string checkLocal,string accion)
         {
             string consulta;
             if (checkLocal == "Checked")
             {
-                consulta = "update partido set goles_p1 = goles_p1 + 1 where id = " + idPartido;
+                consulta = "update partido set goles_p1 = goles_p1 "+accion+" 1 where id = " + idPartido;
             }
             else
             {
-                consulta = "update partido set goles_p2 = goles_p2 + 1 where id = " + idPartido;
+                consulta = "update partido set goles_p2 = goles_p2 " + accion + " 1 where id = " + idPartido;
             }
             
             DBHelper.obtenerInstancia().consultar(consulta);
         }
-        public void finalizarPartido(string id, string golesLocal, string golesVisita)
+        public void finalizarPartido(string id, string ganador)
         {
-            string consulta;
-            
-
+            string consulta = "update Partido set ganador='"+ganador+"' where id = "+id;
             DBHelper.obtenerInstancia().consultar(consulta);
+        }
+        public DataTable chequearFinPartido(string id)
+        {
+            string consulta = "select ganador from partido where id = " + id;
+            return DBHelper.obtenerInstancia().consultar(consulta);
         }
     }
 }

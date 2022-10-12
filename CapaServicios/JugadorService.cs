@@ -45,7 +45,7 @@ namespace TPQatarPAVI.CapaServicios
         {
             return jugadorDao.traerJugadoresPais(pais);
         }
-        public void anotar(string jugador, string evento)
+        public void anotar(string jugador, string evento, string accion)
         {
             string nEvento ="asistencias";
             if (evento == "Gol")
@@ -60,7 +60,13 @@ namespace TPQatarPAVI.CapaServicios
             {
                 nEvento = "tarjetas_rojas";
             }
-            jugadorDao.anotar(jugador, nEvento);
+            //por defecto la acción va a sumar un gol, sino lo borra
+            string nAccion = "+";
+            if (nAccion == "borrar")
+            {
+                nAccion = "-";
+            }
+            jugadorDao.anotar(jugador, nEvento, nAccion);
         }
     }
 }
