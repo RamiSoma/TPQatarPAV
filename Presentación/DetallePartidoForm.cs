@@ -120,7 +120,12 @@ namespace TPQatarPAVI.Presentación
             ck_nomb_visita.Text = partido.paisVisita;
             CargarComboEventos();
         }
-
+        private void CargarGoles()
+        {
+            DataTable goles = part.obtenerPartidoId(idPartido);
+            lblGolesLocal.Text = Convert.ToString(goles.Rows[0]["goles_p1"]);
+            lblGolesVisita.Text = Convert.ToString(goles.Rows[0]["goles_p2"]);
+        }
         private void label4_Click(object sender, EventArgs e)
         {
 
@@ -179,6 +184,7 @@ namespace TPQatarPAVI.Presentación
             {
                 jug.anotar(cmbJugadoresAM.SelectedValue.ToString(), cmbEventoAM.Text);
                 part.anotarGol(idPartido,lblPaisAM.Text, ck_nomb_local.CheckState.ToString());
+                CargarGoles();
             }
 
             if (cmbEventoAM.Text == "Tarjeta Roja" || cmbEventoAM.Text == "Tarjeta Amarilla" || cmbEventoAM.Text == "Asistencia") //jugador
@@ -188,7 +194,7 @@ namespace TPQatarPAVI.Presentación
 
             if (cmbEventoAM.Text == "Fin de partido") //pais, grupo
             {
-
+                part.finalizarPartido(idPartido,partido.paisLocal, lblGolesLocal.Text, partido.paisLocal, lblGolesVisita.Text);
             }
         }
 
@@ -217,6 +223,11 @@ namespace TPQatarPAVI.Presentación
                 evento.eliminarEvento(idEvento);
                 CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido, lblPaisAM.Text));
             }
+        }
+
+        private void lblGolesLocal_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

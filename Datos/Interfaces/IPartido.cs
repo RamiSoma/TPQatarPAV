@@ -17,5 +17,6 @@ namespace TPQatarPAVI.Datos.Interfaces
         void modificarPartido(string id, string paisLocal, string paisVisita, string ronda, string grupo, string estadio, string arbitro, string fecha);
         DataTable obtenerPartidoId(string id);
         void anotarGol(string idPartido, string pais, string checkLocal);
+        void finalizarPartido(string id, string golesLocal, string golesVisita);
     }
 }

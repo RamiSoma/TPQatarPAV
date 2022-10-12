@@ -99,7 +99,7 @@ namespace TPQatarPAVI.Datos.Daos
         }
         public DataTable obtenerPartidoId(string id)
         {
-            string consulta = "select pais_1,pais_2,tipo_doc_arb,nro_doc_arb,nombre + ' ' + apellido nombreArbitro,fecha,ronda,grupo,estadio from partido join arbitro on (tipo_doc_arb = tipo_doc and nro_doc_arb = nro_doc) where partido.borrado = 0 and id = " + id ;
+            string consulta = "select pais_1,pais_2,tipo_doc_arb,nro_doc_arb,nombre + ' ' + apellido nombreArbitro,fecha,ronda,grupo,estadio, goles_p1,goles_p2 from partido join arbitro on (tipo_doc_arb = tipo_doc and nro_doc_arb = nro_doc) where partido.borrado = 0 and id = " + id ;
             return DBHelper.obtenerInstancia().consultar(consulta);
         }
         public void anotarGol(string idPartido, string pais, string checkLocal)
@@ -114,6 +114,13 @@ namespace TPQatarPAVI.Datos.Daos
                 consulta = "update partido set goles_p2 = goles_p2 + 1 where id = " + idPartido;
             }
             
+            DBHelper.obtenerInstancia().consultar(consulta);
+        }
+        public void finalizarPartido(string id, string golesLocal, string golesVisita)
+        {
+            string consulta;
+            
+
             DBHelper.obtenerInstancia().consultar(consulta);
         }
     }

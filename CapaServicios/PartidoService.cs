@@ -58,5 +58,22 @@ namespace TPQatarPAVI.CapaServicios
         {
             partDao.anotarGol(idPartido, pais, check);
         }
+        public void finalizarPartido(string id, string golesLocal, string golesVisita)
+        {
+            string ganador;
+            if (Int32.Parse(golesLocal) > Int32.Parse(golesVisita))
+            {
+                ganador = ;
+            }
+            if (Int32.Parse(golesLocal) < Int32.Parse(golesVisita))
+            {
+                consulta = "";
+            }
+            if (Int32.Parse(golesLocal) == Int32.Parse(golesVisita))
+            {
+                consulta = "";
+            }
+            partDao.finalizarPartido(id, golesLocal, golesVisita);
+        }
     }
 }
