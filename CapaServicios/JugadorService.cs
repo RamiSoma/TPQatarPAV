@@ -45,5 +45,22 @@ namespace TPQatarPAVI.CapaServicios
         {
             return jugadorDao.traerJugadoresPais(pais);
         }
+        public void anotar(string jugador, string evento)
+        {
+            string nEvento ="asistencias";
+            if (evento == "Gol")
+            {
+                nEvento = "goles";
+            }
+            if (evento == "Tarjeta Amarilla")
+            {
+                nEvento = "tarjetas_amarillas";
+            }
+            if (evento == "Tarjeta Roja")
+            {
+                nEvento = "tarjetas_rojas";
+            }
+            jugadorDao.anotar(jugador, nEvento);
+        }
     }
 }

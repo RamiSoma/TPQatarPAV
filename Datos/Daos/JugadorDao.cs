@@ -58,6 +58,11 @@ namespace TPQatarPAVI.Datos.Daos
 
             return DBHelper.obtenerInstancia().consultar(consulta);
         }
+        public void anotar(string jugador, string evento)
+        {
+            string consulta = "update jugadores set "+evento+" = " + evento + " + 1 where tipo_doc+'-' + cast(nro_doc as varchar) = '" +jugador+"'";
+            DBHelper.obtenerInstancia().consultar(consulta);
+        }
     }
 
 }

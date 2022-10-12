@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,14 @@ namespace TPQatarPAVI.CapaServicios
         {
             string jugador = "'" + jug.Replace("-", "',");
             eventoDao.crearEvento(id, min, jugador, evento);
+        }
+        public DataTable traerEventosPorId(string id, string pais)
+        {
+            return eventoDao.traerEventosPorId(id, pais);
+        }
+        public void eliminarEvento(string id)
+        {
+            eventoDao.eliminarEvento(id);
         }
     }
 }

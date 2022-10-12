@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,18 @@ namespace TPQatarPAVI.Datos.Daos
         public void crearEvento(string id, string min, string jug, string evento)
         {
             string consulta = "insert into eventopartido values("+id+","+min+","+jug+",'"+evento+"', 0)";
+            DBHelper.obtenerInstancia().consultar(consulta);
+        }
+        public DataTable traerEventosPorId(string id, string pais)
+        {
+            string consulta = "select minuto,nro_doc_jg,nombre + ' ' + apellido nombreCompleto ,evento, id_evento " +
+                                    "from EventoPartido join jugadores on(tipo_doc = tipo_doc_jg and nro_doc = nro_doc_jg)" +
+                                    " where id_partido = " + id + "and eventoPartido.borrado = 0 and pais = '"+pais+"'";
+            return DBHelper.obtenerInstancia().consultar(consulta);
+        }
+        public void eliminarEvento(string id)
+        {
+            string consulta = "Update eventoPartido set borrado = 1 where id_evento = '" + id + "'";
             DBHelper.obtenerInstancia().consultar(consulta);
         }
     }

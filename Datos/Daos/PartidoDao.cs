@@ -24,7 +24,7 @@ namespace TPQatarPAVI.Datos.Daos
                 grupo = "'" + grupo + "'";
             }
 
-            string consulta = "insert into partido values('" + paisLocal + "',Null,'" + paisVisitante + "',Null,'"
+            string consulta = "insert into partido values('" + paisLocal + "',0,'" + paisVisitante + "',0,'"
                 + Convert.ToString(doc_arb.Rows[0]["tipo_doc"]) + "'," + ((int)doc_arb.Rows[0]["nro_doc"]) + ",'"+fecha+"','" + nroRonda + "'," + grupo + ",null,'" + nomEstadio + "', 0)";
             DBHelper.obtenerInstancia().consultar(consulta);
         }
@@ -101,6 +101,20 @@ namespace TPQatarPAVI.Datos.Daos
         {
             string consulta = "select pais_1,pais_2,tipo_doc_arb,nro_doc_arb,nombre + ' ' + apellido nombreArbitro,fecha,ronda,grupo,estadio from partido join arbitro on (tipo_doc_arb = tipo_doc and nro_doc_arb = nro_doc) where partido.borrado = 0 and id = " + id ;
             return DBHelper.obtenerInstancia().consultar(consulta);
+        }
+        public void anotarGol(string idPartido, string pais, string checkLocal)
+        {
+            string consulta;
+            if (checkLocal == "Checked")
+            {
+                consulta = "update partido set goles_p1 = goles_p1 + 1 where id = " + idPartido;
+            }
+            else
+            {
+                consulta = "update partido set goles_p2 = goles_p2 + 1 where id = " + idPartido;
+            }
+            
+            DBHelper.obtenerInstancia().consultar(consulta);
         }
     }
 }

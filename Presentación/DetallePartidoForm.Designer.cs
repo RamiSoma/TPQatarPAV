@@ -37,11 +37,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.dGridEventos = new System.Windows.Forms.DataGridView();
-            this.col_Minuto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_NroDocJug = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblIdPart = new System.Windows.Forms.Label();
@@ -63,6 +58,11 @@
             this.lblJugAM = new System.Windows.Forms.Label();
             this.lblPaisAM = new System.Windows.Forms.Label();
             this.NumAM = new System.Windows.Forms.NumericUpDown();
+            this.col_Minuto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_NroDocJug = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_Evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGridEventos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumAM)).BeginInit();
             this.SuspendLayout();
@@ -143,57 +143,31 @@
             // 
             // dGridEventos
             // 
+            this.dGridEventos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dGridEventos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGridEventos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_Minuto,
             this.col_NroDocJug,
             this.Nombre,
-            this.col_Evento});
+            this.col_Evento,
+            this.idEvento});
             this.dGridEventos.Location = new System.Drawing.Point(249, 103);
+            this.dGridEventos.MultiSelect = false;
             this.dGridEventos.Name = "dGridEventos";
+            this.dGridEventos.ReadOnly = true;
             this.dGridEventos.Size = new System.Drawing.Size(497, 274);
             this.dGridEventos.TabIndex = 10;
             this.dGridEventos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGridEventos_CellContentClick);
             // 
-            // col_Minuto
-            // 
-            this.col_Minuto.HeaderText = "Minuto";
-            this.col_Minuto.Name = "col_Minuto";
-            // 
-            // col_NroDocJug
-            // 
-            this.col_NroDocJug.HeaderText = "Nro Doc Jugador";
-            this.col_NroDocJug.Name = "col_NroDocJug";
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.Width = 150;
-            // 
-            // col_Evento
-            // 
-            this.col_Evento.HeaderText = "Evento";
-            this.col_Evento.Name = "col_Evento";
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Location = new System.Drawing.Point(375, 411);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(120, 32);
-            this.btnModificar.TabIndex = 63;
-            this.btnModificar.Text = "Modificar Evento";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(501, 411);
+            this.btnEliminar.Location = new System.Drawing.Point(429, 411);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(120, 32);
             this.btnEliminar.TabIndex = 62;
             this.btnEliminar.Text = "Eliminar Evento";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnAgregar
             // 
@@ -380,6 +354,33 @@
             this.NumAM.Size = new System.Drawing.Size(43, 20);
             this.NumAM.TabIndex = 83;
             // 
+            // col_Minuto
+            // 
+            this.col_Minuto.HeaderText = "Minuto";
+            this.col_Minuto.Name = "col_Minuto";
+            // 
+            // col_NroDocJug
+            // 
+            this.col_NroDocJug.HeaderText = "Nro Doc Jugador";
+            this.col_NroDocJug.Name = "col_NroDocJug";
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 150;
+            // 
+            // col_Evento
+            // 
+            this.col_Evento.HeaderText = "Evento";
+            this.col_Evento.Name = "col_Evento";
+            // 
+            // idEvento
+            // 
+            this.idEvento.HeaderText = "idEvento";
+            this.idEvento.Name = "idEvento";
+            this.idEvento.Visible = false;
+            // 
             // DetallePartidoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -404,7 +405,6 @@
             this.Controls.Add(this.ck_nomb_local);
             this.Controls.Add(this.lblMostrarId);
             this.Controls.Add(this.lblIdPart);
-            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dGridEventos);
@@ -440,7 +440,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dGridEventos;
-        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label lblIdPart;
@@ -449,10 +448,6 @@
         private System.Windows.Forms.CheckBox ck_nomb_visita;
         private System.Windows.Forms.Label lblMostrarRonda;
         private System.Windows.Forms.Label lblMostrarGrupo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Minuto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_NroDocJug;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Evento;
         private System.Windows.Forms.Label lblMostrarArb;
         private System.Windows.Forms.Label lblMostrarEstadio;
         private System.Windows.Forms.Label lblMinutoAM;
@@ -466,5 +461,10 @@
         private System.Windows.Forms.Label lblJugAM;
         private System.Windows.Forms.Label lblPaisAM;
         private System.Windows.Forms.NumericUpDown NumAM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_Minuto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_NroDocJug;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_Evento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idEvento;
     }
 }

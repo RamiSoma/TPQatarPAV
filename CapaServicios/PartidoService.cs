@@ -54,5 +54,9 @@ namespace TPQatarPAVI.CapaServicios
         {
             return partDao.obtenerPartidoId(id);
         }
+        public void anotarGol(string idPartido, string pais, string check)
+        {
+            partDao.anotarGol(idPartido, pais, check);
+        }
     }
 }

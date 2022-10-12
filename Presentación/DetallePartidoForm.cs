@@ -31,11 +31,11 @@ namespace TPQatarPAVI.Presentación
             grilla.Rows.Clear();
             for (int i = 0; i < tabla.Rows.Count; i++)
             {
-                grilla.Rows.Add(tabla.Rows[i]["pais_1"],
-                                tabla.Rows[i]["minuto"],
-                                tabla.Rows[i]["tipo_doc_jg"],
+                grilla.Rows.Add(tabla.Rows[i]["minuto"],
                                 tabla.Rows[i]["nro_doc_jg"],
-                                tabla.Rows[i]["evento"]);
+                                tabla.Rows[i]["nombreCompleto"],
+                                tabla.Rows[i]["evento"],
+                                tabla.Rows[i]["id_evento"]);
             }
         }
         private void CargarComboEventos()
@@ -44,6 +44,7 @@ namespace TPQatarPAVI.Presentación
             cmbEventoAM.Items.Add("Asistencia");
             cmbEventoAM.Items.Add("Tarjeta Amarilla");
             cmbEventoAM.Items.Add("Tarjeta Roja");
+            cmbEventoAM.Items.Add("Fin de partido");
             cmbEventoAM.SelectedIndex = 0;
         }
         private void CargarCombo(ComboBox combo, DataTable tabla)
@@ -90,7 +91,6 @@ namespace TPQatarPAVI.Presentación
         {
             btnAgregar.Visible = v;
             btnEliminar.Visible = v;  
-            btnModificar.Visible = v;
             btnRestaurar.Visible = v;
         }
         private void HabilitarAM(bool v)
@@ -154,6 +154,8 @@ namespace TPQatarPAVI.Presentación
             HabilitarABM(true);
             //cargar jugadores del local
             CargarCombo(cmbJugadoresAM, jug.traerJugadoresPais(ck_nomb_local.Text));
+            //cargar grilla con eventos del local
+            CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido,ck_nomb_local.Text));
         }
 
         private void ck_nomb_visita_CheckedChanged(object sender, EventArgs e)
@@ -163,12 +165,8 @@ namespace TPQatarPAVI.Presentación
             HabilitarABM(true);
             //cargar jugadores del visita
             CargarCombo(cmbJugadoresAM, jug.traerJugadoresPais(ck_nomb_visita.Text));
-        }
-
-        private void btnModificar_Click(object sendalleer, EventArgs e)
-        {
-            HabilitarAM(true);
-            HabilitarABM(false);
+            //cargar grilla con eventos del visita
+            CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido, ck_nomb_visita.Text));
         }
 
         private void btnGuardarAM_Click(object sender, EventArgs e)
@@ -176,6 +174,22 @@ namespace TPQatarPAVI.Presentación
             HabilitarAM(false);
             HabilitarABM(true);
             evento.crearEvento(idPartido, NumAM.Value.ToString(), cmbJugadoresAM.SelectedValue.ToString(), cmbEventoAM.Text);
+            CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido, lblPaisAM.Text));
+            if (cmbEventoAM.Text == "Gol") // jugador, partidos
+            {
+                jug.anotar(cmbJugadoresAM.SelectedValue.ToString(), cmbEventoAM.Text);
+                part.anotarGol(idPartido,lblPaisAM.Text, ck_nomb_local.CheckState.ToString());
+            }
+
+            if (cmbEventoAM.Text == "Tarjeta Roja" || cmbEventoAM.Text == "Tarjeta Amarilla" || cmbEventoAM.Text == "Asistencia") //jugador
+            {
+                jug.anotar(cmbJugadoresAM.SelectedValue.ToString(), cmbEventoAM.Text);
+            }
+
+            if (cmbEventoAM.Text == "Fin de partido") //pais, grupo
+            {
+
+            }
         }
 
         private void btnCancelarAM_Click(object sender, EventArgs e)
@@ -192,6 +206,17 @@ namespace TPQatarPAVI.Presentación
         private void dGridEventos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            string idEvento = dGridEventos.SelectedRows[0].Cells[4].Value.ToString();
+            DialogResult rta = MessageBox.Show("¿Estas seguro que deseas eliminar el evento seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (rta == DialogResult.Yes)
+            {
+                evento.eliminarEvento(idEvento);
+                CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido, lblPaisAM.Text));
+            }
         }
     }
 }
