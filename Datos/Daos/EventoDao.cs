@@ -30,7 +30,7 @@ namespace TPQatarPAVI.Datos.Daos
         }
         public DataTable traerEventosPorIdEvento(string id)
         {
-            string consulta = "select * from eventoPartido where id_evento = " + id;
+            string consulta = "select id_evento,id_partido,minuto,tipo_doc_jg,nro_doc_jg, evento, pais from eventoPartido join jugadores on (tipo_doc_jg=tipo_doc and nro_doc_jg=nro_doc) where id_evento = " + id;
             return DBHelper.obtenerInstancia().consultar(consulta);
         }
     }

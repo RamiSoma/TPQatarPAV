@@ -34,14 +34,6 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.dGridPartido = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ronda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Arbitro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grupos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRestaurar = new System.Windows.Forms.Button();
             this.btnVolverMenu = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -74,6 +66,15 @@
             this.lblRondaFiltro = new System.Windows.Forms.Label();
             this.calFecha = new System.Windows.Forms.MonthCalendar();
             this.btnCargarDetalle = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ronda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Arbitro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grupos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ganador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGridPartido)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,7 +98,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(587, 527);
+            this.btnCancelar.Location = new System.Drawing.Point(668, 530);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 72;
@@ -107,7 +108,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(675, 527);
+            this.btnGuardar.Location = new System.Drawing.Point(756, 530);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 73;
@@ -129,62 +130,19 @@
             this.Fecha,
             this.Arbitro,
             this.Estadio,
-            this.grupos});
-            this.dGridPartido.Location = new System.Drawing.Point(181, 130);
+            this.grupos,
+            this.Ganador});
+            this.dGridPartido.Location = new System.Drawing.Point(168, 130);
             this.dGridPartido.Name = "dGridPartido";
             this.dGridPartido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dGridPartido.Size = new System.Drawing.Size(579, 222);
+            this.dGridPartido.Size = new System.Drawing.Size(679, 222);
             this.dGridPartido.TabIndex = 63;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Width = 35;
-            // 
-            // Ronda
-            // 
-            this.Ronda.HeaderText = "Ronda";
-            this.Ronda.Name = "Ronda";
-            this.Ronda.Width = 45;
-            // 
-            // Local
-            // 
-            this.Local.HeaderText = "Local";
-            this.Local.Name = "Local";
-            this.Local.Width = 75;
-            // 
-            // Visitante
-            // 
-            this.Visitante.HeaderText = "Visitante";
-            this.Visitante.Name = "Visitante";
-            this.Visitante.Width = 75;
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            // 
-            // Arbitro
-            // 
-            this.Arbitro.HeaderText = "Arbitro";
-            this.Arbitro.Name = "Arbitro";
-            this.Arbitro.Width = 110;
-            // 
-            // Estadio
-            // 
-            this.Estadio.HeaderText = "Estadio";
-            this.Estadio.Name = "Estadio";
-            // 
-            // grupos
-            // 
-            this.grupos.HeaderText = "Grupo";
-            this.grupos.Name = "grupos";
-            this.grupos.Visible = false;
+            this.dGridPartido.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGridPartido_CellClick);
+            this.dGridPartido.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGridPartido_CellContentClick);
             // 
             // btnRestaurar
             // 
-            this.btnRestaurar.Location = new System.Drawing.Point(25, 282);
+            this.btnRestaurar.Location = new System.Drawing.Point(12, 282);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(150, 30);
             this.btnRestaurar.TabIndex = 60;
@@ -234,7 +192,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(25, 181);
+            this.btnModificar.Location = new System.Drawing.Point(12, 181);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(150, 32);
             this.btnModificar.TabIndex = 53;
@@ -244,7 +202,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(25, 235);
+            this.btnEliminar.Location = new System.Drawing.Point(12, 235);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(150, 32);
             this.btnEliminar.TabIndex = 52;
@@ -254,7 +212,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(25, 130);
+            this.btnAgregar.Location = new System.Drawing.Point(12, 130);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(150, 32);
             this.btnAgregar.TabIndex = 51;
@@ -272,7 +230,7 @@
             // 
             // btnRestaurarSeleccion
             // 
-            this.btnRestaurarSeleccion.Location = new System.Drawing.Point(634, 358);
+            this.btnRestaurarSeleccion.Location = new System.Drawing.Point(715, 361);
             this.btnRestaurarSeleccion.Name = "btnRestaurarSeleccion";
             this.btnRestaurarSeleccion.Size = new System.Drawing.Size(96, 25);
             this.btnRestaurarSeleccion.TabIndex = 89;
@@ -282,7 +240,7 @@
             // 
             // btnCancelarRest
             // 
-            this.btnCancelarRest.Location = new System.Drawing.Point(531, 358);
+            this.btnCancelarRest.Location = new System.Drawing.Point(612, 361);
             this.btnCancelarRest.Name = "btnCancelarRest";
             this.btnCancelarRest.Size = new System.Drawing.Size(96, 25);
             this.btnCancelarRest.TabIndex = 88;
@@ -459,14 +417,14 @@
             // 
             // calFecha
             // 
-            this.calFecha.Location = new System.Drawing.Point(512, 358);
+            this.calFecha.Location = new System.Drawing.Point(593, 361);
             this.calFecha.MinDate = new System.DateTime(2022, 10, 6, 0, 0, 0, 0);
             this.calFecha.Name = "calFecha";
             this.calFecha.TabIndex = 111;
             // 
             // btnCargarDetalle
             // 
-            this.btnCargarDetalle.Location = new System.Drawing.Point(25, 352);
+            this.btnCargarDetalle.Location = new System.Drawing.Point(12, 352);
             this.btnCargarDetalle.Name = "btnCargarDetalle";
             this.btnCargarDetalle.Size = new System.Drawing.Size(150, 30);
             this.btnCargarDetalle.TabIndex = 112;
@@ -474,11 +432,62 @@
             this.btnCargarDetalle.UseVisualStyleBackColor = true;
             this.btnCargarDetalle.Click += new System.EventHandler(this.btnCargarDetalle_Click);
             // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Width = 35;
+            // 
+            // Ronda
+            // 
+            this.Ronda.HeaderText = "Ronda";
+            this.Ronda.Name = "Ronda";
+            this.Ronda.Width = 45;
+            // 
+            // Local
+            // 
+            this.Local.HeaderText = "Local";
+            this.Local.Name = "Local";
+            this.Local.Width = 75;
+            // 
+            // Visitante
+            // 
+            this.Visitante.HeaderText = "Visitante";
+            this.Visitante.Name = "Visitante";
+            this.Visitante.Width = 75;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            // 
+            // Arbitro
+            // 
+            this.Arbitro.HeaderText = "Arbitro";
+            this.Arbitro.Name = "Arbitro";
+            this.Arbitro.Width = 110;
+            // 
+            // Estadio
+            // 
+            this.Estadio.HeaderText = "Estadio";
+            this.Estadio.Name = "Estadio";
+            // 
+            // grupos
+            // 
+            this.grupos.HeaderText = "Grupo";
+            this.grupos.Name = "grupos";
+            this.grupos.Visible = false;
+            // 
+            // Ganador
+            // 
+            this.Ganador.HeaderText = "Ganador";
+            this.Ganador.Name = "Ganador";
+            // 
             // ABMCPartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(859, 561);
             this.Controls.Add(this.btnCargarDetalle);
             this.Controls.Add(this.calFecha);
             this.Controls.Add(this.cmbRondaFiltro);
@@ -565,6 +574,7 @@
         private System.Windows.Forms.ComboBox cmbRondaFiltro;
         private System.Windows.Forms.Label lblRondaFiltro;
         private System.Windows.Forms.MonthCalendar calFecha;
+        private System.Windows.Forms.Button btnCargarDetalle;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ronda;
         private System.Windows.Forms.DataGridViewTextBoxColumn Local;
@@ -573,6 +583,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Arbitro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estadio;
         private System.Windows.Forms.DataGridViewTextBoxColumn grupos;
-        private System.Windows.Forms.Button btnCargarDetalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ganador;
     }
 }

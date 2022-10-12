@@ -96,7 +96,8 @@ namespace TPQatarPAVI.Presentación
                                 tabla.Rows[i]["fecha"],
                                 tabla.Rows[i]["nombreArbitro"],
                                 tabla.Rows[i]["estadio"],
-                                tabla.Rows[i]["grupo"]);
+                                tabla.Rows[i]["grupo"],
+                                tabla.Rows[i]["ganador"]);
             }
         }
         private void CargarPartido()
@@ -245,6 +246,16 @@ namespace TPQatarPAVI.Presentación
         {
             CargarGrilla(dGridPartido, part.buscarPartidos(cmbRondaFiltro.Text, cmbGrupoFiltro.Text, cmbEstadioFiltro.Text,cmbPaisFiltro.Text));
             HabilitarBM(true);
+            if (Convert.ToString(dGridPartido.SelectedRows[0].Cells[8].Value) != "")
+            {
+                btnEliminar.Visible = false;
+                btnModificar.Visible = false;
+            }
+            else
+            {
+                btnEliminar.Visible = true;
+                btnModificar.Visible = true;
+            }
         }
 
         private void cmbPaisFiltro_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -308,6 +319,29 @@ namespace TPQatarPAVI.Presentación
             DetallePartidoForm frmDetallePartido = new DetallePartidoForm();
             frmDetallePartido.idPartido = Convert.ToString(dGridPartido.SelectedRows[0].Cells[0].Value);
             frmDetallePartido.ShowDialog();
+        }
+        private void frmDetallePartido_FormClosed(Object sender, FormClosedEventArgs e)
+        {
+            CargarGrilla(dGridPartido, part.buscarPartidos(cmbRondaFiltro.Text, cmbGrupoFiltro.Text, cmbEstadioFiltro.Text, cmbPaisFiltro.Text));
+        }
+
+        private void dGridPartido_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dGridPartido_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Convert.ToString(dGridPartido.SelectedRows[0].Cells[8].Value) != "")
+            {
+                btnEliminar.Visible = false;
+                btnModificar.Visible = false;
+            }
+            else
+            {
+                btnEliminar.Visible = true;
+                btnModificar.Visible = true;
+            }
         }
     }
     

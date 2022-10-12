@@ -211,6 +211,7 @@ namespace TPQatarPAVI.Presentación
                 CargarCombo(cmbJugadoresAM, jug.traerJugadoresPais(ck_nomb_visita.Text));
                 //cargar grilla con eventos del visita
                 CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido, ck_nomb_visita.Text));
+                CargarGoles();
             }
         }
 
@@ -224,7 +225,7 @@ namespace TPQatarPAVI.Presentación
             if (cmbEventoAM.Text == "Gol") // jugador, partidos
             {
                 jug.anotar(cmbJugadoresAM.SelectedValue.ToString(), cmbEventoAM.Text,"sumar");
-                part.modificarGol(idPartido,lblPaisAM.Text, ck_nomb_local.CheckState.ToString(),"sumar");
+                part.modificarGol(idPartido,lblPaisAM.Text,"sumar");
                 CargarGoles();
             }
 
@@ -259,8 +260,9 @@ namespace TPQatarPAVI.Presentación
             DialogResult rta = MessageBox.Show("¿Estas seguro que deseas eliminar el evento seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (rta == DialogResult.Yes)
             {
-                evento.eliminarEvento(idEvento, idPartido, jugador, lblPaisAM.Text, ck_nomb_local.Checked.ToString());
+                evento.eliminarEvento(idEvento);
                 CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido, lblPaisAM.Text));
+                CargarGoles();
             }
         }
 

@@ -24,14 +24,18 @@ namespace TPQatarPAVI.CapaServicios
         {
             return eventoDao.traerEventosPorId(id, pais);
         }
-        public void eliminarEvento(string idEvento, string idPartido, string jugador,string pais, string check)
+        public void eliminarEvento(string idEvento)
         {
             DataTable evento = eventoDao.traerEventosPorIdEvento(idEvento);
             string tipoEvento = Convert.ToString(evento.Rows[0]["evento"]);
+            string jugador = Convert.ToString(evento.Rows[0]["Tipo_doc_jg"]) + "-" + Convert.ToString(evento.Rows[0]["nro_doc_jg"]);
+            string idPartido = Convert.ToString(evento.Rows[0]["id_partido"]);
+            string pais = Convert.ToString(evento.Rows[0]["pais"]);
+            
             jug.anotar(jugador, tipoEvento, "borrar");
             if (tipoEvento == "Gol")
             {
-                part.modificarGol(idPartido, pais, check, "borrar");
+                part.modificarGol(idPartido, pais,"borrar");
             }
             eventoDao.eliminarEvento(idEvento);
         }

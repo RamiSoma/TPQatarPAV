@@ -47,7 +47,7 @@ namespace TPQatarPAVI.CapaServicios
         }
         public void anotar(string jugador, string evento, string accion)
         {
-            string nEvento ="asistencias";
+            string nEvento =evento;
             if (evento == "Gol")
             {
                 nEvento = "goles";
@@ -60,9 +60,13 @@ namespace TPQatarPAVI.CapaServicios
             {
                 nEvento = "tarjetas_rojas";
             }
+            if (evento == "Asistencia")
+            {
+                nEvento = "asistencias";
+            }
             //por defecto la acción va a sumar un gol, sino lo borra
             string nAccion = "+";
-            if (nAccion == "borrar")
+            if (accion == "borrar")
             {
                 nAccion = "-";
             }

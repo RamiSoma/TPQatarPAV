@@ -45,7 +45,7 @@ namespace TPQatarPAVI.Datos.Daos
         }
         public DataTable buscarPartidos(string ronda, string grupo, string estadio, string pais)
         {
-            string consulta = "select p.id, p.ronda, p.pais_1, p.pais_2, p.fecha, a.nombre +' '+a.apellido nombreArbitro, p.estadio, p.grupo " +
+            string consulta = "select p.id, p.ronda, p.pais_1, p.pais_2, p.fecha, a.nombre +' '+a.apellido nombreArbitro, p.estadio, p.grupo, p.ganador " +
                 "from partido p join arbitro a on (p.tipo_doc_arb = a.tipo_doc and p.nro_doc_arb = a.nro_doc) " +
                 "where p.borrado = 0 and " +
                 "p.ronda = " + obtenerRonda(ronda);
@@ -102,10 +102,11 @@ namespace TPQatarPAVI.Datos.Daos
             string consulta = "select pais_1,pais_2,tipo_doc_arb,nro_doc_arb,nombre + ' ' + apellido nombreArbitro,fecha,ronda,grupo,estadio, goles_p1,goles_p2 from partido join arbitro on (tipo_doc_arb = tipo_doc and nro_doc_arb = nro_doc) where partido.borrado = 0 and id = " + id ;
             return DBHelper.obtenerInstancia().consultar(consulta);
         }
-        public void modificarGol(string idPartido, string pais, string checkLocal,string accion)
+        public void modificarGol(string idPartido, string pais, string accion)
         {
             string consulta;
-            if (checkLocal == "Checked")
+            string paisLocal = obtenerPaisLocal(idPartido);
+            if (paisLocal == pais)
             {
                 consulta = "update partido set goles_p1 = goles_p1 "+accion+" 1 where id = " + idPartido;
             }
@@ -115,6 +116,12 @@ namespace TPQatarPAVI.Datos.Daos
             }
             
             DBHelper.obtenerInstancia().consultar(consulta);
+        }
+        private string obtenerPaisLocal(string idPartido)
+        {
+            string consulta = "select pais_1 from partido where id = " + idPartido;
+            DataTable pais = DBHelper.obtenerInstancia().consultar(consulta);
+            return pais.Rows[0]["pais_1"].ToString();
         }
         public void finalizarPartido(string id, string ganador)
         {
