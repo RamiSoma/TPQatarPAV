@@ -121,7 +121,7 @@ Insert into Estadio values (
 Insert into Estadio values (
 'Al Bayt','Al-Khor',60000,0)
 Insert into Estadio values (
-'Ic�nico de Lusail','Lusail',80000,0)
+'Iconico de Lusail','Lusail',80000,0)
 Insert into Estadio values (
 'Al Janoub','Al-Wakrah',40000,0)
 
@@ -438,7 +438,7 @@ Insert into jugadores values
 Insert into jugadores values
 ('DA',28183848,'Muteb','Al-Mufarrij','Arabia Saudita',0,0,0,0,0)
 Insert into jugadores values
-('DA',20773340,'Ahmed','Al-Culibemawchev','Arabia Saudita',0,0,0,0,0)
+('DA',20773340,'Ahmed','Culibemawchev','Arabia Saudita',0,0,0,0,0)
 
 --Mexico
 Insert into jugadores values
@@ -848,16 +848,15 @@ Insert into partido values
 Insert into partido values
 ('Inglaterra',0,'Iran',0,'Id','32451323',convert(date,'21/11/22', 3),1,'B',null,'Al Janoub',0)
 Insert into partido values
-('Senegal',0,'Paises Bajos',0,'Pass','41231444',convert(date,'21/11/22', 3),1,'A',null,'Ic�nico de Lusail',0)
+('Senegal',0,'Paises Bajos',0,'Pass','41231444',convert(date,'21/11/22', 3),1,'A',null,'Iconico de Lusail',0)
 Insert into partido values
 ('Estados Unidos',0,'Gales',0,'Id','32451323',convert(date,'21/11/22', 3),1,'B',null,'Qatar Foundation',0)
--- A LOS DE ABAJO LES FALTA EL GRUPO DESPUES DEL IDRONDA
 Insert into partido values
 ('Argentina',null,'Arabia Saudita',null,'Id','32451323',convert(date,'22/11/22', 3),1,'C',null,'Al-Thumama',0)
 Insert into partido values
 ('Dinamarca',null,'Tunez',null,'Pass','41231444',convert(date,'22/11/22', 3),1,'D',null,'Al Janoub',0)
 Insert into partido values
-('Mexico',null,'Polonia',null,'Id','32451323',convert(date,'22/11/22', 3),1,'C',null,'Ic�nico de Lusail',0)
+('Mexico',null,'Polonia',null,'Id','32451323',convert(date,'22/11/22', 3),1,'C',null,'Iconico de Lusail',0)
 Insert into partido values
 ('Francia',null,'Australia',null,'Id','32451323',convert(date,'22/11/22', 3),1,'D',null,'Qatar Foundation',0)
 Insert into partido values
@@ -867,7 +866,7 @@ Insert into partido values
 Insert into partido values
 ('Espana',null,'Costa Rica',null,'Pass','41231444',convert(date,'23/11/22', 3),1,'E',null,'Al Janoub',0)
 Insert into partido values
-('Belgica',null,'Canada',null,'Id','32451323',convert(date,'23/11/22', 3),1,'F',null,'Ic�nico de Lusail',0)
+('Belgica',null,'Canada',null,'Id','32451323',convert(date,'23/11/22', 3),1,'F',null,'Iconico de Lusail',0)
 Insert into partido values
 ('Suiza',null,'Camerun',null,'Id','32451323',convert(date,'24/11/22', 3),1,'G',null,'Qatar Foundation',0)
 Insert into partido values
@@ -878,11 +877,11 @@ Insert into partido values
 ('Brasil',null,'Serbia',null,'Id','32451323',convert(date,'24/11/22', 3),1,'G',null,'Al Janoub',0)
 --Fecha 2 fase de grupos
 Insert into partido values
-('Gales',null,'Iran',null,'Pass','41231444',convert(date,'25/11/22', 3),1,'B',null,null,0)
+('Gales',null,'Iran',null,'Pass','41231444',convert(date,'25/11/22', 3),1,'B',null,'Al Janoub',0)
 Insert into partido values
 ('Qatar',null,'Senegal',null,'Id','32451323',convert(date,'25/11/22', 3),1,'A',null,null,0)
 Insert into partido values
-('Paises Bajos',null,'Ecuador',null,'Id','32451323',convert(date,'25/11/22', 3),1,'A',null,null,0)
+('Paises Bajos',null,'Ecuador',null,'Id','32451323',convert(date,'25/11/22', 3),1,'A',null,'Al Janoub',0)
 Insert into partido values
 ('Inglaterra',null,'Estados Unidos',null,'Id','32451323',convert(date,'25/11/22', 3),1,'B',null,null,0)
 Insert into partido values
@@ -947,6 +946,18 @@ update Partido
 set goles_p2= 0
 update Partido
 set goles_p1= 0
+update Partido
+set estadio = 'Al Janoub'
+where id in (17,19,25,28,30,37,39,44,48)
+update Partido
+set estadio = 'Al-Thumama'
+where id in (18,20,21,29,32,38,40,42,47)
+update Partido
+set estadio = 'Qatar Foundation'
+where id in (22,24,26,27,31,34,35,41,43,46)
+update Partido
+set estadio = 'Al Bayt'
+where id in (23,33,36,35,45)
 
 
 Create Table EventoPartido(
