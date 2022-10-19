@@ -103,7 +103,7 @@ namespace TPQatarPAVI.Presentación
                                 tabla.Rows[i]["pais"],
                                 tabla.Rows[i]["tipo_doc"],
                                 tabla.Rows[i]["nro_doc"],
-                                tabla.Rows[i]["goles"],
+                                tabla.Rows[i]["gol"],
                                 tabla.Rows[i]["asistencias"],
                                 tabla.Rows[i]["tarjetas_amarillas"],
                                 tabla.Rows[i]["tarjetas_rojas"]);

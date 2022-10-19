@@ -83,6 +83,8 @@
     <Compile Include="Datos\Interfaces\IPerfil.cs" />
     <Compile Include="Datos\Interfaces\IRonda.cs" />
     <Compile Include="Datos\Interfaces\IUsuario.cs" />
+    <Compile Include="Entidades\Evento.cs" />
+    <Compile Include="Entidades\Jugador.cs" />
     <Compile Include="Entidades\Partidos.cs" />
     <Compile Include="Entidades\Continente.cs" />
     <Compile Include="Entidades\Grupo.cs" />
@@ -144,6 +146,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentación\ABMCJugsForm.resx">
       <DependentUpon>ABMCJugsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentación\ABMCUsrsForm.resx">
       <DependentUpon>ABMCUsrsForm.cs</DependentUpon>

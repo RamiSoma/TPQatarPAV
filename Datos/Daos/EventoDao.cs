@@ -5,15 +5,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TPQatarPAVI.Datos.Interfaces;
+using TPQatarPAVI.Entidades;
 
 namespace TPQatarPAVI.Datos.Daos
 {
     internal class EventoDao : IEvento
     {
-        public void crearEvento(string id, string min, string jug, string evento)
+        public bool crearEvento(Evento evento)
         {
-            string consulta = "insert into eventopartido values("+id+","+min+","+jug+",'"+evento+"', 0)";
-            DBHelper.obtenerInstancia().consultar(consulta);
+            PartidoDao partDao = new PartidoDao();
+            string consultaGol = partDao.modificarGol(evento, "+");
+            bool aux;
+
+            string consultaEvento = "insert into eventoPartido (id_partido,minuto, tipo_doc_jg, nro_doc_jg, evento, borrado) " +
+                                "values(" + evento.IdPartido + "," + evento.Minuto + "," +
+                                "'" + evento.TipoDocJug + "'," + evento.NroDocJug + 
+                                ",'" + evento.TipoEvento +
+                                "', 0)";
+            DBHelper.obtenerInstancia().conectarConTransaccion();
+            DBHelper.obtenerInstancia().EjecutarSQLConTransaccion(consultaEvento);
+
+            string consultaJugadores = "update jugadores set " + evento.TipoEvento + " = " 
+                                    + evento.TipoEvento + " + 1 where tipo_doc = '"+
+                                    evento.TipoDocJug+"' and nro_doc = "+
+                                    evento.NroDocJug;
+            DBHelper.obtenerInstancia().EjecutarSQLConTransaccion(consultaJugadores);
+
+            if (evento.TipoEvento == "gol")
+            {
+                DBHelper.obtenerInstancia().EjecutarSQLConTransaccion(consultaGol);
+            }
+
+            aux = DBHelper.obtenerInstancia().desconectarSQL();
+            return aux;
         }
         public DataTable traerEventosPorId(string id, string pais)
         {
@@ -23,10 +47,27 @@ namespace TPQatarPAVI.Datos.Daos
                                     " where e.id_partido = " + id + "and e.borrado = 0 and j.pais like '%"+pais+"%'";
             return DBHelper.obtenerInstancia().consultar(consulta);
         }
-        public void eliminarEvento(string id)
+        public void eliminarEvento(Evento evento, string pais)
         {
-            string consulta = "Update eventoPartido set borrado = 1 where id_evento = '" + id + "'";
-            DBHelper.obtenerInstancia().consultar(consulta);
+            PartidoDao partDao = new PartidoDao();
+            string consultaGol = partDao.modificarGol(evento, "-");
+
+            string consulta = "Update eventoPartido set borrado = 1 " +
+                                    "where id_evento = '" + evento.IdEvento.ToString() + "'";
+            DBHelper.obtenerInstancia().conectarConTransaccion();
+            DBHelper.obtenerInstancia().EjecutarSQLConTransaccion(consulta);
+
+            string consultaJugadores = "update jugadores set " + evento.TipoEvento + " = "
+                                   + evento.TipoEvento + " - 1 where tipo_doc = '" +
+                                   evento.TipoDocJug + "' and nro_doc = " +
+                                   evento.NroDocJug;
+            DBHelper.obtenerInstancia().EjecutarSQLConTransaccion(consultaJugadores);
+
+            if (evento.TipoEvento == "gol")
+            {
+                DBHelper.obtenerInstancia().EjecutarSQLConTransaccion(consultaGol);
+            }
+            DBHelper.obtenerInstancia().desconectarSQL();
         }
         public DataTable traerEventosPorIdEvento(string id)
         {

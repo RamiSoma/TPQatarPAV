@@ -45,12 +45,12 @@ namespace TPQatarPAVI.CapaServicios
         {
             return jugadorDao.traerJugadoresPais(pais);
         }
-        public void anotar(string jugador, string evento, string accion)
+        public string transformarAEventoBD(string evento)
         {
             string nEvento =evento;
             if (evento == "Gol")
             {
-                nEvento = "goles";
+                nEvento = "gol";
             }
             if (evento == "Tarjeta Amarilla")
             {
@@ -64,13 +64,13 @@ namespace TPQatarPAVI.CapaServicios
             {
                 nEvento = "asistencias";
             }
-            //por defecto la acción va a sumar un gol, sino lo borra
-            string nAccion = "+";
-            if (accion == "borrar")
-            {
-                nAccion = "-";
-            }
-            jugadorDao.anotar(jugador, nEvento, nAccion);
+            return nEvento;
+        }
+        public string[] obtenerDoc(string docJugador)
+        {
+            DataTable dtDocJug = jugadorDao.obtenerDoc(docJugador);
+            string[] docJug = new string[2] { dtDocJug.Rows[0]["tipo_doc"].ToString(), dtDocJug.Rows[0]["nro_doc"].ToString() };
+            return docJug;
         }
     }
 }

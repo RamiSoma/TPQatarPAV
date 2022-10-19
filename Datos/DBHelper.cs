@@ -11,28 +11,30 @@ namespace TPQatarPAVI.Datos
 {
     internal class DBHelper
     {
+        enum ResultadoTransaccion
+        {
+            exito,fracaso
+        }
+        enum TipoConexion
+        {
+            simple,transaccion
+        }
+        private ResultadoTransaccion miEstado = ResultadoTransaccion.exito;
+        private TipoConexion miTipo = TipoConexion.simple;
+
+        private SqlTransaction transaccion;
         private string string_conexion;
         private SqlConnection conexion;
         private SqlCommand comando;
         private static DBHelper instancia;
-        enum resultadoTransaccion
-        {
-            exito,fracaso
-        }
-        enum tipoConexion
-        {
-            simple,transaccion
-        }
-        private resultadoTransaccion miEstado = resultadoTransaccion.exito;
-        private tipoConexion miTipo = tipoConexion.simple;
-        private SqlTransaction transaccion;
 
         private DBHelper()
         {
             conexion = new SqlConnection();
             comando = new SqlCommand();
-            string_conexion = "Data Source=FRANFERRAROPC;Initial Catalog=TPQatarPAV;Integrated Security=True";
-            //string_conexion = "Data Source=RAMIRO-PC\\SQLSERVERPRUEBA;Initial Catalog=TPQatarPAV;Integrated Security=True";
+            //string_conexion = "Data Source=FRANFERRAROPC;Initial Catalog=TPQatarPAV;Integrated Security=True";
+            string_conexion = "Data Source=RAMIRO-PC\\SQLSERVERPRUEBA;Initial Catalog=TPQatarPAV;Integrated Security=True";
+            
         }
 
         public static DBHelper obtenerInstancia()
@@ -58,25 +60,10 @@ namespace TPQatarPAVI.Datos
             conexion.Close();
             return tabla;
         }
-        public void EjecutarSQLConTransaccion(string consulta)
-        {
-            try
-            {
-                comando.CommandType = CommandType.Text;
-                comando.CommandText = consulta;
-                comando.ExecuteNonQuery();
-
-                miEstado = resultadoTransaccion.exito;
-            }
-            catch (Exception)
-            {
-                miEstado = resultadoTransaccion.fracaso;
-            }
-        }
         public void conectarConTransaccion()
         {
-            miTipo = tipoConexion.transaccion;
-            miEstado = resultadoTransaccion.exito;
+            miTipo = TipoConexion.transaccion;
+            miEstado = ResultadoTransaccion.exito;
 
             conexion.ConnectionString = string_conexion;
             conexion.Open();
@@ -86,27 +73,45 @@ namespace TPQatarPAVI.Datos
         }
         public bool desconectarSQL()
         {
-            if (miTipo == tipoConexion.transaccion)
+            if (miTipo == TipoConexion.transaccion)
             {
-                if (miEstado == resultadoTransaccion.exito)
+                if (miEstado == ResultadoTransaccion.exito)
                 {
-                    transaccion.Commit();
+                    transaccion.Commit(); //MessageBox.Show("La trasacción resultó con éxito...");
                 }
                 else
                 {
-                    transaccion.Rollback();
+                    transaccion.Rollback(); //MessageBox.Show("La trasacción no pudo realizarce...");
                 }
-                miTipo = tipoConexion.simple;
+                miTipo = TipoConexion.simple;
             }
             if ((conexion.State == ConnectionState.Open))
             {
                 conexion.Close();
             }
+
+            // Dispose() libera los recursos asociados a la conexón
             conexion.Dispose();
-            if (miEstado.Equals(resultadoTransaccion.exito))
+            if (miEstado.Equals(ResultadoTransaccion.exito))
                 return true;
             else
                 return false;
+        }
+
+        public void EjecutarSQLConTransaccion(string consultaSql)
+        {
+            //  Se utiliza para sentencias SQL del tipo Insert, Update, Delete con transaccion.
+            try
+            {
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = consultaSql;
+                comando.ExecuteNonQuery();
+                miEstado = ResultadoTransaccion.exito;
+            }
+            catch
+            {
+                miEstado = ResultadoTransaccion.fracaso;
+            }
         }
     }
 }

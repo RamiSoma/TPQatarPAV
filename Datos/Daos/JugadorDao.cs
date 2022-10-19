@@ -63,6 +63,11 @@ namespace TPQatarPAVI.Datos.Daos
             string consulta = "update jugadores set "+evento+" = " + evento + " "+accion+" 1 where tipo_doc+'-' + cast(nro_doc as varchar) = '" +jugador+"'";
             DBHelper.obtenerInstancia().consultar(consulta);
         }
+        public DataTable obtenerDoc(string docJugador)
+        {
+            string consulta = "select tipo_doc, nro_doc from jugadores where tipo_doc+ '-' + cast(nro_doc as varchar) = '" + docJugador+ "' ";
+            return DBHelper.obtenerInstancia().consultar(consulta);
+        }
     }
 
 }

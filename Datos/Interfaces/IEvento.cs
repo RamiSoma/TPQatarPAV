@@ -4,14 +4,15 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TPQatarPAVI.Entidades;
 
 namespace TPQatarPAVI.Datos.Interfaces
 {
     internal interface IEvento
     {
-        void crearEvento(string id, string min, string jug, string evento);
+        bool crearEvento(Evento evento);
         DataTable traerEventosPorId(string id, string pais);
-        void eliminarEvento(string id);
+        void eliminarEvento(Evento evento, string pais);
         DataTable traerEventosPorIdEvento(string id);
     }
 }

@@ -21,6 +21,7 @@ namespace TPQatarPAVI.Datos.Interfaces
         void recuperarJugador(string tipoDoc, string nroDoc);
         DataTable traerJugadoresPais(string pais);
         void anotar(string jugador, string evento, string accion);
+        DataTable obtenerDoc(string docJugador);
     }
 
 }

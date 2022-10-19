@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TPQatarPAVI.Datos.Daos;
 using TPQatarPAVI.Datos.Interfaces;
+using TPQatarPAVI.Entidades;
 
 namespace TPQatarPAVI.CapaServicios
 {
@@ -15,10 +16,9 @@ namespace TPQatarPAVI.CapaServicios
         JugadorService jug = new JugadorService();
         PartidoService part = new PartidoService();
 
-        public void crearEvento(string id, string min, string jug, string evento)
+        public bool crearEvento(Evento evento)
         {
-            string jugador = "'" + jug.Replace("-", "',");
-            eventoDao.crearEvento(id, min, jugador, evento);
+            return eventoDao.crearEvento(evento);
         }
         public DataTable traerEventosPorId(string id, string pais)
         {
@@ -27,17 +27,16 @@ namespace TPQatarPAVI.CapaServicios
         public void eliminarEvento(string idEvento)
         {
             DataTable evento = eventoDao.traerEventosPorIdEvento(idEvento);
-            string tipoEvento = Convert.ToString(evento.Rows[0]["evento"]);
-            string jugador = Convert.ToString(evento.Rows[0]["Tipo_doc_jg"]) + "-" + Convert.ToString(evento.Rows[0]["nro_doc_jg"]);
-            string idPartido = Convert.ToString(evento.Rows[0]["id_partido"]);
+            Evento eventoEliminar = new Evento();
+            eventoEliminar.IdEvento = Convert.ToInt32(idEvento);
+            eventoEliminar.IdPartido = Convert.ToInt32(evento.Rows[0]["id_partido"]);
+            eventoEliminar.TipoEvento = Convert.ToString(evento.Rows[0]["evento"]);
+            eventoEliminar.TipoDocJug = Convert.ToString(evento.Rows[0]["Tipo_doc_jg"]);
+            eventoEliminar.NroDocJug = Convert.ToInt32(evento.Rows[0]["nro_doc_jg"]);
+
             string pais = Convert.ToString(evento.Rows[0]["pais"]);
-            
-            jug.anotar(jugador, tipoEvento, "borrar");
-            if (tipoEvento == "Gol")
-            {
-                part.modificarGol(idPartido, pais,"borrar");
-            }
-            eventoDao.eliminarEvento(idEvento);
+
+            eventoDao.eliminarEvento(eventoEliminar, pais);
         }
     }
 }

@@ -270,7 +270,7 @@ nro_doc int,
 nombre varchar(15),
 apellido varchar(15),
 pais varchar(15),
-goles int,
+gol int,
 asistencias int,
 tarjetas_rojas int,
 tarjetas_amarillas int,
@@ -959,8 +959,7 @@ evento varchar(32),
 borrado bit,
 constraint pk_evento Primary Key (id_evento),
 constraint fk_id_evento_partido foreign key (id_partido) references partido (id),
-constraint fk_jg_evento foreign key (tipo_doc_jg,nro_doc_jg) references jugadores (tipo_doc,nro_doc),
-constraint ck_evento check(evento in('Gol','Asistencia','Tarjeta Amarilla','Tarjeta Roja')))
+constraint fk_jg_evento foreign key (tipo_doc_jg,nro_doc_jg) references jugadores (tipo_doc,nro_doc))
 
 --Insert into EventoPartido Values(5,90,'Dni',33016240,'Gol',0)
 

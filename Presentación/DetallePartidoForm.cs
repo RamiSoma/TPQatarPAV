@@ -20,7 +20,7 @@ namespace TPQatarPAVI.Presentación
         PartidoService part = new PartidoService();
         Partidos partido = new Partidos();
         JugadorService jug = new JugadorService();
-        EventoService evento = new EventoService();
+        EventoService eventoService = new EventoService();
         public DetallePartidoForm()
         {
             InitializeComponent();
@@ -181,7 +181,7 @@ namespace TPQatarPAVI.Presentación
             if (finalizoPartido)
             {
                 ck_nomb_visita.Checked = false;
-                CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido, ck_nomb_local.Text));
+                CargarGrilla(dGridEventos, eventoService.traerEventosPorId(idPartido, ck_nomb_local.Text));
             }
             else
             {
@@ -191,7 +191,7 @@ namespace TPQatarPAVI.Presentación
                 //cargar jugadores del local
                 CargarCombo(cmbJugadoresAM, jug.traerJugadoresPais(ck_nomb_local.Text));
                 //cargar grilla con eventos del local
-                CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido, ck_nomb_local.Text));
+                CargarGrilla(dGridEventos, eventoService.traerEventosPorId(idPartido, ck_nomb_local.Text));
             }
         }
 
@@ -200,7 +200,7 @@ namespace TPQatarPAVI.Presentación
             if (finalizoPartido)
             {
                 ck_nomb_local.Checked = false;
-                CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido, ck_nomb_visita.Text));
+                CargarGrilla(dGridEventos, eventoService.traerEventosPorId(idPartido, ck_nomb_visita.Text));
             }
             else
             {
@@ -210,7 +210,7 @@ namespace TPQatarPAVI.Presentación
                 //cargar jugadores del visita
                 CargarCombo(cmbJugadoresAM, jug.traerJugadoresPais(ck_nomb_visita.Text));
                 //cargar grilla con eventos del visita
-                CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido, ck_nomb_visita.Text));
+                CargarGrilla(dGridEventos, eventoService.traerEventosPorId(idPartido, ck_nomb_visita.Text));
                 CargarGoles();
             }
         }
@@ -220,35 +220,23 @@ namespace TPQatarPAVI.Presentación
             HabilitarAM(false);
             HabilitarABM(true);
             InfoPartido(true);
-            evento.crearEvento(idPartido, NumAM.Value.ToString(), cmbJugadoresAM.SelectedValue.ToString(), cmbEventoAM.Text);
-            CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido, lblPaisAM.Text));
-            if (cmbEventoAM.Text == "Gol") // jugador, partidos
-            {
-//                try
-//                {
-                    jug.anotar(cmbJugadoresAM.SelectedValue.ToString(), cmbEventoAM.Text, "sumar");
-                    part.modificarGol(idPartido, lblPaisAM.Text, "sumar");
-                    CargarGoles();
-//                }
-//                catch (Exception)
-//                {
+            string[] docJug = jug.obtenerDoc(cmbJugadoresAM.SelectedValue.ToString());
+            string nEvento = jug.transformarAEventoBD(cmbEventoAM.Text);
+            Evento evento = new Evento();
+            evento.IdPartido = Convert.ToInt32(idPartido);
+            evento.Minuto = Convert.ToInt32(NumAM.Value);
+            evento.TipoDocJug = docJug[0];
+            evento.NroDocJug = Convert.ToInt32(docJug[1]);
+            evento.TipoEvento = nEvento;
 
-//                    MessageBox.Show("Error al registrar gol...","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
-//                }
-                
+            if (eventoService.crearEvento(evento))
+            {
+                CargarGoles();
+                CargarGrilla(dGridEventos, eventoService.traerEventosPorId(idPartido, lblPaisAM.Text));
             }
-
-            if (cmbEventoAM.Text == "Tarjeta Roja" || cmbEventoAM.Text == "Tarjeta Amarilla" || cmbEventoAM.Text == "Asistencia") //jugador
+            else
             {
-//                try
- //               {
-                    jug.anotar(cmbJugadoresAM.SelectedValue.ToString(), cmbEventoAM.Text, "sumar");
-//                }
-//                catch (Exception)
-//                {
-
-//                    MessageBox.Show("Error al registrar evento...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-//                } 
+                MessageBox.Show("Evento NO creado...");
             }
 
         }   
@@ -273,12 +261,11 @@ namespace TPQatarPAVI.Presentación
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             string idEvento = dGridEventos.SelectedRows[0].Cells[4].Value.ToString();
-            string jugador = dGridEventos.SelectedRows[0].Cells[2].Value.ToString();
             DialogResult rta = MessageBox.Show("¿Estas seguro que deseas eliminar el evento seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (rta == DialogResult.Yes)
             {
-                evento.eliminarEvento(idEvento);
-                CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido, lblPaisAM.Text));
+                eventoService.eliminarEvento(idEvento);
+                CargarGrilla(dGridEventos, eventoService.traerEventosPorId(idPartido, lblPaisAM.Text));
                 CargarGoles();
             }
         }

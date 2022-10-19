@@ -54,15 +54,6 @@ namespace TPQatarPAVI.CapaServicios
         {
             return partDao.obtenerPartidoId(id);
         }
-        public void modificarGol(string idPartido, string pais, string accion)
-        {
-            string nAccion = "+";
-            if (accion == "borrar")
-            {
-                nAccion = "-";
-            }
-            partDao.modificarGol(idPartido, pais, nAccion);
-        }
         public void finalizarPartido(string id, string paisLocal, string golesLocal, string paisVisita, string golesVisita)
         {
             string ganador="";

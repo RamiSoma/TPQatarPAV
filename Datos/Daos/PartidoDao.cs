@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TPQatarPAVI.Datos.Interfaces;
+using TPQatarPAVI.Entidades;
 
 namespace TPQatarPAVI.Datos.Daos
 {
@@ -102,26 +103,33 @@ namespace TPQatarPAVI.Datos.Daos
             string consulta = "select pais_1,pais_2,tipo_doc_arb,nro_doc_arb,nombre + ' ' + apellido nombreArbitro,fecha,ronda,grupo,estadio, goles_p1,goles_p2 from partido join arbitro on (tipo_doc_arb = tipo_doc and nro_doc_arb = nro_doc) where partido.borrado = 0 and id = " + id ;
             return DBHelper.obtenerInstancia().consultar(consulta);
         }
-        public void modificarGol(string idPartido, string pais, string accion)
+        public string modificarGol(Evento evento, string operacion)
         {
             string consulta;
-            string paisLocal = obtenerPaisLocal(idPartido);
-            if (paisLocal == pais)
+            string paisLocal = obtenerPaisLocal(evento.IdPartido);
+            string paisJugador = obtenerPaisJugador(evento);
+            if (paisLocal == paisJugador)
             {
-                consulta = "update partido set goles_p1 = goles_p1 "+accion+" 1 where id = " + idPartido;
+                consulta = "update partido set goles_p1 = goles_p1 "+operacion+" 1 where id = " + evento.IdPartido;
             }
             else
             {
-                consulta = "update partido set goles_p2 = goles_p2 " + accion + " 1 where id = " + idPartido;
+                consulta = "update partido set goles_p2 = goles_p2 " + operacion + " 1 where id = " + evento.IdPartido;
             }
-            
-            DBHelper.obtenerInstancia().consultar(consulta);
+
+            return consulta;
         }
-        private string obtenerPaisLocal(string idPartido)
+        private string obtenerPaisLocal(int idPartido)
         {
             string consulta = "select pais_1 from partido where id = " + idPartido;
             DataTable pais = DBHelper.obtenerInstancia().consultar(consulta);
             return pais.Rows[0]["pais_1"].ToString();
+        }
+        private string obtenerPaisJugador(Evento evento)
+        {
+            string consulta = "select pais from jugadores where tipo_doc = '"+evento.TipoDocJug+"' and nro_doc = "+evento.NroDocJug;
+            DataTable pais = DBHelper.obtenerInstancia().consultar(consulta);
+            return pais.Rows[0]["pais"].ToString();
         }
         public void finalizarPartido(string id, string ganador)
         {
