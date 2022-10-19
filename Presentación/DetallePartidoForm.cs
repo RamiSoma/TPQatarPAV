@@ -224,17 +224,34 @@ namespace TPQatarPAVI.Presentación
             CargarGrilla(dGridEventos, evento.traerEventosPorId(idPartido, lblPaisAM.Text));
             if (cmbEventoAM.Text == "Gol") // jugador, partidos
             {
-                jug.anotar(cmbJugadoresAM.SelectedValue.ToString(), cmbEventoAM.Text,"sumar");
-                part.modificarGol(idPartido,lblPaisAM.Text,"sumar");
-                CargarGoles();
+//                try
+//                {
+                    jug.anotar(cmbJugadoresAM.SelectedValue.ToString(), cmbEventoAM.Text, "sumar");
+                    part.modificarGol(idPartido, lblPaisAM.Text, "sumar");
+                    CargarGoles();
+//                }
+//                catch (Exception)
+//                {
+
+//                    MessageBox.Show("Error al registrar gol...","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+//                }
+                
             }
 
             if (cmbEventoAM.Text == "Tarjeta Roja" || cmbEventoAM.Text == "Tarjeta Amarilla" || cmbEventoAM.Text == "Asistencia") //jugador
             {
-                jug.anotar(cmbJugadoresAM.SelectedValue.ToString(), cmbEventoAM.Text,"sumar");
+//                try
+ //               {
+                    jug.anotar(cmbJugadoresAM.SelectedValue.ToString(), cmbEventoAM.Text, "sumar");
+//                }
+//                catch (Exception)
+//                {
+
+//                    MessageBox.Show("Error al registrar evento...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+//                } 
             }
 
-        }
+        }   
 
         private void btnCancelarAM_Click(object sender, EventArgs e)
         {

@@ -34,6 +34,15 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.dGridPartido = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ronda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Arbitro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grupos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ganador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRestaurar = new System.Windows.Forms.Button();
             this.btnVolverMenu = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -66,15 +75,6 @@
             this.lblRondaFiltro = new System.Windows.Forms.Label();
             this.calFecha = new System.Windows.Forms.MonthCalendar();
             this.btnCargarDetalle = new System.Windows.Forms.Button();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ronda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Arbitro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estadio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grupos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ganador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGridPartido)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,6 +139,57 @@
             this.dGridPartido.TabIndex = 63;
             this.dGridPartido.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGridPartido_CellClick);
             this.dGridPartido.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGridPartido_CellContentClick);
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Width = 35;
+            // 
+            // Ronda
+            // 
+            this.Ronda.HeaderText = "Ronda";
+            this.Ronda.Name = "Ronda";
+            this.Ronda.Width = 45;
+            // 
+            // Local
+            // 
+            this.Local.HeaderText = "Local";
+            this.Local.Name = "Local";
+            this.Local.Width = 75;
+            // 
+            // Visitante
+            // 
+            this.Visitante.HeaderText = "Visitante";
+            this.Visitante.Name = "Visitante";
+            this.Visitante.Width = 75;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            // 
+            // Arbitro
+            // 
+            this.Arbitro.HeaderText = "Arbitro";
+            this.Arbitro.Name = "Arbitro";
+            this.Arbitro.Width = 110;
+            // 
+            // Estadio
+            // 
+            this.Estadio.HeaderText = "Estadio";
+            this.Estadio.Name = "Estadio";
+            // 
+            // grupos
+            // 
+            this.grupos.HeaderText = "Grupo";
+            this.grupos.Name = "grupos";
+            this.grupos.Visible = false;
+            // 
+            // Ganador
+            // 
+            this.Ganador.HeaderText = "Ganador";
+            this.Ganador.Name = "Ganador";
             // 
             // btnRestaurar
             // 
@@ -290,6 +341,7 @@
             this.cmbArb.Name = "cmbArb";
             this.cmbArb.Size = new System.Drawing.Size(121, 21);
             this.cmbArb.TabIndex = 95;
+            this.cmbArb.SelectedIndexChanged += new System.EventHandler(this.cmbArb_SelectedIndexChanged);
             // 
             // lblArb
             // 
@@ -431,57 +483,6 @@
             this.btnCargarDetalle.Text = "Cargar Detalle Partido";
             this.btnCargarDetalle.UseVisualStyleBackColor = true;
             this.btnCargarDetalle.Click += new System.EventHandler(this.btnCargarDetalle_Click);
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Width = 35;
-            // 
-            // Ronda
-            // 
-            this.Ronda.HeaderText = "Ronda";
-            this.Ronda.Name = "Ronda";
-            this.Ronda.Width = 45;
-            // 
-            // Local
-            // 
-            this.Local.HeaderText = "Local";
-            this.Local.Name = "Local";
-            this.Local.Width = 75;
-            // 
-            // Visitante
-            // 
-            this.Visitante.HeaderText = "Visitante";
-            this.Visitante.Name = "Visitante";
-            this.Visitante.Width = 75;
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            // 
-            // Arbitro
-            // 
-            this.Arbitro.HeaderText = "Arbitro";
-            this.Arbitro.Name = "Arbitro";
-            this.Arbitro.Width = 110;
-            // 
-            // Estadio
-            // 
-            this.Estadio.HeaderText = "Estadio";
-            this.Estadio.Name = "Estadio";
-            // 
-            // grupos
-            // 
-            this.grupos.HeaderText = "Grupo";
-            this.grupos.Name = "grupos";
-            this.grupos.Visible = false;
-            // 
-            // Ganador
-            // 
-            this.Ganador.HeaderText = "Ganador";
-            this.Ganador.Name = "Ganador";
             // 
             // ABMCPartForm
             // 

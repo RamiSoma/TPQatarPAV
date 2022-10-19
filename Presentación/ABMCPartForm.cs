@@ -343,6 +343,11 @@ namespace TPQatarPAVI.Presentación
                 btnModificar.Visible = true;
             }
         }
+
+        private void cmbArb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

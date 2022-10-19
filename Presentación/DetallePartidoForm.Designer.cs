@@ -262,36 +262,36 @@
             this.lblMostrarRonda.AutoSize = true;
             this.lblMostrarRonda.Location = new System.Drawing.Point(137, 103);
             this.lblMostrarRonda.Name = "lblMostrarRonda";
-            this.lblMostrarRonda.Size = new System.Drawing.Size(41, 13);
+            this.lblMostrarRonda.Size = new System.Drawing.Size(106, 13);
             this.lblMostrarRonda.TabIndex = 68;
-            this.lblMostrarRonda.Text = "label10";
+            this.lblMostrarRonda.Text = "Label Mostrar Ronda";
             // 
             // lblMostrarGrupo
             // 
             this.lblMostrarGrupo.AutoSize = true;
             this.lblMostrarGrupo.Location = new System.Drawing.Point(138, 129);
             this.lblMostrarGrupo.Name = "lblMostrarGrupo";
-            this.lblMostrarGrupo.Size = new System.Drawing.Size(41, 13);
+            this.lblMostrarGrupo.Size = new System.Drawing.Size(96, 13);
             this.lblMostrarGrupo.TabIndex = 69;
-            this.lblMostrarGrupo.Text = "label10";
+            this.lblMostrarGrupo.Text = "label mostrar grupo";
             // 
             // lblMostrarArb
             // 
             this.lblMostrarArb.AutoSize = true;
             this.lblMostrarArb.Location = new System.Drawing.Point(138, 185);
             this.lblMostrarArb.Name = "lblMostrarArb";
-            this.lblMostrarArb.Size = new System.Drawing.Size(41, 13);
+            this.lblMostrarArb.Size = new System.Drawing.Size(65, 13);
             this.lblMostrarArb.TabIndex = 70;
-            this.lblMostrarArb.Text = "label10";
+            this.lblMostrarArb.Text = "Label arbitro";
             // 
             // lblMostrarEstadio
             // 
             this.lblMostrarEstadio.AutoSize = true;
             this.lblMostrarEstadio.Location = new System.Drawing.Point(138, 215);
             this.lblMostrarEstadio.Name = "lblMostrarEstadio";
-            this.lblMostrarEstadio.Size = new System.Drawing.Size(41, 13);
+            this.lblMostrarEstadio.Size = new System.Drawing.Size(70, 13);
             this.lblMostrarEstadio.TabIndex = 71;
-            this.lblMostrarEstadio.Text = "label10";
+            this.lblMostrarEstadio.Text = "Label estadio";
             // 
             // lblMinutoAM
             // 
