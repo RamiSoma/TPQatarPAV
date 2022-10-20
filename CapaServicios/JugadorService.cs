@@ -72,5 +72,9 @@ namespace TPQatarPAVI.CapaServicios
             string[] docJug = new string[2] { dtDocJug.Rows[0]["tipo_doc"].ToString(), dtDocJug.Rows[0]["nro_doc"].ToString() };
             return docJug;
         }
+        public DataTable obtenerFiltrados( string pais, int nroFilas, string evento)
+        {
+            return jugadorDao.obtenerFiltrados( pais, nroFilas, evento);
+        }
     }
 }

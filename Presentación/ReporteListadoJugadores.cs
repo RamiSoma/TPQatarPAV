@@ -16,6 +16,8 @@ namespace TPQatarPAVI.Presentación
     {
         JugadorService jug = new JugadorService();
         PaisService pais = new PaisService();
+        DataTable tablaJugs = new DataTable();
+        ReportDataSource ds;
         public ReporteListadoJugadores()
         {
             InitializeComponent();
@@ -51,19 +53,26 @@ namespace TPQatarPAVI.Presentación
 
         private void btnGenerarReporte_Click(object sender, EventArgs e)
         {
-            DataTable tabla = new DataTable();
-            tabla = jug.traerTodos("");
+            string nEvento = jug.transformarAEventoBD(cmbEstadisticas.Text);
+            string nPais = cmbPais.Text;
 
-            ReportDataSource ds = new ReportDataSource("DatosJugadores", tabla);
+            if (cmbPais.Text == "Todos")
+            {
+                nPais = "";
+            }
+            tablaJugs = jug.obtenerFiltrados(nPais, Convert.ToInt32(nmJugadores.Value), nEvento);
+            ds = new ReportDataSource("DatosJugadores", tablaJugs);
 
+            reportJugs.LocalReport.SetParameters(new ReportParameter("estadistica", nEvento));
+            reportJugs.LocalReport.SetParameters(new ReportParameter("estadisticaTitulo", cmbEstadisticas.Text));
             reportJugs.LocalReport.DataSources.Clear();
             reportJugs.LocalReport.DataSources.Add(ds);
-            reportJugs.LocalReport.Refresh();
+            reportJugs.RefreshReport();
         }
 
         private void reportJugs_Load(object sender, EventArgs e)
         {
-            
+            nmJugadores.Value = 15;
         }
     }
 }

@@ -22,6 +22,7 @@ namespace TPQatarPAVI.Datos.Interfaces
         DataTable traerJugadoresPais(string pais);
         void anotar(string jugador, string evento, string accion);
         DataTable obtenerDoc(string docJugador);
+        DataTable obtenerFiltrados(string pais, int nroFilas, string evento);
     }
 
 }
