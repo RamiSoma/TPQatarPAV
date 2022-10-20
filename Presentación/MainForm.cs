@@ -83,6 +83,10 @@ namespace TPQatarPAVI.Presentación
             abmcPart.Show();
         }
 
-       
+        private void jugadoresToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ReporteListadoJugadores reporteJug = new ReporteListadoJugadores();
+            reporteJug.ShowDialog();
+        }
     }
 }

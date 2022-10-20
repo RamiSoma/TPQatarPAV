@@ -38,6 +38,8 @@
             this.arbitrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnPartidos = new System.Windows.Forms.Button();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jugadoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +58,8 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gestionarToolStripMenuItem});
+            this.gestionarToolStripMenuItem,
+            this.reportesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(784, 27);
@@ -80,28 +83,28 @@
             // ToolStipUsuario
             // 
             this.ToolStipUsuario.Name = "ToolStipUsuario";
-            this.ToolStipUsuario.Size = new System.Drawing.Size(180, 24);
+            this.ToolStipUsuario.Size = new System.Drawing.Size(140, 24);
             this.ToolStipUsuario.Text = "Usuarios";
             this.ToolStipUsuario.Click += new System.EventHandler(this.ToolStipUsuario_Click);
             // 
             // ToolStipPais
             // 
             this.ToolStipPais.Name = "ToolStipPais";
-            this.ToolStipPais.Size = new System.Drawing.Size(180, 24);
+            this.ToolStipPais.Size = new System.Drawing.Size(140, 24);
             this.ToolStipPais.Text = "Paises";
             this.ToolStipPais.Click += new System.EventHandler(this.ToolStipPais_Click);
             // 
             // jugadoresToolStripMenuItem
             // 
             this.jugadoresToolStripMenuItem.Name = "jugadoresToolStripMenuItem";
-            this.jugadoresToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.jugadoresToolStripMenuItem.Size = new System.Drawing.Size(140, 24);
             this.jugadoresToolStripMenuItem.Text = "Jugadores";
             this.jugadoresToolStripMenuItem.Click += new System.EventHandler(this.jugadoresToolStripMenuItem_Click);
             // 
             // arbitrosToolStripMenuItem
             // 
             this.arbitrosToolStripMenuItem.Name = "arbitrosToolStripMenuItem";
-            this.arbitrosToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.arbitrosToolStripMenuItem.Size = new System.Drawing.Size(140, 24);
             this.arbitrosToolStripMenuItem.Text = "Arbitros";
             this.arbitrosToolStripMenuItem.Click += new System.EventHandler(this.arbitrosToolStripMenuItem_Click);
             // 
@@ -125,6 +128,21 @@
             this.btnPartidos.Text = "Partidos";
             this.btnPartidos.UseVisualStyleBackColor = true;
             this.btnPartidos.Click += new System.EventHandler(this.btnPartidos_Click);
+            // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.jugadoresToolStripMenuItem1});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 23);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // jugadoresToolStripMenuItem1
+            // 
+            this.jugadoresToolStripMenuItem1.Name = "jugadoresToolStripMenuItem1";
+            this.jugadoresToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.jugadoresToolStripMenuItem1.Text = "Jugadores";
+            this.jugadoresToolStripMenuItem1.Click += new System.EventHandler(this.jugadoresToolStripMenuItem1_Click);
             // 
             // MainForm
             // 
@@ -160,5 +178,7 @@
         private System.Windows.Forms.ToolStripMenuItem jugadoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem arbitrosToolStripMenuItem;
         private System.Windows.Forms.Button btnPartidos;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jugadoresToolStripMenuItem1;
     }
 }
