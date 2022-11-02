@@ -36,10 +36,13 @@
             this.ToolStipPais = new System.Windows.Forms.ToolStripMenuItem();
             this.jugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.arbitrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnPartidos = new System.Windows.Forms.Button();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jugadoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.arbitrosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.estadiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.paisesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnPartidos = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -108,6 +111,44 @@
             this.arbitrosToolStripMenuItem.Text = "Arbitros";
             this.arbitrosToolStripMenuItem.Click += new System.EventHandler(this.arbitrosToolStripMenuItem_Click);
             // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.jugadoresToolStripMenuItem1,
+            this.arbitrosToolStripMenuItem1,
+            this.estadiosToolStripMenuItem,
+            this.paisesToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 23);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // jugadoresToolStripMenuItem1
+            // 
+            this.jugadoresToolStripMenuItem1.Name = "jugadoresToolStripMenuItem1";
+            this.jugadoresToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.jugadoresToolStripMenuItem1.Text = "Jugadores";
+            this.jugadoresToolStripMenuItem1.Click += new System.EventHandler(this.jugadoresToolStripMenuItem1_Click);
+            // 
+            // arbitrosToolStripMenuItem1
+            // 
+            this.arbitrosToolStripMenuItem1.Name = "arbitrosToolStripMenuItem1";
+            this.arbitrosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.arbitrosToolStripMenuItem1.Text = "Arbitros";
+            this.arbitrosToolStripMenuItem1.Click += new System.EventHandler(this.arbitrosToolStripMenuItem1_Click);
+            // 
+            // estadiosToolStripMenuItem
+            // 
+            this.estadiosToolStripMenuItem.Name = "estadiosToolStripMenuItem";
+            this.estadiosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.estadiosToolStripMenuItem.Text = "Estadios";
+            this.estadiosToolStripMenuItem.Click += new System.EventHandler(this.estadiosToolStripMenuItem_Click);
+            // 
+            // paisesToolStripMenuItem
+            // 
+            this.paisesToolStripMenuItem.Name = "paisesToolStripMenuItem";
+            this.paisesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.paisesToolStripMenuItem.Text = "Paises";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TPQatarPAVI.Properties.Resources.LOGO_QATAR_2022_6;
@@ -128,21 +169,6 @@
             this.btnPartidos.Text = "Partidos";
             this.btnPartidos.UseVisualStyleBackColor = true;
             this.btnPartidos.Click += new System.EventHandler(this.btnPartidos_Click);
-            // 
-            // reportesToolStripMenuItem
-            // 
-            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.jugadoresToolStripMenuItem1});
-            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 23);
-            this.reportesToolStripMenuItem.Text = "Reportes";
-            // 
-            // jugadoresToolStripMenuItem1
-            // 
-            this.jugadoresToolStripMenuItem1.Name = "jugadoresToolStripMenuItem1";
-            this.jugadoresToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.jugadoresToolStripMenuItem1.Text = "Jugadores";
-            this.jugadoresToolStripMenuItem1.Click += new System.EventHandler(this.jugadoresToolStripMenuItem1_Click);
             // 
             // MainForm
             // 
@@ -180,5 +206,8 @@
         private System.Windows.Forms.Button btnPartidos;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jugadoresToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem arbitrosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem estadiosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem paisesToolStripMenuItem;
     }
 }

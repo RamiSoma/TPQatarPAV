@@ -20,5 +20,9 @@ namespace TPQatarPAVI.CapaServicios
         {
             return dao.traerTodos();
         }
+        public DataTable traerPartidosPorEstadio(bool asc)
+        {
+            return dao.traerPartidoPorEstadio(asc);
+        }
     }
 }

@@ -68,9 +68,15 @@ namespace TPQatarPAVI.Datos.Daos
             string consulta = "select tipo_doc, nro_doc from jugadores where tipo_doc+ '-' + cast(nro_doc as varchar) = '" + docJugador+ "' ";
             return DBHelper.obtenerInstancia().consultar(consulta);
         }
-        public DataTable obtenerFiltrados(string pais, int nroFilas, string evento)
+        public DataTable obtenerFiltrados(string pais, int nroFilas, string evento, bool ascendente)
         {
-            string consulta = "select top "+nroFilas+" * from jugadores where borrado = 0 and pais like '%" + pais+ "%' order by "+evento+" desc";
+            string consulta;
+            consulta = "select top " + nroFilas + " * from jugadores where borrado = 0 and pais like '%" + pais + "%' order by " + evento + " desc";
+            if (ascendente)
+            {
+                consulta = "select top " + nroFilas + " * from jugadores where borrado = 0 and pais like '%" + pais + "%' order by " + evento;
+            }
+           
             return DBHelper.obtenerInstancia().consultar(consulta);
         }
     }

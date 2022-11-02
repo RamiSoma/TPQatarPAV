@@ -157,6 +157,18 @@
     <Compile Include="Presentación\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentación\ReporteListadoArbitros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentación\ReporteListadoArbitros.Designer.cs">
+      <DependentUpon>ReporteListadoArbitros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentación\ReporteListadoEstadios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentación\ReporteListadoEstadios.Designer.cs">
+      <DependentUpon>ReporteListadoEstadios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentación\ReporteListadoJugadores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +183,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TPQatarPAVDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Presentación\ReporteListadoArbitros.resx">
+      <DependentUpon>ReporteListadoArbitros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentación\ReporteListadoEstadios.resx">
+      <DependentUpon>ReporteListadoEstadios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ListadoArbitros.rdlc" />
+    <EmbeddedResource Include="Reportes\ListadoEstadios.rdlc" />
     <EmbeddedResource Include="Reportes\ListadoJugadores.rdlc" />
     <EmbeddedResource Include="Presentación\ABMCArbForm.resx">
       <DependentUpon>ABMCArbForm.cs</DependentUpon>

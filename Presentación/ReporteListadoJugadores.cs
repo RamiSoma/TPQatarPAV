@@ -44,23 +44,31 @@ namespace TPQatarPAVI.Presentación
             cmbEstadisticas.Items.Add("Tarjeta Roja");
             cmbEstadisticas.SelectedIndex = 0;
         }
+        private void CargarComboOrden()
+        {
+            cmbBoxOrden.Items.Add("Ascendente");
+            cmbBoxOrden.Items.Add("Descendente");
+            cmbBoxOrden.SelectedIndex = 0;
+        }
         private void ReporteListadoJugadores_Load(object sender, EventArgs e)
         {
             CargarCombo(cmbPais,pais.traerTodos("",""),true);
             CargarComboEstadisticas();
+            CargarComboOrden();
             this.reportJugs.RefreshReport();
         }
-
+        
         private void btnGenerarReporte_Click(object sender, EventArgs e)
         {
             string nEvento = jug.transformarAEventoBD(cmbEstadisticas.Text);
             string nPais = cmbPais.Text;
+            bool ascendente = (cmbBoxOrden.Text == "Ascendente");
 
             if (cmbPais.Text == "Todos")
             {
                 nPais = "";
             }
-            tablaJugs = jug.obtenerFiltrados(nPais, Convert.ToInt32(nmJugadores.Value), nEvento);
+            tablaJugs = jug.obtenerFiltrados(nPais, Convert.ToInt32(nmJugadores.Value), nEvento, ascendente);
             ds = new ReportDataSource("DatosJugadores", tablaJugs);
 
             reportJugs.LocalReport.SetParameters(new ReportParameter("estadistica", nEvento));
@@ -73,6 +81,11 @@ namespace TPQatarPAVI.Presentación
         private void reportJugs_Load(object sender, EventArgs e)
         {
             nmJugadores.Value = 15;
+        }
+
+        private void cmbEstadisticas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

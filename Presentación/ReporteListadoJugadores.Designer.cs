@@ -37,6 +37,8 @@
             this.nmJugadores = new System.Windows.Forms.NumericUpDown();
             this.lblPais = new System.Windows.Forms.Label();
             this.cmbPais = new System.Windows.Forms.ComboBox();
+            this.cmbBoxOrden = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nmJugadores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,16 +65,17 @@
             // cmbEstadisticas
             // 
             this.cmbEstadisticas.FormattingEnabled = true;
-            this.cmbEstadisticas.Location = new System.Drawing.Point(82, 88);
+            this.cmbEstadisticas.Location = new System.Drawing.Point(122, 74);
             this.cmbEstadisticas.Name = "cmbEstadisticas";
             this.cmbEstadisticas.Size = new System.Drawing.Size(121, 21);
             this.cmbEstadisticas.TabIndex = 3;
+            this.cmbEstadisticas.SelectedIndexChanged += new System.EventHandler(this.cmbEstadisticas_SelectedIndexChanged);
             // 
             // btnGenerarReporte
             // 
-            this.btnGenerarReporte.Location = new System.Drawing.Point(656, 86);
+            this.btnGenerarReporte.Location = new System.Drawing.Point(662, 105);
             this.btnGenerarReporte.Name = "btnGenerarReporte";
-            this.btnGenerarReporte.Size = new System.Drawing.Size(132, 23);
+            this.btnGenerarReporte.Size = new System.Drawing.Size(126, 23);
             this.btnGenerarReporte.TabIndex = 4;
             this.btnGenerarReporte.Text = "Generar Reporte";
             this.btnGenerarReporte.UseVisualStyleBackColor = true;
@@ -81,7 +84,7 @@
             // lblFiltrarPor
             // 
             this.lblFiltrarPor.AutoSize = true;
-            this.lblFiltrarPor.Location = new System.Drawing.Point(23, 91);
+            this.lblFiltrarPor.Location = new System.Drawing.Point(29, 77);
             this.lblFiltrarPor.Name = "lblFiltrarPor";
             this.lblFiltrarPor.Size = new System.Drawing.Size(53, 13);
             this.lblFiltrarPor.TabIndex = 5;
@@ -90,7 +93,7 @@
             // lblCantJugs
             // 
             this.lblCantJugs.AutoSize = true;
-            this.lblCantJugs.Location = new System.Drawing.Point(242, 91);
+            this.lblCantJugs.Location = new System.Drawing.Point(29, 115);
             this.lblCantJugs.Name = "lblCantJugs";
             this.lblCantJugs.Size = new System.Drawing.Size(168, 13);
             this.lblCantJugs.TabIndex = 6;
@@ -98,7 +101,7 @@
             // 
             // nmJugadores
             // 
-            this.nmJugadores.Location = new System.Drawing.Point(416, 89);
+            this.nmJugadores.Location = new System.Drawing.Point(203, 113);
             this.nmJugadores.Name = "nmJugadores";
             this.nmJugadores.Size = new System.Drawing.Size(40, 20);
             this.nmJugadores.TabIndex = 7;
@@ -106,7 +109,7 @@
             // lblPais
             // 
             this.lblPais.AutoSize = true;
-            this.lblPais.Location = new System.Drawing.Point(484, 91);
+            this.lblPais.Location = new System.Drawing.Point(420, 72);
             this.lblPais.Name = "lblPais";
             this.lblPais.Size = new System.Drawing.Size(30, 13);
             this.lblPais.TabIndex = 9;
@@ -115,16 +118,35 @@
             // cmbPais
             // 
             this.cmbPais.FormattingEnabled = true;
-            this.cmbPais.Location = new System.Drawing.Point(520, 88);
+            this.cmbPais.Location = new System.Drawing.Point(456, 69);
             this.cmbPais.Name = "cmbPais";
             this.cmbPais.Size = new System.Drawing.Size(121, 21);
             this.cmbPais.TabIndex = 8;
+            // 
+            // cmbBoxOrden
+            // 
+            this.cmbBoxOrden.FormattingEnabled = true;
+            this.cmbBoxOrden.Location = new System.Drawing.Point(479, 112);
+            this.cmbBoxOrden.Name = "cmbBoxOrden";
+            this.cmbBoxOrden.Size = new System.Drawing.Size(98, 21);
+            this.cmbBoxOrden.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(372, 115);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Ordenar de manera:";
             // 
             // ReporteListadoJugadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbBoxOrden);
             this.Controls.Add(this.lblPais);
             this.Controls.Add(this.cmbPais);
             this.Controls.Add(this.nmJugadores);
@@ -155,5 +177,7 @@
         private System.Windows.Forms.NumericUpDown nmJugadores;
         private System.Windows.Forms.Label lblPais;
         private System.Windows.Forms.ComboBox cmbPais;
+        private System.Windows.Forms.ComboBox cmbBoxOrden;
+        private System.Windows.Forms.Label label1;
     }
 }

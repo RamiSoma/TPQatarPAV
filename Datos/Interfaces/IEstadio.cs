@@ -10,5 +10,6 @@ namespace TPQatarPAVI.Datos.Interfaces
     internal interface IEstadio
     {
         DataTable traerTodos();
+        DataTable traerPartidoPorEstadio(bool asc);
     }
 }

@@ -40,5 +40,9 @@ namespace TPQatarPAVI.CapaServicios
         {
             arbDao.modificarArbitro(nombre, apellido, pais,tipoDoc,numDoc);
         }
+        public DataTable filtrarPorCantEventos(bool tarjAmarilla, bool ascendente)
+        {
+            return arbDao.filtrarPorCantEventos(tarjAmarilla, ascendente);
+        }
     }
 }

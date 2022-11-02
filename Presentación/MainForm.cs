@@ -88,5 +88,17 @@ namespace TPQatarPAVI.Presentación
             ReporteListadoJugadores reporteJug = new ReporteListadoJugadores();
             reporteJug.ShowDialog();
         }
+
+        private void arbitrosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ReporteListadoArbitros reporteArb = new ReporteListadoArbitros();
+            reporteArb.ShowDialog();
+        }
+
+        private void estadiosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReporteListadoEstadios reporteEst = new ReporteListadoEstadios();
+            reporteEst.ShowDialog();
+        }
     }
 }

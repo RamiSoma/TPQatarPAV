@@ -972,6 +972,7 @@ constraint pk_evento Primary Key (id_evento),
 constraint fk_id_evento_partido foreign key (id_partido) references partido (id),
 constraint fk_jg_evento foreign key (tipo_doc_jg,nro_doc_jg) references jugadores (tipo_doc,nro_doc))
 
+
 --Insert into EventoPartido Values(5,90,'Dni',33016240,'Gol',0)
 
 

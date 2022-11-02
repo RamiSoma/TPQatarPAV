@@ -16,5 +16,6 @@ namespace TPQatarPAVI.Datos.Interfaces
         DataTable traerEliminado();
         void restaurarArb(string tipoDoc, string nroDoc);
         void modificarArbitro(string nombre, string apellido, string pais, string tipoDoc, string numDoc);
+        DataTable filtrarPorCantEventos(bool tarjAmarilla, bool ascendente);
         }
 }
