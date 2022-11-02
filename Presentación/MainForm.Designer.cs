@@ -148,6 +148,7 @@
             this.paisesToolStripMenuItem.Name = "paisesToolStripMenuItem";
             this.paisesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.paisesToolStripMenuItem.Text = "Paises";
+            this.paisesToolStripMenuItem.Click += new System.EventHandler(this.paisesToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 

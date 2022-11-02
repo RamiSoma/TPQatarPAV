@@ -175,6 +175,12 @@
     <Compile Include="Presentación\ReporteListadoJugadores.Designer.cs">
       <DependentUpon>ReporteListadoJugadores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentación\ReporteListadoPaises.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentación\ReporteListadoPaises.Designer.cs">
+      <DependentUpon>ReporteListadoPaises.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentación\ReporteListadoEstadios.resx">
       <DependentUpon>ReporteListadoEstadios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentación\ReporteListadoPaises.resx">
+      <DependentUpon>ReporteListadoPaises.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ListadoArbitros.rdlc" />
     <EmbeddedResource Include="Reportes\ListadoEstadios.rdlc" />
@@ -230,6 +239,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\ListadoPaises.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

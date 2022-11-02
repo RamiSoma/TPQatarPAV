@@ -79,6 +79,17 @@ namespace TPQatarPAVI.Datos.Daos
            
             return DBHelper.obtenerInstancia().consultar(consulta);
         }
+        public DataTable obtenerEstadisticasPorPais(int nroFilas, string evento, bool ascendente)
+        {
+            string consulta;
+            consulta = "Select top " + nroFilas + " pais,gol, asistencias,tarjetas_rojas,tarjetas_amarillas from Jugadores where borrado = 0 group by pais,gol, asistencias,tarjetas_rojas,tarjetas_amarillas order by 2 desc";
+            if (ascendente)
+            {
+                consulta = "Select top " +nroFilas+ " pais,gol, asistencias,tarjetas_rojas,tarjetas_amarillas from Jugadores where borrado = 0 group by pais,gol, asistencias,tarjetas_rojas,tarjetas_amarillas order by 2";
+            }
+
+            return DBHelper.obtenerInstancia().consultar(consulta);
+        }
     }
 
 }

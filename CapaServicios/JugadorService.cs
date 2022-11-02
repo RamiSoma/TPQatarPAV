@@ -76,5 +76,9 @@ namespace TPQatarPAVI.CapaServicios
         {
             return jugadorDao.obtenerFiltrados( pais, nroFilas, evento, ascendente);
         }
+        public DataTable obtenerEstadisticasPorPais(int cantPaises,string nEvento,bool ascendente)
+        {
+            return jugadorDao.obtenerEstadisticasPorPais(cantPaises, nEvento, ascendente);
+        }
     }
 }

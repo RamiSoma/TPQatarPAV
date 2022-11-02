@@ -100,5 +100,11 @@ namespace TPQatarPAVI.Presentación
             ReporteListadoEstadios reporteEst = new ReporteListadoEstadios();
             reporteEst.ShowDialog();
         }
+
+        private void paisesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReporteListadoPaises reportePaises = new ReporteListadoPaises();
+            reportePaises.ShowDialog();
+        }
     }
 }
