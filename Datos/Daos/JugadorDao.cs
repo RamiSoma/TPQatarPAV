@@ -82,10 +82,16 @@ namespace TPQatarPAVI.Datos.Daos
         public DataTable obtenerEstadisticasPorPais(int nroFilas, string evento, bool ascendente)
         {
             string consulta;
-            consulta = "Select top " + nroFilas + " pais,gol, asistencias,tarjetas_rojas,tarjetas_amarillas from Jugadores where borrado = 0 group by pais,gol, asistencias,tarjetas_rojas,tarjetas_amarillas order by 2 desc";
+            consulta = "Select distinct top " + nroFilas + " pais, SUM(gol) AS gol, SUM(asistencias) AS asistencias, SUM(tarjetas_rojas) AS tarjetas_rojas, SUM(tarjetas_amarillas) AS tarjetas_amarillas " +
+                    "FROM Jugadores AS j " +
+                    "WHERE(borrado = 0) " +
+                    "GROUP BY pais order by 2 desc";
             if (ascendente)
             {
-                consulta = "Select top " +nroFilas+ " pais,gol, asistencias,tarjetas_rojas,tarjetas_amarillas from Jugadores where borrado = 0 group by pais,gol, asistencias,tarjetas_rojas,tarjetas_amarillas order by 2";
+                consulta = "Select distinct top " + nroFilas+ " pais, SUM(gol) AS gol, SUM(asistencias) AS asistencias, SUM(tarjetas_rojas) AS tarjetas_rojas, SUM(tarjetas_amarillas) AS tarjetas_amarillas " +
+                    "FROM Jugadores AS j " +
+                    "WHERE(borrado = 0) " +
+                    "GROUP BY pais order by 2";
             }
 
             return DBHelper.obtenerInstancia().consultar(consulta);

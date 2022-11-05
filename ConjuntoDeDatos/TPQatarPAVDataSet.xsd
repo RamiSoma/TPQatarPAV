@@ -1022,6 +1022,29 @@ GROUP BY estadio</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Jugadores1TableAdapter" GeneratorDataComponentClassName="Jugadores1TableAdapter" Name="Jugadores1" UserDataComponentName="Jugadores1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TPQatarPAVConnectionString (Settings)" DbObjectName="tpqatarpav.dbo.Jugadores" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        distinct pais, SUM(gol) AS gol, SUM(asistencias) AS asistencias, SUM(tarjetas_rojas) AS tarjetas_rojas, SUM(tarjetas_amarillas) AS tarjetas_amarillas
+FROM            Jugadores AS j
+WHERE        (borrado = 0)
+GROUP BY pais</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="pais" DataSetColumn="pais" />
+              <Mapping SourceColumn="asistencias" DataSetColumn="asistencias" />
+              <Mapping SourceColumn="gol" DataSetColumn="gol" />
+              <Mapping SourceColumn="tarjetas_rojas" DataSetColumn="tarjetas_rojas" />
+              <Mapping SourceColumn="tarjetas_amarillas" DataSetColumn="tarjetas_amarillas" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1391,38 +1414,55 @@ GROUP BY estadio</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Arbitro1" msprop:Generator_RowClassName="Arbitro1Row" msprop:Generator_RowEvHandlerName="Arbitro1RowChangeEventHandler" msprop:Generator_RowDeletedName="Arbitro1RowDeleted" msprop:Generator_RowDeletingName="Arbitro1RowDeleting" msprop:Generator_RowEvArgName="Arbitro1RowChangeEvent" msprop:Generator_TablePropName="Arbitro1" msprop:Generator_RowChangedName="Arbitro1RowChanged" msprop:Generator_UserTableName="Arbitro1" msprop:Generator_RowChangingName="Arbitro1RowChanging" msprop:Generator_TableClassName="Arbitro1DataTable" msprop:Generator_TableVarName="tableArbitro1">
+        <xs:element name="Arbitro1" msprop:Generator_RowEvHandlerName="Arbitro1RowChangeEventHandler" msprop:Generator_RowDeletedName="Arbitro1RowDeleted" msprop:Generator_RowDeletingName="Arbitro1RowDeleting" msprop:Generator_RowEvArgName="Arbitro1RowChangeEvent" msprop:Generator_TablePropName="Arbitro1" msprop:Generator_RowChangedName="Arbitro1RowChanged" msprop:Generator_UserTableName="Arbitro1" msprop:Generator_RowChangingName="Arbitro1RowChanging" msprop:Generator_RowClassName="Arbitro1Row" msprop:Generator_TableClassName="Arbitro1DataTable" msprop:Generator_TableVarName="tableArbitro1">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="nombre" msprop:Generator_UserColumnName="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" minOccurs="0">
+              <xs:element name="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_UserColumnName="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="15" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="apellido" msprop:Generator_UserColumnName="apellido" msprop:Generator_ColumnPropNameInTable="apellidoColumn" msprop:Generator_ColumnPropNameInRow="apellido" msprop:Generator_ColumnVarNameInTable="columnapellido" minOccurs="0">
+              <xs:element name="apellido" msprop:Generator_ColumnPropNameInTable="apellidoColumn" msprop:Generator_ColumnPropNameInRow="apellido" msprop:Generator_UserColumnName="apellido" msprop:Generator_ColumnVarNameInTable="columnapellido" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="15" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="cantEvento1" msdata:ReadOnly="true" msprop:Generator_UserColumnName="cantEvento1" msprop:Generator_ColumnPropNameInTable="cantEvento1Column" msprop:Generator_ColumnPropNameInRow="cantEvento1" msprop:Generator_ColumnVarNameInTable="columncantEvento1" type="xs:int" minOccurs="0" />
+              <xs:element name="cantEvento1" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="cantEvento1Column" msprop:Generator_ColumnPropNameInRow="cantEvento1" msprop:Generator_UserColumnName="cantEvento1" msprop:Generator_ColumnVarNameInTable="columncantEvento1" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Partido1" msprop:Generator_RowEvHandlerName="Partido1RowChangeEventHandler" msprop:Generator_RowDeletedName="Partido1RowDeleted" msprop:Generator_RowDeletingName="Partido1RowDeleting" msprop:Generator_RowEvArgName="Partido1RowChangeEvent" msprop:Generator_TablePropName="Partido1" msprop:Generator_RowChangedName="Partido1RowChanged" msprop:Generator_RowChangingName="Partido1RowChanging" msprop:Generator_TableClassName="Partido1DataTable" msprop:Generator_RowClassName="Partido1Row" msprop:Generator_TableVarName="tablePartido1" msprop:Generator_UserTableName="Partido1">
+        <xs:element name="Partido1" msprop:Generator_RowClassName="Partido1Row" msprop:Generator_RowEvHandlerName="Partido1RowChangeEventHandler" msprop:Generator_RowDeletedName="Partido1RowDeleted" msprop:Generator_RowDeletingName="Partido1RowDeleting" msprop:Generator_RowEvArgName="Partido1RowChangeEvent" msprop:Generator_TablePropName="Partido1" msprop:Generator_RowChangedName="Partido1RowChanged" msprop:Generator_UserTableName="Partido1" msprop:Generator_RowChangingName="Partido1RowChanging" msprop:Generator_TableClassName="Partido1DataTable" msprop:Generator_TableVarName="tablePartido1">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="estadio" msprop:Generator_ColumnPropNameInRow="estadio" msprop:Generator_ColumnPropNameInTable="estadioColumn" msprop:Generator_ColumnVarNameInTable="columnestadio" msprop:Generator_UserColumnName="estadio" minOccurs="0">
+              <xs:element name="estadio" msprop:Generator_UserColumnName="estadio" msprop:Generator_ColumnPropNameInTable="estadioColumn" msprop:Generator_ColumnPropNameInRow="estadio" msprop:Generator_ColumnVarNameInTable="columnestadio" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="32" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Partidos" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Partidos" msprop:Generator_ColumnPropNameInTable="PartidosColumn" msprop:Generator_ColumnVarNameInTable="columnPartidos" msprop:Generator_UserColumnName="Partidos" type="xs:int" minOccurs="0" />
+              <xs:element name="Partidos" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Partidos" msprop:Generator_ColumnPropNameInTable="PartidosColumn" msprop:Generator_ColumnPropNameInRow="Partidos" msprop:Generator_ColumnVarNameInTable="columnPartidos" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Jugadores1" msprop:Generator_RowEvHandlerName="Jugadores1RowChangeEventHandler" msprop:Generator_RowDeletedName="Jugadores1RowDeleted" msprop:Generator_RowDeletingName="Jugadores1RowDeleting" msprop:Generator_RowEvArgName="Jugadores1RowChangeEvent" msprop:Generator_TablePropName="Jugadores1" msprop:Generator_RowChangedName="Jugadores1RowChanged" msprop:Generator_RowChangingName="Jugadores1RowChanging" msprop:Generator_TableClassName="Jugadores1DataTable" msprop:Generator_RowClassName="Jugadores1Row" msprop:Generator_TableVarName="tableJugadores1" msprop:Generator_UserTableName="Jugadores1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="pais" msprop:Generator_ColumnPropNameInRow="pais" msprop:Generator_ColumnPropNameInTable="paisColumn" msprop:Generator_ColumnVarNameInTable="columnpais" msprop:Generator_UserColumnName="pais" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="asistencias" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="asistencias" msprop:Generator_ColumnPropNameInTable="asistenciasColumn" msprop:Generator_ColumnVarNameInTable="columnasistencias" msprop:Generator_UserColumnName="asistencias" type="xs:int" minOccurs="0" />
+              <xs:element name="gol" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="gol" msprop:Generator_ColumnPropNameInTable="golColumn" msprop:Generator_ColumnVarNameInTable="columngol" msprop:Generator_UserColumnName="gol" type="xs:int" minOccurs="0" />
+              <xs:element name="tarjetas_rojas" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="tarjetas_rojas" msprop:Generator_ColumnPropNameInTable="tarjetas_rojasColumn" msprop:Generator_ColumnVarNameInTable="columntarjetas_rojas" msprop:Generator_UserColumnName="tarjetas_rojas" type="xs:int" minOccurs="0" />
+              <xs:element name="tarjetas_amarillas" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="tarjetas_amarillas" msprop:Generator_ColumnPropNameInTable="tarjetas_amarillasColumn" msprop:Generator_ColumnVarNameInTable="columntarjetas_amarillas" msprop:Generator_UserColumnName="tarjetas_amarillas" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1485,21 +1525,22 @@ GROUP BY estadio</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="fk_referee_nacionalidad" msdata:parent="Pais" msdata:child="Arbitro" msdata:parentkey="nombre" msdata:childkey="pais" msprop:Generator_UserParentTable="Pais" msprop:Generator_UserChildTable="Arbitro" msprop:Generator_RelationVarName="relationfk_referee_nacionalidad" msprop:Generator_ChildPropName="GetArbitroRows" msprop:Generator_UserRelationName="fk_referee_nacionalidad" msprop:Generator_ParentPropName="PaisRow" />
-      <msdata:Relationship name="fk_tipo_doc_ref" msdata:parent="TipoDoc" msdata:child="Arbitro" msdata:parentkey="tipo_doc" msdata:childkey="tipo_doc" msprop:Generator_UserParentTable="TipoDoc" msprop:Generator_UserChildTable="Arbitro" msprop:Generator_RelationVarName="relationfk_tipo_doc_ref" msprop:Generator_ChildPropName="GetArbitroRows" msprop:Generator_UserRelationName="fk_tipo_doc_ref" msprop:Generator_ParentPropName="TipoDocRow" />
-      <msdata:Relationship name="fk_estadio_ciudad" msdata:parent="Ciudad" msdata:child="Estadio" msdata:parentkey="nombre" msdata:childkey="nombre_ciudad" msprop:Generator_UserParentTable="Ciudad" msprop:Generator_UserChildTable="Estadio" msprop:Generator_RelationVarName="relationfk_estadio_ciudad" msprop:Generator_ChildPropName="GetEstadioRows" msprop:Generator_ParentPropName="CiudadRow" msprop:Generator_UserRelationName="fk_estadio_ciudad" />
-      <msdata:Relationship name="fk_id_evento_partido" msdata:parent="Partido" msdata:child="EventoPartido" msdata:parentkey="id" msdata:childkey="id_partido" msprop:Generator_UserParentTable="Partido" msprop:Generator_UserChildTable="EventoPartido" msprop:Generator_RelationVarName="relationfk_id_evento_partido" msprop:Generator_ChildPropName="GetEventoPartidoRows" msprop:Generator_UserRelationName="fk_id_evento_partido" msprop:Generator_ParentPropName="PartidoRow" />
-      <msdata:Relationship name="fk_jg_evento" msdata:parent="Jugadores" msdata:child="EventoPartido" msdata:parentkey="tipo_doc nro_doc" msdata:childkey="tipo_doc_jg nro_doc_jg" msprop:Generator_UserParentTable="Jugadores" msprop:Generator_UserChildTable="EventoPartido" msprop:Generator_RelationVarName="relationfk_jg_evento" msprop:Generator_ChildPropName="GetEventoPartidoRows" msprop:Generator_UserRelationName="fk_jg_evento" msprop:Generator_ParentPropName="JugadoresRowParent" />
-      <msdata:Relationship name="fk_pais_jg" msdata:parent="Pais" msdata:child="Jugadores" msdata:parentkey="nombre" msdata:childkey="pais" msprop:Generator_UserParentTable="Pais" msprop:Generator_UserChildTable="Jugadores" msprop:Generator_RelationVarName="relationfk_pais_jg" msprop:Generator_ChildPropName="GetJugadoresRows" msprop:Generator_UserRelationName="fk_pais_jg" msprop:Generator_ParentPropName="PaisRow" />
-      <msdata:Relationship name="fk_tipo_doc_jg" msdata:parent="TipoDoc" msdata:child="Jugadores" msdata:parentkey="tipo_doc" msdata:childkey="tipo_doc" msprop:Generator_UserParentTable="TipoDoc" msprop:Generator_UserChildTable="Jugadores" msprop:Generator_RelationVarName="relationfk_tipo_doc_jg" msprop:Generator_ChildPropName="GetJugadoresRows" msprop:Generator_UserRelationName="fk_tipo_doc_jg" msprop:Generator_ParentPropName="TipoDocRow" />
-      <msdata:Relationship name="fk_pais_cont" msdata:parent="Continente" msdata:child="Pais" msdata:parentkey="id" msdata:childkey="id_continente" msprop:Generator_UserParentTable="Continente" msprop:Generator_UserChildTable="Pais" msprop:Generator_RelationVarName="relationfk_pais_cont" msprop:Generator_ChildPropName="GetPaisRows" msprop:Generator_ParentPropName="ContinenteRow" msprop:Generator_UserRelationName="fk_pais_cont" />
-      <msdata:Relationship name="fk_pais_grupo" msdata:parent="Grupo" msdata:child="Pais" msdata:parentkey="id" msdata:childkey="id_grupo" msprop:Generator_UserParentTable="Grupo" msprop:Generator_UserChildTable="Pais" msprop:Generator_RelationVarName="relationfk_pais_grupo" msprop:Generator_ChildPropName="GetPaisRows" msprop:Generator_ParentPropName="GrupoRow" msprop:Generator_UserRelationName="fk_pais_grupo" />
-      <msdata:Relationship name="fk_arb_pais" msdata:parent="Arbitro" msdata:child="Partido" msdata:parentkey="tipo_doc nro_doc" msdata:childkey="tipo_doc_arb nro_doc_arb" msprop:Generator_UserParentTable="Arbitro" msprop:Generator_UserChildTable="Partido" msprop:Generator_RelationVarName="relationfk_arb_pais" msprop:Generator_ChildPropName="GetPartidoRows" msprop:Generator_ParentPropName="ArbitroRowParent" msprop:Generator_UserRelationName="fk_arb_pais" />
-      <msdata:Relationship name="fk_pais1" msdata:parent="Pais" msdata:child="Partido" msdata:parentkey="nombre" msdata:childkey="pais_1" msprop:Generator_UserParentTable="Pais" msprop:Generator_UserChildTable="Partido" msprop:Generator_RelationVarName="relationfk_pais1" msprop:Generator_ChildPropName="GetPartidoRowsByfk_pais1" msprop:Generator_ParentPropName="PaisRowByfk_pais1" msprop:Generator_UserRelationName="fk_pais1" />
-      <msdata:Relationship name="fk_pais2" msdata:parent="Pais" msdata:child="Partido" msdata:parentkey="nombre" msdata:childkey="pais_2" msprop:Generator_UserParentTable="Pais" msprop:Generator_UserChildTable="Partido" msprop:Generator_RelationVarName="relationfk_pais2" msprop:Generator_ChildPropName="GetPartidoRowsByfk_pais2" msprop:Generator_ParentPropName="PaisRowByfk_pais2" msprop:Generator_UserRelationName="fk_pais2" />
-      <msdata:Relationship name="fk_partido_estadio" msdata:parent="Estadio" msdata:child="Partido" msdata:parentkey="nombre" msdata:childkey="estadio" msprop:Generator_UserParentTable="Estadio" msprop:Generator_UserChildTable="Partido" msprop:Generator_RelationVarName="relationfk_partido_estadio" msprop:Generator_ChildPropName="GetPartidoRows" msprop:Generator_ParentPropName="EstadioRow" msprop:Generator_UserRelationName="fk_partido_estadio" />
-      <msdata:Relationship name="fk_idPerfil" msdata:parent="perfil" msdata:child="Usuario" msdata:parentkey="id" msdata:childkey="rol_id" msprop:Generator_UserParentTable="perfil" msprop:Generator_UserChildTable="Usuario" msprop:Generator_RelationVarName="relationfk_idPerfil" msprop:Generator_ChildPropName="GetUsuarioRows" msprop:Generator_ParentPropName="perfilRow" msprop:Generator_UserRelationName="fk_idPerfil" />
-      <msdata:Relationship name="fk_partido_estadio1" msdata:parent="Estadio" msdata:child="Partido1" msdata:parentkey="nombre" msdata:childkey="estadio" msprop:Generator_UserParentTable="Estadio" msprop:Generator_UserChildTable="Partido1" msprop:Generator_RelationVarName="relationfk_partido_estadio1" msprop:Generator_ChildPropName="GetPartido1Rows" msprop:Generator_ParentPropName="EstadioRow" msprop:Generator_UserRelationName="fk_partido_estadio1" />
+      <msdata:Relationship name="fk_referee_nacionalidad" msdata:parent="Pais" msdata:child="Arbitro" msdata:parentkey="nombre" msdata:childkey="pais" msprop:Generator_UserParentTable="Pais" msprop:Generator_UserChildTable="Arbitro" msprop:Generator_RelationVarName="relationfk_referee_nacionalidad" msprop:Generator_ChildPropName="GetArbitroRows" msprop:Generator_ParentPropName="PaisRow" msprop:Generator_UserRelationName="fk_referee_nacionalidad" />
+      <msdata:Relationship name="fk_tipo_doc_ref" msdata:parent="TipoDoc" msdata:child="Arbitro" msdata:parentkey="tipo_doc" msdata:childkey="tipo_doc" msprop:Generator_UserParentTable="TipoDoc" msprop:Generator_UserChildTable="Arbitro" msprop:Generator_RelationVarName="relationfk_tipo_doc_ref" msprop:Generator_ChildPropName="GetArbitroRows" msprop:Generator_ParentPropName="TipoDocRow" msprop:Generator_UserRelationName="fk_tipo_doc_ref" />
+      <msdata:Relationship name="fk_estadio_ciudad" msdata:parent="Ciudad" msdata:child="Estadio" msdata:parentkey="nombre" msdata:childkey="nombre_ciudad" msprop:Generator_UserParentTable="Ciudad" msprop:Generator_UserChildTable="Estadio" msprop:Generator_RelationVarName="relationfk_estadio_ciudad" msprop:Generator_ChildPropName="GetEstadioRows" msprop:Generator_UserRelationName="fk_estadio_ciudad" msprop:Generator_ParentPropName="CiudadRow" />
+      <msdata:Relationship name="fk_id_evento_partido" msdata:parent="Partido" msdata:child="EventoPartido" msdata:parentkey="id" msdata:childkey="id_partido" msprop:Generator_UserParentTable="Partido" msprop:Generator_UserChildTable="EventoPartido" msprop:Generator_RelationVarName="relationfk_id_evento_partido" msprop:Generator_ChildPropName="GetEventoPartidoRows" msprop:Generator_ParentPropName="PartidoRow" msprop:Generator_UserRelationName="fk_id_evento_partido" />
+      <msdata:Relationship name="fk_jg_evento" msdata:parent="Jugadores" msdata:child="EventoPartido" msdata:parentkey="tipo_doc nro_doc" msdata:childkey="tipo_doc_jg nro_doc_jg" msprop:Generator_UserParentTable="Jugadores" msprop:Generator_UserChildTable="EventoPartido" msprop:Generator_RelationVarName="relationfk_jg_evento" msprop:Generator_ChildPropName="GetEventoPartidoRows" msprop:Generator_ParentPropName="JugadoresRowParent" msprop:Generator_UserRelationName="fk_jg_evento" />
+      <msdata:Relationship name="fk_pais_jg" msdata:parent="Pais" msdata:child="Jugadores" msdata:parentkey="nombre" msdata:childkey="pais" msprop:Generator_UserParentTable="Pais" msprop:Generator_UserChildTable="Jugadores" msprop:Generator_RelationVarName="relationfk_pais_jg" msprop:Generator_ChildPropName="GetJugadoresRows" msprop:Generator_ParentPropName="PaisRow" msprop:Generator_UserRelationName="fk_pais_jg" />
+      <msdata:Relationship name="fk_tipo_doc_jg" msdata:parent="TipoDoc" msdata:child="Jugadores" msdata:parentkey="tipo_doc" msdata:childkey="tipo_doc" msprop:Generator_UserParentTable="TipoDoc" msprop:Generator_UserChildTable="Jugadores" msprop:Generator_RelationVarName="relationfk_tipo_doc_jg" msprop:Generator_ChildPropName="GetJugadoresRows" msprop:Generator_ParentPropName="TipoDocRow" msprop:Generator_UserRelationName="fk_tipo_doc_jg" />
+      <msdata:Relationship name="fk_pais_cont" msdata:parent="Continente" msdata:child="Pais" msdata:parentkey="id" msdata:childkey="id_continente" msprop:Generator_UserParentTable="Continente" msprop:Generator_UserChildTable="Pais" msprop:Generator_RelationVarName="relationfk_pais_cont" msprop:Generator_ChildPropName="GetPaisRows" msprop:Generator_UserRelationName="fk_pais_cont" msprop:Generator_ParentPropName="ContinenteRow" />
+      <msdata:Relationship name="fk_pais_grupo" msdata:parent="Grupo" msdata:child="Pais" msdata:parentkey="id" msdata:childkey="id_grupo" msprop:Generator_UserParentTable="Grupo" msprop:Generator_UserChildTable="Pais" msprop:Generator_RelationVarName="relationfk_pais_grupo" msprop:Generator_ChildPropName="GetPaisRows" msprop:Generator_UserRelationName="fk_pais_grupo" msprop:Generator_ParentPropName="GrupoRow" />
+      <msdata:Relationship name="fk_arb_pais" msdata:parent="Arbitro" msdata:child="Partido" msdata:parentkey="tipo_doc nro_doc" msdata:childkey="tipo_doc_arb nro_doc_arb" msprop:Generator_UserParentTable="Arbitro" msprop:Generator_UserChildTable="Partido" msprop:Generator_RelationVarName="relationfk_arb_pais" msprop:Generator_ChildPropName="GetPartidoRows" msprop:Generator_UserRelationName="fk_arb_pais" msprop:Generator_ParentPropName="ArbitroRowParent" />
+      <msdata:Relationship name="fk_pais1" msdata:parent="Pais" msdata:child="Partido" msdata:parentkey="nombre" msdata:childkey="pais_1" msprop:Generator_UserParentTable="Pais" msprop:Generator_UserChildTable="Partido" msprop:Generator_RelationVarName="relationfk_pais1" msprop:Generator_ChildPropName="GetPartidoRowsByfk_pais1" msprop:Generator_UserRelationName="fk_pais1" msprop:Generator_ParentPropName="PaisRowByfk_pais1" />
+      <msdata:Relationship name="fk_pais2" msdata:parent="Pais" msdata:child="Partido" msdata:parentkey="nombre" msdata:childkey="pais_2" msprop:Generator_UserParentTable="Pais" msprop:Generator_UserChildTable="Partido" msprop:Generator_RelationVarName="relationfk_pais2" msprop:Generator_ChildPropName="GetPartidoRowsByfk_pais2" msprop:Generator_UserRelationName="fk_pais2" msprop:Generator_ParentPropName="PaisRowByfk_pais2" />
+      <msdata:Relationship name="fk_partido_estadio" msdata:parent="Estadio" msdata:child="Partido" msdata:parentkey="nombre" msdata:childkey="estadio" msprop:Generator_UserParentTable="Estadio" msprop:Generator_UserChildTable="Partido" msprop:Generator_RelationVarName="relationfk_partido_estadio" msprop:Generator_ChildPropName="GetPartidoRows" msprop:Generator_UserRelationName="fk_partido_estadio" msprop:Generator_ParentPropName="EstadioRow" />
+      <msdata:Relationship name="fk_idPerfil" msdata:parent="perfil" msdata:child="Usuario" msdata:parentkey="id" msdata:childkey="rol_id" msprop:Generator_UserParentTable="perfil" msprop:Generator_UserChildTable="Usuario" msprop:Generator_RelationVarName="relationfk_idPerfil" msprop:Generator_ChildPropName="GetUsuarioRows" msprop:Generator_UserRelationName="fk_idPerfil" msprop:Generator_ParentPropName="perfilRow" />
+      <msdata:Relationship name="fk_partido_estadio1" msdata:parent="Estadio" msdata:child="Partido1" msdata:parentkey="nombre" msdata:childkey="estadio" msprop:Generator_UserParentTable="Estadio" msprop:Generator_UserChildTable="Partido1" msprop:Generator_RelationVarName="relationfk_partido_estadio1" msprop:Generator_ChildPropName="GetPartido1Rows" msprop:Generator_UserRelationName="fk_partido_estadio1" msprop:Generator_ParentPropName="EstadioRow" />
+      <msdata:Relationship name="fk_pais_jg1" msdata:parent="Pais" msdata:child="Jugadores1" msdata:parentkey="nombre" msdata:childkey="pais" msprop:Generator_UserParentTable="Pais" msprop:Generator_UserChildTable="Jugadores1" msprop:Generator_RelationVarName="relationfk_pais_jg1" msprop:Generator_ChildPropName="GetJugadores1Rows" msprop:Generator_ParentPropName="PaisRow" msprop:Generator_UserRelationName="fk_pais_jg1" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

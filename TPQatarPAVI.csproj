@@ -76,6 +76,9 @@
     <Compile Include="CapaServicios\PerfilService.cs" />
     <Compile Include="CapaServicios\RondaService.cs" />
     <Compile Include="CapaServicios\UsuarioService.cs" />
+    <Compile Include="ConjuntoDeDatos\TPQatarPAVDataSet.cs">
+      <DependentUpon>TPQatarPAVDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datos\Daos\ArbitroDao.cs" />
     <Compile Include="Datos\Daos\EventoDao.cs" />
     <Compile Include="Datos\Daos\PartidoDao.cs" />

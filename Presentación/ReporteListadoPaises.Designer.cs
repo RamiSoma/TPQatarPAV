@@ -46,7 +46,7 @@
             this.reportPaises.Location = new System.Drawing.Point(30, 155);
             this.reportPaises.Name = "reportPaises";
             this.reportPaises.ServerReport.BearerToken = null;
-            this.reportPaises.Size = new System.Drawing.Size(742, 269);
+            this.reportPaises.Size = new System.Drawing.Size(742, 452);
             this.reportPaises.TabIndex = 26;
             this.reportPaises.Load += new System.EventHandler(this.reportPaises_Load);
             // 
@@ -124,7 +124,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 619);
             this.Controls.Add(this.btnGenerarReporte);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbBoxOrden);

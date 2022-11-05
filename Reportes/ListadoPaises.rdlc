@@ -17,32 +17,16 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="tipo_doc">
-          <DataField>tipo_doc</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="nro_doc">
-          <DataField>nro_doc</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="nombre">
-          <DataField>nombre</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="apellido">
-          <DataField>apellido</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="pais">
           <DataField>pais</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="gol">
-          <DataField>gol</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="asistencias">
           <DataField>asistencias</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="gol">
+          <DataField>gol</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="tarjetas_rojas">
@@ -53,18 +37,14 @@
           <DataField>tarjetas_amarillas</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="borrado">
-          <DataField>borrado</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>TPQatarPAVDataSet</rd:DataSetName>
         <rd:SchemaPath>C:\Users\Ramiro\Documents\Ramiro\Facultad\3Anio\PAV I\TPQatarPAV\ConjuntoDeDatos\TPQatarPAVDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>Jugadores</rd:TableName>
+        <rd:TableName>Jugadores1</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>JugadoresTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>Jugadores1TableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -93,8 +73,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>0.42333cm</Top>
-            <Left>5.63245cm</Left>
+            <Top>0.41423cm</Top>
+            <Left>7.69557cm</Left>
             <Height>1.04979cm</Height>
             <Width>6.20417cm</Width>
             <Style>
@@ -110,7 +90,7 @@
           <Line Name="Line1">
             <Top>1.64041cm</Top>
             <Height>0cm</Height>
-            <Width>16.51cm</Width>
+            <Width>20.24974cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -122,15 +102,15 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>3.94198cm</Width>
+                  <Width>5.18552cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.94198cm</Width>
+                  <Width>5.18552cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.98365cm</Height>
+                  <Height>1.5525cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -195,7 +175,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.98365cm</Height>
+                  <Height>1.5525cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -236,7 +216,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields(Parameters!estadistica.Value).Value)</Value>
+                                  <Value>=Fields(Parameters!estadistica.Value).Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -279,9 +259,9 @@
             </TablixRowHierarchy>
             <DataSetName>DatosPaises</DataSetName>
             <Top>2.19287cm</Top>
-            <Left>1.69047cm</Left>
-            <Height>1.96729cm</Height>
-            <Width>7.88396cm</Width>
+            <Left>5.20912cm</Left>
+            <Height>3.105cm</Height>
+            <Width>10.37104cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -289,11 +269,18 @@
               </Border>
             </Style>
           </Tablix>
-          <Chart Name="Chart1">
+          <Chart Name="Chart2">
             <ChartCategoryHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Group Name="Chart1_CategoryGroup">
+                  <Label />
+                </ChartMember>
+              </ChartMembers>
+            </ChartCategoryHierarchy>
+            <ChartSeriesHierarchy>
+              <ChartMembers>
+                <ChartMember>
+                  <Group Name="Chart2_SeriesGroup">
                     <GroupExpressions>
                       <GroupExpression>=Fields!pais.Value</GroupExpression>
                     </GroupExpressions>
@@ -306,13 +293,6 @@
                   <Label>=Fields!pais.Value</Label>
                 </ChartMember>
               </ChartMembers>
-            </ChartCategoryHierarchy>
-            <ChartSeriesHierarchy>
-              <ChartMembers>
-                <ChartMember>
-                  <Label />
-                </ChartMember>
-              </ChartMembers>
             </ChartSeriesHierarchy>
             <ChartData>
               <ChartSeriesCollection>
@@ -320,13 +300,18 @@
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Sum(Fields(Parameters!estadistica.Value).Value)</Y>
+                        <X>=Fields!pais.Value</X>
+                        <Y>=Fields(Parameters!estadistica.Value).Value</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
                       </ChartDataLabel>
-                      <Style />
+                      <Style>
+                        <BackgroundGradientType>None</BackgroundGradientType>
+                        <BackgroundHatchType>None</BackgroundHatchType>
+                      </Style>
                       <ChartMarker>
+                        <Size>3pt</Size>
                         <Style />
                       </ChartMarker>
                       <DataElementOutput>Output</DataElementOutput>
@@ -342,6 +327,9 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
+                  <ChartItemInLegend>
+                    <LegendText>=Fields(Parameters!estadisticaTitulo.Value).Value</LegendText>
+                  </ChartItemInLegend>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -355,6 +343,7 @@
               <ChartArea Name="Default">
                 <ChartCategoryAxes>
                   <ChartAxis Name="Primary">
+                    <Visible>False</Visible>
                     <Style>
                       <Border>
                         <Color>Gainsboro</Color>
@@ -474,6 +463,8 @@
                         <Style>None</Style>
                       </Border>
                       <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Format>0;(0)</Format>
                       <Color>#5c5c5c</Color>
                     </Style>
                     <ChartAxisTitle>
@@ -505,6 +496,7 @@
                           <Style>None</Style>
                         </Border>
                       </Style>
+                      <IntervalType>Number</IntervalType>
                     </ChartMajorTickMarks>
                     <ChartMinorTickMarks>
                       <Style>
@@ -517,6 +509,7 @@
                     <CrossAt>NaN</CrossAt>
                     <Minimum>NaN</Minimum>
                     <Maximum>NaN</Maximum>
+                    <AllowLabelRotation>None</AllowLabelRotation>
                     <ChartAxisScaleBreak>
                       <Style />
                     </ChartAxisScaleBreak>
@@ -583,9 +576,28 @@
                 </Style>
               </ChartArea>
             </ChartAreas>
+            <ChartLegends>
+              <ChartLegend Name="Default">
+                <Style>
+                  <BackgroundGradientType>None</BackgroundGradientType>
+                  <FontSize>8pt</FontSize>
+                </Style>
+                <Position>TopLeft</Position>
+                <ChartLegendTitle>
+                  <Caption />
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </ChartLegendTitle>
+                <HeaderSeparatorColor>Black</HeaderSeparatorColor>
+                <ColumnSeparatorColor>Black</ColumnSeparatorColor>
+              </ChartLegend>
+            </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Paises</Caption>
+                <Caption>Estadísticas por países</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>9pt</FontSize>
@@ -594,7 +606,8 @@
                   <VerticalAlign>Top</VerticalAlign>
                   <Color>#a6a6a6</Color>
                 </Style>
-                <Position>TopLeft</Position>
+                <Position>TopRight</Position>
+                <DockOutsideChartArea>true</DockOutsideChartArea>
               </ChartTitle>
             </ChartTitles>
             <Palette>Pacific</Palette>
@@ -615,10 +628,13 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DatosPaises</DataSetName>
-            <Top>2.19287cm</Top>
-            <Left>11.13578cm</Left>
-            <Height>5.89958cm</Height>
-            <Width>8.37312cm</Width>
+            <PageBreak>
+              <BreakLocation>Start</BreakLocation>
+            </PageBreak>
+            <Top>6.37328cm</Top>
+            <Left>1.6637cm</Left>
+            <Height>8.09562cm</Height>
+            <Width>17.21021cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -630,11 +646,52 @@
             </Style>
           </Chart>
         </ReportItems>
-        <Height>3.33184in</Height>
+        <Height>6.26934in</Height>
         <Style />
       </Body>
-      <Width>7.78484in</Width>
+      <Width>7.97234in</Width>
       <Page>
+        <PageFooter>
+          <Height>2.54cm</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="PageNumber">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!PageNumber</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>PageNumber</rd:DefaultName>
+              <Top>0.97cm</Top>
+              <Left>16.37391cm</Left>
+              <Height>0.6cm</Height>
+              <Width>2.5cm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageFooter>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
         <LeftMargin>2cm</LeftMargin>

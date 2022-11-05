@@ -48,7 +48,7 @@ namespace TPQatarPAVI.Presentación
         {
             cmbBoxOrden.Items.Add("Ascendente");
             cmbBoxOrden.Items.Add("Descendente");
-            cmbBoxOrden.SelectedIndex = 0;
+            cmbBoxOrden.SelectedIndex = 1;
         }
         private void ReporteListadoJugadores_Load(object sender, EventArgs e)
         {
@@ -80,7 +80,7 @@ namespace TPQatarPAVI.Presentación
 
         private void reportJugs_Load(object sender, EventArgs e)
         {
-            nmJugadores.Value = 15;
+            nmJugadores.Value = 10;
         }
 
         private void cmbEstadisticas_SelectedIndexChanged(object sender, EventArgs e)

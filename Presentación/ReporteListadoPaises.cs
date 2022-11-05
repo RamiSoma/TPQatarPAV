@@ -25,7 +25,7 @@ namespace TPQatarPAVI.Presentación
         {
             cmbBoxOrden.Items.Add("Ascendente");
             cmbBoxOrden.Items.Add("Descendente");
-            cmbBoxOrden.SelectedIndex = 0;
+            cmbBoxOrden.SelectedIndex = 1;
         }
         private void CargarComboEstadisticas()
         {
@@ -39,7 +39,7 @@ namespace TPQatarPAVI.Presentación
         {
             CargarComboOrden();
             CargarComboEstadisticas();
-            nmPaises.Value = 15;
+            nmPaises.Value = 5;
         }
 
         private void btnGenerarReporte_Click(object sender, EventArgs e)
@@ -48,6 +48,7 @@ namespace TPQatarPAVI.Presentación
             bool ascendente = (cmbBoxOrden.Text == "Ascendente");
             tablaPais = jug.obtenerEstadisticasPorPais(Convert.ToInt32(nmPaises.Value), nEvento, ascendente);
             ds = new ReportDataSource("DatosPaises", tablaPais);
+
 
             reportPaises.LocalReport.SetParameters(new ReportParameter("estadistica", nEvento));
             reportPaises.LocalReport.SetParameters(new ReportParameter("estadisticaTitulo", cmbEstadisticas.Text));

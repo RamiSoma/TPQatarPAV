@@ -36,7 +36,7 @@ namespace TPQatarPAVI.Presentación
         {
             cmbBoxOrden.Items.Add("Ascendente");
             cmbBoxOrden.Items.Add("Descendente");
-            cmbBoxOrden.SelectedIndex = 0;
+            cmbBoxOrden.SelectedIndex = 1;
         }
         private void ReporteListadoArbitros_Load(object sender, EventArgs e)
         {
