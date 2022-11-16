@@ -259,7 +259,26 @@ Insert into Arbitro Values(
 'Elvis','Johnson','Id','19133412','Estados Unidos',0)
 Insert into Arbitro Values(
 'Juan Pablo','Ramos','Pass','41231444','Espana',0)
-
+Insert into Arbitro Values(
+'Antonio','Mateu','Pass','35231574','Espana',0)
+Insert into Arbitro Values(
+'Ariel','Delfi','Dni','28231222','Argentina',0)
+Insert into Arbitro Values(
+'Fernando','Rapallini','Dni','27231123','Uruguay',0)
+Insert into Arbitro Values(
+'Mark','Geiger','di','20207744','Alemania',0)
+Insert into Arbitro Values(
+'Juan Pablo','Bellatti','doc','36001111','Uruguay',0)
+Insert into Arbitro Values(
+'Nicola','Jelic','IDE','40201044','Croacia',0)
+Insert into Arbitro Values(
+'Felix','Brych','IDE','31034484','Polonia',0)
+Insert into Arbitro Values(
+'Martin','Atkinson','IDE','20038744','Portugal',0)
+Insert into Arbitro Values(
+'Pepe','Gomez','RDA','20078855','Ecuador',0)
+Insert into Arbitro Values(
+'Juan','Araujo','cpv','26458833','Mexico',0)
 Select * from Arbitro
 
 --Creacion Tabla Jugadores
@@ -841,107 +860,102 @@ constraint fk_arb_pais foreign key(tipo_doc_arb,nro_doc_arb) references arbitro(
 constraint fk_pais1 foreign key (pais_1) references pais(nombre),
 constraint fk_pais2 foreign key (pais_2) references pais(nombre),
 constraint fk_partido_estadio foreign key (estadio) references estadio(nombre))
-
-
 Insert into partido values
 ('Qatar',0,'Ecuador',0,'Dni','30303030', convert(date,'20/11/22', 3),1,'A',null,'Al-Thumama',0)
 Insert into partido values
-('Inglaterra',0,'Iran',0,'Id','32451323',convert(date,'21/11/22', 3),1,'B',null,'Al Janoub',0)
+('Inglaterra',0,'Iran',0,'cpv','26458833',convert(date,'21/11/22', 3),1,'B',null,'Al Janoub',0)
 Insert into partido values
 ('Senegal',0,'Paises Bajos',0,'Pass','41231444',convert(date,'21/11/22', 3),1,'A',null,'Iconico de Lusail',0)
 Insert into partido values
-('Estados Unidos',0,'Gales',0,'Id','32451323',convert(date,'21/11/22', 3),1,'B',null,'Qatar Foundation',0)
+('Estados Unidos',0,'Gales',0,'cpv','26458833',convert(date,'21/11/22', 3),1,'B',null,'Qatar Foundation',0)
 Insert into partido values
 ('Argentina',null,'Arabia Saudita',null,'Id','32451323',convert(date,'22/11/22', 3),1,'C',null,'Al-Thumama',0)
 Insert into partido values
-('Dinamarca',null,'Tunez',null,'Pass','41231444',convert(date,'22/11/22', 3),1,'D',null,'Al Janoub',0)
+('Dinamarca',null,'Tunez',null,'di','20207744',convert(date,'22/11/22', 3),1,'D',null,'Al Janoub',0)
 Insert into partido values
-('Mexico',null,'Polonia',null,'Id','32451323',convert(date,'22/11/22', 3),1,'C',null,'Iconico de Lusail',0)
+('Mexico',null,'Polonia',null,'Dni','28231222',convert(date,'22/11/22', 3),1,'C',null,'Iconico de Lusail',0)
 Insert into partido values
-('Francia',null,'Australia',null,'Id','32451323',convert(date,'22/11/22', 3),1,'D',null,'Qatar Foundation',0)
+('Francia',null,'Australia',null,'di','20207744',convert(date,'22/11/22', 3),1,'D',null,'Qatar Foundation',0)
 Insert into partido values
-('Marruecos',null,'Croacia',null,'Dni','30303030',convert(date,'23/11/22', 3),1,'F',null,'Al Bayt',0)
+('Marruecos',null,'Croacia',null,'Dni','27231123',convert(date,'23/11/22', 3),1,'F',null,'Al Bayt',0)
 Insert into partido values
 ('Alemania',null,'Japon',null,'Id','32451323',convert(date,'23/11/22', 3),1,'E',null,'Al-Thumama',0)
 Insert into partido values
 ('Espana',null,'Costa Rica',null,'Pass','41231444',convert(date,'23/11/22', 3),1,'E',null,'Al Janoub',0)
 Insert into partido values
-('Belgica',null,'Canada',null,'Id','32451323',convert(date,'23/11/22', 3),1,'F',null,'Iconico de Lusail',0)
+('Belgica',null,'Canada',null,'Dni','30303030',convert(date,'23/11/22', 3),1,'F',null,'Iconico de Lusail',0)
 Insert into partido values
-('Suiza',null,'Camerun',null,'Id','32451323',convert(date,'24/11/22', 3),1,'G',null,'Qatar Foundation',0)
+('Suiza',null,'Camerun',null,'Id','19133412',convert(date,'24/11/22', 3),1,'G',null,'Qatar Foundation',0)
 Insert into partido values
 ('Uruguay',null,'Corea del Sur',null,'Dni','30303030',convert(date,'24/11/22', 3),1,'H',null,'Al Bayt',0)
 Insert into partido values
-('Portugal',null,'Ghana',null,'Id','32451323',convert(date,'24/11/22', 3),1,'H',null,'Al-Thumama',0)
+('Portugal',null,'Ghana',null,'IDE','20038744',convert(date,'24/11/22', 3),1,'H',null,'Al-Thumama',0)
 Insert into partido values
-('Brasil',null,'Serbia',null,'Id','32451323',convert(date,'24/11/22', 3),1,'G',null,'Al Janoub',0)
---Fecha 2 fase de grupos
+('Brasil',null,'Serbia',null,'Dni','28231222',convert(date,'24/11/22', 3),1,'G',null,'Al Janoub',0)
 Insert into partido values
 ('Gales',null,'Iran',null,'Pass','41231444',convert(date,'25/11/22', 3),1,'B',null,'Al Janoub',0)
 Insert into partido values
 ('Qatar',null,'Senegal',null,'Id','32451323',convert(date,'25/11/22', 3),1,'A',null,null,0)
 Insert into partido values
-('Paises Bajos',null,'Ecuador',null,'Id','32451323',convert(date,'25/11/22', 3),1,'A',null,'Al Janoub',0)
+('Paises Bajos',null,'Ecuador',null,'Pass','35231574',convert(date,'25/11/22', 3),1,'A',null,'Al Janoub',0)
 Insert into partido values
-('Inglaterra',null,'Estados Unidos',null,'Id','32451323',convert(date,'25/11/22', 3),1,'B',null,null,0)
+('Inglaterra',null,'Estados Unidos',null,'IDE','31034484',convert(date,'25/11/22', 3),1,'B',null,null,0)
 Insert into partido values
-('Tunez',null,'Australia',null,'Pass','41231444',convert(date,'26/11/22', 3),1,'D',null,null,0)
+('Tunez',null,'Australia',null,'Dni','28231222',convert(date,'26/11/22', 3),1,'D',null,null,0)
 Insert into partido values
 ('Polonia',null,'Arabia Saudita',null,'Id','32451323',convert(date,'26/11/22', 3),1,'C',null,null,0)
 Insert into partido values
 ('Francia',null,'Dinamarca',null,'Dni','30303030',convert(date,'26/11/22', 3),1,'D',null,null,0)
 Insert into partido values
-('Argentina',null,'Mexico',null,'Id','32451323',convert(date,'26/11/22', 3),1,'C',null,null,0)
+('Argentina',null,'Mexico',null,'Dni','27231123',convert(date,'26/11/22', 3),1,'C',null,null,0)
 Insert into partido values
-('Japon',null,'Costa Rica',null,'Pass','41231444',convert(date,'27/11/22', 3),1,'E',null,null,0)
+('Japon',null,'Costa Rica',null,'Pass','35231574',convert(date,'27/11/22', 3),1,'E',null,null,0)
 Insert into partido values
 ('Belgica',null,'Marruecos',null,'Id','32451323',convert(date,'27/11/22', 3),1,'F',null,null,0)
 Insert into partido values
-('Croacia',null,'Canada',null,'Dni','30303030',convert(date,'27/11/22', 3),1,'F',null,null,0)
+('Croacia',null,'Canada',null,'di','20207744',convert(date,'27/11/22', 3),1,'F',null,null,0)
 Insert into partido values
 ('Espana',null,'Alemania',null,'Id','32451323',convert(date,'27/11/22', 3),1,'E',null,null,0)
 Insert into partido values
-('Camerun',null,'Serbia',null,'Id','32451323',convert(date,'28/11/22', 3),1,'G',null,null,0)
+('Camerun',null,'Serbia',null,'IDE','40201044',convert(date,'28/11/22', 3),1,'G',null,null,0)
 Insert into partido values
 ('Corea del Sur',null,'Ghana',null,'Pass','41231444',convert(date,'28/11/22', 3),1,'H',null,null,0)
 Insert into partido values
 ('Brasil',null,'Suiza',null,'Id','32451323',convert(date,'28/11/22', 3),1,'G',null,null,0)
 Insert into partido values
-('Portugal',null,'Uruguay',null,'Pass','41231444',convert(date,'28/11/22', 3),1,'H',null,null,0)
---Fecha 3 fase de grupos
+('Portugal',null,'Uruguay',null,'Pass','35231574',convert(date,'28/11/22', 3),1,'H',null,null,0)
 Insert into partido values
 ('Paises Bajos',null,'Qatar',null,'Pass','41231444',convert(date,'29/11/22', 3),1,'A',null,null,0)
 Insert into partido values
-('Ecuador',null,'Senegal',null,'Id','32451323',convert(date,'29/11/22', 3),1,'A',null,null,0)
+('Ecuador',null,'Senegal',null,'IDE','40201044',convert(date,'29/11/22', 3),1,'A',null,null,0)
 Insert into partido values
-('Gales',null,'Inglaterra',null,'Dni','30303030',convert(date,'29/11/22', 3),1,'B',null,null,0)
+('Gales',null,'Inglaterra',null,'di','20207744',convert(date,'29/11/22', 3),1,'B',null,null,0)
 Insert into partido values
 ('Iran',null,'Estados Unidos',null,'Id','32451323',convert(date,'29/11/22', 3),1,'B',null,null,0)
 Insert into partido values
-('Tunez',null,'Francia',null,'Pass','41231444',convert(date,'30/11/22', 3),1,'D',null,null,0)
+('Tunez',null,'Francia',null,'IDE','40201044',convert(date,'30/11/22', 3),1,'D',null,null,0)
 Insert into partido values
-('Australia',null,'Dinamarca',null,'Dni','30303030',convert(date,'30/11/22', 3),1,'D',null,null,0)
+('Australia',null,'Dinamarca',null,'IDE','20038744',convert(date,'30/11/22', 3),1,'D',null,null,0)
 Insert into partido values
-('Polonia',null,'Argentina',null,'Id','32451323',convert(date,'30/11/22', 3),1,'C',null,null,0)
+('Polonia',null,'Argentina',null,'di','20207744',convert(date,'30/11/22', 3),1,'C',null,null,0)
 Insert into partido values
-('Arabia Saudita',null,'Mexico',null,'Id','32451323',convert(date,'30/11/22', 3),1,'C',null,null,0)
+('Arabia Saudita',null,'Mexico',null,'IDE','31034484',convert(date,'30/11/22', 3),1,'C',null,null,0)
 Insert into partido values
-('Croacia',null,'Belgica',null,'Pass','41231444',convert(date,'1/12/22', 3),1,'F',null,null,0)
+('Croacia',null,'Belgica',null,'IDE','20038744', convert(date,'1/12/22', 3),1,'F',null,null,0)
 Insert into partido values
-('Canada',null,'Marruecos',null,'Id','32451323',convert(date,'1/12/22', 3),1,'F',null,null,0)
+('Canada',null,'Marruecos',null,'di','20207744',convert(date,'1/12/22', 3),1,'F',null,null,0)
 Insert into partido values
-('Japon',null,'Espana',null,'Id','32451323',convert(date,'1/12/22', 3),1,'E',null,null,0)
+('Japon',null,'Espana',null,'IDE','31034484',convert(date,'1/12/22', 3),1,'E',null,null,0)
 Insert into partido values
-('Costa Rica',null,'Alemania',null,'Dni','30303030',convert(date,'1/12/22', 3),1,'E',null,null,0)
+('Costa Rica',null,'Alemania',null,'IDE','20038744',convert(date,'1/12/22', 3),1,'E',null,null,0)
 Insert into partido values
-('Corea del Sur',null,'Portugal',null,'Id','32451323',convert(date,'2/12/22', 3),1,'H',null,null,0)
+('Corea del Sur',null,'Portugal',null,'RDA','20078855',convert(date,'2/12/22', 3),1,'H',null,null,0)
 Insert into partido values
-('Ghana',null,'Uruguay',null,'Pass','41231444',convert(date,'2/12/22', 3),1,'H',null,null,0)
+('Ghana',null,'Uruguay',null,'IDE','31034484',convert(date,'2/12/22', 3),1,'H',null,null,0)
 Insert into partido values
-('Camerun',null,'Brasil',null,'Id','32451323',convert(date,'2/12/22', 3),1,'G',null,null,0)
+('Camerun',null,'Brasil',null,'IDE','20038744',convert(date,'2/12/22', 3),1,'G',null,null,0)
 Insert into partido values
-('Serbia',null,'Suiza',null,'Dni','30303030',convert(date,'2/12/22', 3),1,'G',null,null,0)
-
+('Serbia',null,'Suiza',null,'RDA','20078855',convert(date,'2/12/22', 3),1,'G',null,null,0)
 update Partido
 set goles_p2= 0
 update Partido
@@ -973,7 +987,3 @@ constraint fk_id_evento_partido foreign key (id_partido) references partido (id)
 constraint fk_jg_evento foreign key (tipo_doc_jg,nro_doc_jg) references jugadores (tipo_doc,nro_doc))
 
 
---Insert into EventoPartido Values(5,90,'Dni',33016240,'Gol',0)
-
-
---Select e.id_partido,e.minuto,e.evento,jg.nombre,jg.apellido from eventoPartido e join jugadores jg on(jg.tipo_doc=e.tipo_doc_jg and jg.nro_doc=e.nro_doc_jg)
