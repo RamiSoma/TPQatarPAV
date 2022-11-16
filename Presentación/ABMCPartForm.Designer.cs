@@ -480,7 +480,7 @@
             this.btnCargarDetalle.Name = "btnCargarDetalle";
             this.btnCargarDetalle.Size = new System.Drawing.Size(150, 30);
             this.btnCargarDetalle.TabIndex = 112;
-            this.btnCargarDetalle.Text = "Cargar Detalle Partido";
+            this.btnCargarDetalle.Text = "Ver Detalle Partido";
             this.btnCargarDetalle.UseVisualStyleBackColor = true;
             this.btnCargarDetalle.Click += new System.EventHandler(this.btnCargarDetalle_Click);
             // 
